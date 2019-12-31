@@ -10,8 +10,8 @@
 import {getInternalReactConstants} from './renderer';
 import describeComponentFrame from './describeComponentFrame';
 
-import type {Fiber} from 'react-reconciler/src/ReactFiber';
-import type {ReactRenderer} from './types';
+import {Fiber} from 'react-reconciler/src/ReactFiber';
+import {ReactRenderer} from './types';
 
 const APPEND_STACK_TO_METHODS = ['error', 'trace', 'warn'];
 

@@ -17,7 +17,7 @@ import EditableValue from './EditableValue';
 import {alphaSortEntries, serializeDataForCopy} from '../utils';
 import styles from './InspectedElementTree.css';
 
-import type {InspectPath} from './SelectedElement';
+import {InspectPath} from './SelectedElement';
 
 type OverrideValueFn = (path: Array<string | number>, value: any) => void;
 

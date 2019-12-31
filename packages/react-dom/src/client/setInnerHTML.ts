@@ -9,7 +9,7 @@
 
 import {Namespaces} from '../shared/DOMNamespaces';
 import createMicrosoftUnsafeLocalFunction from '../shared/createMicrosoftUnsafeLocalFunction';
-import type {TrustedValue} from './ToStringValue';
+import {TrustedValue} from './ToStringValue';
 import {enableTrustedTypesIntegration} from 'shared/ReactFeatureFlags';
 
 // SVG temp container for IE lacking innerHTML

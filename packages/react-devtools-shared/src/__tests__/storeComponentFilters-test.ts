@@ -7,8 +7,8 @@
  *
  */
 
-import type {FrontendBridge} from 'react-devtools-shared/src/bridge';
-import type Store from 'react-devtools-shared/src/devtools/store';
+import {FrontendBridge} from 'react-devtools-shared/src/bridge';
+import Store from 'react-devtools-shared/src/devtools/store';
 
 describe('Store component filters', () => {
   let React;

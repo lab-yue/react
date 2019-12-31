@@ -15,8 +15,8 @@ import {createRegExp} from '../utils';
 import {TreeDispatcherContext, TreeStateContext} from './TreeContext';
 import {StoreContext} from '../context';
 
-import type {ItemData} from './Tree';
-import type {Element} from './types';
+import {ItemData} from './Tree';
+import {Element} from './types';
 
 import styles from './Element.css';
 

@@ -7,10 +7,10 @@
  *
  */
 
-import type {ReactContext} from 'shared/ReactTypes';
-import type {Fiber} from './ReactFiber';
-import type {StackCursor} from './ReactFiberStack';
-import type {ExpirationTime} from './ReactFiberExpirationTime';
+import {ReactContext} from 'shared/ReactTypes';
+import {Fiber} from './ReactFiber';
+import {StackCursor} from './ReactFiberStack';
+import {ExpirationTime} from './ReactFiberExpirationTime';
 
 export type ContextDependency<T> = {
   context: ReactContext<T>,

@@ -12,8 +12,8 @@ import {
   ElementTypeMemo,
 } from 'react-devtools-shared/src/types';
 
-import type {Element} from './views/Components/types';
-import type Store from './store';
+import {Element} from './views/Components/types';
+import Store from './store';
 
 export function printElement(element: Element, includeWeight: boolean = false) {
   let prefix = ' ';

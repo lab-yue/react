@@ -7,9 +7,9 @@
  *
  */
 
-import typeof ReactTestRenderer from 'react-test-renderer';
-import type {FrontendBridge} from 'react-devtools-shared/src/bridge';
-import type Store from 'react-devtools-shared/src/devtools/store';
+importof ReactTestRenderer from 'react-test-renderer';
+import {FrontendBridge} from 'react-devtools-shared/src/bridge';
+import Store from 'react-devtools-shared/src/devtools/store';
 
 describe('ProfilingCache', () => {
   let PropTypes;

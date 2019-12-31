@@ -10,7 +10,7 @@ import Mode from 'art/modes/current';
 import invariant from 'shared/invariant';
 
 import {TYPES, EVENT_TYPES, childrenAsString} from './ReactARTInternals';
-import type {
+import {
   ReactEventResponder,
   ReactEventResponderInstance,
 } from 'shared/ReactTypes';

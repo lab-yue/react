@@ -7,12 +7,12 @@
  *
  */
 
-import type {Source} from 'shared/ReactElementType';
-import type {
+import {Source} from 'shared/ReactElementType';
+import {
   Dehydrated,
   Unserializable,
 } from 'react-devtools-shared/src/hydration';
-import type {ElementType} from 'react-devtools-shared/src/types';
+import {ElementType} from 'react-devtools-shared/src/types';
 
 // Each element on the frontend corresponds to a Fiber on the backend.
 // Some of its information (e.g. id, type, displayName) come from the backend.

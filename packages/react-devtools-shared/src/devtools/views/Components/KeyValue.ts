@@ -15,8 +15,8 @@ import {meta} from '../../../hydration';
 import useContextMenu from '../../ContextMenu/useContextMenu';
 import styles from './KeyValue.css';
 
-import type {Element} from 'react';
-import type {InspectPath} from './SelectedElement';
+import {Element} from 'react';
+import {InspectPath} from './SelectedElement';
 
 type OverrideValueFn = (path: Array<string | number>, value: any) => void;
 

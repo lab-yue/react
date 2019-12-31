@@ -7,13 +7,13 @@
  *
  */
 
-import type {AnyNativeEvent} from 'legacy-events/PluginModuleType';
-import type {EventSystemFlags} from 'legacy-events/EventSystemFlags';
+import {AnyNativeEvent} from 'legacy-events/PluginModuleType';
+import {EventSystemFlags} from 'legacy-events/EventSystemFlags';
 import {
   accumulateTwoPhaseDispatches,
   accumulateDirectDispatches,
 } from 'legacy-events/EventPropagators';
-import type {TopLevelType} from 'legacy-events/TopLevelEventTypes';
+import {TopLevelType} from 'legacy-events/TopLevelEventTypes';
 import SyntheticEvent from 'legacy-events/SyntheticEvent';
 import invariant from 'shared/invariant';
 

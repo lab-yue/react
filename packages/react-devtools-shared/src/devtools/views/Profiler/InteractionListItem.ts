@@ -13,7 +13,7 @@ import {getGradientColor} from './utils';
 
 import styles from './InteractionListItem.css';
 
-import type {ItemData} from './Interactions';
+import {ItemData} from './Interactions';
 
 type Props = {
   data: ItemData,

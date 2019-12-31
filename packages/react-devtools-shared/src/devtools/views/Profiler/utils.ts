@@ -9,8 +9,8 @@
 
 import {PROFILER_EXPORT_VERSION} from 'react-devtools-shared/src/constants';
 
-import type {ProfilingDataBackend} from 'react-devtools-shared/src/backend/types';
-import type {
+import {ProfilingDataBackend} from 'react-devtools-shared/src/backend/types';
+import {
   ProfilingDataExport,
   ProfilingDataForRootExport,
   ProfilingDataForRootFrontend,

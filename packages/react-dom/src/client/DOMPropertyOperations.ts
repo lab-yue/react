@@ -20,7 +20,7 @@ import {toStringOrTrustedType} from './ToStringValue';
 import {disableJavaScriptURLs} from 'shared/ReactFeatureFlags';
 import {setAttribute, setAttributeNS} from './setAttribute';
 
-import type {PropertyInfo} from '../shared/DOMProperty';
+import {PropertyInfo} from '../shared/DOMProperty';
 
 /**
  * Get the value for a property on a node. Only used in DEV for SSR validation.

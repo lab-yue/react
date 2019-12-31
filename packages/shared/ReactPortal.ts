@@ -9,7 +9,7 @@
 
 import {REACT_PORTAL_TYPE} from 'shared/ReactSymbols';
 
-import type {ReactNodeList, ReactPortal} from 'shared/ReactTypes';
+import {ReactNodeList, ReactPortal} from 'shared/ReactTypes';
 
 export function createPortal(
   children: ReactNodeList,

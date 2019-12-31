@@ -7,25 +7,25 @@
  *
  */
 
-import type {Fiber} from './ReactFiber';
-import type {ExpirationTime} from './ReactFiberExpirationTime';
-import type {
+import {Fiber} from './ReactFiber';
+import {ExpirationTime} from './ReactFiberExpirationTime';
+import {
   ReactFundamentalComponentInstance,
   ReactScopeInstance,
 } from 'shared/ReactTypes';
-import type {FiberRoot} from './ReactFiberRoot';
-import type {
+import {FiberRoot} from './ReactFiberRoot';
+import {
   Instance,
   Type,
   Props,
   Container,
   ChildSet,
 } from './ReactFiberHostConfig';
-import type {
+import {
   SuspenseState,
   SuspenseListRenderState,
 } from './ReactFiberSuspenseComponent';
-import type {SuspenseContext} from './ReactFiberSuspenseContext';
+import {SuspenseContext} from './ReactFiberSuspenseContext';
 
 import {now} from './SchedulerWithReactIntegration';
 

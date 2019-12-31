@@ -7,11 +7,11 @@
  *
  */
 
-import type {AnyNativeEvent} from 'legacy-events/PluginModuleType';
-import type {Fiber} from 'react-reconciler/src/ReactFiber';
-import type {FiberRoot} from 'react-reconciler/src/ReactFiberRoot';
-import type {Container, SuspenseInstance} from '../client/ReactDOMHostConfig';
-import type {DOMTopLevelEventType} from 'legacy-events/TopLevelEventTypes';
+import {AnyNativeEvent} from 'legacy-events/PluginModuleType';
+import {Fiber} from 'react-reconciler/src/ReactFiber';
+import {FiberRoot} from 'react-reconciler/src/ReactFiberRoot';
+import {Container, SuspenseInstance} from '../client/ReactDOMHostConfig';
+import {DOMTopLevelEventType} from 'legacy-events/TopLevelEventTypes';
 
 // Intentionally not named imports because Rollup would use dynamic dispatch for
 // CommonJS interop named imports.

@@ -7,7 +7,7 @@
  *
  */
 
-import type {Destination} from './ReactServerHostConfig';
+import {Destination} from './ReactServerHostConfig';
 
 import {
   scheduleWork,

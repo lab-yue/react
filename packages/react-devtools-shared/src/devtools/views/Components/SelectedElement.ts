@@ -36,13 +36,13 @@ import {
 
 import styles from './SelectedElement.css';
 
-import type {
+import {
   CopyInspectedElementPath,
   GetInspectedElementPath,
   StoreAsGlobal,
 } from './InspectedElementContext';
-import type {Element, InspectedElement} from './types';
-import type {ElementType} from 'react-devtools-shared/src/types';
+import {Element, InspectedElement} from './types';
+import {ElementType} from 'react-devtools-shared/src/types';
 
 export type Props = {||};
 

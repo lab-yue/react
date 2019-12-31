@@ -7,7 +7,7 @@
  *
  */
 
-import type {ElementType} from 'react-devtools-shared/src/types';
+import {ElementType} from 'react-devtools-shared/src/types';
 
 export type CommitTreeNode = {|
   id: number,

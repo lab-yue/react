@@ -7,9 +7,9 @@
  *
  */
 
-import type {Fiber} from './ReactFiber';
-import type {Container, SuspenseInstance} from './ReactFiberHostConfig';
-import type {SuspenseState} from './ReactFiberSuspenseComponent';
+import {Fiber} from './ReactFiber';
+import {Container, SuspenseInstance} from './ReactFiberHostConfig';
+import {SuspenseState} from './ReactFiberSuspenseComponent';
 
 import invariant from 'shared/invariant';
 

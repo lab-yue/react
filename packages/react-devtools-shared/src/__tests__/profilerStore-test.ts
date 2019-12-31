@@ -7,7 +7,7 @@
  *
  */
 
-import type Store from 'react-devtools-shared/src/devtools/store';
+import Store from 'react-devtools-shared/src/devtools/store';
 
 describe('ProfilerStore', () => {
   let React;

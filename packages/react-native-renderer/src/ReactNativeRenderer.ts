@@ -7,8 +7,8 @@
  *
  */
 
-import type {ReactNativeType, HostComponent} from './ReactNativeTypes';
-import type {ReactNodeList} from 'shared/ReactTypes';
+import {ReactNativeType, HostComponent} from './ReactNativeTypes';
+import {ReactNodeList} from 'shared/ReactTypes';
 
 import './ReactNativeInjection';
 

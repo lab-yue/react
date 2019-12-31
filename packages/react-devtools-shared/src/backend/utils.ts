@@ -10,7 +10,7 @@
 import {copy} from 'clipboard-js';
 import {dehydrate} from '../hydration';
 
-import type {DehydratedData} from 'react-devtools-shared/src/devtools/views/Components/types';
+import {DehydratedData} from 'react-devtools-shared/src/devtools/views/Components/types';
 
 export function cleanForBridge(
   data: Object | null,

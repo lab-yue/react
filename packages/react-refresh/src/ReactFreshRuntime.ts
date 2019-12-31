@@ -7,9 +7,9 @@
  *
  */
 
-import type {Instance} from 'react-reconciler/src/ReactFiberHostConfig';
-import type {FiberRoot} from 'react-reconciler/src/ReactFiberRoot';
-import type {
+import {Instance} from 'react-reconciler/src/ReactFiberHostConfig';
+import {FiberRoot} from 'react-reconciler/src/ReactFiberRoot';
+import {
   Family,
   RefreshUpdate,
   ScheduleRefresh,
@@ -17,7 +17,7 @@ import type {
   FindHostInstancesForRefresh,
   SetRefreshHandler,
 } from 'react-reconciler/src/ReactFiberHotReloading';
-import type {ReactNodeList} from 'shared/ReactTypes';
+import {ReactNodeList} from 'shared/ReactTypes';
 
 import {REACT_MEMO_TYPE, REACT_FORWARD_REF_TYPE} from 'shared/ReactSymbols';
 

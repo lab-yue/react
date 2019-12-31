@@ -7,7 +7,7 @@
  *
  */
 
-import type {ReactElement} from 'shared/ReactElementType';
+import {ReactElement} from 'shared/ReactElementType';
 
 import describeComponentFrame from 'shared/describeComponentFrame';
 import getComponentName from 'shared/getComponentName';

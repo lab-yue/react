@@ -31,8 +31,8 @@ import styles from './DevTools.css';
 
 import './root.css';
 
-import type {InspectedElement} from 'react-devtools-shared/src/devtools/views/Components/types';
-import type {FrontendBridge} from 'react-devtools-shared/src/bridge';
+import {InspectedElement} from 'react-devtools-shared/src/devtools/views/Components/types';
+import {FrontendBridge} from 'react-devtools-shared/src/bridge';
 
 export type BrowserTheme = 'dark' | 'light';
 export type TabID = 'components' | 'profiler';

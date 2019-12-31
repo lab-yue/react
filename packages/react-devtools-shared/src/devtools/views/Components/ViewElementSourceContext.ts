@@ -9,7 +9,7 @@
 
 import {createContext} from 'react';
 
-import type {
+import {
   CanViewElementSource,
   ViewElementSource,
 } from 'react-devtools-shared/src/devtools/views/DevTools';

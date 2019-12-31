@@ -9,7 +9,7 @@
 import invariant from 'shared/invariant';
 import {rethrowCaughtError} from 'shared/ReactErrorUtils';
 
-import type {ReactSyntheticEvent} from './ReactSyntheticEventType';
+import {ReactSyntheticEvent} from './ReactSyntheticEventType';
 import accumulateInto from './accumulateInto';
 import forEachAccumulated from './forEachAccumulated';
 import {executeDispatchesInOrder} from './EventPluginUtils';

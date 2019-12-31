@@ -7,7 +7,7 @@
  *
  */
 
-import type {Thenable} from 'react-reconciler/src/ReactFiberWorkLoop';
+import {Thenable} from 'react-reconciler/src/ReactFiberWorkLoop';
 
 import ReactDOM from 'react-dom';
 import ReactSharedInternals from 'shared/ReactSharedInternals';

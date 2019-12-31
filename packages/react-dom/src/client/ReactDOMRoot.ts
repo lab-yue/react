@@ -7,12 +7,12 @@
  *
  */
 
-import type {DOMContainer} from './ReactDOM';
-import type {RootTag} from 'shared/ReactRootTags';
-import type {ReactNodeList} from 'shared/ReactTypes';
+import {DOMContainer} from './ReactDOM';
+import {RootTag} from 'shared/ReactRootTags';
+import {ReactNodeList} from 'shared/ReactTypes';
 // TODO: This type is shared between the reconciler and ReactDOM, but will
 // eventually be lifted out to the renderer.
-import type {FiberRoot} from 'react-reconciler/src/ReactFiberRoot';
+import {FiberRoot} from 'react-reconciler/src/ReactFiberRoot';
 
 export type RootType = {
   render(children: ReactNodeList, callback: ?() => mixed): void,

@@ -7,14 +7,14 @@
  *
  */
 
-import type {Fiber} from './ReactFiber';
-import type {FiberRoot} from './ReactFiberRoot';
-import type {ExpirationTime} from './ReactFiberExpirationTime';
-import type {ReactPriorityLevel} from './SchedulerWithReactIntegration';
-import type {Interaction} from 'scheduler/src/Tracing';
-import type {SuspenseConfig} from './ReactFiberSuspenseConfig';
-import type {SuspenseState} from './ReactFiberSuspenseComponent';
-import type {Hook} from './ReactFiberHooks';
+import {Fiber} from './ReactFiber';
+import {FiberRoot} from './ReactFiberRoot';
+import {ExpirationTime} from './ReactFiberExpirationTime';
+import {ReactPriorityLevel} from './SchedulerWithReactIntegration';
+import {Interaction} from 'scheduler/src/Tracing';
+import {SuspenseConfig} from './ReactFiberSuspenseConfig';
+import {SuspenseState} from './ReactFiberSuspenseComponent';
+import {Hook} from './ReactFiberHooks';
 
 import {
   warnAboutDeprecatedLifecycles,

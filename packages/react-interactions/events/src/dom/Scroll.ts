@@ -7,13 +7,13 @@
  *
  */
 
-import type {
+import {
   ReactDOMResponderEvent,
   ReactDOMResponderContext,
   PointerType,
 } from 'shared/ReactDOMTypes';
 import {UserBlockingEvent} from 'shared/ReactTypes';
-import type {
+import {
   EventPriority,
   ReactEventResponderListener,
 } from 'shared/ReactTypes';

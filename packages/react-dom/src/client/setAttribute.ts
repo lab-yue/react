@@ -7,7 +7,7 @@
  *
  */
 
-import type {TrustedValue} from './ToStringValue';
+import {TrustedValue} from './ToStringValue';
 
 /**
  * Set attribute for a node. The attribute value can be either string or

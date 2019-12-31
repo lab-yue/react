@@ -7,13 +7,13 @@
  *
  */
 
-import type {Fiber} from './ReactFiber';
-import type {FiberRoot} from './ReactFiberRoot';
-import type {ExpirationTime} from './ReactFiberExpirationTime';
-import type {CapturedValue} from './ReactCapturedValue';
-import type {Update} from './ReactUpdateQueue';
-import type {Thenable} from './ReactFiberWorkLoop';
-import type {SuspenseContext} from './ReactFiberSuspenseContext';
+import {Fiber} from './ReactFiber';
+import {FiberRoot} from './ReactFiberRoot';
+import {ExpirationTime} from './ReactFiberExpirationTime';
+import {CapturedValue} from './ReactCapturedValue';
+import {Update} from './ReactUpdateQueue';
+import {Thenable} from './ReactFiberWorkLoop';
+import {SuspenseContext} from './ReactFiberSuspenseContext';
 
 import getComponentName from 'shared/getComponentName';
 import {

@@ -11,8 +11,8 @@ import Agent from 'react-devtools-shared/src/backend/agent';
 import {destroy as destroyCanvas, draw} from './canvas';
 import {getNestedBoundingClientRect} from '../utils';
 
-import type {NativeType} from '../../types';
-import type {Rect} from '../utils';
+import {NativeType} from '../../types';
+import {Rect} from '../utils';
 
 // How long the rect should be shown for?
 const DISPLAY_DURATION = 250;

@@ -14,7 +14,7 @@ import {
 } from 'react-devtools-shared/src/types';
 import styles from './HocBadges.css';
 
-import type {Element} from './types';
+import {Element} from './types';
 
 type Props = {|
   element: Element,

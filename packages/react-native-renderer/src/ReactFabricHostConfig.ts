@@ -7,7 +7,7 @@
  *
  */
 
-import type {
+import {
   MeasureInWindowOnSuccessCallback,
   MeasureLayoutOnSuccessCallback,
   MeasureOnSuccessCallback,

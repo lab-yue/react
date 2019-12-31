@@ -7,8 +7,8 @@
  *
  */
 
-import type {RootType} from './ReactDOMRoot';
-import type {ReactNodeList} from 'shared/ReactTypes';
+import {RootType} from './ReactDOMRoot';
+import {ReactNodeList} from 'shared/ReactTypes';
 
 import '../shared/checkReact';
 import './ReactDOMClientInjection';

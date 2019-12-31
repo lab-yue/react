@@ -7,8 +7,8 @@
  *
  */
 
-import typeof TestRendererType from 'react-test-renderer';
-import type Store from 'react-devtools-shared/src/devtools/store';
+importof TestRendererType from 'react-test-renderer';
+import Store from 'react-devtools-shared/src/devtools/store';
 
 describe('profiling charts', () => {
   let React;

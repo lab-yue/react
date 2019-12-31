@@ -84,10 +84,10 @@
 // regardless of priority. Intermediate state may vary according to system
 // resources, but the final state is always the same.
 
-import type {Fiber} from './ReactFiber';
-import type {ExpirationTime} from './ReactFiberExpirationTime';
-import type {SuspenseConfig} from './ReactFiberSuspenseConfig';
-import type {ReactPriorityLevel} from './SchedulerWithReactIntegration';
+import {Fiber} from './ReactFiber';
+import {ExpirationTime} from './ReactFiberExpirationTime';
+import {SuspenseConfig} from './ReactFiberSuspenseConfig';
+import {ReactPriorityLevel} from './SchedulerWithReactIntegration';
 
 import {NoWork, Sync} from './ReactFiberExpirationTime';
 import {

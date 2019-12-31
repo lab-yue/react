@@ -7,10 +7,10 @@
  *
  */
 
-import type {ThreadID} from './ReactThreadIDAllocator';
-import type {ReactElement} from 'shared/ReactElementType';
-import type {LazyComponent} from 'shared/ReactLazyComponent';
-import type {ReactProvider, ReactContext} from 'shared/ReactTypes';
+import {ThreadID} from './ReactThreadIDAllocator';
+import {ReactElement} from 'shared/ReactElementType';
+import {LazyComponent} from 'shared/ReactLazyComponent';
+import {ReactProvider, ReactContext} from 'shared/ReactTypes';
 
 import React from 'react';
 import invariant from 'shared/invariant';

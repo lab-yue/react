@@ -12,7 +12,7 @@
 
 import {ReactNativeViewConfigRegistry} from 'react-native/Libraries/ReactPrivate/ReactNativePrivateInterface';
 
-import type {ViewConfigGetter} from './ReactNativeTypes';
+import {ViewConfigGetter} from './ReactNativeTypes';
 
 const {register} = ReactNativeViewConfigRegistry;
 

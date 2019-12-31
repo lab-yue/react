@@ -7,16 +7,16 @@
  *
  */
 
-import type {
+import {
   ReactEventResponder,
   ReactContext,
   ReactEventResponderListener,
 } from 'shared/ReactTypes';
-import type {Fiber} from './ReactFiber';
-import type {ExpirationTime} from './ReactFiberExpirationTime';
-import type {HookEffectTag} from './ReactHookEffectTags';
-import type {SuspenseConfig} from './ReactFiberSuspenseConfig';
-import type {ReactPriorityLevel} from './SchedulerWithReactIntegration';
+import {Fiber} from './ReactFiber';
+import {ExpirationTime} from './ReactFiberExpirationTime';
+import {HookEffectTag} from './ReactHookEffectTags';
+import {SuspenseConfig} from './ReactFiberSuspenseConfig';
+import {ReactPriorityLevel} from './SchedulerWithReactIntegration';
 
 import ReactSharedInternals from 'shared/ReactSharedInternals';
 

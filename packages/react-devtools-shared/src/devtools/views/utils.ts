@@ -11,7 +11,7 @@ import escapeStringRegExp from 'escape-string-regexp';
 import {meta} from '../../hydration';
 import {formatDataForPreview} from '../../utils';
 
-import type {HooksTree} from 'react-debug-tools/src/ReactDebugHooks';
+import {HooksTree} from 'react-debug-tools/src/ReactDebugHooks';
 
 export function alphaSortEntries(
   entryA: [string, mixed],

@@ -13,7 +13,7 @@ import {getGradientColor, formatDuration, formatTime} from './utils';
 
 import styles from './SnapshotCommitListItem.css';
 
-import type {ItemData} from './SnapshotCommitList';
+import {ItemData} from './SnapshotCommitList';
 
 type Props = {
   data: ItemData,

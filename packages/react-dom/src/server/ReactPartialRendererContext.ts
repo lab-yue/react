@@ -7,8 +7,8 @@
  *
  */
 
-import type {ThreadID} from './ReactThreadIDAllocator';
-import type {ReactContext} from 'shared/ReactTypes';
+import {ThreadID} from './ReactThreadIDAllocator';
+import {ReactContext} from 'shared/ReactTypes';
 
 import {disableLegacyContext} from 'shared/ReactFeatureFlags';
 import {REACT_CONTEXT_TYPE, REACT_PROVIDER_TYPE} from 'shared/ReactSymbols';

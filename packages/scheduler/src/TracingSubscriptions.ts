@@ -7,7 +7,7 @@
  *
  */
 
-import type {Interaction, Subscriber} from './Tracing';
+import {Interaction, Subscriber} from './Tracing';
 
 import {enableSchedulerTracing} from 'shared/ReactFeatureFlags';
 import {__subscriberRef} from './Tracing';

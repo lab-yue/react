@@ -7,16 +7,16 @@
  *
  */
 
-import type {
+import {
   Dispatcher as DispatcherType,
   TimeoutConfig,
 } from 'react-reconciler/src/ReactFiberHooks';
-import type {ThreadID} from './ReactThreadIDAllocator';
-import type {
+import {ThreadID} from './ReactThreadIDAllocator';
+import {
   ReactContext,
   ReactEventResponderListener,
 } from 'shared/ReactTypes';
-import type {SuspenseConfig} from 'react-reconciler/src/ReactFiberSuspenseConfig';
+import {SuspenseConfig} from 'react-reconciler/src/ReactFiberSuspenseConfig';
 import {validateContextBounds} from './ReactPartialRendererContext';
 
 import invariant from 'shared/invariant';

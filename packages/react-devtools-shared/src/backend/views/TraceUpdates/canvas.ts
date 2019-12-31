@@ -7,9 +7,9 @@
  *
  */
 
-import type {Data} from './index';
-import type {Rect} from '../utils';
-import type {NativeType} from '../../types';
+import {Data} from './index';
+import {Rect} from '../utils';
+import {NativeType} from '../../types';
 
 const OUTLINE_COLOR = '#f0f0f0';
 

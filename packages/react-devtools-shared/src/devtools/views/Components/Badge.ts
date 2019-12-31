@@ -14,7 +14,7 @@ import {
 } from 'react-devtools-shared/src/types';
 import styles from './Badge.css';
 
-import type {ElementType} from 'react-devtools-shared/src/types';
+import {ElementType} from 'react-devtools-shared/src/types';
 
 type Props = {|
   className?: string,

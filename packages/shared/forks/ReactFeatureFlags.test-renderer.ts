@@ -9,8 +9,8 @@
 
 import invariant from 'shared/invariant';
 
-import typeof * as FeatureFlagsType from 'shared/ReactFeatureFlags';
-import typeof * as PersistentFeatureFlagsType from './ReactFeatureFlags.persistent';
+importof * as FeatureFlagsType from 'shared/ReactFeatureFlags';
+importof * as PersistentFeatureFlagsType from './ReactFeatureFlags.persistent';
 
 export const debugRenderPhaseSideEffectsForStrictMode = false;
 export const enableUserTimingAPI = __DEV__;

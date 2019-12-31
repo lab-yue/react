@@ -7,7 +7,7 @@
  *
  */
 
-import type {ReactModelRoot} from 'react-flight/src/ReactFlightClient';
+import {ReactModelRoot} from 'react-flight/src/ReactFlightClient';
 
 import {
   createResponse,

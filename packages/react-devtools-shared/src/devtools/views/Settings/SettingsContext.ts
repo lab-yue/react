@@ -23,7 +23,7 @@ import {
 import {useLocalStorage} from '../hooks';
 import {BridgeContext} from '../context';
 
-import type {BrowserTheme} from '../DevTools';
+import {BrowserTheme} from '../DevTools';
 
 export type DisplayDensity = 'comfortable' | 'compact';
 export type Theme = 'auto' | 'light' | 'dark';

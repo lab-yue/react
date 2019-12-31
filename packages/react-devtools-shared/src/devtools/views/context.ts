@@ -10,8 +10,8 @@
 import {createContext} from 'react';
 import Store from '../store';
 
-import type {ViewAttributeSource} from 'react-devtools-shared/src/devtools/views/DevTools';
-import type {FrontendBridge} from 'react-devtools-shared/src/bridge';
+import {ViewAttributeSource} from 'react-devtools-shared/src/devtools/views/DevTools';
+import {FrontendBridge} from 'react-devtools-shared/src/bridge';
 
 export const BridgeContext = createContext<FrontendBridge>(
   ((null: any): FrontendBridge),

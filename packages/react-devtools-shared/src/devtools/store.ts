@@ -28,9 +28,9 @@ import {__DEBUG__} from '../constants';
 import {printStore} from './utils';
 import ProfilerStore from './ProfilerStore';
 
-import type {Element} from './views/Components/types';
-import type {ComponentFilter, ElementType} from '../types';
-import type {FrontendBridge} from 'react-devtools-shared/src/bridge';
+import {Element} from './views/Components/types';
+import {ComponentFilter, ElementType} from '../types';
+import {FrontendBridge} from 'react-devtools-shared/src/bridge';
 
 const debug = (methodName, ...args) => {
   if (__DEBUG__) {

@@ -7,7 +7,7 @@
  *
  */
 
-import type {ReactNodeList} from 'shared/ReactTypes';
+import {ReactNodeList} from 'shared/ReactTypes';
 
 import {
   createRequest,

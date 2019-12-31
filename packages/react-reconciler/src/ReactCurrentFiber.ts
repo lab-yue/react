@@ -7,7 +7,7 @@
  *
  */
 
-import type {Fiber} from './ReactFiber';
+import {Fiber} from './ReactFiber';
 
 import ReactSharedInternals from 'shared/ReactSharedInternals';
 import {

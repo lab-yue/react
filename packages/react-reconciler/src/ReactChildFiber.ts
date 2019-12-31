@@ -7,10 +7,10 @@
  *
  */
 
-import type {ReactElement} from 'shared/ReactElementType';
-import type {ReactPortal} from 'shared/ReactTypes';
-import type {Fiber} from './ReactFiber';
-import type {ExpirationTime} from './ReactFiberExpirationTime';
+import {ReactElement} from 'shared/ReactElementType';
+import {ReactPortal} from 'shared/ReactTypes';
+import {Fiber} from './ReactFiber';
+import {ExpirationTime} from './ReactFiberExpirationTime';
 
 import getComponentName from 'shared/getComponentName';
 import {Placement, Deletion} from 'shared/ReactSideEffectTags';

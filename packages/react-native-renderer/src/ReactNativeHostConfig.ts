@@ -7,7 +7,7 @@
  *
  */
 
-import type {ReactNativeBaseComponentViewConfig} from './ReactNativeTypes';
+import {ReactNativeBaseComponentViewConfig} from './ReactNativeTypes';
 
 import invariant from 'shared/invariant';
 

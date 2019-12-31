@@ -10,7 +10,7 @@
 import assign from 'object-assign';
 import {getElementDimensions, getNestedBoundingClientRect} from '../utils';
 
-import type {Rect} from '../utils';
+import {Rect} from '../utils';
 
 type Box = {|top: number, left: number, width: number, height: number|};
 

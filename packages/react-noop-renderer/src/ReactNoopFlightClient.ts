@@ -14,7 +14,7 @@
  * environment.
  */
 
-import type {ReactModelRoot} from 'react-flight/inline-typed';
+import {ReactModelRoot} from 'react-flight/inline-typed';
 
 import ReactFlightClient from 'react-flight';
 

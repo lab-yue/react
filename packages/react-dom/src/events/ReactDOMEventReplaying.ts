@@ -7,11 +7,11 @@
  *
  */
 
-import type {AnyNativeEvent} from 'legacy-events/PluginModuleType';
-import type {Container, SuspenseInstance} from '../client/ReactDOMHostConfig';
-import type {DOMTopLevelEventType} from 'legacy-events/TopLevelEventTypes';
-import type {EventSystemFlags} from 'legacy-events/EventSystemFlags';
-import type {FiberRoot} from 'react-reconciler/src/ReactFiberRoot';
+import {AnyNativeEvent} from 'legacy-events/PluginModuleType';
+import {Container, SuspenseInstance} from '../client/ReactDOMHostConfig';
+import {DOMTopLevelEventType} from 'legacy-events/TopLevelEventTypes';
+import {EventSystemFlags} from 'legacy-events/EventSystemFlags';
+import {FiberRoot} from 'react-reconciler/src/ReactFiberRoot';
 
 import {
   enableDeprecatedFlareAPI,

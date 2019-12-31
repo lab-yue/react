@@ -21,7 +21,7 @@ import {downloadFile} from '../utils';
 
 import styles from './ProfilingImportExportButtons.css';
 
-import type {ProfilingDataExport} from './types';
+import {ProfilingDataExport} from './types';
 
 export default function ProfilingImportExportButtons() {
   const {isProfiling, profilingData, rootID} = useContext(ProfilerContext);

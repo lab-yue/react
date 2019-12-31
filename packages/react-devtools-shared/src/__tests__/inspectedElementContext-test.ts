@@ -7,14 +7,14 @@
  *
  */
 
-import typeof ReactTestRenderer from 'react-test-renderer';
-import type {
+importof ReactTestRenderer from 'react-test-renderer';
+import {
   CopyInspectedElementPath,
   GetInspectedElementPath,
   StoreAsGlobal,
 } from 'react-devtools-shared/src/devtools/views/Components/InspectedElementContext';
-import type {FrontendBridge} from 'react-devtools-shared/src/bridge';
-import type Store from 'react-devtools-shared/src/devtools/store';
+import {FrontendBridge} from 'react-devtools-shared/src/bridge';
+import Store from 'react-devtools-shared/src/devtools/store';
 
 describe('InspectedElementContext', () => {
   let React;

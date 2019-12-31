@@ -16,7 +16,7 @@ import {
   setInObject,
 } from './utils';
 
-import type {DehydratedData} from 'react-devtools-shared/src/devtools/views/Components/types';
+import {DehydratedData} from 'react-devtools-shared/src/devtools/views/Components/types';
 
 export const meta = {
   inspectable: Symbol('inspectable'),

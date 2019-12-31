@@ -50,8 +50,8 @@ import {
   registerRenderer as registerRendererWithConsole,
 } from './console';
 
-import type {Fiber} from 'react-reconciler/src/ReactFiber';
-import type {
+import {Fiber} from 'react-reconciler/src/ReactFiber';
+import {
   ChangeDescription,
   CommitDataBackend,
   DevToolsHook,
@@ -67,8 +67,8 @@ import type {
   ReactRenderer,
   RendererInterface,
 } from './types';
-import type {Interaction} from 'react-devtools-shared/src/devtools/views/Profiler/types';
-import type {
+import {Interaction} from 'react-devtools-shared/src/devtools/views/Profiler/types';
+import {
   ComponentFilter,
   ElementType,
 } from 'react-devtools-shared/src/types';

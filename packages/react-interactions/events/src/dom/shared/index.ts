@@ -10,7 +10,7 @@
 'use strict';
 
 import {DiscreteEvent, UserBlockingEvent} from 'shared/ReactTypes';
-import type {
+import {
   ReactDOMResponderContext,
   ReactDOMResponderEvent,
 } from 'shared/ReactDOMTypes';

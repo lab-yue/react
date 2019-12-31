@@ -18,7 +18,7 @@ import ReactControlledValuePropTypes from '../shared/ReactControlledValuePropTyp
 import {updateValueIfChanged} from './inputValueTracking';
 import {disableInputAttributeSyncing} from 'shared/ReactFeatureFlags';
 
-import type {ToStringValue} from './ToStringValue';
+import {ToStringValue} from './ToStringValue';
 
 type InputWithWrapperState = HTMLInputElement & {
   _wrapperState: {

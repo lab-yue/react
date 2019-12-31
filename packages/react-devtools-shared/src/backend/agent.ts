@@ -27,8 +27,8 @@ import {
 } from './views/TraceUpdates';
 import {patch as patchConsole, unpatch as unpatchConsole} from './console';
 
-import type {BackendBridge} from 'react-devtools-shared/src/bridge';
-import type {
+import {BackendBridge} from 'react-devtools-shared/src/bridge';
+import {
   InstanceAndStyle,
   NativeType,
   OwnersList,
@@ -37,7 +37,7 @@ import type {
   RendererID,
   RendererInterface,
 } from './types';
-import type {ComponentFilter} from '../types';
+import {ComponentFilter} from '../types';
 
 const debug = (methodName, ...args) => {
   if (__DEBUG__) {

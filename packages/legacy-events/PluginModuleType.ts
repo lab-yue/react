@@ -7,13 +7,13 @@
  *
  */
 
-import type {Fiber} from 'react-reconciler/src/ReactFiber';
-import type {
+import {Fiber} from 'react-reconciler/src/ReactFiber';
+import {
   DispatchConfig,
   ReactSyntheticEvent,
 } from './ReactSyntheticEventType';
-import type {TopLevelType} from './TopLevelEventTypes';
-import type {EventSystemFlags} from 'legacy-events/EventSystemFlags';
+import {TopLevelType} from './TopLevelEventTypes';
+import {EventSystemFlags} from 'legacy-events/EventSystemFlags';
 
 export type EventTypes = {[key: string]: DispatchConfig};
 

@@ -7,7 +7,7 @@
  *
  */
 
-import type {Source, StringDecoder} from './ReactFlightClientHostConfig';
+import {Source, StringDecoder} from './ReactFlightClientHostConfig';
 
 import {
   supportsBinaryStreams,

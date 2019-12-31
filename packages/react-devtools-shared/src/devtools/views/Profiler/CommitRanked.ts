@@ -19,8 +19,8 @@ import {SettingsContext} from '../Settings/SettingsContext';
 
 import styles from './CommitRanked.css';
 
-import type {ChartData} from './RankedChartBuilder';
-import type {CommitTree} from './types';
+import {ChartData} from './RankedChartBuilder';
+import {CommitTree} from './types';
 
 export type ItemData = {|
   chartData: ChartData,

@@ -7,7 +7,7 @@
  *
  */
 
-import type {LazyComponent} from 'shared/ReactLazyComponent';
+import {LazyComponent} from 'shared/ReactLazyComponent';
 
 import {
   REACT_CONTEXT_TYPE,

@@ -26,7 +26,7 @@ import {TreeDispatcherContext, TreeStateContext} from './TreeContext';
 import {useIsOverflowing} from '../hooks';
 import {StoreContext} from '../context';
 
-import type {Owner} from './types';
+import {Owner} from './types';
 
 import styles from './OwnersStack.css';
 

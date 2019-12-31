@@ -7,7 +7,7 @@
  *
  */
 
-import type {Writable} from 'stream';
+import {Writable} from 'stream';
 
 type MightBeFlushable = {
   flush?: () => void,

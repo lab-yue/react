@@ -7,9 +7,9 @@
  *
  */
 
-import type {Fiber} from './ReactFiber';
-import type {ExpirationTime} from './ReactFiberExpirationTime';
-import type {SuspenseState} from './ReactFiberSuspenseComponent';
+import {Fiber} from './ReactFiber';
+import {ExpirationTime} from './ReactFiberExpirationTime';
+import {SuspenseState} from './ReactFiberSuspenseComponent';
 
 import {
   ClassComponent,

@@ -7,14 +7,14 @@
  *
  */
 
-import type {
+import {
   MeasureInWindowOnSuccessCallback,
   MeasureLayoutOnSuccessCallback,
   MeasureOnSuccessCallback,
   NativeMethods,
   ReactNativeBaseComponentViewConfig,
 } from './ReactNativeTypes';
-import type {Instance} from './ReactNativeHostConfig';
+import {Instance} from './ReactNativeHostConfig';
 
 // Modules provided by RN:
 import {

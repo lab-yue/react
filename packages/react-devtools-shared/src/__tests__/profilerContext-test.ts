@@ -7,11 +7,11 @@
  *
  */
 
-import typeof ReactTestRenderer from 'react-test-renderer';
-import type {FrontendBridge} from 'react-devtools-shared/src/bridge';
-import type {Context} from 'react-devtools-shared/src/devtools/views/Profiler/ProfilerContext';
-import type {DispatcherContext} from 'react-devtools-shared/src/devtools/views/Components/TreeContext';
-import type Store from 'react-devtools-shared/src/devtools/store';
+importof ReactTestRenderer from 'react-test-renderer';
+import {FrontendBridge} from 'react-devtools-shared/src/bridge';
+import {Context} from 'react-devtools-shared/src/devtools/views/Profiler/ProfilerContext';
+import {DispatcherContext} from 'react-devtools-shared/src/devtools/views/Components/TreeContext';
+import Store from 'react-devtools-shared/src/devtools/store';
 
 describe('ProfilerContext', () => {
   let React;

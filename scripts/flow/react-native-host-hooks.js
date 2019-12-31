@@ -9,15 +9,15 @@
 
 /* eslint-disable */
 
-import type {
+import {
   MeasureOnSuccessCallback,
   MeasureInWindowOnSuccessCallback,
   MeasureLayoutOnSuccessCallback,
   ReactNativeBaseComponentViewConfig,
   ViewConfigGetter,
 } from 'react-native-renderer/src/ReactNativeTypes';
-import type {RNTopLevelEventType} from 'legacy-events/TopLevelEventTypes';
-import type {CapturedError} from 'react-reconciler/src/ReactCapturedValue';
+import {RNTopLevelEventType} from 'legacy-events/TopLevelEventTypes';
+import {CapturedError} from 'react-reconciler/src/ReactCapturedValue';
 
 type DeepDifferOptions = {|+unsafelyIgnoreFunctions?: boolean|};
 

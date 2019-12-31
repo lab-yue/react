@@ -8,9 +8,9 @@
  *
  */
 
-import type {Fiber} from 'react-reconciler/src/ReactFiber';
-import type {EventPriority} from 'shared/ReactTypes';
-import type {TopLevelType} from './TopLevelEventTypes';
+import {Fiber} from 'react-reconciler/src/ReactFiber';
+import {EventPriority} from 'shared/ReactTypes';
+import {TopLevelType} from './TopLevelEventTypes';
 
 export type DispatchConfig = {
   dependencies: Array<TopLevelType>,

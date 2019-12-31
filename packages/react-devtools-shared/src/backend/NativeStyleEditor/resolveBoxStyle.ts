@@ -7,7 +7,7 @@
  *
  */
 
-import type {BoxStyle} from './types';
+import {BoxStyle} from './types';
 
 /**
  * This mirrors react-native/Libraries/Inspector/resolveBoxStyle.js (but without RTL support).

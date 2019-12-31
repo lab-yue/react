@@ -11,16 +11,16 @@ import {
   IS_PASSIVE,
   PASSIVE_NOT_SUPPORTED,
 } from 'legacy-events/EventSystemFlags';
-import type {AnyNativeEvent} from 'legacy-events/PluginModuleType';
+import {AnyNativeEvent} from 'legacy-events/PluginModuleType';
 import {HostComponent, ScopeComponent, HostPortal} from 'shared/ReactWorkTags';
-import type {EventPriority} from 'shared/ReactTypes';
-import type {
+import {EventPriority} from 'shared/ReactTypes';
+import {
   ReactDOMEventResponder,
   ReactDOMEventResponderInstance,
   ReactDOMResponderContext,
   ReactDOMResponderEvent,
 } from 'shared/ReactDOMTypes';
-import type {DOMTopLevelEventType} from 'legacy-events/TopLevelEventTypes';
+import {DOMTopLevelEventType} from 'legacy-events/TopLevelEventTypes';
 import {
   batchedEventUpdates,
   discreteUpdates,
@@ -28,7 +28,7 @@ import {
   executeUserEventHandler,
 } from 'legacy-events/ReactGenericBatching';
 import {enqueueStateRestore} from 'legacy-events/ReactControlledComponent';
-import type {Fiber} from 'react-reconciler/src/ReactFiber';
+import {Fiber} from 'react-reconciler/src/ReactFiber';
 import {enableDeprecatedFlareAPI} from 'shared/ReactFeatureFlags';
 import invariant from 'shared/invariant';
 

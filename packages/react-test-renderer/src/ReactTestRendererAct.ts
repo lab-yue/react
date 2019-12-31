@@ -6,7 +6,7 @@
  *
  *
  */
-import type {Thenable} from 'react-reconciler/src/ReactFiberWorkLoop';
+import {Thenable} from 'react-reconciler/src/ReactFiberWorkLoop';
 
 import {
   batchedUpdates,

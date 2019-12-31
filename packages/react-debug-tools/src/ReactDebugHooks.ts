@@ -7,16 +7,16 @@
  *
  */
 
-import type {
+import {
   ReactContext,
   ReactProviderType,
   ReactEventResponder,
   ReactEventResponderListener,
 } from 'shared/ReactTypes';
-import type {Fiber} from 'react-reconciler/src/ReactFiber';
-import type {Hook, TimeoutConfig} from 'react-reconciler/src/ReactFiberHooks';
-import type {Dispatcher as DispatcherType} from 'react-reconciler/src/ReactFiberHooks';
-import type {SuspenseConfig} from 'react-reconciler/src/ReactFiberSuspenseConfig';
+import {Fiber} from 'react-reconciler/src/ReactFiber';
+import {Hook, TimeoutConfig} from 'react-reconciler/src/ReactFiberHooks';
+import {Dispatcher as DispatcherType} from 'react-reconciler/src/ReactFiberHooks';
+import {SuspenseConfig} from 'react-reconciler/src/ReactFiberSuspenseConfig';
 
 import ErrorStackParser from 'error-stack-parser';
 import ReactSharedInternals from 'shared/ReactSharedInternals';

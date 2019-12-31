@@ -14,11 +14,11 @@
  * environment.
  */
 
-import type {Thenable} from 'react-reconciler/src/ReactFiberWorkLoop';
-import type {Fiber} from 'react-reconciler/src/ReactFiber';
-import type {UpdateQueue} from 'react-reconciler/src/ReactUpdateQueue';
-import type {ReactNodeList} from 'shared/ReactTypes';
-import type {RootTag} from 'shared/ReactRootTags';
+import {Thenable} from 'react-reconciler/src/ReactFiberWorkLoop';
+import {Fiber} from 'react-reconciler/src/ReactFiber';
+import {UpdateQueue} from 'react-reconciler/src/ReactUpdateQueue';
+import {ReactNodeList} from 'shared/ReactTypes';
+import {RootTag} from 'shared/ReactRootTags';
 
 import * as Scheduler from 'scheduler/unstable_mock';
 import {createPortal} from 'shared/ReactPortal';

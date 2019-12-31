@@ -10,7 +10,7 @@
 import React from 'react';
 import styles from './LayoutViewer.css';
 
-import type {Layout} from './types';
+import {Layout} from './types';
 
 type Props = {|
   id: number,

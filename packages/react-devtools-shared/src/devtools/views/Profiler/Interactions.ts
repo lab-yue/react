@@ -18,9 +18,9 @@ import {scale} from './utils';
 
 import styles from './Interactions.css';
 
-import type {ProfilingDataForRootFrontend} from './types';
-import type {ChartData} from './InteractionsChartBuilder';
-import type {TabID} from './ProfilerContext';
+import {ProfilingDataForRootFrontend} from './types';
+import {ChartData} from './InteractionsChartBuilder';
+import {TabID} from './ProfilerContext';
 
 export type ItemData = {|
   chartData: ChartData,

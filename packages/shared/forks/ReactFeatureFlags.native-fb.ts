@@ -9,8 +9,8 @@
 
 import invariant from 'shared/invariant';
 
-import typeof * as FeatureFlagsType from 'shared/ReactFeatureFlags';
-import typeof * as FeatureFlagsShimType from './ReactFeatureFlags.native-fb';
+importof * as FeatureFlagsType from 'shared/ReactFeatureFlags';
+importof * as FeatureFlagsShimType from './ReactFeatureFlags.native-fb';
 
 // Uncomment to re-export dynamic flags from the fbsource version.
 export const {

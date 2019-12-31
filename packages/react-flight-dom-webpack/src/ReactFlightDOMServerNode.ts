@@ -7,8 +7,8 @@
  *
  */
 
-import type {ReactModel} from 'react-server/flight.inline-typed';
-import type {Writable} from 'stream';
+import {ReactModel} from 'react-server/flight.inline-typed';
+import {Writable} from 'stream';
 
 import {
   createRequest,

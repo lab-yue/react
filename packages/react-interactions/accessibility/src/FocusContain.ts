@@ -7,7 +7,7 @@
  *
  */
 
-import type {KeyboardEvent} from 'react-interactions/events/keyboard';
+import {KeyboardEvent} from 'react-interactions/events/keyboard';
 
 import React from 'react';
 import {useFocusWithin} from 'react-interactions/events/focus';

@@ -7,9 +7,9 @@
  *
  */
 
-import type {Fiber} from './ReactFiber';
-import type {ExpirationTime} from './ReactFiberExpirationTime';
-import type {UpdateQueue} from './ReactUpdateQueue';
+import {Fiber} from './ReactFiber';
+import {ExpirationTime} from './ReactFiberExpirationTime';
+import {UpdateQueue} from './ReactUpdateQueue';
 
 import React from 'react';
 import {Update, Snapshot} from 'shared/ReactSideEffectTags';

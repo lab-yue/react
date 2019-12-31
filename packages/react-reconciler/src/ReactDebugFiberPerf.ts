@@ -7,7 +7,7 @@
  *
  */
 
-import type {Fiber} from './ReactFiber';
+import {Fiber} from './ReactFiber';
 
 import {enableUserTimingAPI} from 'shared/ReactFeatureFlags';
 import getComponentName from 'shared/getComponentName';

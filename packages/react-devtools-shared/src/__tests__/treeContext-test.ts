@@ -7,10 +7,10 @@
  *
  */
 
-import typeof ReactTestRenderer from 'react-test-renderer';
-import type {FrontendBridge} from 'react-devtools-shared/src/bridge';
-import type Store from 'react-devtools-shared/src/devtools/store';
-import type {
+importof ReactTestRenderer from 'react-test-renderer';
+import {FrontendBridge} from 'react-devtools-shared/src/bridge';
+import Store from 'react-devtools-shared/src/devtools/store';
+import {
   DispatcherContext,
   StateContext,
 } from 'react-devtools-shared/src/devtools/views/Components/TreeContext';

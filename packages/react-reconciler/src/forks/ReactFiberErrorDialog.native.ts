@@ -7,7 +7,7 @@
  *
  */
 
-import type {CapturedError} from '../ReactCapturedValue';
+import {CapturedError} from '../ReactCapturedValue';
 
 // Module provided by RN:
 import {ReactFiberErrorDialog as RNImpl} from 'react-native/Libraries/ReactPrivate/ReactNativePrivateInterface';

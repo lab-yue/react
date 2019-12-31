@@ -7,8 +7,8 @@
  *
  */
 
-import type {ReactElement, Source} from 'shared/ReactElementType';
-import type {
+import {ReactElement, Source} from 'shared/ReactElementType';
+import {
   ReactFragment,
   ReactPortal,
   RefObject,
@@ -17,15 +17,15 @@ import type {
   ReactFundamentalComponent,
   ReactScope,
 } from 'shared/ReactTypes';
-import type {RootTag} from 'shared/ReactRootTags';
-import type {WorkTag} from 'shared/ReactWorkTags';
-import type {TypeOfMode} from './ReactTypeOfMode';
-import type {SideEffectTag} from 'shared/ReactSideEffectTags';
-import type {ExpirationTime} from './ReactFiberExpirationTime';
-import type {UpdateQueue} from './ReactUpdateQueue';
-import type {ContextDependency} from './ReactFiberNewContext';
-import type {HookType} from './ReactFiberHooks';
-import type {SuspenseInstance} from './ReactFiberHostConfig';
+import {RootTag} from 'shared/ReactRootTags';
+import {WorkTag} from 'shared/ReactWorkTags';
+import {TypeOfMode} from './ReactTypeOfMode';
+import {SideEffectTag} from 'shared/ReactSideEffectTags';
+import {ExpirationTime} from './ReactFiberExpirationTime';
+import {UpdateQueue} from './ReactUpdateQueue';
+import {ContextDependency} from './ReactFiberNewContext';
+import {HookType} from './ReactFiberHooks';
+import {SuspenseInstance} from './ReactFiberHostConfig';
 
 import invariant from 'shared/invariant';
 import {

@@ -23,16 +23,16 @@ import {hydrate, fillInPath} from 'react-devtools-shared/src/hydration';
 import {TreeStateContext} from './TreeContext';
 import {separateDisplayNameAndHOCs} from 'react-devtools-shared/src/utils';
 
-import type {
+import {
   InspectedElement as InspectedElementBackend,
   InspectedElementPayload,
 } from 'react-devtools-shared/src/backend/types';
-import type {
+import {
   DehydratedData,
   Element,
   InspectedElement as InspectedElementFrontend,
 } from 'react-devtools-shared/src/devtools/views/Components/types';
-import type {Resource, Thenable} from '../../cache';
+import {Resource, Thenable} from '../../cache';
 
 export type StoreAsGlobal = (id: number, path: Array<string | number>) => void;
 

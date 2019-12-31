@@ -8,7 +8,7 @@
  */
 
 import {registrationNameDependencies} from 'legacy-events/EventPluginRegistry';
-import type {DOMTopLevelEventType} from 'legacy-events/TopLevelEventTypes';
+import {DOMTopLevelEventType} from 'legacy-events/TopLevelEventTypes';
 import {
   TOP_BLUR,
   TOP_CANCEL,

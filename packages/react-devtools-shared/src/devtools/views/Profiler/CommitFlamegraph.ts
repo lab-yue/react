@@ -19,8 +19,8 @@ import {SettingsContext} from '../Settings/SettingsContext';
 
 import styles from './CommitFlamegraph.css';
 
-import type {ChartData, ChartNode} from './FlamegraphChartBuilder';
-import type {CommitTree} from './types';
+import {ChartData, ChartNode} from './FlamegraphChartBuilder';
+import {CommitTree} from './types';
 
 export type ItemData = {|
   chartData: ChartData,

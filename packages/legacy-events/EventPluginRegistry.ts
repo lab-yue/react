@@ -7,8 +7,8 @@
  *
  */
 
-import type {DispatchConfig} from './ReactSyntheticEventType';
-import type {
+import {DispatchConfig} from './ReactSyntheticEventType';
+import {
   AnyNativeEvent,
   PluginName,
   PluginModule,

@@ -12,7 +12,7 @@ import Agent from './agent';
 import {attach} from './renderer';
 import {attach as attachLegacy} from './legacy/renderer';
 
-import type {DevToolsHook, ReactRenderer, RendererInterface} from './types';
+import {DevToolsHook, ReactRenderer, RendererInterface} from './types';
 
 export function initBackend(
   hook: DevToolsHook,

@@ -7,11 +7,11 @@
  *
  */
 
-import type {ReactElement} from 'shared/ReactElementType';
-import type {Fiber} from './ReactFiber';
-import type {FiberRoot} from './ReactFiberRoot';
-import type {Instance} from './ReactFiberHostConfig';
-import type {ReactNodeList} from 'shared/ReactTypes';
+import {ReactElement} from 'shared/ReactElementType';
+import {Fiber} from './ReactFiber';
+import {FiberRoot} from './ReactFiberRoot';
+import {Instance} from './ReactFiberHostConfig';
+import {ReactNodeList} from 'shared/ReactTypes';
 
 import {
   flushSync,

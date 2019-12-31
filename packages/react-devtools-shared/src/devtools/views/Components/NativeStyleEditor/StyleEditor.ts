@@ -21,7 +21,7 @@ import AutoSizeInput from './AutoSizeInput';
 import styles from './StyleEditor.css';
 import {sanitizeForParse} from '../../../utils';
 
-import type {Style} from './types';
+import {Style} from './types';
 
 type Props = {|
   id: number,

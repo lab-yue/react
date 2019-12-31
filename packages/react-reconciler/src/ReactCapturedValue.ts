@@ -7,7 +7,7 @@
  *
  */
 
-import type {Fiber} from './ReactFiber';
+import {Fiber} from './ReactFiber';
 
 import {getStackByFiberInDevAndProd} from './ReactCurrentFiber';
 

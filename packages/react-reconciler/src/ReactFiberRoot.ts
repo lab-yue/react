@@ -7,14 +7,14 @@
  *
  */
 
-import type {Fiber} from './ReactFiber';
-import type {ExpirationTime} from './ReactFiberExpirationTime';
-import type {RootTag} from 'shared/ReactRootTags';
-import type {TimeoutHandle, NoTimeout} from './ReactFiberHostConfig';
-import type {Thenable} from './ReactFiberWorkLoop';
-import type {Interaction} from 'scheduler/src/Tracing';
-import type {SuspenseHydrationCallbacks} from './ReactFiberSuspenseComponent';
-import type {ReactPriorityLevel} from './SchedulerWithReactIntegration';
+import {Fiber} from './ReactFiber';
+import {ExpirationTime} from './ReactFiberExpirationTime';
+import {RootTag} from 'shared/ReactRootTags';
+import {TimeoutHandle, NoTimeout} from './ReactFiberHostConfig';
+import {Thenable} from './ReactFiberWorkLoop';
+import {Interaction} from 'scheduler/src/Tracing';
+import {SuspenseHydrationCallbacks} from './ReactFiberSuspenseComponent';
+import {ReactPriorityLevel} from './SchedulerWithReactIntegration';
 
 import {noTimeout} from './ReactFiberHostConfig';
 import {createHostRootFiber} from './ReactFiber';

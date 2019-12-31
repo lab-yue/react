@@ -7,8 +7,8 @@
  *
  */
 
-import type {Fiber} from './ReactFiber';
-import type {
+import {Fiber} from './ReactFiber';
+import {
   ReactFundamentalImpl,
   ReactFundamentalComponentInstance,
 } from 'shared/ReactTypes';

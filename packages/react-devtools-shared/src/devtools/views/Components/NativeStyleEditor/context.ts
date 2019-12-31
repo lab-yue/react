@@ -23,10 +23,10 @@ import {
 } from 'react-devtools-shared/src/devtools/views/context';
 import {TreeStateContext} from '../TreeContext';
 
-import type {StyleAndLayout as StyleAndLayoutBackend} from 'react-devtools-shared/src/backend/NativeStyleEditor/types';
-import type {StyleAndLayout as StyleAndLayoutFrontend} from './types';
-import type {Element} from 'react-devtools-shared/src/devtools/views/Components/types';
-import type {
+import {StyleAndLayout as StyleAndLayoutBackend} from 'react-devtools-shared/src/backend/NativeStyleEditor/types';
+import {StyleAndLayout as StyleAndLayoutFrontend} from './types';
+import {Element} from 'react-devtools-shared/src/devtools/views/Components/types';
+import {
   Resource,
   Thenable,
 } from 'react-devtools-shared/src/devtools/cache';

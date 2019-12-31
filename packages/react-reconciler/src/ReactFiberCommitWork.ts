@@ -7,7 +7,7 @@
  *
  */
 
-import type {
+import {
   Instance,
   TextInstance,
   SuspenseInstance,
@@ -15,14 +15,14 @@ import type {
   ChildSet,
   UpdatePayload,
 } from './ReactFiberHostConfig';
-import type {Fiber} from './ReactFiber';
-import type {FiberRoot} from './ReactFiberRoot';
-import type {ExpirationTime} from './ReactFiberExpirationTime';
-import type {CapturedValue, CapturedError} from './ReactCapturedValue';
-import type {SuspenseState} from './ReactFiberSuspenseComponent';
-import type {FunctionComponentUpdateQueue} from './ReactFiberHooks';
-import type {Thenable} from './ReactFiberWorkLoop';
-import type {ReactPriorityLevel} from './SchedulerWithReactIntegration';
+import {Fiber} from './ReactFiber';
+import {FiberRoot} from './ReactFiberRoot';
+import {ExpirationTime} from './ReactFiberExpirationTime';
+import {CapturedValue, CapturedError} from './ReactCapturedValue';
+import {SuspenseState} from './ReactFiberSuspenseComponent';
+import {FunctionComponentUpdateQueue} from './ReactFiberHooks';
+import {Thenable} from './ReactFiberWorkLoop';
+import {ReactPriorityLevel} from './SchedulerWithReactIntegration';
 
 import {unstable_wrap as Schedule_tracing_wrap} from 'scheduler/tracing';
 import {

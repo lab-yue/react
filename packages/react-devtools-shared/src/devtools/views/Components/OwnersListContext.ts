@@ -13,12 +13,12 @@ import {BridgeContext, StoreContext} from '../context';
 import {TreeStateContext} from './TreeContext';
 import {separateDisplayNameAndHOCs} from 'react-devtools-shared/src/utils';
 
-import type {OwnersList} from 'react-devtools-shared/src/backend/types';
-import type {
+import {OwnersList} from 'react-devtools-shared/src/backend/types';
+import {
   Element,
   Owner,
 } from 'react-devtools-shared/src/devtools/views/Components/types';
-import type {Resource, Thenable} from '../../cache';
+import {Resource, Thenable} from '../../cache';
 
 type Context = (id: number) => Array<Owner> | null;
 

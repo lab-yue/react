@@ -7,9 +7,9 @@
  *
  */
 
-import type {Fiber} from './ReactFiber';
-import type {Container, Instance} from './ReactFiberHostConfig';
-import type {
+import {Fiber} from './ReactFiber';
+import {Container, Instance} from './ReactFiberHostConfig';
+import {
   ReactEventResponder,
   ReactEventResponderInstance,
   ReactEventResponderListener,

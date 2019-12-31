@@ -7,7 +7,7 @@
  *
  */
 
-import type {CapturedError} from '../ReactCapturedValue';
+import {CapturedError} from '../ReactCapturedValue';
 
 import invariant from 'shared/invariant';
 

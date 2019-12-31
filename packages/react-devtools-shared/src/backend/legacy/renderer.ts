@@ -25,7 +25,7 @@ import {
 } from '../../constants';
 import {decorateMany, forceUpdate, restoreMany} from './utils';
 
-import type {
+import {
   DevToolsHook,
   GetFiberIDForNative,
   InspectedElementPayload,
@@ -35,11 +35,11 @@ import type {
   PathMatch,
   RendererInterface,
 } from '../types';
-import type {
+import {
   ComponentFilter,
   ElementType,
 } from 'react-devtools-shared/src/types';
-import type {Owner, InspectedElement} from '../types';
+import {Owner, InspectedElement} from '../types';
 
 export type InternalInstance = Object;
 type LegacyRenderer = Object;

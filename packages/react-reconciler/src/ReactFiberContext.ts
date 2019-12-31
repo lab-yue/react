@@ -7,8 +7,8 @@
  *
  */
 
-import type {Fiber} from './ReactFiber';
-import type {StackCursor} from './ReactFiberStack';
+import {Fiber} from './ReactFiber';
+import {StackCursor} from './ReactFiberStack';
 
 import {isFiberMounted} from 'react-reconciler/reflection';
 import {disableLegacyContext} from 'shared/ReactFeatureFlags';

@@ -10,7 +10,7 @@
 import {useContext, useEffect} from 'react';
 import {RegistryContext} from './Contexts';
 
-import type {ElementRef} from 'react';
+import {ElementRef} from 'react';
 
 export default function useContextMenu({
   data,

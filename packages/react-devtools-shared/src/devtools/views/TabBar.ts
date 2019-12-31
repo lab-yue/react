@@ -14,7 +14,7 @@ import Icon from './Icon';
 import styles from './TabBar.css';
 import tooltipStyles from './Tooltip.css';
 
-import type {IconType} from './Icon';
+import {IconType} from './Icon';
 
 type TabInfo = {|
   icon: IconType,

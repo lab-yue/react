@@ -7,7 +7,7 @@
  *
  */
 
-import type {CapturedError} from './ReactCapturedValue';
+import {CapturedError} from './ReactCapturedValue';
 
 // This module is forked in different environments.
 // By default, return `true` to log errors to the console.

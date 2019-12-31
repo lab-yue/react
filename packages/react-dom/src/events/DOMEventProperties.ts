@@ -7,12 +7,12 @@
  *
  */
 
-import type {EventPriority} from 'shared/ReactTypes';
-import type {
+import {EventPriority} from 'shared/ReactTypes';
+import {
   TopLevelType,
   DOMTopLevelEventType,
 } from 'legacy-events/TopLevelEventTypes';
-import type {DispatchConfig} from 'legacy-events/ReactSyntheticEventType';
+import {DispatchConfig} from 'legacy-events/ReactSyntheticEventType';
 
 import * as DOMTopLevelEventTypes from './DOMTopLevelEventTypes';
 import {

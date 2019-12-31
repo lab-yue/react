@@ -7,19 +7,19 @@
  *
  */
 
-import type {Fiber} from './ReactFiber';
-import type {FiberRoot} from './ReactFiberRoot';
-import type {RootTag} from 'shared/ReactRootTags';
-import type {
+import {Fiber} from './ReactFiber';
+import {FiberRoot} from './ReactFiberRoot';
+import {RootTag} from 'shared/ReactRootTags';
+import {
   Instance,
   TextInstance,
   Container,
   PublicInstance,
 } from './ReactFiberHostConfig';
 import {FundamentalComponent} from 'shared/ReactWorkTags';
-import type {ReactNodeList} from 'shared/ReactTypes';
-import type {ExpirationTime} from './ReactFiberExpirationTime';
-import type {
+import {ReactNodeList} from 'shared/ReactTypes';
+import {ExpirationTime} from './ReactFiberExpirationTime';
+import {
   SuspenseHydrationCallbacks,
   SuspenseState,
 } from './ReactFiberSuspenseComponent';

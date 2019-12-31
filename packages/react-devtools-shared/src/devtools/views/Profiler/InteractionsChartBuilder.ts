@@ -9,7 +9,7 @@
 
 import ProfilerStore from 'react-devtools-shared/src/devtools/ProfilerStore';
 
-import type {Interaction} from './types';
+import {Interaction} from './types';
 
 export type ChartData = {|
   interactions: Array<Interaction>,

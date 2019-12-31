@@ -7,7 +7,7 @@
  *
  */
 
-import type {Dispatcher} from 'react-reconciler/src/ReactFiberHooks';
+import {Dispatcher} from 'react-reconciler/src/ReactFiberHooks';
 
 /**
  * Keeps track of the current dispatcher.

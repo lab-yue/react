@@ -7,7 +7,7 @@
  *
  */
 
-import type {
+import {
   ReactFundamentalComponentInstance,
   ReactEventResponder,
   ReactEventResponderInstance,

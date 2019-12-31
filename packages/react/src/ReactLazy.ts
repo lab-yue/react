@@ -5,7 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import type {LazyComponent, Thenable} from 'shared/ReactLazyComponent';
+import {LazyComponent, Thenable} from 'shared/ReactLazyComponent';
 
 import {REACT_LAZY_TYPE} from 'shared/ReactSymbols';
 

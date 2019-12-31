@@ -7,10 +7,10 @@
  *
  */
 
-import type {InspectedElementPayload} from 'react-devtools-shared/src/backend/types';
-import type {DehydratedData} from 'react-devtools-shared/src/devtools/views/Components/types';
-import type {FrontendBridge} from 'react-devtools-shared/src/bridge';
-import type Store from 'react-devtools-shared/src/devtools/store';
+import {InspectedElementPayload} from 'react-devtools-shared/src/backend/types';
+import {DehydratedData} from 'react-devtools-shared/src/devtools/views/Components/types';
+import {FrontendBridge} from 'react-devtools-shared/src/bridge';
+import Store from 'react-devtools-shared/src/devtools/store';
 
 describe('InspectedElementContext', () => {
   let React;

@@ -7,7 +7,7 @@
  *
  */
 
-import type {PointerType} from 'shared/ReactDOMTypes';
+import {PointerType} from 'shared/ReactDOMTypes';
 
 import React from 'react';
 import {useTap} from 'react-interactions/events/tap';

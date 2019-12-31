@@ -21,8 +21,8 @@ import styles from './HooksTree.css';
 import useContextMenu from '../../ContextMenu/useContextMenu';
 import {meta} from '../../../hydration';
 
-import type {InspectPath} from './SelectedElement';
-import type {HooksNode, HooksTree} from 'react-debug-tools/src/ReactDebugHooks';
+import {InspectPath} from './SelectedElement';
+import {HooksNode, HooksTree} from 'react-debug-tools/src/ReactDebugHooks';
 
 type HooksTreeViewProps = {|
   canEditHooks: boolean,

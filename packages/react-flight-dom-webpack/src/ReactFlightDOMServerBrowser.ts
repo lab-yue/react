@@ -7,7 +7,7 @@
  *
  */
 
-import type {ReactModel} from 'react-server/flight.inline-typed';
+import {ReactModel} from 'react-server/flight.inline-typed';
 
 import {
   createRequest,

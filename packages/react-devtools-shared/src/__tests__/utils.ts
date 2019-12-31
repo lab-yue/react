@@ -7,12 +7,12 @@
  *
  */
 
-import typeof ReactTestRenderer from 'react-test-renderer';
+importof ReactTestRenderer from 'react-test-renderer';
 
-import type {FrontendBridge} from 'react-devtools-shared/src/bridge';
-import type Store from 'react-devtools-shared/src/devtools/store';
-import type {ProfilingDataFrontend} from 'react-devtools-shared/src/devtools/views/Profiler/types';
-import type {ElementType} from 'react-devtools-shared/src/types';
+import {FrontendBridge} from 'react-devtools-shared/src/bridge';
+import Store from 'react-devtools-shared/src/devtools/store';
+import {ProfilingDataFrontend} from 'react-devtools-shared/src/devtools/views/Profiler/types';
+import {ElementType} from 'react-devtools-shared/src/types';
 
 export function act(callback: Function): void {
   const {act: actTestRenderer} = require('react-test-renderer');

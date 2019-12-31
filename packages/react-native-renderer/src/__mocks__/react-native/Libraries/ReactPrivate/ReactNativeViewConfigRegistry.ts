@@ -11,7 +11,7 @@
 
 'use strict';
 
-import type {
+import {
   ReactNativeBaseComponentViewConfig,
   ViewConfigGetter,
 } from './ReactNativeTypes';

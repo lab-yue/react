@@ -13,7 +13,7 @@ import {
   flattenStyle,
 } from 'react-native/Libraries/ReactPrivate/ReactNativePrivateInterface';
 
-import type {AttributeConfiguration} from './ReactNativeTypes';
+import {AttributeConfiguration} from './ReactNativeTypes';
 
 const emptyObject = {};
 

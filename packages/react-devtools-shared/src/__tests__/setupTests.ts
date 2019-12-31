@@ -7,7 +7,7 @@
  *
  */
 
-import type {
+import {
   BackendBridge,
   FrontendBridge,
 } from 'react-devtools-shared/src/bridge';

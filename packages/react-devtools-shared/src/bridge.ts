@@ -9,14 +9,14 @@
 
 import EventEmitter from 'events';
 
-import type {ComponentFilter, Wall} from './types';
-import type {
+import {ComponentFilter, Wall} from './types';
+import {
   InspectedElementPayload,
   OwnersList,
   ProfilingDataBackend,
   RendererID,
 } from 'react-devtools-shared/src/backend/types';
-import type {StyleAndLayout as StyleAndLayoutPayload} from 'react-devtools-shared/src/backend/NativeStyleEditor/types';
+import {StyleAndLayout as StyleAndLayoutPayload} from 'react-devtools-shared/src/backend/NativeStyleEditor/types';
 
 const BATCH_DURATION = 100;
 

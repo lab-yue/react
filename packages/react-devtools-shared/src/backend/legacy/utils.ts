@@ -7,7 +7,7 @@
  *
  */
 
-import type {InternalInstance} from './renderer';
+import {InternalInstance} from './renderer';
 
 export function decorate(object: Object, attr: string, fn: Function): Function {
   const old = object[attr];

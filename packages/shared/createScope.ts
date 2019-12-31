@@ -6,7 +6,7 @@
  *
  */
 
-import type {ReactScope} from 'shared/ReactTypes';
+import {ReactScope} from 'shared/ReactTypes';
 import {REACT_SCOPE_TYPE} from 'shared/ReactSymbols';
 
 export default function createScope(): ReactScope {

@@ -7,7 +7,7 @@
  *
  */
 
-import type {PriorityLevel} from './SchedulerPriorities';
+import {PriorityLevel} from './SchedulerPriorities';
 import {enableProfiling} from './SchedulerFeatureFlags';
 
 import {NoPriority} from './SchedulerPriorities';

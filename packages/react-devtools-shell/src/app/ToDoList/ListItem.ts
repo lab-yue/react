@@ -10,7 +10,7 @@
 import React, {memo, useCallback} from 'react';
 import styles from './ListItem.css';
 
-import type {Item} from './List';
+import {Item} from './List';
 
 type Props = {|
   item: Item,

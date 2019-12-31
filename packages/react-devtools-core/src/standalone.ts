@@ -28,8 +28,8 @@ import DevTools from 'react-devtools-shared/src/devtools/views/DevTools';
 import {doesFilePathExist, launchEditor} from './editor';
 import {__DEBUG__} from 'react-devtools-shared/src/constants';
 
-import type {FrontendBridge} from 'react-devtools-shared/src/bridge';
-import type {InspectedElement} from 'react-devtools-shared/src/devtools/views/Components/types';
+import {FrontendBridge} from 'react-devtools-shared/src/bridge';
+import {InspectedElement} from 'react-devtools-shared/src/devtools/views/Components/types';
 
 installHook(window);
 

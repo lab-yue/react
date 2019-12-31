@@ -14,7 +14,7 @@ import {getGradientColor} from './utils';
 import ChartNode from './ChartNode';
 import {SettingsContext} from '../Settings/SettingsContext';
 
-import type {ItemData} from './CommitRanked';
+import {ItemData} from './CommitRanked';
 
 type Props = {
   data: ItemData,

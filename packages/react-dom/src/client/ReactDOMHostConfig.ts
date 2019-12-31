@@ -45,8 +45,8 @@ import {
 } from '../shared/HTMLNodeType';
 import dangerousStyleValue from '../shared/dangerousStyleValue';
 
-import type {DOMContainer} from './ReactDOM';
-import type {
+import {DOMContainer} from './ReactDOM';
+import {
   ReactDOMEventResponder,
   ReactDOMEventResponderInstance,
   ReactDOMFundamentalComponentInstance,

@@ -9,8 +9,8 @@
 
 import invariant from 'shared/invariant';
 
-import typeof * as FeatureFlagsType from 'shared/ReactFeatureFlags';
-import typeof * as FeatureFlagsShimType from './ReactFeatureFlags.native-oss';
+importof * as FeatureFlagsType from 'shared/ReactFeatureFlags';
+importof * as FeatureFlagsShimType from './ReactFeatureFlags.native-oss';
 
 export const debugRenderPhaseSideEffectsForStrictMode = false;
 export const enableUserTimingAPI = __DEV__;

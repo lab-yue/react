@@ -22,7 +22,7 @@ import {
 } from '../Components/TreeContext';
 import {StoreContext} from '../context';
 
-import type {ProfilingDataFrontend} from './types';
+import {ProfilingDataFrontend} from './types';
 
 export type TabID = 'flame-chart' | 'ranked-chart' | 'interactions';
 

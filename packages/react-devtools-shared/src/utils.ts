@@ -47,7 +47,7 @@ import {localStorageGetItem, localStorageSetItem} from './storage';
 import {alphaSortEntries} from './devtools/views/utils';
 import {meta} from './hydration';
 
-import type {ComponentFilter, ElementType} from './types';
+import {ComponentFilter, ElementType} from './types';
 
 const cachedDisplayNames: WeakMap<Function, string> = new WeakMap();
 

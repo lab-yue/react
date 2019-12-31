@@ -18,8 +18,8 @@ import {enableNativeTargetAsInstance} from 'shared/ReactFeatureFlags';
 
 import {getInstanceFromNode} from './ReactNativeComponentTree';
 
-import type {AnyNativeEvent} from 'legacy-events/PluginModuleType';
-import type {TopLevelType} from 'legacy-events/TopLevelEventTypes';
+import {AnyNativeEvent} from 'legacy-events/PluginModuleType';
+import {TopLevelType} from 'legacy-events/TopLevelEventTypes';
 
 export {getListener, registrationNameModules as registrationNames};
 

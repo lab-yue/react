@@ -7,16 +7,16 @@
  *
  */
 
-import type {ReactProviderType, ReactContext} from 'shared/ReactTypes';
-import type {Fiber} from './ReactFiber';
-import type {FiberRoot} from './ReactFiberRoot';
-import type {ExpirationTime} from './ReactFiberExpirationTime';
-import type {
+import {ReactProviderType, ReactContext} from 'shared/ReactTypes';
+import {Fiber} from './ReactFiber';
+import {FiberRoot} from './ReactFiberRoot';
+import {ExpirationTime} from './ReactFiberExpirationTime';
+import {
   SuspenseState,
   SuspenseListRenderState,
   SuspenseListTailMode,
 } from './ReactFiberSuspenseComponent';
-import type {SuspenseContext} from './ReactFiberSuspenseContext';
+import {SuspenseContext} from './ReactFiberSuspenseContext';
 
 import checkPropTypes from 'prop-types/checkPropTypes';
 
@@ -115,7 +115,7 @@ import {
   isSuspenseInstanceFallback,
   registerSuspenseInstanceRetry,
 } from './ReactFiberHostConfig';
-import type {SuspenseInstance} from './ReactFiberHostConfig';
+import {SuspenseInstance} from './ReactFiberHostConfig';
 import {shouldSuspend} from './ReactFiberReconciler';
 import {pushHostContext, pushHostContainer} from './ReactFiberHostContext';
 import {

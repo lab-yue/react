@@ -7,8 +7,8 @@
  *
  */
 
-import type {ReactScopeMethods} from 'shared/ReactTypes';
-import type {KeyboardEvent} from 'react-interactions/events/keyboard';
+import {ReactScopeMethods} from 'shared/ReactTypes';
+import {KeyboardEvent} from 'react-interactions/events/keyboard';
 
 import getTabbableNodes from './shared/getTabbableNodes';
 

@@ -6,7 +6,7 @@
  *
  */
 
-import type {ReactEventResponder} from 'shared/ReactTypes';
+import {ReactEventResponder} from 'shared/ReactTypes';
 import {REACT_RESPONDER_TYPE} from 'shared/ReactSymbols';
 import {hasBadMapPolyfill} from './hasBadMapPolyfill';
 

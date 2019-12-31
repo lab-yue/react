@@ -7,7 +7,7 @@
  *
  */
 
-import type {
+import {
   Layout as LayoutBackend,
   Style as StyleBackend,
 } from 'react-devtools-shared/src/backend/NativeStyleEditor/types';

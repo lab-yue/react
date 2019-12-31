@@ -15,10 +15,10 @@ import {__DEBUG__} from 'react-devtools-shared/src/constants';
 import setupNativeStyleEditor from 'react-devtools-shared/src/backend/NativeStyleEditor/setupNativeStyleEditor';
 import {getDefaultComponentFilters} from 'react-devtools-shared/src/utils';
 
-import type {BackendBridge} from 'react-devtools-shared/src/bridge';
-import type {ComponentFilter} from 'react-devtools-shared/src/types';
-import type {DevToolsHook} from 'react-devtools-shared/src/backend/types';
-import type {ResolveNativeStyle} from 'react-devtools-shared/src/backend/NativeStyleEditor/setupNativeStyleEditor';
+import {BackendBridge} from 'react-devtools-shared/src/bridge';
+import {ComponentFilter} from 'react-devtools-shared/src/types';
+import {DevToolsHook} from 'react-devtools-shared/src/backend/types';
+import {ResolveNativeStyle} from 'react-devtools-shared/src/backend/NativeStyleEditor/setupNativeStyleEditor';
 
 type ConnectOptions = {
   host?: string,

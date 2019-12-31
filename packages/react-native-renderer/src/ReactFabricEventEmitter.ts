@@ -7,7 +7,7 @@
  *
  */
 
-import type {Fiber} from 'react-reconciler/src/ReactFiber';
+import {Fiber} from 'react-reconciler/src/ReactFiber';
 
 import {PLUGIN_EVENT_SYSTEM} from 'legacy-events/EventSystemFlags';
 import {
@@ -17,9 +17,9 @@ import {
 import {registrationNameModules} from 'legacy-events/EventPluginRegistry';
 import {batchedUpdates} from 'legacy-events/ReactGenericBatching';
 
-import type {AnyNativeEvent} from 'legacy-events/PluginModuleType';
+import {AnyNativeEvent} from 'legacy-events/PluginModuleType';
 import {enableNativeTargetAsInstance} from 'shared/ReactFeatureFlags';
-import type {TopLevelType} from 'legacy-events/TopLevelEventTypes';
+import {TopLevelType} from 'legacy-events/TopLevelEventTypes';
 
 export {getListener, registrationNameModules as registrationNames};
 

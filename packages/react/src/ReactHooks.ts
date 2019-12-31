@@ -7,7 +7,7 @@
  *
  */
 
-import type {
+import {
   ReactContext,
   ReactEventResponder,
   ReactEventResponderListener,

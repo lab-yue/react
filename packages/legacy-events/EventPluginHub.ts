@@ -17,12 +17,12 @@ import {getFiberCurrentPropsFromNode} from './EventPluginUtils';
 import accumulateInto from './accumulateInto';
 import {runEventsInBatch} from './EventBatching';
 
-import type {PluginModule} from './PluginModuleType';
-import type {ReactSyntheticEvent} from './ReactSyntheticEventType';
-import type {Fiber} from 'react-reconciler/src/ReactFiber';
-import type {AnyNativeEvent} from './PluginModuleType';
-import type {TopLevelType} from './TopLevelEventTypes';
-import type {EventSystemFlags} from 'legacy-events/EventSystemFlags';
+import {PluginModule} from './PluginModuleType';
+import {ReactSyntheticEvent} from './ReactSyntheticEventType';
+import {Fiber} from 'react-reconciler/src/ReactFiber';
+import {AnyNativeEvent} from './PluginModuleType';
+import {TopLevelType} from './TopLevelEventTypes';
+import {EventSystemFlags} from 'legacy-events/EventSystemFlags';
 
 function isInteractive(tag) {
   return (

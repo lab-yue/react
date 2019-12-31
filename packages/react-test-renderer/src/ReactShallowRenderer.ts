@@ -17,12 +17,12 @@ import checkPropTypes from 'prop-types/checkPropTypes';
 import ReactSharedInternals from 'shared/ReactSharedInternals';
 import is from 'shared/objectIs';
 
-import type {Dispatcher as DispatcherType} from 'react-reconciler/src/ReactFiberHooks';
-import type {
+import {Dispatcher as DispatcherType} from 'react-reconciler/src/ReactFiberHooks';
+import {
   ReactContext,
   ReactEventResponderListener,
 } from 'shared/ReactTypes';
-import type {ReactElement} from 'shared/ReactElementType';
+import {ReactElement} from 'shared/ReactElementType';
 
 type BasicStateAction<S> = (S => S) | S;
 type Dispatch<A> = A => void;

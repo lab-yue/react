@@ -7,14 +7,14 @@
  *
  */
 
-import type {
+import {
   TopLevelType,
   DOMTopLevelEventType,
 } from 'legacy-events/TopLevelEventTypes';
-import type {ReactSyntheticEvent} from 'legacy-events/ReactSyntheticEventType';
-import type {Fiber} from 'react-reconciler/src/ReactFiber';
-import type {PluginModule} from 'legacy-events/PluginModuleType';
-import type {EventSystemFlags} from 'legacy-events/EventSystemFlags';
+import {ReactSyntheticEvent} from 'legacy-events/ReactSyntheticEventType';
+import {Fiber} from 'react-reconciler/src/ReactFiber';
+import {PluginModule} from 'legacy-events/PluginModuleType';
+import {EventSystemFlags} from 'legacy-events/EventSystemFlags';
 
 import {accumulateTwoPhaseDispatches} from 'legacy-events/EventPropagators';
 import SyntheticEvent from 'legacy-events/SyntheticEvent';

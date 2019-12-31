@@ -7,15 +7,15 @@
  *
  */
 
-import type {ReactContext} from 'shared/ReactTypes';
-import type {Source} from 'shared/ReactElementType';
-import type {Fiber} from 'react-reconciler/src/ReactFiber';
-import type {
+import {ReactContext} from 'shared/ReactTypes';
+import {Source} from 'shared/ReactElementType';
+import {Fiber} from 'react-reconciler/src/ReactFiber';
+import {
   ComponentFilter,
   ElementType,
 } from 'react-devtools-shared/src/types';
-import type {Interaction} from 'react-devtools-shared/src/devtools/views/Profiler/types';
-import type {ResolveNativeStyle} from 'react-devtools-shared/src/backend/NativeStyleEditor/setupNativeStyleEditor';
+import {Interaction} from 'react-devtools-shared/src/devtools/views/Profiler/types';
+import {ResolveNativeStyle} from 'react-devtools-shared/src/backend/NativeStyleEditor/setupNativeStyleEditor';
 
 type BundleType =
   | 0 // PROD

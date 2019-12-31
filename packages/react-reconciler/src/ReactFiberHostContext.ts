@@ -7,9 +7,9 @@
  *
  */
 
-import type {Fiber} from './ReactFiber';
-import type {StackCursor} from './ReactFiberStack';
-import type {Container, HostContext} from './ReactFiberHostConfig';
+import {Fiber} from './ReactFiber';
+import {StackCursor} from './ReactFiberStack';
+import {Container, HostContext} from './ReactFiberHostConfig';
 
 import invariant from 'shared/invariant';
 

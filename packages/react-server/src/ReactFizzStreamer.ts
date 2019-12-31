@@ -7,8 +7,8 @@
  *
  */
 
-import type {Destination} from './ReactServerHostConfig';
-import type {ReactNodeList} from 'shared/ReactTypes';
+import {Destination} from './ReactServerHostConfig';
+import {ReactNodeList} from 'shared/ReactTypes';
 
 import {
   scheduleWork,

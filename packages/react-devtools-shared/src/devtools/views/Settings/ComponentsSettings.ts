@@ -38,7 +38,7 @@ import {
 
 import styles from './SettingsShared.css';
 
-import type {
+import {
   BooleanComponentFilter,
   ComponentFilter,
   ComponentFilterType,

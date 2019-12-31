@@ -7,9 +7,9 @@
  *
  */
 
-import type {DOMContainer} from './ReactDOM';
-import type {RootType} from './ReactDOMRoot';
-import type {ReactNodeList} from 'shared/ReactTypes';
+import {DOMContainer} from './ReactDOM';
+import {RootType} from './ReactDOMRoot';
+import {ReactNodeList} from 'shared/ReactTypes';
 
 import {
   getInstanceFromNode,

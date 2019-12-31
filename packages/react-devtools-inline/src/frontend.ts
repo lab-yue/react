@@ -13,8 +13,8 @@ import {
   MESSAGE_TYPE_SAVED_PREFERENCES,
 } from './constants';
 
-import type {FrontendBridge} from 'react-devtools-shared/src/bridge';
-import type {Props} from 'react-devtools-shared/src/devtools/views/DevTools';
+import {FrontendBridge} from 'react-devtools-shared/src/bridge';
+import {Props} from 'react-devtools-shared/src/devtools/views/DevTools';
 
 export function initialize(
   contentWindow: window,

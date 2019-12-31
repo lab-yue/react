@@ -7,8 +7,8 @@
  *
  */
 
-import type {ReactFabricType, HostComponent} from './ReactNativeTypes';
-import type {ReactNodeList} from 'shared/ReactTypes';
+import {ReactFabricType, HostComponent} from './ReactNativeTypes';
+import {ReactNodeList} from 'shared/ReactTypes';
 
 import './ReactFabricInjection';
 

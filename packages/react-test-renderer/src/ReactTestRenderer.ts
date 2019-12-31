@@ -7,9 +7,9 @@
  *
  */
 
-import type {Fiber} from 'react-reconciler/src/ReactFiber';
-import type {FiberRoot} from 'react-reconciler/src/ReactFiberRoot';
-import type {Instance, TextInstance} from './ReactTestHostConfig';
+import {Fiber} from 'react-reconciler/src/ReactFiber';
+import {FiberRoot} from 'react-reconciler/src/ReactFiberRoot';
+import {Instance, TextInstance} from './ReactTestHostConfig';
 
 import * as Scheduler from 'scheduler/unstable_mock';
 import {

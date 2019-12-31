@@ -7,11 +7,11 @@
  *
  */
 
-import type {
+import {
   ReactDOMResponderEvent,
   ReactDOMResponderContext,
 } from 'shared/ReactDOMTypes';
-import type {
+import {
   EventPriority,
   ReactEventResponderListener,
 } from 'shared/ReactTypes';

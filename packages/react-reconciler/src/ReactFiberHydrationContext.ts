@@ -7,8 +7,8 @@
  *
  */
 
-import type {Fiber} from './ReactFiber';
-import type {
+import {Fiber} from './ReactFiber';
+import {
   Instance,
   TextInstance,
   HydratableInstance,
@@ -16,7 +16,7 @@ import type {
   Container,
   HostContext,
 } from './ReactFiberHostConfig';
-import type {SuspenseState} from './ReactFiberSuspenseComponent';
+import {SuspenseState} from './ReactFiberSuspenseComponent';
 
 import {
   HostComponent,
