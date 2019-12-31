@@ -147,10 +147,10 @@ function coerceRef(
     }
 
     if (element._owner) {
-      const owner: ?Fiber = (element._owner: any);
+      const owner: ?Fiber = (element._owner as any);
       let inst;
       if (owner) {
-        const ownerFiber = ((owner: any): Fiber);
+        const ownerFiber = ((owner as any): Fiber);
         invariant(
           ownerFiber.tag === ClassComponent,
           'Function components cannot have refs. ' +
@@ -961,7 +961,7 @@ function ChildReconciler(shouldTrackSideEffects) {
       }
 
       // Warn about using Maps as children
-      if ((newChildrenIterable: any).entries === iteratorFn) {
+      if ((newChildrenIterable as any).entries === iteratorFn) {
         if (!didWarnAboutMaps) {
           console.error(
             'Using Maps as children is unsupported and will likely yield ' +

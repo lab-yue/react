@@ -20,7 +20,7 @@ export function logCapturedError(capturedError: CapturedError): void {
     return;
   }
 
-  const error = (capturedError.error: any);
+  const error = (capturedError.error as any);
   if (__DEV__) {
     const {
       componentName,

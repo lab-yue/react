@@ -183,7 +183,7 @@ export const registrationNameDependencies = {};
  * only in __DEV__.
  * @type {Object}
  */
-export const possibleRegistrationNames = __DEV__ ? {} : (null: any);
+export const possibleRegistrationNames = __DEV__ ? {} : (null as any);
 // Trust the developer to only use possibleRegistrationNames in __DEV__
 
 /**

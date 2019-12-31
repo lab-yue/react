@@ -41,6 +41,6 @@ export default function UnserializableProps() {
   );
 }
 
-function ChildComponent(props: any) {
+function ChildComponent(props as any) {
   return null;
 }

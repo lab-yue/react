@@ -54,7 +54,7 @@ class OverlayRect {
     }
   }
 
-  update(box: Rect, dims: any) {
+  update(box: Rect, dims as any) {
     boxWrap(dims, 'margin', this.node);
     boxWrap(dims, 'border', this.border);
     boxWrap(dims, 'padding', this.padding);
@@ -278,14 +278,14 @@ function getFiber(node) {
     lastFoundInternalKey !== null &&
     node.hasOwnProperty(lastFoundInternalKey)
   ) {
-    return (node: any)[lastFoundInternalKey];
+    return (node as any)[lastFoundInternalKey];
   }
   let internalKey = Object.keys(node).find(
     key => key.indexOf('__reactInternalInstance') === 0,
   );
   if (internalKey) {
     lastFoundInternalKey = internalKey;
-    return (node: any)[lastFoundInternalKey];
+    return (node as any)[lastFoundInternalKey];
   }
   return null;
 }

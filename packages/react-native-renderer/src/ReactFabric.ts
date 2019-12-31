@@ -84,14 +84,14 @@ function findHostInstance_DEPRECATED(
   if (hostInstance == null) {
     return hostInstance;
   }
-  if ((hostInstance: any).canonical) {
+  if ((hostInstance as any).canonical) {
     // Fabric
-    return (hostInstance: any).canonical;
+    return (hostInstance as any).canonical;
   }
   return hostInstance;
 }
 
-function findNodeHandle(componentOrHandle: any): ?number {
+function findNodeHandle(componentOrHandle as any): ?number {
   if (__DEV__) {
     const owner = ReactCurrentOwner.current;
     if (owner !== null && owner.stateNode !== null) {
@@ -137,9 +137,9 @@ function findNodeHandle(componentOrHandle: any): ?number {
   }
   // TODO: the code is right but the types here are wrong.
   // https://github.com/facebook/react/pull/12863
-  if ((hostInstance: any).canonical) {
+  if ((hostInstance as any).canonical) {
     // Fabric
-    return (hostInstance: any).canonical._nativeTag;
+    return (hostInstance as any).canonical._nativeTag;
   }
   return hostInstance._nativeTag;
 }

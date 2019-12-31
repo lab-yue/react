@@ -378,7 +378,7 @@ export default class Store extends EventEmitter<{|
     let rootWeight = 0;
     for (let i = 0; i < this._roots.length; i++) {
       rootID = this._roots[i];
-      root = ((this._idToElement.get(rootID): any): Element);
+      root = ((this._idToElement.get(rootID) as any): Element);
       if (root.children.length === 0) {
         continue;
       } else if (rootWeight + root.weight > index) {
@@ -390,13 +390,13 @@ export default class Store extends EventEmitter<{|
 
     // Find the element in the tree using the weight of each node...
     // Skip over the root itself, because roots aren't visible in the Elements tree.
-    let currentElement = ((root: any): Element);
+    let currentElement = ((root as any): Element);
     let currentWeight = rootWeight - 1;
     while (index !== currentWeight) {
       const numChildren = currentElement.children.length;
       for (let i = 0; i < numChildren; i++) {
         const childID = currentElement.children[i];
-        const child = ((this._idToElement.get(childID): any): Element);
+        const child = ((this._idToElement.get(childID) as any): Element);
         const childWeight = child.isCollapsed ? 1 : child.weight;
 
         if (index <= currentWeight + childWeight) {
@@ -409,7 +409,7 @@ export default class Store extends EventEmitter<{|
       }
     }
 
-    return ((currentElement: any): Element) || null;
+    return ((currentElement as any): Element) || null;
   }
 
   getElementIDAtIndex(index: number): number | null {
@@ -442,7 +442,7 @@ export default class Store extends EventEmitter<{|
     let currentID = element.parentID;
     let index = 0;
     while (true) {
-      const current = ((this._idToElement.get(currentID): any): Element);
+      const current = ((this._idToElement.get(currentID) as any): Element);
 
       const {children} = current;
       for (let i = 0; i < children.length; i++) {
@@ -450,7 +450,7 @@ export default class Store extends EventEmitter<{|
         if (childID === previousID) {
           break;
         }
-        const child = ((this._idToElement.get(childID): any): Element);
+        const child = ((this._idToElement.get(childID) as any): Element);
         index += child.isCollapsed ? 1 : child.weight;
       }
 
@@ -472,7 +472,7 @@ export default class Store extends EventEmitter<{|
       if (rootID === currentID) {
         break;
       }
-      const root = ((this._idToElement.get(rootID): any): Element);
+      const root = ((this._idToElement.get(rootID) as any): Element);
       index += root.weight;
     }
 
@@ -500,8 +500,8 @@ export default class Store extends EventEmitter<{|
         // Seems better to defer the cost, since the set of ids is probably pretty small.
         const sortedIDs = Array.from(unsortedIDs).sort(
           (idA, idB) =>
-            ((this.getIndexOfElementID(idA): any): number) -
-            ((this.getIndexOfElementID(idB): any): number),
+            ((this.getIndexOfElementID(idA) as any): number) -
+            ((this.getIndexOfElementID(idB) as any): number),
         );
 
         // Next we need to determine the appropriate depth for each element in the list.
@@ -601,7 +601,7 @@ export default class Store extends EventEmitter<{|
 
           let parentElement = ((this._idToElement.get(
             element.parentID,
-          ): any): Element);
+          ) as any): Element);
           while (parentElement != null) {
             // We don't need to break on a collapsed parent in the same way as the expand case below.
             // That's because collapsing a node doesn't "bubble" and affect its parents.
@@ -627,7 +627,7 @@ export default class Store extends EventEmitter<{|
 
             let parentElement = ((this._idToElement.get(
               currentElement.parentID,
-            ): any): Element);
+            ) as any): Element);
             while (parentElement != null) {
               parentElement.weight += weightDelta;
               if (parentElement.isCollapsed) {
@@ -651,7 +651,7 @@ export default class Store extends EventEmitter<{|
       if (didMutate) {
         let weightAcrossRoots = 0;
         this._roots.forEach(rootID => {
-          const {weight} = ((this.getElementByID(rootID): any): Element);
+          const {weight} = ((this.getElementByID(rootID) as any): Element);
           weightAcrossRoots += weight;
         });
         this._weightAcrossRoots = weightAcrossRoots;
@@ -682,7 +682,7 @@ export default class Store extends EventEmitter<{|
 
       parentElement = ((this._idToElement.get(
         parentElement.parentID,
-      ): any): Element);
+      ) as any): Element);
     }
 
     // Additions and deletions within a collapsed subtree should not affect the overall number of elements.
@@ -731,7 +731,7 @@ export default class Store extends EventEmitter<{|
     while (i < stringTableEnd) {
       const nextLength = operations[i++];
       const nextString = utfDecodeString(
-        (operations.slice(i, i + nextLength): any),
+        (operations.slice(i, i + nextLength) as any),
       );
       stringTable.push(nextString);
       i += nextLength;
@@ -741,8 +741,8 @@ export default class Store extends EventEmitter<{|
       const operation = operations[i];
       switch (operation) {
         case TREE_OPERATION_ADD: {
-          const id = ((operations[i + 1]: any): number);
-          const type = ((operations[i + 2]: any): ElementType);
+          const id = ((operations[i + 1] as any): number);
+          const type = ((operations[i + 2] as any): ElementType);
 
           i += 3;
 
@@ -753,7 +753,7 @@ export default class Store extends EventEmitter<{|
           }
 
           let ownerID: number = 0;
-          let parentID: number = ((null: any): number);
+          let parentID: number = ((null as any): number);
           if (type === ElementTypeRoot) {
             if (__DEBUG__) {
               debug('Add', `new root node ${id}`);
@@ -788,10 +788,10 @@ export default class Store extends EventEmitter<{|
 
             haveRootsChanged = true;
           } else {
-            parentID = ((operations[i]: any): number);
+            parentID = ((operations[i] as any): number);
             i++;
 
-            ownerID = ((operations[i]: any): number);
+            ownerID = ((operations[i] as any): number);
             i++;
 
             const displayNameStringID = operations[i];
@@ -817,7 +817,7 @@ export default class Store extends EventEmitter<{|
 
             const parentElement = ((this._idToElement.get(
               parentID,
-            ): any): Element);
+            ) as any): Element);
             parentElement.children.push(id);
 
             const [
@@ -855,11 +855,11 @@ export default class Store extends EventEmitter<{|
           break;
         }
         case TREE_OPERATION_REMOVE: {
-          const removeLength = ((operations[i + 1]: any): number);
+          const removeLength = ((operations[i + 1] as any): number);
           i += 2;
 
           for (let removeIndex = 0; removeIndex < removeLength; removeIndex++) {
-            const id = ((operations[i]: any): number);
+            const id = ((operations[i] as any): number);
 
             if (!this._idToElement.has(id)) {
               throw Error(
@@ -869,7 +869,7 @@ export default class Store extends EventEmitter<{|
 
             i += 1;
 
-            const element = ((this._idToElement.get(id): any): Element);
+            const element = ((this._idToElement.get(id) as any): Element);
             const {children, ownerID, parentID, weight} = element;
             if (children.length > 0) {
               throw new Error(`Node ${id} was removed before its children.`);
@@ -892,7 +892,7 @@ export default class Store extends EventEmitter<{|
               if (__DEBUG__) {
                 debug('Remove', `node ${id} from parent ${parentID}`);
               }
-              parentElement = ((this._idToElement.get(parentID): any): Element);
+              parentElement = ((this._idToElement.get(parentID) as any): Element);
               if (parentElement === undefined) {
                 throw Error(
                   `Cannot remove node ${id} from parent ${parentID} because no matching node was found in the Store.`,
@@ -916,8 +916,8 @@ export default class Store extends EventEmitter<{|
           break;
         }
         case TREE_OPERATION_REORDER_CHILDREN: {
-          const id = ((operations[i + 1]: any): number);
-          const numChildren = ((operations[i + 2]: any): number);
+          const id = ((operations[i + 1] as any): number);
+          const numChildren = ((operations[i + 2] as any): number);
           i += 3;
 
           if (!this._idToElement.has(id)) {
@@ -926,7 +926,7 @@ export default class Store extends EventEmitter<{|
             );
           }
 
-          const element = ((this._idToElement.get(id): any): Element);
+          const element = ((this._idToElement.get(id) as any): Element);
           const children = element.children;
           if (children.length !== numChildren) {
             throw Error(

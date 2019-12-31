@@ -75,7 +75,7 @@ export type Context = {|
   selectInteraction: (id: number | null) => void,
 |};
 
-const ProfilerContext = createContext<Context>(((null: any): Context));
+const ProfilerContext = createContext<Context>(((null as any): Context));
 ProfilerContext.displayName = 'ProfilerContext';
 
 type StoreProfilingState = {|

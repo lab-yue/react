@@ -51,8 +51,8 @@ describe('TreeListContext', () => {
 
   afterEach(() => {
     // Reset between tests
-    dispatch = ((null: any): DispatcherContext);
-    state = ((null: any): StateContext);
+    dispatch = ((null as any): DispatcherContext);
+    state = ((null as any): StateContext);
   });
 
   const Capture = () => {
@@ -102,7 +102,7 @@ describe('TreeListContext', () => {
         state.selectedElementIndex !== null &&
         state.selectedElementIndex < store.numElements - 1
       ) {
-        const index = ((state.selectedElementIndex: any): number);
+        const index = ((state.selectedElementIndex as any): number);
         utils.act(() => dispatch({type: 'SELECT_NEXT_ELEMENT_IN_TREE'}));
         utils.act(() => renderer.update(<Contexts />));
         expect(state).toMatchSnapshot(`3: select element after (${index})`);
@@ -112,7 +112,7 @@ describe('TreeListContext', () => {
         state.selectedElementIndex !== null &&
         state.selectedElementIndex > 0
       ) {
-        const index = ((state.selectedElementIndex: any): number);
+        const index = ((state.selectedElementIndex as any): number);
         utils.act(() => dispatch({type: 'SELECT_PREVIOUS_ELEMENT_IN_TREE'}));
         utils.act(() => renderer.update(<Contexts />));
         expect(state).toMatchSnapshot(`4: select element before (${index})`);
@@ -482,7 +482,7 @@ describe('TreeListContext', () => {
       utils.act(() => (renderer = TestRenderer.create(<Contexts />)));
       expect(state).toMatchSnapshot('1: initial state');
 
-      let parentID = ((store.getElementIDAtIndex(1): any): number);
+      let parentID = ((store.getElementIDAtIndex(1) as any): number);
       utils.act(() => dispatch({type: 'SELECT_OWNER', payload: parentID}));
       utils.act(() => renderer.update(<Contexts />));
       expect(state).toMatchSnapshot('2: parent owners tree');
@@ -507,7 +507,7 @@ describe('TreeListContext', () => {
       utils.act(() => (renderer = TestRenderer.create(<Contexts />)));
       expect(state).toMatchSnapshot('1: initial state');
 
-      let parentID = ((store.getElementIDAtIndex(1): any): number);
+      let parentID = ((store.getElementIDAtIndex(1) as any): number);
       utils.act(() => dispatch({type: 'SELECT_OWNER', payload: parentID}));
       utils.act(() => renderer.update(<Contexts />));
       expect(state).toMatchSnapshot('2: parent owners tree');
@@ -545,7 +545,7 @@ describe('TreeListContext', () => {
       utils.act(() => (renderer = TestRenderer.create(<Contexts />)));
       expect(state).toMatchSnapshot('1: initial state');
 
-      let childID = ((store.getElementIDAtIndex(1): any): number);
+      let childID = ((store.getElementIDAtIndex(1) as any): number);
       utils.act(() => dispatch({type: 'SELECT_OWNER', payload: childID}));
       utils.act(() => renderer.update(<Contexts />));
       expect(state).toMatchSnapshot('2: child owners tree');
@@ -553,7 +553,7 @@ describe('TreeListContext', () => {
       await utils.actAsync(() => ReactDOM.render(<Parent />, container));
       expect(state).toMatchSnapshot('3: remove child');
 
-      let parentID = ((store.getElementIDAtIndex(0): any): number);
+      let parentID = ((store.getElementIDAtIndex(0) as any): number);
       utils.act(() => dispatch({type: 'SELECT_OWNER', payload: parentID}));
       utils.act(() => renderer.update(<Contexts />));
       expect(state).toMatchSnapshot('4: parent owners tree');
@@ -587,9 +587,9 @@ describe('TreeListContext', () => {
       utils.act(() => (renderer = TestRenderer.create(<Contexts />)));
       expect(state).toMatchSnapshot('1: initial state');
 
-      const outerSuspenseID = ((store.getElementIDAtIndex(1): any): number);
-      const childID = ((store.getElementIDAtIndex(2): any): number);
-      const innerSuspenseID = ((store.getElementIDAtIndex(3): any): number);
+      const outerSuspenseID = ((store.getElementIDAtIndex(1) as any): number);
+      const childID = ((store.getElementIDAtIndex(2) as any): number);
+      const innerSuspenseID = ((store.getElementIDAtIndex(3) as any): number);
 
       utils.act(() => dispatch({type: 'SELECT_OWNER', payload: childID}));
       utils.act(() => renderer.update(<Contexts />));

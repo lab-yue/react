@@ -71,9 +71,9 @@ function recursivelyUncacheFiberNode(node: Instance | TextInstance) {
     // Leaf node (eg text)
     uncacheFiberNode(node);
   } else {
-    uncacheFiberNode((node: any)._nativeTag);
+    uncacheFiberNode((node as any)._nativeTag);
 
-    (node: any)._children.forEach(recursivelyUncacheFiberNode);
+    (node as any)._children.forEach(recursivelyUncacheFiberNode);
   }
 }
 
@@ -121,7 +121,7 @@ export function createInstance(
 
   // Not sure how to avoid this cast. Flow is okay if the component is defined
   // in the same file but if it's external it can't see the types.
-  return ((component: any): Instance);
+  return ((component as any): Instance);
 }
 
 export function createTextInstance(
@@ -351,7 +351,7 @@ export function insertBefore(
   child: Instance | TextInstance,
   beforeChild: Instance | TextInstance,
 ): void {
-  const children = (parentInstance: any)._children;
+  const children = (parentInstance as any)._children;
   const index = children.indexOf(child);
 
   // Move existing child or add new child?
@@ -361,7 +361,7 @@ export function insertBefore(
     children.splice(beforeChildIndex, 0, child);
 
     UIManager.manageChildren(
-      (parentInstance: any)._nativeTag, // containerID
+      (parentInstance as any)._nativeTag, // containerID
       [index], // moveFromIndices
       [beforeChildIndex], // moveToIndices
       [], // addChildReactTags
@@ -375,7 +375,7 @@ export function insertBefore(
     const childTag = typeof child === 'number' ? child : child._nativeTag;
 
     UIManager.manageChildren(
-      (parentInstance: any)._nativeTag, // containerID
+      (parentInstance as any)._nativeTag, // containerID
       [], // moveFromIndices
       [], // moveToIndices
       [childTag], // addChildReactTags

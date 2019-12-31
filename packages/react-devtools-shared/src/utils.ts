@@ -121,7 +121,7 @@ export function printOperationsArray(operations: Array<number>) {
   while (i < stringTableEnd) {
     const nextLength = operations[i++];
     const nextString = utfDecodeString(
-      (operations.slice(i, i + nextLength): any),
+      (operations.slice(i, i + nextLength) as any),
     );
     stringTable.push(nextString);
     i += nextLength;
@@ -132,8 +132,8 @@ export function printOperationsArray(operations: Array<number>) {
 
     switch (operation) {
       case TREE_OPERATION_ADD: {
-        const id = ((operations[i + 1]: any): number);
-        const type = ((operations[i + 2]: any): ElementType);
+        const id = ((operations[i + 1] as any): number);
+        const type = ((operations[i + 2] as any): ElementType);
 
         i += 3;
 
@@ -143,7 +143,7 @@ export function printOperationsArray(operations: Array<number>) {
           i++; // supportsProfiling
           i++; // hasOwnerMetadata
         } else {
-          const parentID = ((operations[i]: any): number);
+          const parentID = ((operations[i] as any): number);
           i++;
 
           i++; // ownerID
@@ -161,11 +161,11 @@ export function printOperationsArray(operations: Array<number>) {
         break;
       }
       case TREE_OPERATION_REMOVE: {
-        const removeLength = ((operations[i + 1]: any): number);
+        const removeLength = ((operations[i + 1] as any): number);
         i += 2;
 
         for (let removeIndex = 0; removeIndex < removeLength; removeIndex++) {
-          const id = ((operations[i]: any): number);
+          const id = ((operations[i] as any): number);
           i += 1;
 
           logs.push(`Remove node ${id}`);
@@ -173,8 +173,8 @@ export function printOperationsArray(operations: Array<number>) {
         break;
       }
       case TREE_OPERATION_REORDER_CHILDREN: {
-        const id = ((operations[i + 1]: any): number);
-        const numChildren = ((operations[i + 2]: any): number);
+        const id = ((operations[i + 1] as any): number);
+        const numChildren = ((operations[i + 2] as any): number);
         i += 3;
         const children = operations.slice(i, i + numChildren);
         i += numChildren;
@@ -289,7 +289,7 @@ export function shallowDiffers(prev: Object, next: Object): boolean {
 }
 
 export function getInObject(object: Object, path: Array<string | number>): any {
-  return path.reduce((reduced: Object, attr: any): any => {
+  return path.reduce((reduced: Object, attr as any): any => {
     if (reduced) {
       if (hasOwnProperty.call(reduced, attr)) {
         return reduced[attr];

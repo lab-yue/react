@@ -224,7 +224,7 @@ if (supportsMutation) {
       currentHostContext,
     );
     // TODO: Type this specific to this type of component.
-    workInProgress.updateQueue = (updatePayload: any);
+    workInProgress.updateQueue = (updatePayload as any);
     // If the update payload indicates that there is a change or if there
     // is a new ref we mark this as an update. All the work is done in commitWork.
     if (updatePayload) {
@@ -884,7 +884,7 @@ function completeWork(
           // Delete the fallback.
           // TODO: Would it be better to store the fallback fragment on
           // the stateNode during the begin phase?
-          const currentFallbackChild: Fiber | null = (current.child: any)
+          const currentFallbackChild: Fiber | null = (current.child as any)
             .sibling;
           if (currentFallbackChild !== null) {
             // Deletions go at the beginning of the return fiber's effect list
@@ -1216,7 +1216,7 @@ function completeWork(
           );
           const instance = ((getFundamentalComponentInstance(
             fundamentalInstance,
-          ): any): Instance);
+          ) as any): Instance);
           fundamentalInstance.instance = instance;
           if (fundamentalImpl.reconcileChildren === false) {
             return null;

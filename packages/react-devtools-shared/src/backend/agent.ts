@@ -213,8 +213,8 @@ export default class Agent extends EventEmitter<{|
   getIDForNode(node: Object): number | null {
     for (let rendererID in this._rendererInterfaces) {
       const renderer = ((this._rendererInterfaces[
-        (rendererID: any)
-      ]: any): RendererInterface);
+        (rendererID as any)
+      ] as any): RendererInterface);
 
       try {
         const id = renderer.getFiberIDForNative(node, true);
@@ -391,8 +391,8 @@ export default class Agent extends EventEmitter<{|
 
     for (let rendererID in this._rendererInterfaces) {
       const renderer = ((this._rendererInterfaces[
-        (rendererID: any)
-      ]: any): RendererInterface);
+        (rendererID as any)
+      ] as any): RendererInterface);
       renderer.setTraceUpdatesEnabled(traceUpdatesEnabled);
     }
   };
@@ -415,8 +415,8 @@ export default class Agent extends EventEmitter<{|
     this._isProfiling = true;
     for (let rendererID in this._rendererInterfaces) {
       const renderer = ((this._rendererInterfaces[
-        (rendererID: any)
-      ]: any): RendererInterface);
+        (rendererID as any)
+      ] as any): RendererInterface);
       renderer.startProfiling(recordChangeDescriptions);
     }
     this._bridge.send('profilingStatus', this._isProfiling);
@@ -427,8 +427,8 @@ export default class Agent extends EventEmitter<{|
     this._recordChangeDescriptions = false;
     for (let rendererID in this._rendererInterfaces) {
       const renderer = ((this._rendererInterfaces[
-        (rendererID: any)
-      ]: any): RendererInterface);
+        (rendererID as any)
+      ] as any): RendererInterface);
       renderer.stopProfiling();
     }
     this._bridge.send('profilingStatus', this._isProfiling);
@@ -458,8 +458,8 @@ export default class Agent extends EventEmitter<{|
   updateComponentFilters = (componentFilters: Array<ComponentFilter>) => {
     for (let rendererID in this._rendererInterfaces) {
       const renderer = ((this._rendererInterfaces[
-        (rendererID: any)
-      ]: any): RendererInterface);
+        (rendererID as any)
+      ] as any): RendererInterface);
       renderer.updateComponentFilters(componentFilters);
     }
   };

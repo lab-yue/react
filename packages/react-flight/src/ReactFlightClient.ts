@@ -56,7 +56,7 @@ type OpaqueResponse = OpaqueResponseWithoutDecoder & {
 };
 
 export function createResponse(source: Source): OpaqueResponse {
-  let modelRoot: ReactModelRoot<any> = ({}: any);
+  let modelRoot: ReactModelRoot<any> = ({} as any);
   let rootChunk: Chunk = createPendingChunk();
   definePendingProperty(modelRoot, 'model', rootChunk);
   let chunks: Map<number, Chunk> = new Map();
@@ -70,7 +70,7 @@ export function createResponse(source: Source): OpaqueResponse {
     fromJSON: function(key, value) {
       return parseFromJSON(response, this, key, value);
     },
-  }: OpaqueResponseWithoutDecoder): any);
+  }: OpaqueResponseWithoutDecoder) as any);
   if (supportsBinaryStreams) {
     response.stringDecoder = createStringDecoder();
   }
@@ -78,7 +78,7 @@ export function createResponse(source: Source): OpaqueResponse {
 }
 
 function createPendingChunk(): PendingChunk {
-  let resolve: () => void = (null: any);
+  let resolve: () => void = (null as any);
   let promise = new Promise(r => (resolve = r));
   return {
     status: PENDING,
@@ -101,7 +101,7 @@ function triggerErrorOnChunk(chunk: Chunk, error: Error): void {
     return;
   }
   let resolve = chunk.resolve;
-  let erroredChunk: ErroredChunk = (chunk: any);
+  let erroredChunk: ErroredChunk = (chunk as any);
   erroredChunk.status = ERRORED;
   erroredChunk.value = error;
   erroredChunk.resolve = null;
@@ -122,7 +122,7 @@ function resolveChunk(chunk: Chunk, value: unknown): void {
     return;
   }
   let resolve = chunk.resolve;
-  let resolvedChunk: ResolvedChunk = (chunk: any);
+  let resolvedChunk: ResolvedChunk = (chunk as any);
   resolvedChunk.status = RESOLVED;
   resolvedChunk.value = value;
   resolvedChunk.resolve = null;

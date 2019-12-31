@@ -193,16 +193,16 @@ type EnzymeMatchersType = {
   toExist(): void,
   toHaveClassName(className: string): void,
   toHaveHTML(html: string): void,
-  toHaveProp: ((propKey: string, propValue?: any) => void) &
+  toHaveProp: ((propKey: string, propValue? as any) => void) &
     ((props: {}) => void),
   toHaveRef(refName: string): void,
-  toHaveState: ((stateKey: string, stateValue?: any) => void) &
+  toHaveState: ((stateKey: string, stateValue? as any) => void) &
     ((state: {}) => void),
-  toHaveStyle: ((styleKey: string, styleValue?: any) => void) &
+  toHaveStyle: ((styleKey: string, styleValue? as any) => void) &
     ((style: {}) => void),
   toHaveTagName(tagName: string): void,
   toHaveText(text: string): void,
-  toHaveValue(value: any): void,
+  toHaveValue(value as any): void,
   toIncludeText(text: string): void,
   toMatchElement(
     element: React$Element<any>,
@@ -240,11 +240,11 @@ type JestJQueryMatchersType = {
   toHaveId(id: string): void,
   toHaveClass(className: string): void,
   toHaveTag(tag: string): void,
-  toHaveAttr(key: string, val?: any): void,
-  toHaveProp(key: string, val?: any): void,
+  toHaveAttr(key: string, val? as any): void,
+  toHaveProp(key: string, val? as any): void,
   toHaveText(text: string | RegExp): void,
-  toHaveData(key: string, val?: any): void,
-  toHaveValue(val: any): void,
+  toHaveData(key: string, val? as any): void,
+  toHaveValue(val as any): void,
   toHaveCss(css: {[key: string]: any}): void,
   toBeChecked(): void,
   toBeDisabled(): void,
@@ -297,7 +297,7 @@ type JestExtendedMatchersType = {
    * Use `.toSatisfy` when you want to use a custom matcher by supplying a predicate function that returns a `Boolean`.
    * @param {Function} predicate
    */
-  toSatisfy(predicate: (n: any) => boolean): void,
+  toSatisfy(predicate: (n as any) => boolean): void,
 
   /**
    * Use `.toBeArray` when checking if a value is an `Array`.
@@ -326,7 +326,7 @@ type JestExtendedMatchersType = {
    * Use `.toSatisfyAll` when you want to use a custom matcher by supplying a predicate function that returns a `Boolean` for all values in an array.
    * @param {Function} predicate
    */
-  toSatisfyAll(predicate: (n: any) => boolean): void,
+  toSatisfyAll(predicate: (n as any) => boolean): void,
 
   /**
    * Use `.toBeBoolean` when checking if a value is a `Boolean`.
@@ -444,7 +444,7 @@ type JestExtendedMatchersType = {
    *
    * @param {*} value
    */
-  toContainValue(value: any): void,
+  toContainValue(value as any): void,
 
   /**
    * Use `.toContainValues` when checking if an object contains all of the provided values.
@@ -575,7 +575,7 @@ interface JestExpectType {
    * toBe just checks that a value is what you expect. It uses === to check
    * strict equality.
    */
-  toBe(value: any): void;
+  toBe(value as any): void;
   /**
    * Use .toBeCalledWith to ensure that a mock function was called with
    * specific arguments.
@@ -585,7 +585,7 @@ interface JestExpectType {
    * Using exact equality with floating point numbers is a bad idea. Rounding
    * means that intuitive things fail.
    */
-  toBeCloseTo(num: number, delta: any): void;
+  toBeCloseTo(num: number, delta as any): void;
   /**
    * Use .toBeDefined to check that a variable is not undefined.
    */
@@ -634,19 +634,19 @@ interface JestExpectType {
    * Use .toContain when you want to check that an item is in a list. For
    * testing the items in the list, this uses ===, a strict equality check.
    */
-  toContain(item: any): void;
+  toContain(item as any): void;
   /**
    * Use .toContainEqual when you want to check that an item is in a list. For
    * testing the items in the list, this matcher recursively checks the
    * equality of all fields, rather than checking for object identity.
    */
-  toContainEqual(item: any): void;
+  toContainEqual(item as any): void;
   /**
    * Use .toEqual when you want to check that two objects have the same value.
    * This matcher recursively checks the equality of all fields, rather than
    * checking for object identity.
    */
-  toEqual(value: any): void;
+  toEqual(value as any): void;
   /**
    * Use .toHaveBeenCalled to ensure that a mock function got called.
    */
@@ -676,18 +676,18 @@ interface JestExpectType {
   /**
    *
    */
-  toHaveReturnedWith(value: any): void;
-  toReturnWith(value: any): void;
+  toHaveReturnedWith(value as any): void;
+  toReturnWith(value as any): void;
   /**
    *
    */
-  toHaveLastReturnedWith(value: any): void;
-  lastReturnedWith(value: any): void;
+  toHaveLastReturnedWith(value as any): void;
+  lastReturnedWith(value as any): void;
   /**
    *
    */
-  toHaveNthReturnedWith(nthCall: number, value: any): void;
-  nthReturnedWith(nthCall: number, value: any): void;
+  toHaveNthReturnedWith(nthCall: number, value as any): void;
+  nthReturnedWith(nthCall: number, value as any): void;
   /**
    * Use .toHaveBeenCalledWith to ensure that a mock function was called with
    * specific arguments.
@@ -708,7 +708,7 @@ interface JestExpectType {
   /**
    *
    */
-  toHaveProperty(propPath: string, value?: any): void;
+  toHaveProperty(propPath: string, value? as any): void;
   /**
    * Use .toMatch to check that a string matches a regular expression or string.
    */
@@ -720,7 +720,7 @@ interface JestExpectType {
   /**
    * Use .toStrictEqual to check that a javascript object matches a subset of the properties of an object.
    */
-  toStrictEqual(value: any): void;
+  toStrictEqual(value as any): void;
   /**
    * This ensures that an Object matches the most recent snapshot.
    */
@@ -796,7 +796,7 @@ type JestObjectType = {
    * The same as `mock` but not moved to the top of the expectation by
    * babel-jest.
    */
-  doMock(moduleName: string, moduleFactory?: any): JestObjectType,
+  doMock(moduleName: string, moduleFactory? as any): JestObjectType,
   /**
    * The same as `unmock` but not moved to the top of the expectation by
    * babel-jest.
@@ -892,7 +892,7 @@ type JestObjectType = {
    * for the specified module. Note: It is recommended to use jest.mock()
    * instead.
    */
-  setMock(moduleName: string, moduleExports: any): JestObjectType,
+  setMock(moduleName: string, moduleExports as any): JestObjectType,
   /**
    * Indicates that the module system should never return a mocked version of
    * the specified module from require() (e.g. that it should always return the

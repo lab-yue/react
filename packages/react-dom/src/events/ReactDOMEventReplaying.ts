@@ -317,13 +317,13 @@ export function clearIfContinuousEvent(
       break;
     case TOP_POINTER_OVER:
     case TOP_POINTER_OUT: {
-      let pointerId = ((nativeEvent: any): PointerEvent).pointerId;
+      let pointerId = ((nativeEvent as any): PointerEvent).pointerId;
       queuedPointers.delete(pointerId);
       break;
     }
     case TOP_GOT_POINTER_CAPTURE:
     case TOP_LOST_POINTER_CAPTURE: {
-      let pointerId = ((nativeEvent: any): PointerEvent).pointerId;
+      let pointerId = ((nativeEvent as any): PointerEvent).pointerId;
       queuedPointerCaptures.delete(pointerId);
       break;
     }
@@ -375,7 +375,7 @@ export function queueIfContinuousEvent(
   // Instead of mutating we could clone the event.
   switch (topLevelType) {
     case TOP_FOCUS: {
-      const focusEvent = ((nativeEvent: any): FocusEvent);
+      const focusEvent = ((nativeEvent as any): FocusEvent);
       queuedFocus = accumulateOrCreateContinuousQueuedReplayableEvent(
         queuedFocus,
         blockedOn,
@@ -386,7 +386,7 @@ export function queueIfContinuousEvent(
       return true;
     }
     case TOP_DRAG_ENTER: {
-      const dragEvent = ((nativeEvent: any): DragEvent);
+      const dragEvent = ((nativeEvent as any): DragEvent);
       queuedDrag = accumulateOrCreateContinuousQueuedReplayableEvent(
         queuedDrag,
         blockedOn,
@@ -397,7 +397,7 @@ export function queueIfContinuousEvent(
       return true;
     }
     case TOP_MOUSE_OVER: {
-      const mouseEvent = ((nativeEvent: any): MouseEvent);
+      const mouseEvent = ((nativeEvent as any): MouseEvent);
       queuedMouse = accumulateOrCreateContinuousQueuedReplayableEvent(
         queuedMouse,
         blockedOn,
@@ -408,7 +408,7 @@ export function queueIfContinuousEvent(
       return true;
     }
     case TOP_POINTER_OVER: {
-      const pointerEvent = ((nativeEvent: any): PointerEvent);
+      const pointerEvent = ((nativeEvent as any): PointerEvent);
       const pointerId = pointerEvent.pointerId;
       queuedPointers.set(
         pointerId,
@@ -423,7 +423,7 @@ export function queueIfContinuousEvent(
       return true;
     }
     case TOP_GOT_POINTER_CAPTURE: {
-      const pointerEvent = ((nativeEvent: any): PointerEvent);
+      const pointerEvent = ((nativeEvent as any): PointerEvent);
       const pointerId = pointerEvent.pointerId;
       queuedPointerCaptures.set(
         pointerId,

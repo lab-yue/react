@@ -37,7 +37,7 @@ type Context = {|
   getStyleAndLayout: GetStyleAndLayout,
 |};
 
-const NativeStyleContext = createContext<Context>(((null: any): Context));
+const NativeStyleContext = createContext<Context>(((null as any): Context));
 NativeStyleContext.displayName = 'NativeStyleContext';
 
 type ResolveFn = (styleAndLayout: StyleAndLayoutFrontend) => void;
@@ -58,7 +58,7 @@ const resource: Resource<
       return request.promise;
     }
 
-    let resolveFn = ((null: any): ResolveFn);
+    let resolveFn = ((null as any): ResolveFn);
     const promise = new Promise(resolve => {
       resolveFn = resolve;
     });

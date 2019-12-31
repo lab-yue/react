@@ -90,7 +90,7 @@ describe('InspectedElementContext', () => {
       ReactDOM.render(<Example a={1} b="abc" />, container),
     );
 
-    const id = ((store.getElementIDAtIndex(0): any): number);
+    const id = ((store.getElementIDAtIndex(0) as any): number);
 
     let didFinish = false;
 
@@ -180,22 +180,22 @@ describe('InspectedElementContext', () => {
     const ids = [
       {
         // <LegacyContextConsumer />
-        id: ((store.getElementIDAtIndex(1): any): number),
+        id: ((store.getElementIDAtIndex(1) as any): number),
         shouldHaveLegacyContext: true,
       },
       {
         // <BoolContext.Consumer>
-        id: ((store.getElementIDAtIndex(2): any): number),
+        id: ((store.getElementIDAtIndex(2) as any): number),
         shouldHaveLegacyContext: false,
       },
       {
         // <ModernContextType />
-        id: ((store.getElementIDAtIndex(3): any): number),
+        id: ((store.getElementIDAtIndex(3) as any): number),
         shouldHaveLegacyContext: false,
       },
       {
         // <ModernContext.Consumer>
-        id: ((store.getElementIDAtIndex(5): any): number),
+        id: ((store.getElementIDAtIndex(5) as any): number),
         shouldHaveLegacyContext: false,
       },
     ];
@@ -242,7 +242,7 @@ describe('InspectedElementContext', () => {
       false,
     );
 
-    const id = ((store.getElementIDAtIndex(0): any): number);
+    const id = ((store.getElementIDAtIndex(0) as any): number);
 
     let inspectedElement = null;
 
@@ -309,7 +309,7 @@ describe('InspectedElementContext', () => {
       ),
     );
 
-    const id = ((store.getElementIDAtIndex(1): any): number);
+    const id = ((store.getElementIDAtIndex(1) as any): number);
 
     let inspectedElement = null;
 
@@ -381,10 +381,10 @@ describe('InspectedElementContext', () => {
   it('should temporarily disable console logging when re-running a component to inspect its hooks', async done => {
     let targetRenderCount = 0;
 
-    const errorSpy = ((console: any).error = jest.fn());
-    const infoSpy = ((console: any).info = jest.fn());
-    const logSpy = ((console: any).log = jest.fn());
-    const warnSpy = ((console: any).warn = jest.fn());
+    const errorSpy = ((console as any).error = jest.fn());
+    const infoSpy = ((console as any).info = jest.fn());
+    const logSpy = ((console as any).log = jest.fn());
+    const warnSpy = ((console as any).warn = jest.fn());
 
     const Target = React.memo(props => {
       targetRenderCount++;
@@ -411,7 +411,7 @@ describe('InspectedElementContext', () => {
     expect(warnSpy).toHaveBeenCalledTimes(1);
     expect(warnSpy).toHaveBeenCalledWith('warn');
 
-    const id = ((store.getElementIDAtIndex(0): any): number);
+    const id = ((store.getElementIDAtIndex(0) as any): number);
 
     let inspectedElement = null;
 
@@ -468,7 +468,7 @@ describe('InspectedElementContext', () => {
       ),
     );
 
-    const id = ((store.getElementIDAtIndex(0): any): number);
+    const id = ((store.getElementIDAtIndex(0) as any): number);
     let inspectedElement = null;
 
     function Suspender({target}) {
@@ -494,7 +494,7 @@ describe('InspectedElementContext', () => {
     expect(inspectedElement).not.toBeNull();
     expect(inspectedElement).toMatchSnapshot('1: Initial inspection');
 
-    const {props} = (inspectedElement: any);
+    const {props} = (inspectedElement as any);
     expect(props.boolean_false).toBe(false);
     expect(props.boolean_true).toBe(true);
     expect(Number.isFinite(props.infinity)).toBe(false);
@@ -565,7 +565,7 @@ describe('InspectedElementContext', () => {
       ),
     );
 
-    const id = ((store.getElementIDAtIndex(0): any): number);
+    const id = ((store.getElementIDAtIndex(0) as any): number);
 
     let inspectedElement = null;
 
@@ -610,7 +610,7 @@ describe('InspectedElementContext', () => {
       set_of_sets,
       symbol,
       typed_array,
-    } = (inspectedElement: any).props;
+    } = (inspectedElement as any).props;
 
     expect(array_buffer[meta.size]).toBe(3);
     expect(array_buffer[meta.inspectable]).toBe(false);
@@ -755,7 +755,7 @@ describe('InspectedElementContext', () => {
     const descriptor = ((Object.getOwnPropertyDescriptor(
       CustomData.prototype,
       'number',
-    ): any): PropertyDescriptor<number>);
+    ) as any): PropertyDescriptor<number>);
     descriptor.enumerable = true;
     Object.defineProperty(CustomData.prototype, 'number', descriptor);
 
@@ -766,7 +766,7 @@ describe('InspectedElementContext', () => {
       ReactDOM.render(<Example data={new CustomData()} />, container),
     );
 
-    const id = ((store.getElementIDAtIndex(0): any): number);
+    const id = ((store.getElementIDAtIndex(0) as any): number);
 
     let didFinish = false;
 
@@ -831,9 +831,9 @@ describe('InspectedElementContext', () => {
       ),
     );
 
-    const id = ((store.getElementIDAtIndex(0): any): number);
+    const id = ((store.getElementIDAtIndex(0) as any): number);
 
-    let getInspectedElementPath: GetInspectedElementPath = ((null: any): GetInspectedElementPath);
+    let getInspectedElementPath: GetInspectedElementPath = ((null as any): GetInspectedElementPath);
     let inspectedElement = null;
 
     function Suspender({target}) {
@@ -940,9 +940,9 @@ describe('InspectedElementContext', () => {
       ),
     );
 
-    const id = ((store.getElementIDAtIndex(0): any): number);
+    const id = ((store.getElementIDAtIndex(0) as any): number);
 
-    let getInspectedElementPath: GetInspectedElementPath = ((null: any): GetInspectedElementPath);
+    let getInspectedElementPath: GetInspectedElementPath = ((null as any): GetInspectedElementPath);
     let inspectedElement = null;
 
     function Suspender({target}) {
@@ -1011,9 +1011,9 @@ describe('InspectedElementContext', () => {
       ),
     );
 
-    const id = ((store.getElementIDAtIndex(0): any): number);
+    const id = ((store.getElementIDAtIndex(0) as any): number);
 
-    let getInspectedElementPath: GetInspectedElementPath = ((null: any): GetInspectedElementPath);
+    let getInspectedElementPath: GetInspectedElementPath = ((null as any): GetInspectedElementPath);
     let inspectedElement = null;
 
     function Suspender({target}) {
@@ -1114,9 +1114,9 @@ describe('InspectedElementContext', () => {
       ),
     );
 
-    const id = ((store.getElementIDAtIndex(0): any): number);
+    const id = ((store.getElementIDAtIndex(0) as any): number);
 
-    let getInspectedElementPath: GetInspectedElementPath = ((null: any): GetInspectedElementPath);
+    let getInspectedElementPath: GetInspectedElementPath = ((null as any): GetInspectedElementPath);
     let inspectedElement = null;
 
     function Suspender({target}) {
@@ -1186,7 +1186,7 @@ describe('InspectedElementContext', () => {
       ReactDOM.render(<Example a={1} b="abc" />, container),
     );
 
-    const id = ((store.getElementIDAtIndex(0): any): number);
+    const id = ((store.getElementIDAtIndex(0) as any): number);
 
     let didFinish = false;
 
@@ -1238,9 +1238,9 @@ describe('InspectedElementContext', () => {
       ),
     );
 
-    const id = ((store.getElementIDAtIndex(0): any): number);
+    const id = ((store.getElementIDAtIndex(0) as any): number);
 
-    let storeAsGlobal: StoreAsGlobal = ((null: any): StoreAsGlobal);
+    let storeAsGlobal: StoreAsGlobal = ((null as any): StoreAsGlobal);
 
     function Suspender({target}) {
       const context = React.useContext(InspectedElementContext);
@@ -1305,9 +1305,9 @@ describe('InspectedElementContext', () => {
       ),
     );
 
-    const id = ((store.getElementIDAtIndex(0): any): number);
+    const id = ((store.getElementIDAtIndex(0) as any): number);
 
-    let copyPath: CopyInspectedElementPath = ((null: any): CopyInspectedElementPath);
+    let copyPath: CopyInspectedElementPath = ((null as any): CopyInspectedElementPath);
 
     function Suspender({target}) {
       const context = React.useContext(InspectedElementContext);

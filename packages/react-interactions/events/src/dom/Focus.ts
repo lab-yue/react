@@ -143,7 +143,7 @@ function handleGlobalFocusVisibleEvent(
     case 'pointerdown':
     case 'pointerup': {
       isGlobalFocusVisible = false;
-      globalFocusVisiblePointerType = (nativeEvent: any).pointerType;
+      globalFocusVisiblePointerType = (nativeEvent as any).pointerType;
       break;
     }
 
@@ -249,7 +249,7 @@ function handleFocusVisibleTargetEvents(
     case 'keyup': {
       const nativeEvent = event.nativeEvent;
       const focusTarget = state.focusTarget;
-      const {metaKey, altKey, ctrlKey} = (nativeEvent: any);
+      const {metaKey, altKey, ctrlKey} = (nativeEvent as any);
       const validKey = !(metaKey || (!isMac && altKey) || ctrlKey);
 
       if (validKey) {
@@ -286,7 +286,7 @@ function dispatchFocusEvents(
   state: FocusState,
 ) {
   const pointerType = state.pointerType;
-  const target = ((state.focusTarget: any): Element | Document);
+  const target = ((state.focusTarget as any): Element | Document);
   const onFocus = props.onFocus;
   if (isFunction(onFocus)) {
     const syntheticEvent = createFocusEvent(
@@ -310,7 +310,7 @@ function dispatchBlurEvents(
   state: FocusState,
 ) {
   const pointerType = state.pointerType;
-  const target = ((state.focusTarget: any): Element | Document);
+  const target = ((state.focusTarget as any): Element | Document);
   const onBlur = props.onBlur;
   if (isFunction(onBlur)) {
     const syntheticEvent = createFocusEvent(
@@ -335,8 +335,8 @@ function dispatchFocusWithinEvents(
   state: FocusState,
 ) {
   const pointerType = state.pointerType;
-  const target = ((state.focusTarget: any): Element | Document) || event.target;
-  const onFocusWithin = (props.onFocusWithin: any);
+  const target = ((state.focusTarget as any): Element | Document) || event.target;
+  const onFocusWithin = (props.onFocusWithin as any);
   if (isFunction(onFocusWithin)) {
     const syntheticEvent = createFocusEvent(
       context,
@@ -356,8 +356,8 @@ function dispatchBlurWithinEvents(
   state: FocusState,
 ) {
   const pointerType = state.pointerType;
-  const target = ((state.focusTarget: any): Element | Document) || event.target;
-  const onBlurWithin = (props.onBlurWithin: any);
+  const target = ((state.focusTarget as any): Element | Document) || event.target;
+  const onBlurWithin = (props.onBlurWithin as any);
   const isTargetAttached = state.detachedTarget === null;
   if (isFunction(onBlurWithin)) {
     const syntheticEvent = createFocusEvent(
@@ -511,7 +511,7 @@ function dispatchFocusWithinChangeEvent(
   state: FocusState,
   value: boolean,
 ) {
-  const onFocusWithinChange = (props.onFocusWithinChange: any);
+  const onFocusWithinChange = (props.onFocusWithinChange as any);
   if (isFunction(onFocusWithinChange)) {
     context.dispatchEvent(value, onFocusWithinChange, DiscreteEvent);
   }
@@ -526,7 +526,7 @@ function dispatchFocusWithinVisibleChangeEvent(
   state: FocusState,
   value: boolean,
 ) {
-  const onFocusWithinVisibleChange = (props.onFocusWithinVisibleChange: any);
+  const onFocusWithinVisibleChange = (props.onFocusWithinVisibleChange as any);
   if (isFunction(onFocusWithinVisibleChange)) {
     context.dispatchEvent(value, onFocusWithinVisibleChange, DiscreteEvent);
   }
@@ -564,7 +564,7 @@ const focusWithinResponderImpl = {
     state: FocusState,
   ): void {
     const {nativeEvent, type} = event;
-    const relatedTarget = (nativeEvent: any).relatedTarget;
+    const relatedTarget = (nativeEvent as any).relatedTarget;
 
     if (props.disabled) {
       if (state.isFocused) {
@@ -604,7 +604,7 @@ const focusWithinResponderImpl = {
         break;
       }
       case 'beforeblur': {
-        const onBeforeBlurWithin = (props.onBeforeBlurWithin: any);
+        const onBeforeBlurWithin = (props.onBeforeBlurWithin as any);
         if (isFunction(onBeforeBlurWithin)) {
           const syntheticEvent = createFocusEvent(
             context,

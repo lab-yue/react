@@ -25,7 +25,7 @@ function startReadingFromStream(response, stream: ReadableStream): void {
       complete(response);
       return;
     }
-    let buffer: Uint8Array = (value: any);
+    let buffer: Uint8Array = (value as any);
     processBinaryChunk(response, buffer);
     return reader.read().then(progress, error);
   }
@@ -47,7 +47,7 @@ function readFromFetch<T>(
   let response = createResponse(promiseForResponse);
   promiseForResponse.then(
     function(r) {
-      startReadingFromStream(response, (r.body: any));
+      startReadingFromStream(response, (r.body as any));
     },
     function(e) {
       reportGlobalError(response, e);

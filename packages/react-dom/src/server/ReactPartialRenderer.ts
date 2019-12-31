@@ -88,7 +88,7 @@ import {validateProperties as validateUnknownProperties} from '../shared/ReactDO
 type ReactNode = string | number | ReactElement;
 type FlatReactChildren = Array<null | ReactNode>;
 type toArrayType = (children: unknown) => FlatReactChildren;
-const toArray = ((React.Children.toArray: any): toArrayType);
+const toArray = ((React.Children.toArray as any): toArrayType);
 
 // This is only used in DEV.
 // Each entry is `this.stack` from a currently executing renderer instance.
@@ -142,7 +142,7 @@ if (__DEV__) {
     // Take the innermost executing frame (e.g. <Foo>),
     const frame: Frame = stack[stack.length - 1];
     // and record that it has one more element associated with it.
-    ((frame: any): FrameDev).debugElementStack.push(element);
+    ((frame as any): FrameDev).debugElementStack.push(element);
     // We only need this because we tail-optimize single-element
     // children and directly handle them in an inner loop instead of
     // creating separate frames for them.
@@ -174,7 +174,7 @@ if (__DEV__) {
       // Every frame might have more than one debug element stack entry associated with it.
       // This is because single-child nesting doesn't create materialized frames.
       // Instead it would push them through `pushElementToDebugStack()`.
-      let debugElementStack = ((frame: any): FrameDev).debugElementStack;
+      let debugElementStack = ((frame as any): FrameDev).debugElementStack;
       for (let ii = debugElementStack.length - 1; ii >= 0; ii--) {
         stack += describeStackFrame(debugElementStack[ii]);
       }
@@ -302,7 +302,7 @@ function flattenTopLevelChildren(children: unknown): FlatReactChildren {
   if (!React.isValidElement(children)) {
     return toArray(children);
   }
-  const element = ((children: any): ReactElement);
+  const element = ((children as any): ReactElement);
   if (element.type !== REACT_FRAGMENT_TYPE) {
     return [element];
   }
@@ -310,7 +310,7 @@ function flattenTopLevelChildren(children: unknown): FlatReactChildren {
   if (!React.isValidElement(fragmentChildren)) {
     return toArray(fragmentChildren);
   }
-  const fragmentChildElement = ((fragmentChildren: any): ReactElement);
+  const fragmentChildElement = ((fragmentChildren as any): ReactElement);
   return [fragmentChildElement];
 }
 
@@ -422,7 +422,7 @@ function resolve(
 |} {
   while (React.isValidElement(child)) {
     // Safe because we just checked it's an element.
-    let element: ReactElement = (child: any);
+    let element: ReactElement = (child as any);
     let Component = element.type;
     if (__DEV__) {
       pushElementToDebugStack(element);
@@ -736,7 +736,7 @@ class ReactDOMServerRenderer {
       footer: '',
     };
     if (__DEV__) {
-      ((topFrame: any): FrameDev).debugElementStack = [];
+      ((topFrame as any): FrameDev).debugElementStack = [];
     }
     this.threadID = allocThreadID();
     this.stack = [topFrame];
@@ -785,7 +785,7 @@ class ReactDOMServerRenderer {
     this.contextValueStack[index] = previousValue;
     if (__DEV__) {
       // Only used for push/pop mismatch warnings.
-      (this.contextProviderStack: any)[index] = provider;
+      (this.contextProviderStack as any)[index] = provider;
     }
 
     // Mutate the current value.
@@ -795,7 +795,7 @@ class ReactDOMServerRenderer {
   popProvider<T>(provider: ReactProvider<T>): void {
     const index = this.contextIndex;
     if (__DEV__) {
-      if (index < 0 || provider !== (this.contextProviderStack: any)[index]) {
+      if (index < 0 || provider !== (this.contextProviderStack as any)[index]) {
         console.error('Unexpected pop.');
       }
     }
@@ -806,10 +806,10 @@ class ReactDOMServerRenderer {
     // "Hide" these null assignments from Flow by using `any`
     // because conceptually they are deletions--as long as we
     // promise to never access values beyond `this.contextIndex`.
-    this.contextStack[index] = (null: any);
-    this.contextValueStack[index] = (null: any);
+    this.contextStack[index] = (null as any);
+    this.contextValueStack[index] = (null as any);
     if (__DEV__) {
-      (this.contextProviderStack: any)[index] = (null: any);
+      (this.contextProviderStack as any)[index] = (null as any);
     }
     this.contextIndex--;
 
@@ -862,7 +862,7 @@ class ReactDOMServerRenderer {
             frame.type.type != null &&
             frame.type.type.$$typeof === REACT_PROVIDER_TYPE
           ) {
-            const provider: ReactProvider<any> = (frame.type: any);
+            const provider: ReactProvider<any> = (frame.type as any);
             this.popProvider(provider);
           } else if (frame.type === REACT_SUSPENSE_TYPE) {
             this.suspenseDepth--;
@@ -896,7 +896,7 @@ class ReactDOMServerRenderer {
         if (__DEV__) {
           pushCurrentDebugStack(this.stack);
           // We're starting work on this frame, so reset its inner stack.
-          ((frame: any): FrameDev).debugElementStack.length = 0;
+          ((frame as any): FrameDev).debugElementStack.length = 0;
         }
         try {
           outBuffer += this.render(child, frame.context, frame.domNamespace);
@@ -972,7 +972,7 @@ class ReactDOMServerRenderer {
             false,
             'Unknown element-like object type: %s. This is likely a bug in React. ' +
               'Please file an issue.',
-            ($$typeof: any).toString(),
+            ($$typeof as any).toString(),
           );
         }
         const nextChildren = toArray(nextChild);
@@ -985,13 +985,13 @@ class ReactDOMServerRenderer {
           footer: '',
         };
         if (__DEV__) {
-          ((frame: any): FrameDev).debugElementStack = [];
+          ((frame as any): FrameDev).debugElementStack = [];
         }
         this.stack.push(frame);
         return '';
       }
       // Safe because we just checked it's an element.
-      const nextElement = ((nextChild: any): ReactElement);
+      const nextElement = ((nextChild as any): ReactElement);
       const elementType = nextElement.type;
 
       if (typeof elementType === 'string') {
@@ -1005,7 +1005,7 @@ class ReactDOMServerRenderer {
         case REACT_SUSPENSE_LIST_TYPE:
         case REACT_FRAGMENT_TYPE: {
           const nextChildren = toArray(
-            ((nextChild: any): ReactElement).props.children,
+            ((nextChild as any): ReactElement).props.children,
           );
           const frame: Frame = {
             type: null,
@@ -1016,18 +1016,18 @@ class ReactDOMServerRenderer {
             footer: '',
           };
           if (__DEV__) {
-            ((frame: any): FrameDev).debugElementStack = [];
+            ((frame as any): FrameDev).debugElementStack = [];
           }
           this.stack.push(frame);
           return '';
         }
         case REACT_SUSPENSE_TYPE: {
           if (enableSuspenseServerRenderer) {
-            const fallback = ((nextChild: any): ReactElement).props.fallback;
+            const fallback = ((nextChild as any): ReactElement).props.fallback;
             if (fallback === undefined) {
               // If there is no fallback, then this just behaves as a fragment.
               const nextChildren = toArray(
-                ((nextChild: any): ReactElement).props.children,
+                ((nextChild as any): ReactElement).props.children,
               );
               const frame: Frame = {
                 type: null,
@@ -1038,14 +1038,14 @@ class ReactDOMServerRenderer {
                 footer: '',
               };
               if (__DEV__) {
-                ((frame: any): FrameDev).debugElementStack = [];
+                ((frame as any): FrameDev).debugElementStack = [];
               }
               this.stack.push(frame);
               return '';
             }
             const fallbackChildren = toArray(fallback);
             const nextChildren = toArray(
-              ((nextChild: any): ReactElement).props.children,
+              ((nextChild as any): ReactElement).props.children,
             );
             const fallbackFrame: Frame = {
               type: null,
@@ -1065,8 +1065,8 @@ class ReactDOMServerRenderer {
               footer: '<!--/$-->',
             };
             if (__DEV__) {
-              ((frame: any): FrameDev).debugElementStack = [];
-              ((fallbackFrame: any): FrameDev).debugElementStack = [];
+              ((frame as any): FrameDev).debugElementStack = [];
+              ((fallbackFrame as any): FrameDev).debugElementStack = [];
             }
             this.stack.push(frame);
             this.suspenseDepth++;
@@ -1082,7 +1082,7 @@ class ReactDOMServerRenderer {
       if (typeof elementType === 'object' && elementType !== null) {
         switch (elementType.$$typeof) {
           case REACT_FORWARD_REF_TYPE: {
-            const element: ReactElement = ((nextChild: any): ReactElement);
+            const element: ReactElement = ((nextChild as any): ReactElement);
             let nextChildren;
             const componentIdentity = {};
             prepareToUseHooks(componentIdentity);
@@ -1103,13 +1103,13 @@ class ReactDOMServerRenderer {
               footer: '',
             };
             if (__DEV__) {
-              ((frame: any): FrameDev).debugElementStack = [];
+              ((frame as any): FrameDev).debugElementStack = [];
             }
             this.stack.push(frame);
             return '';
           }
           case REACT_MEMO_TYPE: {
-            const element: ReactElement = ((nextChild: any): ReactElement);
+            const element: ReactElement = ((nextChild as any): ReactElement);
             let nextChildren = [
               React.createElement(
                 elementType.type,
@@ -1125,13 +1125,13 @@ class ReactDOMServerRenderer {
               footer: '',
             };
             if (__DEV__) {
-              ((frame: any): FrameDev).debugElementStack = [];
+              ((frame as any): FrameDev).debugElementStack = [];
             }
             this.stack.push(frame);
             return '';
           }
           case REACT_PROVIDER_TYPE: {
-            const provider: ReactProvider<any> = (nextChild: any);
+            const provider: ReactProvider<any> = (nextChild as any);
             const nextProps = provider.props;
             const nextChildren = toArray(nextProps.children);
             const frame: Frame = {
@@ -1143,7 +1143,7 @@ class ReactDOMServerRenderer {
               footer: '',
             };
             if (__DEV__) {
-              ((frame: any): FrameDev).debugElementStack = [];
+              ((frame as any): FrameDev).debugElementStack = [];
             }
 
             this.pushProvider(provider);
@@ -1152,7 +1152,7 @@ class ReactDOMServerRenderer {
             return '';
           }
           case REACT_CONTEXT_TYPE: {
-            let reactContext = (nextChild: any).type;
+            let reactContext = (nextChild as any).type;
             // The logic below for Context differs depending on PROD or DEV mode. In
             // DEV mode, we create a separate object for Context.Consumer that acts
             // like a proxy to Context. This proxy object adds unnecessary code in PROD
@@ -1161,7 +1161,7 @@ class ReactDOMServerRenderer {
             // a property called "_context", which also gives us the ability to check
             // in DEV mode if this property exists or not and warn if it does not.
             if (__DEV__) {
-              if ((reactContext: any)._context === undefined) {
+              if ((reactContext as any)._context === undefined) {
                 // This may be because it's a Context (rather than a Consumer).
                 // Or it may be because it's older React where they're the same thing.
                 // We only want to warn if we're sure it's a new React.
@@ -1175,10 +1175,10 @@ class ReactDOMServerRenderer {
                   }
                 }
               } else {
-                reactContext = (reactContext: any)._context;
+                reactContext = (reactContext as any)._context;
               }
             }
-            const nextProps: any = (nextChild: any).props;
+            const nextProps: any = (nextChild as any).props;
             const threadID = this.threadID;
             validateContextBounds(reactContext, threadID);
             const nextValue = reactContext[threadID];
@@ -1193,7 +1193,7 @@ class ReactDOMServerRenderer {
               footer: '',
             };
             if (__DEV__) {
-              ((frame: any): FrameDev).debugElementStack = [];
+              ((frame as any): FrameDev).debugElementStack = [];
             }
             this.stack.push(frame);
             return '';
@@ -1214,7 +1214,7 @@ class ReactDOMServerRenderer {
                   : '';
               const nextChildren =
                 fundamentalImpl.reconcileChildren !== false
-                  ? toArray(((nextChild: any): ReactElement).props.children)
+                  ? toArray(((nextChild as any): ReactElement).props.children)
                   : [];
               const frame: Frame = {
                 type: null,
@@ -1225,7 +1225,7 @@ class ReactDOMServerRenderer {
                 footer: close,
               };
               if (__DEV__) {
-                ((frame: any): FrameDev).debugElementStack = [];
+                ((frame as any): FrameDev).debugElementStack = [];
               }
               this.stack.push(frame);
               return open;
@@ -1237,8 +1237,8 @@ class ReactDOMServerRenderer {
           }
           // eslint-disable-next-line-no-fallthrough
           case REACT_LAZY_TYPE: {
-            const element: ReactElement = (nextChild: any);
-            const lazyComponent: LazyComponent<any> = (nextChild: any).type;
+            const element: ReactElement = (nextChild as any);
+            const lazyComponent: LazyComponent<any> = (nextChild as any).type;
             // Attempt to initialize lazy component regardless of whether the
             // suspense server-side renderer is enabled so synchronously
             // resolved constructors are supported.
@@ -1260,7 +1260,7 @@ class ReactDOMServerRenderer {
                   footer: '',
                 };
                 if (__DEV__) {
-                  ((frame: any): FrameDev).debugElementStack = [];
+                  ((frame as any): FrameDev).debugElementStack = [];
                 }
                 this.stack.push(frame);
                 return '';
@@ -1279,7 +1279,7 @@ class ReactDOMServerRenderer {
           case REACT_SCOPE_TYPE: {
             if (enableScopeAPI) {
               const nextChildren = toArray(
-                ((nextChild: any): ReactElement).props.children,
+                ((nextChild as any): ReactElement).props.children,
               );
               const frame: Frame = {
                 type: null,
@@ -1290,7 +1290,7 @@ class ReactDOMServerRenderer {
                 footer: '',
               };
               if (__DEV__) {
-                ((frame: any): FrameDev).debugElementStack = [];
+                ((frame as any): FrameDev).debugElementStack = [];
               }
               this.stack.push(frame);
               return '';
@@ -1604,7 +1604,7 @@ class ReactDOMServerRenderer {
       footer: footer,
     };
     if (__DEV__) {
-      ((frame: any): FrameDev).debugElementStack = [];
+      ((frame as any): FrameDev).debugElementStack = [];
     }
     this.stack.push(frame);
     this.previousWasTextNode = false;

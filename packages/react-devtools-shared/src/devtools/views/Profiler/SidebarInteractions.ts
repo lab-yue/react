@@ -33,7 +33,7 @@ export default function SidebarInteractions(_: Props) {
   }
 
   const {interactionCommits, interactions} = profilerStore.getDataForRoot(
-    ((rootID: any): number),
+    ((rootID as any): number),
   );
   const interaction = interactions.get(selectedInteractionID);
   if (interaction == null) {
@@ -43,7 +43,7 @@ export default function SidebarInteractions(_: Props) {
   }
 
   const {maxCommitDuration} = profilingCache.getInteractionsChartData({
-    rootID: ((rootID: any): number),
+    rootID: ((rootID as any): number),
   });
 
   const viewCommit = (commitIndex: number) => {
@@ -56,7 +56,7 @@ export default function SidebarInteractions(_: Props) {
   if (commitIndices != null) {
     commitIndices.forEach(commitIndex => {
       const {duration, timestamp} = profilerStore.getCommitData(
-        ((rootID: any): number),
+        ((rootID as any): number),
         commitIndex,
       );
 

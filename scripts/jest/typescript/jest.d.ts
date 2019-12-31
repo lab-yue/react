@@ -1,30 +1,30 @@
 declare var jasmine: any;
 declare var __DEV__: boolean;
 
-declare function afterEach(fn: any): any;
-declare function beforeEach(fn: any): any;
-declare function describe(name: string, fn: any): void;
+declare function afterEach(fn as any): any;
+declare function beforeEach(fn as any): any;
+declare function describe(name: string, fn as any): void;
 declare var it: {
-  (name: string, fn: any): void;
-  only: (name: string, fn: any) => void;
+  (name: string, fn as any): void;
+  only: (name: string, fn as any) => void;
 }
-declare function expect(val: any): Expect;
+declare function expect(val as any): Expect;
 declare var jest: Jest;
-declare function pit(name: string, fn: any): void;
+declare function pit(name: string, fn as any): void;
 declare function spyOnDev(obj: any, key: string): any;
 declare function spyOnDevAndProd(obj: any, key: string): any;
 declare function spyOnProd(obj: any, key: string): any;
-declare function xdescribe(name: string, fn: any): void;
-declare function xit(name: string, fn: any): void;
+declare function xdescribe(name: string, fn as any): void;
+declare function xit(name: string, fn as any): void;
 
 interface Expect {
   not: Expect
   toThrow(message?: string): void
   toThrowError(message?: string): void
-  toErrorDev(message?: string | Array<string>, options?: any): void
-  toWarnDev(message?: string | Array<string>, options?: any): void
-  toBe(value: any): void
-  toEqual(value: any): void
+  toErrorDev(message?: string | Array<string>, options? as any): void
+  toWarnDev(message?: string | Array<string>, options? as any): void
+  toBe(value as any): void
+  toEqual(value as any): void
   toBeFalsy(): void
   toBeTruthy(): void
   toBeNull(): void
@@ -65,13 +65,13 @@ interface MockFunction {
   mockImplementation(fn: Function): MockFunction
   mockImpl(fn: Function): MockFunction
   mockReturnThis(): MockFunction
-  mockReturnValue(value: any): MockFunction
-  mockReturnValueOnce(value: any): MockFunction
+  mockReturnValue(value as any): MockFunction
+  mockReturnValueOnce(value as any): MockFunction
 }
 
 // Allow importing jasmine-check
 declare module 'jasmine-check' {
-  export function install(global?: any): void;
+  export function install(global? as any): void;
 }
 declare var check: any;
 declare var gen: any;

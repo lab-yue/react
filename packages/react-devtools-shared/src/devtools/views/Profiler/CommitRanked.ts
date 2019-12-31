@@ -51,13 +51,13 @@ export default function CommitRankedAutoSizer(_: {||}) {
   if (selectedCommitIndex !== null) {
     commitTree = profilingCache.getCommitTree({
       commitIndex: selectedCommitIndex,
-      rootID: ((rootID: any): number),
+      rootID: ((rootID as any): number),
     });
 
     chartData = profilingCache.getRankedChartData({
       commitIndex: selectedCommitIndex,
       commitTree,
-      rootID: ((rootID: any): number),
+      rootID: ((rootID as any): number),
     });
   }
 
@@ -67,8 +67,8 @@ export default function CommitRankedAutoSizer(_: {||}) {
         <AutoSizer>
           {({height, width}) => (
             <CommitRanked
-              chartData={((chartData: any): ChartData)}
-              commitTree={((commitTree: any): CommitTree)}
+              chartData={((chartData as any): ChartData)}
+              commitTree={((commitTree as any): CommitTree)}
               height={height}
               width={width}
             />

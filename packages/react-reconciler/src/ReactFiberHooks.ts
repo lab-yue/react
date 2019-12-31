@@ -173,7 +173,7 @@ type Dispatch<A> = A => void;
 let renderExpirationTime: ExpirationTime = NoWork;
 // The work-in-progress fiber. I've named it differently to distinguish it from
 // the work-in-progress hook.
-let currentlyRenderingFiber: Fiber = (null: any);
+let currentlyRenderingFiber: Fiber = (null as any);
 
 // Hooks are stored as a linked list on the fiber's memoizedState field. The
 // current hook list is the list that belongs to the current fiber. The
@@ -217,7 +217,7 @@ let ignorePreviousDependencies: boolean = false;
 
 function mountHookTypesDev() {
   if (__DEV__) {
-    const hookName = ((currentHookNameInDev: any): HookType);
+    const hookName = ((currentHookNameInDev as any): HookType);
 
     if (hookTypesDev === null) {
       hookTypesDev = [hookName];
@@ -229,7 +229,7 @@ function mountHookTypesDev() {
 
 function updateHookTypesDev() {
   if (__DEV__) {
-    const hookName = ((currentHookNameInDev: any): HookType);
+    const hookName = ((currentHookNameInDev as any): HookType);
 
     if (hookTypesDev !== null) {
       hookTypesUpdateIndexDev++;
@@ -266,10 +266,10 @@ function warnOnHookMismatchInDev(currentHookName: HookType) {
 
         const secondColumnStart = 30;
 
-        for (let i = 0; i <= ((hookTypesUpdateIndexDev: any): number); i++) {
+        for (let i = 0; i <= ((hookTypesUpdateIndexDev as any): number); i++) {
           const oldHookName = hookTypesDev[i];
           const newHookName =
-            i === ((hookTypesUpdateIndexDev: any): number)
+            i === ((hookTypesUpdateIndexDev as any): number)
               ? currentHookName
               : oldHookName;
 
@@ -375,7 +375,7 @@ export function renderWithHooks(
   if (__DEV__) {
     hookTypesDev =
       current !== null
-        ? ((current._debugHookTypes: any): Array<HookType>)
+        ? ((current._debugHookTypes as any): Array<HookType>)
         : null;
     hookTypesUpdateIndexDev = -1;
     // Used for hot reloading:
@@ -470,7 +470,7 @@ export function renderWithHooks(
     currentHook !== null && currentHook.next !== null;
 
   renderExpirationTime = NoWork;
-  currentlyRenderingFiber = (null: any);
+  currentlyRenderingFiber = (null as any);
 
   currentHook = null;
   workInProgressHook = null;
@@ -517,7 +517,7 @@ export function resetHooks(): void {
   // component is a module-style component.
 
   renderExpirationTime = NoWork;
-  currentlyRenderingFiber = (null: any);
+  currentlyRenderingFiber = (null as any);
 
   currentHook = null;
   workInProgressHook = null;
@@ -636,20 +636,20 @@ function mountReducer<S, I, A>(
   if (init !== undefined) {
     initialState = init(initialArg);
   } else {
-    initialState = ((initialArg: any): S);
+    initialState = ((initialArg as any): S);
   }
   hook.memoizedState = hook.baseState = initialState;
   const queue = (hook.queue = {
     pending: null,
     dispatch: null,
     lastRenderedReducer: reducer,
-    lastRenderedState: (initialState: any),
+    lastRenderedState: (initialState as any),
   });
   const dispatch: Dispatch<A> = (queue.dispatch = (dispatchAction.bind(
     null,
     currentlyRenderingFiber,
     queue,
-  ): any));
+  ) as any));
   return [hook.memoizedState, dispatch];
 }
 
@@ -670,7 +670,7 @@ function updateReducer<S, I, A>(
   if (numberOfReRenders > 0) {
     // This is a re-render. Apply the new render phase updates to the previous
     // work-in-progress hook.
-    const dispatch: Dispatch<A> = (queue.dispatch: any);
+    const dispatch: Dispatch<A> = (queue.dispatch as any);
     if (renderPhaseUpdates !== null) {
       // Render phase updates are stored in a map of queue -> linked list
       const firstRenderPhaseUpdate = renderPhaseUpdates.get(queue);
@@ -710,7 +710,7 @@ function updateReducer<S, I, A>(
     return [hook.memoizedState, dispatch];
   }
 
-  const current: Hook = (currentHook: any);
+  const current: Hook = (currentHook as any);
 
   // The last rebase update that is NOT part of the base state.
   let baseQueue = current.baseQueue;
@@ -752,7 +752,7 @@ function updateReducer<S, I, A>(
           action: update.action,
           eagerReducer: update.eagerReducer,
           eagerState: update.eagerState,
-          next: (null: any),
+          next: (null as any),
         };
         if (newBaseQueueLast === null) {
           newBaseQueueFirst = newBaseQueueLast = clone;
@@ -775,7 +775,7 @@ function updateReducer<S, I, A>(
             action: update.action,
             eagerReducer: update.eagerReducer,
             eagerState: update.eagerState,
-            next: (null: any),
+            next: (null as any),
           };
           newBaseQueueLast = newBaseQueueLast.next = clone;
         }
@@ -795,7 +795,7 @@ function updateReducer<S, I, A>(
         if (update.eagerReducer === reducer) {
           // If this update was processed eagerly, and its reducer matches the
           // current reducer, we can use the eagerly computed state.
-          newState = ((update.eagerState: any): S);
+          newState = ((update.eagerState as any): S);
         } else {
           const action = update.action;
           newState = reducer(newState, action);
@@ -807,7 +807,7 @@ function updateReducer<S, I, A>(
     if (newBaseQueueLast === null) {
       newBaseState = newState;
     } else {
-      newBaseQueueLast.next = (newBaseQueueFirst: any);
+      newBaseQueueLast.next = (newBaseQueueFirst as any);
     }
 
     // Mark that the fiber performed work, but only if the new state is
@@ -823,7 +823,7 @@ function updateReducer<S, I, A>(
     queue.lastRenderedState = newState;
   }
 
-  const dispatch: Dispatch<A> = (queue.dispatch: any);
+  const dispatch: Dispatch<A> = (queue.dispatch as any);
   return [hook.memoizedState, dispatch];
 }
 
@@ -839,7 +839,7 @@ function mountState<S>(
     pending: null,
     dispatch: null,
     lastRenderedReducer: basicStateReducer,
-    lastRenderedState: (initialState: any),
+    lastRenderedState: (initialState as any),
   });
   const dispatch: Dispatch<
     BasicStateAction<S>,
@@ -847,14 +847,14 @@ function mountState<S>(
     null,
     currentlyRenderingFiber,
     queue,
-  ): any));
+  ) as any));
   return [hook.memoizedState, dispatch];
 }
 
 function updateState<S>(
   initialState: (() => S) | S,
 ): [S, Dispatch<BasicStateAction<S>>] {
-  return updateReducer(basicStateReducer, (initialState: any));
+  return updateReducer(basicStateReducer, (initialState as any));
 }
 
 function pushEffect(tag, create, destroy, deps) {
@@ -864,12 +864,12 @@ function pushEffect(tag, create, destroy, deps) {
     destroy,
     deps,
     // Circular
-    next: (null: any),
+    next: (null as any),
   };
-  let componentUpdateQueue: null | FunctionComponentUpdateQueue = (currentlyRenderingFiber.updateQueue: any);
+  let componentUpdateQueue: null | FunctionComponentUpdateQueue = (currentlyRenderingFiber.updateQueue as any);
   if (componentUpdateQueue === null) {
     componentUpdateQueue = createFunctionComponentUpdateQueue();
-    currentlyRenderingFiber.updateQueue = (componentUpdateQueue: any);
+    currentlyRenderingFiber.updateQueue = (componentUpdateQueue as any);
     componentUpdateQueue.lastEffect = effect.next = effect;
   } else {
     const lastEffect = componentUpdateQueue.lastEffect;
@@ -1257,7 +1257,7 @@ function dispatchAction<S, A>(
       action,
       eagerReducer: null,
       eagerState: null,
-      next: (null: any),
+      next: (null as any),
     };
     if (__DEV__) {
       update.priority = getCurrentPriorityLevel();
@@ -1291,7 +1291,7 @@ function dispatchAction<S, A>(
       action,
       eagerReducer: null,
       eagerState: null,
-      next: (null: any),
+      next: (null as any),
     };
 
     if (__DEV__) {
@@ -1324,7 +1324,7 @@ function dispatchAction<S, A>(
           ReactCurrentDispatcher.current = InvalidNestedHooksDispatcherOnUpdateInDEV;
         }
         try {
-          const currentState: S = (queue.lastRenderedState: any);
+          const currentState: S = (queue.lastRenderedState as any);
           const eagerState = lastRenderedReducer(currentState, action);
           // Stash the eagerly computed state, and the reducer used to compute
           // it, on the update object. If the reducer hasn't changed by the

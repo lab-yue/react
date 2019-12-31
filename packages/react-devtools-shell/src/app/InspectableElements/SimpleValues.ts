@@ -29,6 +29,6 @@ export default function SimpleValues() {
   );
 }
 
-function ChildComponent(props: any) {
+function ChildComponent(props as any) {
   return null;
 }

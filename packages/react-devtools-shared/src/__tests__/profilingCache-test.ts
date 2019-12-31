@@ -252,7 +252,7 @@ describe('ProfilingCache', () => {
     utils.act(() => store.profilerStore.startProfiling());
     utils.act(() => ReactDOM.render(<LegacyContextProvider />, container));
     expect(instance).not.toBeNull();
-    utils.act(() => (instance: any).setState({count: 1}));
+    utils.act(() => (instance as any).setState({count: 1}));
     utils.act(() =>
       ReactDOM.render(<LegacyContextProvider foo={123} />, container),
     );

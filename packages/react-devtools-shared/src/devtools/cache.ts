@@ -56,7 +56,7 @@ const Pending = 0;
 const Resolved = 1;
 const Rejected = 2;
 
-const ReactCurrentDispatcher = (React: any)
+const ReactCurrentDispatcher = (React as any)
   .__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED.ReactCurrentDispatcher;
 
 function readContext(Context, observedBits) {
@@ -86,7 +86,7 @@ const resourceConfigs: Map<Resource<any, any, any>, Config> = new Map();
 function getEntriesForResource(
   resource: any,
 ): Map<any, any> | WeakMap<any, any> {
-  let entriesForResource = ((entries.get(resource): any): Map<any, any>);
+  let entriesForResource = ((entries.get(resource) as any): Map<any, any>);
   if (entriesForResource === undefined) {
     const config = resourceConfigs.get(resource);
     entriesForResource =
@@ -109,14 +109,14 @@ function accessResult<Input, Key, Value>(
     thenable.then(
       value => {
         if (newResult.status === Pending) {
-          const resolvedResult: ResolvedResult<Value> = (newResult: any);
+          const resolvedResult: ResolvedResult<Value> = (newResult as any);
           resolvedResult.status = Resolved;
           resolvedResult.value = value;
         }
       },
       error => {
         if (newResult.status === Pending) {
-          const rejectedResult: RejectedResult = (newResult: any);
+          const rejectedResult: RejectedResult = (newResult as any);
           rejectedResult.status = Rejected;
           rejectedResult.value = error;
         }
@@ -169,7 +169,7 @@ export function createResource<Input, Key, Value>(
         }
         default:
           // Should be unreachable
-          return (undefined: any);
+          return (undefined as any);
       }
     },
 

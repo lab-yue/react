@@ -119,7 +119,7 @@ export default function Tree(props: Props) {
       }
 
       const handleKeyDown = (event: KeyboardEvent) => {
-        if ((event: any).target.tagName === 'INPUT' || event.defaultPrevented) {
+        if ((event as any).target.tagName === 'INPUT' || event.defaultPrevented) {
           return;
         }
 
@@ -409,7 +409,7 @@ function updateIndentationSizeVar(
   indentationSizeRef: {|current: number|},
   prevListWidthRef: {|current: number|},
 ): void {
-  const list = ((innerDiv.parentElement: any): HTMLDivElement);
+  const list = ((innerDiv.parentElement as any): HTMLDivElement);
   const listWidth = list.clientWidth;
 
   // Skip measurements when the Components panel is hidden.

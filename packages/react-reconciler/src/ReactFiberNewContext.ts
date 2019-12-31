@@ -362,14 +362,14 @@ export function readContext<T>(
       observedBits === MAX_SIGNED_31_BIT_INT
     ) {
       // Observe all updates.
-      lastContextWithAllBitsObserved = ((context: any): ReactContext<mixed>);
+      lastContextWithAllBitsObserved = ((context as any): ReactContext<mixed>);
       resolvedObservedBits = MAX_SIGNED_31_BIT_INT;
     } else {
       resolvedObservedBits = observedBits;
     }
 
     let contextItem = {
-      context: ((context: any): ReactContext<mixed>),
+      context: ((context as any): ReactContext<mixed>),
       observedBits: resolvedObservedBits,
       next: null,
     };

@@ -74,7 +74,7 @@ import {
 } from 'react-devtools-shared/src/types';
 
 type getDisplayNameForFiberType = (fiber: Fiber) => string | null;
-type getTypeSymbolType = (type: any) => Symbol | number;
+type getTypeSymbolType = (type as any) => Symbol | number;
 
 type ReactSymbolsType = {
   CONCURRENT_MODE_NUMBER: number,
@@ -195,7 +195,7 @@ export function getInternalReactConstants(
     NoPriority: 90,
   };
 
-  let ReactTypeOfWork: ReactTypeOfWorkType = ((null: any): ReactTypeOfWorkType);
+  let ReactTypeOfWork: ReactTypeOfWorkType = ((null as any): ReactTypeOfWorkType);
 
   // **********************************************************
   // The section below is copied from files in React repo.
@@ -283,7 +283,7 @@ export function getInternalReactConstants(
   // End of copied code.
   // **********************************************************
 
-  function getTypeSymbol(type: any): Symbol | number {
+  function getTypeSymbol(type as any): Symbol | number {
     const symbolOrNumber =
       typeof type === 'object' && type !== null ? type.$$typeof : type;
 
@@ -330,7 +330,7 @@ export function getInternalReactConstants(
     MEMO_SYMBOL_STRING,
   } = ReactSymbols;
 
-  function resolveFiberType(type: any) {
+  function resolveFiberType(type as any) {
     const typeSymbol = getTypeSymbol(type);
     switch (typeSymbol) {
       case MEMO_NUMBER:
@@ -788,7 +788,7 @@ export function attach(
       fiberToIDMap.set(primaryFiber, id);
       idToFiberMap.set(id, primaryFiber);
     }
-    return ((fiberToIDMap.get(primaryFiber): any): number);
+    return ((fiberToIDMap.get(primaryFiber) as any): number);
   }
 
   function getChangeDescription(
@@ -917,7 +917,7 @@ export function attach(
     return null;
   }
 
-  function didHooksChange(prev: any, next: any): boolean {
+  function didHooksChange(prev: any, next as any): boolean {
     if (next == null) {
       return false;
     }
@@ -942,7 +942,7 @@ export function attach(
     return false;
   }
 
-  function getChangedKeys(prev: any, next: any): null | Array<string> {
+  function getChangedKeys(prev: any, next as any): null | Array<string> {
     if (prev == null || next == null) {
       return null;
     }
@@ -1401,7 +1401,7 @@ export function attach(
           // Note that we should do this for any fiber we performed work on, regardless of its actualDuration value.
           // In some cases actualDuration might be 0 for fibers we worked on (particularly if we're using Date.now)
           // In other cases (e.g. Memo) actualDuration might be greater than 0 even if we "bailed out".
-          const metadata = ((currentCommitProfilingMetadata: any): CommitProfilingData);
+          const metadata = ((currentCommitProfilingMetadata as any): CommitProfilingData);
           metadata.durations.push(id, actualDuration, selfDuration);
           metadata.maxActualDuration = Math.max(
             metadata.maxActualDuration,
@@ -1824,17 +1824,17 @@ export function attach(
     }
 
     if (isProfiling && isProfilingSupported && !didBailoutAtRoot) {
-      const commitProfilingMetadata = ((rootToCommitProfilingMetadataMap: any): CommitProfilingMetadataMap).get(
+      const commitProfilingMetadata = ((rootToCommitProfilingMetadataMap as any): CommitProfilingMetadataMap).get(
         currentRootID,
       );
       if (commitProfilingMetadata != null) {
         commitProfilingMetadata.push(
-          ((currentCommitProfilingMetadata: any): CommitProfilingData),
+          ((currentCommitProfilingMetadata as any): CommitProfilingData),
         );
       } else {
-        ((rootToCommitProfilingMetadataMap: any): CommitProfilingMetadataMap).set(
+        ((rootToCommitProfilingMetadataMap as any): CommitProfilingMetadataMap).set(
           currentRootID,
-          [((currentCommitProfilingMetadata: any): CommitProfilingData)],
+          [((currentCommitProfilingMetadata as any): CommitProfilingData)],
         );
       }
     }
@@ -1919,7 +1919,7 @@ export function attach(
           fiber = fiber.return;
         }
       }
-      return getFiberID(getPrimaryFiber(((fiber: any): Fiber)));
+      return getFiberID(getPrimaryFiber(((fiber as any): Fiber)));
     }
     return null;
   }
@@ -2120,7 +2120,7 @@ export function attach(
     const isCurrent = isMostRecentlyInspectedElementCurrent(id);
     if (isCurrent) {
       window.$attribute = getInObject(
-        ((mostRecentlyInspectedElement: any): InspectedElement),
+        ((mostRecentlyInspectedElement as any): InspectedElement),
         path,
       );
     }
@@ -2270,7 +2270,7 @@ export function attach(
       context = consumerResolvedContext._currentValue || null;
 
       // Look for overridden value.
-      let current = ((fiber: any): Fiber).return;
+      let current = ((fiber as any): Fiber).return;
       while (current !== null) {
         const currentType = current.type;
         const currentTypeSymbol = getTypeSymbol(currentType);
@@ -2335,7 +2335,7 @@ export function attach(
       try {
         hooks = inspectHooksOfFiber(
           fiber,
-          (renderer.currentDispatcherRef: any),
+          (renderer.currentDispatcherRef as any),
         );
       } finally {
         // Restore original console functionality.
@@ -2510,7 +2510,7 @@ export function attach(
 
     if (isCurrent) {
       const value = getInObject(
-        ((mostRecentlyInspectedElement: any): InspectedElement),
+        ((mostRecentlyInspectedElement as any): InspectedElement),
         path,
       );
       const key = `$reactTemp${count}`;
@@ -2528,7 +2528,7 @@ export function attach(
     if (isCurrent) {
       copyToClipboard(
         getInObject(
-          ((mostRecentlyInspectedElement: any): InspectedElement),
+          ((mostRecentlyInspectedElement as any): InspectedElement),
           path,
         ),
       );
@@ -2558,7 +2558,7 @@ export function attach(
           path,
           value: cleanForBridge(
             getInObject(
-              ((mostRecentlyInspectedElement: any): InspectedElement),
+              ((mostRecentlyInspectedElement as any): InspectedElement),
               path,
             ),
             createIsPathWhitelisted(null, secondaryCategory),
@@ -2686,7 +2686,7 @@ export function attach(
     }
   }
 
-  function setInProps(id: number, path: Array<string | number>, value: any) {
+  function setInProps(id: number, path: Array<string | number>, value as any) {
     const fiber = findCurrentFiberUsingSlowPathById(id);
     if (fiber !== null) {
       const instance = fiber.stateNode;
@@ -2701,7 +2701,7 @@ export function attach(
     }
   }
 
-  function setInState(id: number, path: Array<string | number>, value: any) {
+  function setInState(id: number, path: Array<string | number>, value as any) {
     const fiber = findCurrentFiberUsingSlowPathById(id);
     if (fiber !== null) {
       const instance = fiber.stateNode;
@@ -2710,7 +2710,7 @@ export function attach(
     }
   }
 
-  function setInContext(id: number, path: Array<string | number>, value: any) {
+  function setInContext(id: number, path: Array<string | number>, value as any) {
     // To simplify hydration and display of primative context values (e.g. number, string)
     // the inspectElement() method wraps context in a {value: ...} object.
     // We need to remove the first part of the path (the "value") before continuing.
@@ -2868,7 +2868,7 @@ export function attach(
 
     hook.getFiberRoots(rendererID).forEach(root => {
       const rootID = getFiberID(getPrimaryFiber(root.current));
-      ((displayNamesByRootID: any): DisplayNamesByRootID).set(
+      ((displayNamesByRootID as any): DisplayNamesByRootID).set(
         rootID,
         getDisplayNameForRoot(root.current),
       );
@@ -2910,7 +2910,7 @@ export function attach(
 
   let forceFallbackForSuspenseIDs = new Set();
   function shouldSuspendFiberAccordingToSet(fiber) {
-    const id = getFiberID(getPrimaryFiber(((fiber: any): Fiber)));
+    const id = getFiberID(getPrimaryFiber(((fiber as any): Fiber)));
     return forceFallbackForSuspenseIDs.has(id);
   }
 

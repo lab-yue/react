@@ -148,19 +148,19 @@ function Never() {
   throw new Promise(resolve => {});
 }
 
-function Fallback1({prop, ...rest}: any) {
+function Fallback1({prop, ...rest} as any) {
   return <span {...rest} />;
 }
 
-function Fallback2({prop, ...rest}: any) {
+function Fallback2({prop, ...rest} as any) {
   return <span {...rest} />;
 }
 
-function Primary1({prop, ...rest}: any) {
+function Primary1({prop, ...rest} as any) {
   return <span {...rest} />;
 }
 
-function Primary2({prop, ...rest}: any) {
+function Primary2({prop, ...rest} as any) {
   return <span {...rest} />;
 }
 

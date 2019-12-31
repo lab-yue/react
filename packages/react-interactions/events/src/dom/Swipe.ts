@@ -86,7 +86,7 @@ function dispatchSwipeEvent(
   eventPriority: EventPriority,
   eventData?: EventData,
 ) {
-  const target = ((state.swipeTarget: any): Element | Document);
+  const target = ((state.swipeTarget as any): Element | Document);
   const syntheticEvent = createSwipeEvent(context, name, target, eventData);
   context.dispatchEvent(syntheticEvent, listener, eventPriority);
 }
@@ -133,11 +133,11 @@ const swipeResponderImpl = {
         if (!state.isSwiping) {
           let obj = nativeEvent;
           if (type === 'touchstart') {
-            obj = (nativeEvent: any).targetTouches[0];
+            obj = (nativeEvent as any).targetTouches[0];
             state.touchId = obj.identifier;
           }
-          const x = (obj: any).screenX;
-          const y = (obj: any).screenY;
+          const x = (obj as any).screenX;
+          const y = (obj as any).screenY;
 
           state.isSwiping = true;
           state.startX = x;
@@ -169,7 +169,7 @@ const swipeResponderImpl = {
         if (state.isSwiping) {
           let obj = null;
           if (type === 'touchmove') {
-            const targetTouches = (nativeEvent: any).targetTouches;
+            const targetTouches = (nativeEvent as any).targetTouches;
             for (let i = 0; i < targetTouches.length; i++) {
               if (state.touchId === targetTouches[i].identifier) {
                 obj = targetTouches[i];
@@ -186,8 +186,8 @@ const swipeResponderImpl = {
             context.removeRootEventTypes(rootEventTypes);
             return;
           }
-          const x = (obj: any).screenX;
-          const y = (obj: any).screenY;
+          const x = (obj as any).screenX;
+          const y = (obj as any).screenY;
           if (x < state.x) {
             state.direction = 3;
           } else if (x > state.x) {
@@ -211,7 +211,7 @@ const swipeResponderImpl = {
               eventData,
             );
           }
-          (nativeEvent: any).preventDefault();
+          (nativeEvent as any).preventDefault();
         }
         break;
       }

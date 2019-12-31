@@ -34,13 +34,13 @@ declare module 'react-native/Libraries/ReactPrivate/ReactNativePrivateInterface'
     options: DeepDifferOptions,
   ): boolean;
   declare export function deepFreezeAndThrowOnMutationInDev<T>(obj: T): T;
-  declare export function flattenStyle(style: any): any;
+  declare export function flattenStyle(style as any): any;
   declare export var RCTEventEmitter: {
     register: (eventEmitter: unknown) => void,
   };
   declare export var TextInputState: {
-    blurTextInput: (object: any) => void,
-    focusTextInput: (object: any) => void,
+    blurTextInput: (object as any) => void,
+    focusTextInput: (object as any) => void,
   };
   declare export var ReactFiberErrorDialog: {
     showErrorDialog: (error: CapturedError) => boolean,

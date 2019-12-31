@@ -294,7 +294,7 @@ export default function(
     // hide this from Flow since we can't define these properties outside of
     // __DEV__ without actually implementing them (setting them to undefined
     // isn't allowed by ReactClass)
-    const NativeMethodsMixin_DEV = (NativeMethodsMixin: any);
+    const NativeMethodsMixin_DEV = (NativeMethodsMixin as any);
     invariant(
       !NativeMethodsMixin_DEV.componentWillMount &&
         !NativeMethodsMixin_DEV.componentWillReceiveProps &&

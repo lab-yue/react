@@ -57,7 +57,7 @@ type Context = {|
   storeAsGlobal: StoreAsGlobal,
 |};
 
-const InspectedElementContext = createContext<Context>(((null: any): Context));
+const InspectedElementContext = createContext<Context>(((null as any): Context));
 InspectedElementContext.displayName = 'InspectedElementContext';
 
 type ResolveFn = (inspectedElement: InspectedElementFrontend) => void;
@@ -78,7 +78,7 @@ const resource: Resource<
       return request.promise;
     }
 
-    let resolveFn = ((null: any): ResolveFn);
+    let resolveFn = ((null as any): ResolveFn);
     const promise = new Promise(resolve => {
       resolveFn = resolve;
     });
@@ -207,7 +207,7 @@ function InspectedElementContextController({children}: Props) {
               hooks,
               props,
               state,
-            } = ((data.value: any): InspectedElementBackend);
+            } = ((data.value as any): InspectedElementBackend);
 
             const inspectedElement: InspectedElementFrontend = {
               canEditFunctionProps,

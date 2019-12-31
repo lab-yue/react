@@ -286,20 +286,20 @@ function diffProperties(
     // functions are converted to booleans as markers that the associated
     // events should be sent from native.
     if (typeof nextProp === 'function') {
-      nextProp = (true: any);
+      nextProp = (true as any);
       // If nextProp is not a function, then don't bother changing prevProp
       // since nextProp will win and go into the updatePayload regardless.
       if (typeof prevProp === 'function') {
-        prevProp = (true: any);
+        prevProp = (true as any);
       }
     }
 
     // An explicit value of undefined is treated as a null because it overrides
     // any other preceding value.
     if (typeof nextProp === 'undefined') {
-      nextProp = (null: any);
+      nextProp = (null as any);
       if (typeof prevProp === 'undefined') {
-        prevProp = (null: any);
+        prevProp = (null as any);
       }
     }
 
@@ -369,13 +369,13 @@ function diffProperties(
         updatePayload,
         prevProp,
         nextProp,
-        ((attributeConfig: any): AttributeConfiguration<>),
+        ((attributeConfig as any): AttributeConfiguration<>),
       );
       if (removedKeyCount > 0 && updatePayload) {
         restoreDeletedValuesInNestedArray(
           updatePayload,
           nextProp,
-          ((attributeConfig: any): AttributeConfiguration<>),
+          ((attributeConfig as any): AttributeConfiguration<>),
         );
         removedKeys = null;
       }
@@ -426,7 +426,7 @@ function diffProperties(
       updatePayload = clearNestedProperty(
         updatePayload,
         prevProp,
-        ((attributeConfig: any): AttributeConfiguration<>),
+        ((attributeConfig as any): AttributeConfiguration<>),
       );
     }
   }

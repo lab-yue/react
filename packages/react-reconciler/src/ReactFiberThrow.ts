@@ -193,7 +193,7 @@ function throwException(
     typeof value.then === 'function'
   ) {
     // This is a thenable.
-    const thenable: Thenable = (value: any);
+    const thenable: Thenable = (value as any);
 
     if ((sourceFiber.mode & BlockingMode) === NoMode) {
       // Reset the memoizedState to what it was before we attempted
@@ -225,9 +225,9 @@ function throwException(
 
         // Stash the promise on the boundary fiber. If the boundary times out, we'll
         // attach another listener to flip the boundary back to its normal state.
-        const thenables: Set<Thenable> = (workInProgress.updateQueue: any);
+        const thenables: Set<Thenable> = (workInProgress.updateQueue as any);
         if (thenables === null) {
-          const updateQueue = (new Set(): any);
+          const updateQueue = (new Set() as any);
           updateQueue.add(thenable);
           workInProgress.updateQueue = updateQueue;
         } else {

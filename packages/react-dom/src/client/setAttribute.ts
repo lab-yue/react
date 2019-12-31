@@ -18,7 +18,7 @@ export function setAttribute(
   attributeName: string,
   attributeValue: string | TrustedValue,
 ) {
-  node.setAttribute(attributeName, (attributeValue: any));
+  node.setAttribute(attributeName, (attributeValue as any));
 }
 
 /**
@@ -31,5 +31,5 @@ export function setAttributeNS(
   attributeName: string,
   attributeValue: string | TrustedValue,
 ) {
-  node.setAttributeNS(attributeNamespace, attributeName, (attributeValue: any));
+  node.setAttributeNS(attributeNamespace, attributeName, (attributeValue as any));
 }

@@ -103,7 +103,7 @@ export default function setupHighlighter(
 
     let nodes: ?Array<HTMLElement> = null;
     if (renderer !== null) {
-      nodes = ((renderer.findNativeNodesForFiberID(id): any): ?Array<
+      nodes = ((renderer.findNativeNodesForFiberID(id) as any): ?Array<
         HTMLElement,
       >);
     }
@@ -146,17 +146,17 @@ export default function setupHighlighter(
     event.preventDefault();
     event.stopPropagation();
 
-    selectFiberForNode(((event.target: any): HTMLElement));
+    selectFiberForNode(((event.target as any): HTMLElement));
   }
 
   function onPointerOver(event: MouseEvent) {
     event.preventDefault();
     event.stopPropagation();
 
-    const target = ((event.target: any): HTMLElement);
+    const target = ((event.target as any): HTMLElement);
 
     if (target.tagName === 'IFRAME') {
-      const iframe: HTMLIFrameElement = (target: any);
+      const iframe: HTMLIFrameElement = (target as any);
       try {
         if (!iframesListeningTo.has(iframe)) {
           const window = iframe.contentWindow;

@@ -200,7 +200,7 @@ export default function ComponentsSettings(_: {||}) {
         if (index >= 0) {
           if (componentFilter.type === ComponentFilterElementType) {
             cloned[index] = {
-              ...((cloned[index]: any): ElementTypeComponentFilter),
+              ...((cloned[index] as any): ElementTypeComponentFilter),
               isEnabled,
             };
           } else if (
@@ -208,12 +208,12 @@ export default function ComponentsSettings(_: {||}) {
             componentFilter.type === ComponentFilterLocation
           ) {
             cloned[index] = {
-              ...((cloned[index]: any): RegExpComponentFilter),
+              ...((cloned[index] as any): RegExpComponentFilter),
               isEnabled,
             };
           } else if (componentFilter.type === ComponentFilterHOC) {
             cloned[index] = {
-              ...((cloned[index]: any): BooleanComponentFilter),
+              ...((cloned[index] as any): BooleanComponentFilter),
               isEnabled,
             };
           }
@@ -304,7 +304,7 @@ export default function ComponentsSettings(_: {||}) {
                       ((parseInt(
                         currentTarget.value,
                         10,
-                      ): any): ComponentFilterType),
+                      ) as any): ComponentFilterType),
                     )
                   }>
                   <option value={ComponentFilterLocation}>location</option>
@@ -328,7 +328,7 @@ export default function ComponentsSettings(_: {||}) {
                     onChange={({currentTarget}) =>
                       updateFilterValueElementType(
                         componentFilter,
-                        ((parseInt(currentTarget.value, 10): any): ElementType),
+                        ((parseInt(currentTarget.value, 10) as any): ElementType),
                       )
                     }>
                     <option value={ElementTypeClass}>class</option>

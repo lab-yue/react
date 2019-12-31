@@ -12,7 +12,7 @@ import invariant from 'shared/invariant';
 // Renderers that don't support hydration
 // can re-export everything from this module.
 
-function shim(...args: any) {
+function shim(...args as any) {
   invariant(
     false,
     'The current renderer does not support hydration. ' +

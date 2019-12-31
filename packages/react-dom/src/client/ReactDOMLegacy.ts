@@ -79,8 +79,8 @@ if (__DEV__) {
 
     if (
       container.nodeType === ELEMENT_NODE &&
-      ((container: any): Element).tagName &&
-      ((container: any): Element).tagName.toUpperCase() === 'BODY'
+      ((container as any): Element).tagName &&
+      ((container as any): Element).tagName.toUpperCase() === 'BODY'
     ) {
       console.error(
         'render(): Rendering components directly into document.body is ' +
@@ -93,7 +93,7 @@ if (__DEV__) {
   };
 }
 
-function getReactRootElementInContainer(container: any) {
+function getReactRootElementInContainer(container as any) {
   if (!container) {
     return null;
   }
@@ -129,7 +129,7 @@ function legacyCreateRootFromDOMContainer(
         if (
           !warned &&
           rootSibling.nodeType === ELEMENT_NODE &&
-          (rootSibling: any).hasAttribute(ROOT_ATTRIBUTE_NAME)
+          (rootSibling as any).hasAttribute(ROOT_ATTRIBUTE_NAME)
         ) {
           warned = true;
           console.error(
@@ -177,7 +177,7 @@ function legacyRenderSubtreeIntoContainer(
 
   // TODO: Without `any` type, Flow says "Property cannot be accessed on any
   // member of intersection type." Whyyyyyy.
-  let root: RootType = (container._reactRootContainer: any);
+  let root: RootType = (container._reactRootContainer as any);
   let fiberRoot;
   if (!root) {
     // Initial mount
@@ -216,7 +216,7 @@ export function findDOMNode(
   componentOrElement: Element | ?React$Component<any, any>,
 ): null | Element | Text {
   if (__DEV__) {
-    let owner = (ReactCurrentOwner.current: any);
+    let owner = (ReactCurrentOwner.current as any);
     if (owner !== null && owner.stateNode !== null) {
       const warnedAboutRefsInRender = owner.stateNode._warnedAboutRefsInRender;
       if (!warnedAboutRefsInRender) {
@@ -235,8 +235,8 @@ export function findDOMNode(
   if (componentOrElement == null) {
     return null;
   }
-  if ((componentOrElement: any).nodeType === ELEMENT_NODE) {
-    return (componentOrElement: any);
+  if ((componentOrElement as any).nodeType === ELEMENT_NODE) {
+    return (componentOrElement as any);
   }
   if (__DEV__) {
     return findHostInstanceWithWarning(componentOrElement, 'findDOMNode');

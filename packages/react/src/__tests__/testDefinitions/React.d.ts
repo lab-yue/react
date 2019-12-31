@@ -19,8 +19,8 @@ declare module 'react' {
     context: any;
     static name: string;
     constructor(props?, context?);
-    setState(partial : any, callback ?: any) : void;
-    forceUpdate(callback ?: any) : void;
+    setState(partial : any, callback ? as any) : void;
+    forceUpdate(callback ? as any) : void;
   }
   export let PropTypes : any;
   export function createElement(tag : any, props ?: any, ...children : any[]) : any

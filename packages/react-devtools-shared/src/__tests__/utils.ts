@@ -180,7 +180,7 @@ export function exportImportHelper(bridge: FrontendBridge, store: Store): void {
 
   expect(profilerStore.profilingData).not.toBeNull();
 
-  const profilingDataFrontendInitial = ((profilerStore.profilingData: any): ProfilingDataFrontend);
+  const profilingDataFrontendInitial = ((profilerStore.profilingData as any): ProfilingDataFrontend);
 
   const profilingDataExport = prepareProfilingDataExport(
     profilingDataFrontendInitial,
@@ -195,7 +195,7 @@ export function exportImportHelper(bridge: FrontendBridge, store: Store): void {
   const parsedProfilingDataExport = JSON.parse(serializedProfilingDataExport);
 
   const profilingDataFrontend = prepareProfilingDataFrontendFromExport(
-    (parsedProfilingDataExport: any),
+    (parsedProfilingDataExport as any),
   );
 
   // Sanity check that profiling snapshots are serialized correctly.

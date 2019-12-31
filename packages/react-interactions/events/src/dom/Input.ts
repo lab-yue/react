@@ -65,7 +65,7 @@ function createInputEvent(
   type: InputEventType,
   target: Document | Element,
 ): InputEvent {
-  const {data, dataTransfer, inputType, isComposing} = (event: any).nativeEvent;
+  const {data, dataTransfer, inputType, isComposing} = (event as any).nativeEvent;
   return {
     data,
     dataTransfer,
@@ -94,7 +94,7 @@ function getNodeName(elem: Element | Document): string {
 
 function isTextInputElement(elem: Element | Document): boolean {
   const nodeName = getNodeName(elem);
-  const type = (elem: any).type;
+  const type = (elem as any).type;
   return (
     nodeName === 'textarea' ||
     (nodeName === 'input' && (type == null || supportedInputTypes.has(type)))
@@ -103,7 +103,7 @@ function isTextInputElement(elem: Element | Document): boolean {
 
 function isCheckable(elem: Element | Document): boolean {
   const nodeName = getNodeName(elem);
-  const type = (elem: any).type;
+  const type = (elem as any).type;
   return nodeName === 'input' && (type === 'checkbox' || type === 'radio');
 }
 
@@ -111,7 +111,7 @@ function shouldUseChangeEvent(elem: Element | Document): boolean {
   const nodeName = getNodeName(elem);
   return (
     nodeName === 'select' ||
-    (nodeName === 'input' && (elem: any).type === 'file')
+    (nodeName === 'input' && (elem as any).type === 'file')
   );
 }
 
@@ -143,7 +143,7 @@ function dispatchBothChangeEvents(
 
 function updateValueIfChanged(elem: Element | Document): boolean {
   // React's internal value tracker
-  const valueTracker = (elem: any)._valueTracker;
+  const valueTracker = (elem as any)._valueTracker;
   if (valueTracker == null) {
     return true;
   }
@@ -164,9 +164,9 @@ function getValueFromNode(node: Element | Document): string {
   }
 
   if (isCheckable(node)) {
-    value = (node: any).checked ? 'true' : 'false';
+    value = (node as any).checked ? 'true' : 'false';
   } else {
-    value = (node: any).value;
+    value = (node as any).value;
   }
 
   return value;

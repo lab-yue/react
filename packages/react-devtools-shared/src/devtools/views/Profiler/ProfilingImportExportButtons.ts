@@ -77,10 +77,10 @@ export default function ProfilingImportExportButtons() {
         const fileReader = new FileReader();
         fileReader.addEventListener('load', () => {
           try {
-            const raw = ((fileReader.result: any): string);
+            const raw = ((fileReader.result as any): string);
             const profilingDataExport = ((JSON.parse(
               raw,
-            ): any): ProfilingDataExport);
+            ) as any): ProfilingDataExport);
             profilerStore.profilingData = prepareProfilingDataFrontendFromExport(
               profilingDataExport,
             );

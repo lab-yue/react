@@ -239,19 +239,19 @@ class ReactShallowRenderer {
     ): [S, Dispatch<A>] => {
       this._validateCurrentlyRenderingComponent();
       this._createWorkInProgressHook();
-      const workInProgressHook: Hook = (this._workInProgressHook: any);
+      const workInProgressHook: Hook = (this._workInProgressHook as any);
 
       if (this._isReRender) {
         // This is a re-render.
-        const queue: UpdateQueue<A> = (workInProgressHook.queue: any);
-        const dispatch: Dispatch<A> = (queue.dispatch: any);
+        const queue: UpdateQueue<A> = (workInProgressHook.queue as any);
+        const dispatch: Dispatch<A> = (queue.dispatch as any);
         if (this._numberOfReRenders > 0) {
           // Apply the new render phase updates to the previous current hook.
           if (this._renderPhaseUpdates !== null) {
             // Render phase updates are stored in a map of queue -> linked list
             const firstRenderPhaseUpdate = this._renderPhaseUpdates.get(queue);
             if (firstRenderPhaseUpdate !== undefined) {
-              (this._renderPhaseUpdates: any).delete(queue);
+              (this._renderPhaseUpdates as any).delete(queue);
               let newState = workInProgressHook.memoizedState;
               let update = firstRenderPhaseUpdate;
               do {
@@ -284,11 +284,11 @@ class ReactShallowRenderer {
           // Special case for `useState`.
           initialState =
             typeof initialArg === 'function'
-              ? ((initialArg: any): () => S)()
-              : ((initialArg: any): S);
+              ? ((initialArg as any): () => S)()
+              : ((initialArg as any): S);
         } else {
           initialState =
-            init !== undefined ? init(initialArg) : ((initialArg: any): S);
+            init !== undefined ? init(initialArg) : ((initialArg as any): S);
         }
         workInProgressHook.memoizedState = initialState;
         const queue: UpdateQueue<A> = (workInProgressHook.queue = {
@@ -297,7 +297,7 @@ class ReactShallowRenderer {
         });
         const dispatch: Dispatch<
           A,
-        > = (queue.dispatch = (this._dispatchAction.bind(this, queue): any));
+        > = (queue.dispatch = (this._dispatchAction.bind(this, queue) as any));
         return [workInProgressHook.memoizedState, dispatch];
       }
     };
@@ -308,7 +308,7 @@ class ReactShallowRenderer {
       return useReducer(
         basicStateReducer,
         // useReducer has a special case to support lazy useState initializers
-        (initialState: any),
+        (initialState as any),
       );
     };
 
@@ -335,20 +335,20 @@ class ReactShallowRenderer {
       }
 
       const nextValue = nextCreate();
-      (this._workInProgressHook: any).memoizedState = [nextValue, nextDeps];
+      (this._workInProgressHook as any).memoizedState = [nextValue, nextDeps];
       return nextValue;
     };
 
     const useRef = <T>(initialValue: T): {current: T} => {
       this._validateCurrentlyRenderingComponent();
       this._createWorkInProgressHook();
-      const previousRef = (this._workInProgressHook: any).memoizedState;
+      const previousRef = (this._workInProgressHook as any).memoizedState;
       if (previousRef === null) {
         const ref = {current: initialValue};
         if (__DEV__) {
           Object.seal(ref);
         }
-        (this._workInProgressHook: any).memoizedState = ref;
+        (this._workInProgressHook as any).memoizedState = ref;
         return ref;
       } else {
         return previousRef;
@@ -397,7 +397,7 @@ class ReactShallowRenderer {
 
     return {
       readContext,
-      useCallback: (identity: any),
+      useCallback: (identity as any),
       useContext: <T>(context: ReactContext<T>): T => {
         this._validateCurrentlyRenderingComponent();
         return readContext(context);
@@ -485,7 +485,7 @@ class ReactShallowRenderer {
         this._isReRender = false;
         // Append to the end of the list
         this._workInProgressHook = (this
-          ._workInProgressHook: any).next = createHook();
+          ._workInProgressHook as any).next = createHook();
       } else {
         // There's already a work-in-progress. Reuse it.
         this._isReRender = true;
@@ -532,7 +532,7 @@ class ReactShallowRenderer {
           'it by passing it to React.createElement.'
         : '',
     );
-    element = ((element: any): ReactElement);
+    element = ((element as any): ReactElement);
     // Show a special message for host elements since it's a common case.
     invariant(
       typeof element.type !== 'string',

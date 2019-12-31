@@ -22,7 +22,7 @@ import {Resource, Thenable} from '../../cache';
 
 type Context = (id: number) => Array<Owner> | null;
 
-const OwnersListContext = createContext<Context>(((null: any): Context));
+const OwnersListContext = createContext<Context>(((null as any): Context));
 OwnersListContext.displayName = 'OwnersListContext';
 
 type ResolveFn = (ownersList: Array<Owner> | null) => void;
@@ -39,7 +39,7 @@ const resource: Resource<Element, Element, Array<Owner>> = createResource(
       return request.promise;
     }
 
-    let resolveFn = ((null: any): ResolveFn);
+    let resolveFn = ((null as any): ResolveFn);
     const promise = new Promise(resolve => {
       resolveFn = resolve;
     });

@@ -19,7 +19,7 @@ import styles from './InspectedElementTree.css';
 
 import {InspectPath} from './SelectedElement';
 
-type OverrideValueFn = (path: Array<string | number>, value: any) => void;
+type OverrideValueFn = (path: Array<string | number>, value as any) => void;
 
 type Props = {|
   data: Object | null,
@@ -51,7 +51,7 @@ export default function InspectedElementTree({
   const isEmpty = entries === null || entries.length === 0;
 
   const handleCopy = useCallback(
-    () => copy(serializeDataForCopy(((data: any): Object))),
+    () => copy(serializeDataForCopy(((data as any): Object))),
     [data],
   );
 
@@ -86,7 +86,7 @@ export default function InspectedElementTree({
         </div>
         {isEmpty && !canAddEntries && <div className={styles.Empty}>None</div>}
         {!isEmpty &&
-          (entries: any).map(([name, value]) => (
+          (entries as any).map(([name, value]) => (
             <KeyValue
               key={name}
               alphaSort={true}

@@ -97,7 +97,7 @@ function updateOptions(
   } else {
     // Do not set `select.value` as exact behavior isn't consistent across all
     // browsers for all cases.
-    let selectedValue = toString(getToStringValue((propValue: any)));
+    let selectedValue = toString(getToStringValue((propValue as any)));
     let defaultSelected = null;
     for (let i = 0; i < options.length; i++) {
       if (options[i].value === selectedValue) {
@@ -140,7 +140,7 @@ export function getHostProps(element: Element, props: Object) {
 }
 
 export function initWrapperState(element: Element, props: Object) {
-  const node = ((element: any): SelectWithWrapperState);
+  const node = ((element as any): SelectWithWrapperState);
   if (__DEV__) {
     checkSelectPropTypes(props);
   }
@@ -168,7 +168,7 @@ export function initWrapperState(element: Element, props: Object) {
 }
 
 export function postMountWrapper(element: Element, props: Object) {
-  const node = ((element: any): SelectWithWrapperState);
+  const node = ((element as any): SelectWithWrapperState);
   node.multiple = !!props.multiple;
   const value = props.value;
   if (value != null) {
@@ -179,7 +179,7 @@ export function postMountWrapper(element: Element, props: Object) {
 }
 
 export function postUpdateWrapper(element: Element, props: Object) {
-  const node = ((element: any): SelectWithWrapperState);
+  const node = ((element as any): SelectWithWrapperState);
   const wasMultiple = node._wrapperState.wasMultiple;
   node._wrapperState.wasMultiple = !!props.multiple;
 
@@ -198,7 +198,7 @@ export function postUpdateWrapper(element: Element, props: Object) {
 }
 
 export function restoreControlledState(element: Element, props: Object) {
-  const node = ((element: any): SelectWithWrapperState);
+  const node = ((element as any): SelectWithWrapperState);
   const value = props.value;
 
   if (value != null) {

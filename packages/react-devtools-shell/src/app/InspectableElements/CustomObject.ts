@@ -20,6 +20,6 @@ export default function CustomObject() {
   return <ChildComponent customObject={new Custom()} />;
 }
 
-function ChildComponent(props: any) {
+function ChildComponent(props as any) {
   return null;
 }

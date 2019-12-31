@@ -117,7 +117,7 @@ export default function Hydration() {
   );
 }
 
-function DehydratableProps({array, object}: any) {
+function DehydratableProps({array, object} as any) {
   return (
     <ul>
       <li>array: {JSON.stringify(array, null, 2)}</li>
@@ -126,7 +126,7 @@ function DehydratableProps({array, object}: any) {
   );
 }
 
-function DeepHooks(props: any) {
+function DeepHooks(props as any) {
   const foo = useOuterFoo();
   const bar = useOuterBar();
   const baz = useOuterBaz();

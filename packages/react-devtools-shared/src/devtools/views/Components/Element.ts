@@ -91,7 +91,7 @@ export default function ElementView({data, index, style}: Props) {
     hocDisplayNames,
     key,
     type,
-  } = ((element: any): Element);
+  } = ((element as any): Element);
 
   let className = styles.Element;
   if (isSelected) {
@@ -122,7 +122,7 @@ export default function ElementView({data, index, style}: Props) {
         {ownerID === null ? (
           <ExpandCollapseToggle element={element} store={store} />
         ) : null}
-        <DisplayName displayName={displayName} id={((id: any): number)} />
+        <DisplayName displayName={displayName} id={((id as any): number)} />
         {key && (
           <Fragment>
             &nbsp;<span className={styles.KeyName}>key</span>="

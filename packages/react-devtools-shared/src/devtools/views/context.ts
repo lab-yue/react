@@ -14,11 +14,11 @@ import {ViewAttributeSource} from 'react-devtools-shared/src/devtools/views/DevT
 import {FrontendBridge} from 'react-devtools-shared/src/bridge';
 
 export const BridgeContext = createContext<FrontendBridge>(
-  ((null: any): FrontendBridge),
+  ((null as any): FrontendBridge),
 );
 BridgeContext.displayName = 'BridgeContext';
 
-export const StoreContext = createContext<Store>(((null: any): Store));
+export const StoreContext = createContext<Store>(((null as any): Store));
 StoreContext.displayName = 'StoreContext';
 
 export type ContextMenuContextType = {|

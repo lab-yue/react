@@ -248,15 +248,15 @@ export type RendererInterface = {
   ) => void,
   prepareViewElementSource: (id: number) => void,
   renderer: ReactRenderer | null,
-  setInContext: (id: number, path: Array<string | number>, value: any) => void,
+  setInContext: (id: number, path: Array<string | number>, value as any) => void,
   setInHook: (
     id: number,
     index: number,
     path: Array<string | number>,
     value: any,
   ) => void,
-  setInProps: (id: number, path: Array<string | number>, value: any) => void,
-  setInState: (id: number, path: Array<string | number>, value: any) => void,
+  setInProps: (id: number, path: Array<string | number>, value as any) => void,
+  setInState: (id: number, path: Array<string | number>, value as any) => void,
   setTraceUpdatesEnabled: (enabled: boolean) => void,
   setTrackedPath: (path: Array<PathFrame> | null) => void,
   startProfiling: (recordChangeDescriptions: boolean) => void,
@@ -269,14 +269,14 @@ export type RendererInterface = {
   updateComponentFilters: (componentFilters: Array<ComponentFilter>) => void,
 };
 
-export type Handler = (data: any) => void;
+export type Handler = (data as any) => void;
 
 export type DevToolsHook = {
   listeners: {[key: string]: Array<Handler>},
   rendererInterfaces: Map<RendererID, RendererInterface>,
   renderers: Map<RendererID, ReactRenderer>,
 
-  emit: (event: string, data: any) => void,
+  emit: (event: string, data as any) => void,
   getFiberRoots: (rendererID: RendererID) => Set<Object>,
   inject: (renderer: ReactRenderer) => number | null,
   on: (event: string, handler: Handler) => void,

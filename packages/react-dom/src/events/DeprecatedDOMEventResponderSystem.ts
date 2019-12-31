@@ -102,7 +102,7 @@ const eventResponderContext: ReactDOMResponderContext = {
     validateResponderContext();
     if (target != null) {
       let fiber = getClosestInstanceFromNode(target);
-      const responderFiber = ((currentInstance: any): ReactDOMEventResponderInstance)
+      const responderFiber = ((currentInstance as any): ReactDOMEventResponderInstance)
         .fiber;
 
       while (fiber !== null) {
@@ -116,12 +116,12 @@ const eventResponderContext: ReactDOMResponderContext = {
   },
   isTargetWithinResponderScope(target: null | Element | Document): boolean {
     validateResponderContext();
-    const componentInstance = ((currentInstance: any): ReactDOMEventResponderInstance);
+    const componentInstance = ((currentInstance as any): ReactDOMEventResponderInstance);
     const responder = componentInstance.responder;
 
     if (target != null) {
       let fiber = getClosestInstanceFromNode(target);
-      const responderFiber = ((currentInstance: any): ReactDOMEventResponderInstance)
+      const responderFiber = ((currentInstance as any): ReactDOMEventResponderInstance)
         .fiber;
 
       while (fiber !== null) {
@@ -163,7 +163,7 @@ const eventResponderContext: ReactDOMResponderContext = {
     listenToResponderEventTypesImpl(rootEventTypes, currentDocument);
     for (let i = 0; i < rootEventTypes.length; i++) {
       const rootEventType = rootEventTypes[i];
-      const eventResponderInstance = ((currentInstance: any): ReactDOMEventResponderInstance);
+      const eventResponderInstance = ((currentInstance as any): ReactDOMEventResponderInstance);
       DEPRECATED_registerRootEventType(rootEventType, eventResponderInstance);
     }
   },
@@ -174,14 +174,14 @@ const eventResponderContext: ReactDOMResponderContext = {
       let rootEventResponders = rootEventTypesToEventResponderInstances.get(
         rootEventType,
       );
-      let rootEventTypesSet = ((currentInstance: any): ReactDOMEventResponderInstance)
+      let rootEventTypesSet = ((currentInstance as any): ReactDOMEventResponderInstance)
         .rootEventTypes;
       if (rootEventTypesSet !== null) {
         rootEventTypesSet.delete(rootEventType);
       }
       if (rootEventResponders !== undefined) {
         rootEventResponders.delete(
-          ((currentInstance: any): ReactDOMEventResponderInstance),
+          ((currentInstance as any): ReactDOMEventResponderInstance),
         );
       }
     }
@@ -213,7 +213,7 @@ const eventResponderContext: ReactDOMResponderContext = {
   enqueueStateRestore,
   getResponderNode(): Element | null {
     validateResponderContext();
-    const responderFiber = ((currentInstance: any): ReactDOMEventResponderInstance)
+    const responderFiber = ((currentInstance as any): ReactDOMEventResponderInstance)
       .fiber;
     if (responderFiber.tag === ScopeComponent) {
       return null;
@@ -222,7 +222,7 @@ const eventResponderContext: ReactDOMResponderContext = {
   },
 };
 
-function validateEventValue(eventValue: any): void {
+function validateEventValue(eventValue as any): void {
   if (typeof eventValue === 'object' && eventValue !== null) {
     const {target, type, timeStamp} = eventValue;
 
@@ -280,7 +280,7 @@ function doesFiberHaveResponder(
 }
 
 function getActiveDocument(): Document {
-  return ((currentDocument: any): Document);
+  return ((currentDocument as any): Document);
 }
 
 function createDOMResponderEvent(
@@ -289,7 +289,7 @@ function createDOMResponderEvent(
   nativeEventTarget: Element | Document,
   passive: boolean,
 ): ReactDOMResponderEvent {
-  const {buttons, pointerType} = (nativeEvent: any);
+  const {buttons, pointerType} = (nativeEvent as any);
   let eventPointerType = '';
 
   if (pointerType !== undefined) {
@@ -298,7 +298,7 @@ function createDOMResponderEvent(
     eventPointerType = 'keyboard';
   } else if (buttons !== undefined) {
     eventPointerType = 'mouse';
-  } else if ((nativeEvent: any).changedTouches !== undefined) {
+  } else if ((nativeEvent as any).changedTouches !== undefined) {
     eventPointerType = 'touch';
   }
 
@@ -455,7 +455,7 @@ export function mountEventResponder(
 export function unmountEventResponder(
   responderInstance: ReactDOMEventResponderInstance,
 ): void {
-  const responder = ((responderInstance.responder: any): ReactDOMEventResponder);
+  const responder = ((responderInstance.responder as any): ReactDOMEventResponder);
   const onUnmount = responder.onUnmount;
   if (onUnmount !== null) {
     let {props, state} = responderInstance;
@@ -505,11 +505,11 @@ export function DEPRECATED_dispatchEventForResponderEventSystem(
     currentPropagationBehavior = DoNotPropagateToNextResponder;
     // nodeType 9 is DOCUMENT_NODE
     currentDocument =
-      (nativeEventTarget: any).nodeType === 9
-        ? ((nativeEventTarget: any): Document)
-        : (nativeEventTarget: any).ownerDocument;
+      (nativeEventTarget as any).nodeType === 9
+        ? ((nativeEventTarget as any): Document)
+        : (nativeEventTarget as any).ownerDocument;
     // We might want to control timeStamp another way here
-    currentTimeStamp = (nativeEvent: any).timeStamp;
+    currentTimeStamp = (nativeEvent as any).timeStamp;
     try {
       batchedEventUpdates(() => {
         traverseAndHandleEventResponderInstances(

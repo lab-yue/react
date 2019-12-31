@@ -59,6 +59,6 @@ export default function ObjectProps() {
   );
 }
 
-function ChildComponent(props: any) {
+function ChildComponent(props as any) {
   return null;
 }

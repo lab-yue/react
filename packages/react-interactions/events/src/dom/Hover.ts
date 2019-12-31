@@ -73,7 +73,7 @@ function createHoverEvent(
   let pointerType = '';
 
   if (event) {
-    const nativeEvent = (event.nativeEvent: any);
+    const nativeEvent = (event.nativeEvent as any);
     pointerType = event.pointerType;
     ({clientX, clientY, pageX, pageY, screenX, screenY} = nativeEvent);
   }
@@ -117,7 +117,7 @@ function dispatchHoverStartEvents(
   if (event !== null) {
     const {nativeEvent} = event;
     if (
-      context.isTargetWithinResponderScope((nativeEvent: any).relatedTarget)
+      context.isTargetWithinResponderScope((nativeEvent as any).relatedTarget)
     ) {
       return;
     }
@@ -133,7 +133,7 @@ function dispatchHoverStartEvents(
         event,
         context,
         'hoverstart',
-        ((target: any): Element | Document),
+        ((target as any): Element | Document),
       );
       context.dispatchEvent(syntheticEvent, onHoverStart, UserBlockingEvent);
     }
@@ -149,7 +149,7 @@ function dispatchHoverMoveEvent(event, context, props, state) {
       event,
       context,
       'hovermove',
-      ((target: any): Element | Document),
+      ((target as any): Element | Document),
     );
     context.dispatchEvent(syntheticEvent, onHoverMove, UserBlockingEvent);
   }
@@ -165,7 +165,7 @@ function dispatchHoverEndEvents(
   if (event !== null) {
     const {nativeEvent} = event;
     if (
-      context.isTargetWithinResponderScope((nativeEvent: any).relatedTarget)
+      context.isTargetWithinResponderScope((nativeEvent as any).relatedTarget)
     ) {
       return;
     }
@@ -181,7 +181,7 @@ function dispatchHoverEndEvents(
         event,
         context,
         'hoverend',
-        ((target: any): Element | Document),
+        ((target as any): Element | Document),
       );
       context.dispatchEvent(syntheticEvent, onHoverEnd, UserBlockingEvent);
     }

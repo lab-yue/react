@@ -38,7 +38,7 @@ const roots = [];
 function mountHelper(App) {
   const container = document.createElement('div');
 
-  ((document.body: any): HTMLBodyElement).appendChild(container);
+  ((document.body as any): HTMLBodyElement).appendChild(container);
 
   const root = createRoot(container);
   root.render(createElement(App));

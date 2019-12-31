@@ -134,7 +134,7 @@ export function attach(
     number,
   > = new WeakMap();
 
-  let getInternalIDForNative: GetFiberIDForNative = ((null: any): GetFiberIDForNative);
+  let getInternalIDForNative: GetFiberIDForNative = ((null as any): GetFiberIDForNative);
   let findNativeNodeForInternalID: (id: number) => ?NativeType;
 
   if (renderer.ComponentTree) {
@@ -168,7 +168,7 @@ export function attach(
       internalInstanceToIDMap.set(internalInstance, id);
       idToInternalInstanceMap.set(id, internalInstance);
     }
-    return ((internalInstanceToIDMap.get(internalInstance): any): number);
+    return ((internalInstanceToIDMap.get(internalInstance) as any): number);
   }
 
   function areEqualArrays(a, b) {
@@ -862,7 +862,7 @@ export function attach(
     global.$type = element.type;
   }
 
-  function setInProps(id: number, path: Array<string | number>, value: any) {
+  function setInProps(id: number, path: Array<string | number>, value as any) {
     const internalInstance = idToInternalInstanceMap.get(id);
     if (internalInstance != null) {
       const element = internalInstance._currentElement;
@@ -874,7 +874,7 @@ export function attach(
     }
   }
 
-  function setInState(id: number, path: Array<string | number>, value: any) {
+  function setInState(id: number, path: Array<string | number>, value as any) {
     const internalInstance = idToInternalInstanceMap.get(id);
     if (internalInstance != null) {
       const publicInstance = internalInstance._instance;
@@ -885,7 +885,7 @@ export function attach(
     }
   }
 
-  function setInContext(id: number, path: Array<string | number>, value: any) {
+  function setInContext(id: number, path: Array<string | number>, value as any) {
     const internalInstance = idToInternalInstanceMap.get(id);
     if (internalInstance != null) {
       const publicInstance = internalInstance._instance;
@@ -896,7 +896,7 @@ export function attach(
     }
   }
 
-  function setIn(obj: Object, path: Array<string | number>, value: any) {
+  function setIn(obj: Object, path: Array<string | number>, value as any) {
     const last = path.pop();
     const parent = path.reduce(
       // $FlowFixMe

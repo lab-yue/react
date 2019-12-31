@@ -38,7 +38,7 @@ export function cleanForBridge(
   }
 }
 
-export function copyToClipboard(value: any): void {
+export function copyToClipboard(value as any): void {
   const safeToCopy = serializeToString(value);
   const text = safeToCopy === undefined ? 'undefined' : safeToCopy;
   const {clipboardCopyText} = window.__REACT_DEVTOOLS_GLOBAL_HOOK__;
@@ -71,7 +71,7 @@ export function copyWithSet(
   return updated;
 }
 
-export function serializeToString(data: any): string {
+export function serializeToString(data as any): string {
   const cache = new Set();
   // Use a custom replacer function to protect against circular references.
   return JSON.stringify(data, (key, value) => {

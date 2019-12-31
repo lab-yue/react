@@ -18,11 +18,11 @@ declare var __REACT_DEVTOOLS_GLOBAL_HOOK__: any; /*?{
 };*/
 
 declare var trustedTypes: {|
-  isHTML: (value: any) => boolean,
-  isScript: (value: any) => boolean,
-  isScriptURL: (value: any) => boolean,
+  isHTML: (value as any) => boolean,
+  isScript: (value as any) => boolean,
+  isScriptURL: (value as any) => boolean,
   // TrustedURLs are deprecated and will be removed soon: https://github.com/WICG/trusted-types/pull/204
-  isURL?: (value: any) => boolean,
+  isURL?: (value as any) => boolean,
 |};
 
 // ReactFeatureFlags www fork

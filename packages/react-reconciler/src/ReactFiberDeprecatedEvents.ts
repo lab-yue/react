@@ -86,7 +86,7 @@ function mountEventResponder(
     responderInstance,
     responderProps,
     responderState,
-    ((rootContainerInstance: any): Instance),
+    ((rootContainerInstance as any): Instance),
   );
   respondersMap.set(responder, responderInstance);
 }
@@ -113,7 +113,7 @@ function updateEventListener(
     'An invalid value was used as an event listener. Expect one or many event ' +
       'listeners created via React.unstable_useResponder().',
   );
-  const listenerProps = ((props: any): Object);
+  const listenerProps = ((props as any): Object);
   if (visistedResponders.has(responder)) {
     // show warning
     if (__DEV__) {
@@ -194,7 +194,7 @@ export function updateDeprecatedEventListeners(
         if (!visistedResponders.has(mountedResponder)) {
           const responderInstance = ((respondersMap.get(
             mountedResponder,
-          ): any): ReactEventResponderInstance<any, any>);
+          ) as any): ReactEventResponderInstance<any, any>);
           DEPRECATED_unmountResponderInstance(responderInstance);
           respondersMap.delete(mountedResponder);
         }

@@ -297,7 +297,7 @@ function commitBeforeMutationLifeCycles(
             prevState,
           );
           if (__DEV__) {
-            const didWarnSet = ((didWarnAboutUndefinedSnapshotBeforeUpdate: any): Set<
+            const didWarnSet = ((didWarnAboutUndefinedSnapshotBeforeUpdate as any): Set<
               mixed,
             >);
             if (snapshot === undefined && !didWarnSet.has(finishedWork.type)) {
@@ -335,7 +335,7 @@ function commitHookEffectList(
   mountTag: number,
   finishedWork: Fiber,
 ) {
-  const updateQueue: FunctionComponentUpdateQueue | null = (finishedWork.updateQueue: any);
+  const updateQueue: FunctionComponentUpdateQueue | null = (finishedWork.updateQueue as any);
   let lastEffect = updateQueue !== null ? updateQueue.lastEffect : null;
   if (lastEffect !== null) {
     const firstEffect = lastEffect.next;
@@ -666,7 +666,7 @@ function hideOrUnhideAllChildren(finishedWork, isHidden) {
       ) {
         // Found a nested Suspense component that timed out. Skip over the
         // primary child fragment, which should remain hidden.
-        const fallbackChildFragment: Fiber = (node.child: any).sibling;
+        const fallbackChildFragment: Fiber = (node.child as any).sibling;
         fallbackChildFragment.return = node;
         node = fallbackChildFragment;
         continue;
@@ -752,7 +752,7 @@ function commitUnmount(
     case MemoComponent:
     case SimpleMemoComponent:
     case Chunk: {
-      const updateQueue: FunctionComponentUpdateQueue | null = (current.updateQueue: any);
+      const updateQueue: FunctionComponentUpdateQueue | null = (current.updateQueue as any);
       if (updateQueue !== null) {
         const lastEffect = updateQueue.lastEffect;
         if (lastEffect !== null) {
@@ -1169,12 +1169,12 @@ function unmountHostComponents(
       // node from the tree.
       if (currentParentIsContainer) {
         removeChildFromContainer(
-          ((currentParent: any): Container),
+          ((currentParent as any): Container),
           (node.stateNode: Instance | TextInstance),
         );
       } else {
         removeChild(
-          ((currentParent: any): Instance),
+          ((currentParent as any): Instance),
           (node.stateNode: Instance | TextInstance),
         );
       }
@@ -1186,12 +1186,12 @@ function unmountHostComponents(
       // node from the tree.
       if (currentParentIsContainer) {
         removeChildFromContainer(
-          ((currentParent: any): Container),
+          ((currentParent as any): Container),
           (fundamentalNode: Instance),
         );
       } else {
         removeChild(
-          ((currentParent: any): Instance),
+          ((currentParent as any): Instance),
           (fundamentalNode: Instance),
         );
       }
@@ -1212,12 +1212,12 @@ function unmountHostComponents(
       // Delete the dehydrated suspense boundary and all of its content.
       if (currentParentIsContainer) {
         clearSuspenseBoundaryFromContainer(
-          ((currentParent: any): Container),
+          ((currentParent as any): Container),
           (node.stateNode: SuspenseInstance),
         );
       } else {
         clearSuspenseBoundary(
-          ((currentParent: any): Instance),
+          ((currentParent as any): Instance),
           (node.stateNode: SuspenseInstance),
         );
       }
@@ -1343,7 +1343,7 @@ function commitWork(current: Fiber | null, finishedWork: Fiber): void {
         const oldProps = current !== null ? current.memoizedProps : newProps;
         const type = finishedWork.type;
         // TODO: Type the updateQueue to be specific to host components.
-        const updatePayload: null | UpdatePayload = (finishedWork.updateQueue: any);
+        const updatePayload: null | UpdatePayload = (finishedWork.updateQueue as any);
         finishedWork.updateQueue = null;
         if (updatePayload !== null) {
           commitUpdate(
@@ -1460,7 +1460,7 @@ function commitSuspenseComponent(finishedWork: Fiber) {
   if (enableSuspenseCallback && newState !== null) {
     const suspenseCallback = finishedWork.memoizedProps.suspenseCallback;
     if (typeof suspenseCallback === 'function') {
-      const thenables: Set<Thenable> | null = (finishedWork.updateQueue: any);
+      const thenables: Set<Thenable> | null = (finishedWork.updateQueue as any);
       if (thenables !== null) {
         suspenseCallback(new Set(thenables));
       }
@@ -1507,7 +1507,7 @@ function attachSuspenseRetryListeners(finishedWork: Fiber) {
   // If this boundary just timed out, then it will have a set of thenables.
   // For each thenable, attach a listener so that when it resolves, React
   // attempts to re-render the boundary in the primary (pre-timeout) state.
-  const thenables: Set<Thenable> | null = (finishedWork.updateQueue: any);
+  const thenables: Set<Thenable> | null = (finishedWork.updateQueue as any);
   if (thenables !== null) {
     finishedWork.updateQueue = null;
     let retryCache = finishedWork.stateNode;

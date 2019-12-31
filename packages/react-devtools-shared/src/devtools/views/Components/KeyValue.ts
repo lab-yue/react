@@ -18,7 +18,7 @@ import styles from './KeyValue.css';
 import {Element} from 'react';
 import {InspectPath} from './SelectedElement';
 
-type OverrideValueFn = (path: Array<string | number>, value: any) => void;
+type OverrideValueFn = (path: Array<string | number>, value as any) => void;
 
 type KeyValueProps = {|
   alphaSort: boolean,
@@ -126,7 +126,7 @@ export default function KeyValue({
         </span>
         {isEditable ? (
           <EditableValue
-            overrideValueFn={((overrideValueFn: any): OverrideValueFn)}
+            overrideValueFn={((overrideValueFn as any): OverrideValueFn)}
             path={path}
             value={value}
           />

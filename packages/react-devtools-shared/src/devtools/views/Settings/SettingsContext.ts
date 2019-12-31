@@ -46,7 +46,7 @@ type Context = {|
   setTraceUpdatesEnabled: (value: boolean) => void,
 |};
 
-const SettingsContext = createContext<Context>(((null: any): Context));
+const SettingsContext = createContext<Context>(((null as any): Context));
 SettingsContext.displayName = 'SettingsContext';
 
 type DocumentElements = Array<HTMLElement>;
@@ -84,18 +84,18 @@ function SettingsContextController({
   const documentElements = useMemo<DocumentElements>(
     () => {
       const array: Array<HTMLElement> = [
-        ((document.documentElement: any): HTMLElement),
+        ((document.documentElement as any): HTMLElement),
       ];
       if (componentsPortalContainer != null) {
         array.push(
           ((componentsPortalContainer.ownerDocument
-            .documentElement: any): HTMLElement),
+            .documentElement as any): HTMLElement),
         );
       }
       if (profilerPortalContainer != null) {
         array.push(
           ((profilerPortalContainer.ownerDocument
-            .documentElement: any): HTMLElement),
+            .documentElement as any): HTMLElement),
         );
       }
       return array;
@@ -234,11 +234,11 @@ function updateDisplayDensity(
 
   // Sizes and paddings/margins are all rem-based,
   // so update the root font-size as well when the display preference changes.
-  const computedStyle = getComputedStyle((document.body: any));
+  const computedStyle = getComputedStyle((document.body as any));
   const fontSize = computedStyle.getPropertyValue(
     `--${displayDensity}-root-font-size`,
   );
-  const root = ((document.querySelector(':root'): any): HTMLElement);
+  const root = ((document.querySelector(':root') as any): HTMLElement);
   root.style.fontSize = fontSize;
 }
 

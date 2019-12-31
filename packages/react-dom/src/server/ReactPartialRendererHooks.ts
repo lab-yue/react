@@ -259,7 +259,7 @@ export function useState<S>(
   return useReducer(
     basicStateReducer,
     // useReducer has a special case to support lazy useState initializers
-    (initialState: any),
+    (initialState as any),
   );
 }
 
@@ -278,8 +278,8 @@ export function useReducer<S, I, A>(
   if (isReRender) {
     // This is a re-render. Apply the new render phase updates to the previous
     // current hook.
-    const queue: UpdateQueue<A> = (workInProgressHook.queue: any);
-    const dispatch: Dispatch<A> = (queue.dispatch: any);
+    const queue: UpdateQueue<A> = (workInProgressHook.queue as any);
+    const dispatch: Dispatch<A> = (queue.dispatch as any);
     if (renderPhaseUpdates !== null) {
       // Render phase updates are stored in a map of queue -> linked list
       const firstRenderPhaseUpdate = renderPhaseUpdates.get(queue);
@@ -317,11 +317,11 @@ export function useReducer<S, I, A>(
       // Special case for `useState`.
       initialState =
         typeof initialArg === 'function'
-          ? ((initialArg: any): () => S)()
-          : ((initialArg: any): S);
+          ? ((initialArg as any): () => S)()
+          : ((initialArg as any): S);
     } else {
       initialState =
-        init !== undefined ? init(initialArg) : ((initialArg: any): S);
+        init !== undefined ? init(initialArg) : ((initialArg as any): S);
     }
     if (__DEV__) {
       isInHookUserCodeInDev = false;
@@ -335,7 +335,7 @@ export function useReducer<S, I, A>(
       null,
       currentlyRenderingComponent,
       queue,
-    ): any));
+    ) as any));
     return [workInProgressHook.memoizedState, dispatch];
   }
 }

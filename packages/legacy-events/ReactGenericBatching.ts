@@ -78,7 +78,7 @@ export function batchedEventUpdates(fn, a, b) {
 }
 
 // This is for the React Flare event system
-export function executeUserEventHandler(fn: any => void, value: any): void {
+export function executeUserEventHandler(fn: any => void, value as any): void {
   const previouslyInEventHandler = isInsideEventHandler;
   try {
     isInsideEventHandler = true;

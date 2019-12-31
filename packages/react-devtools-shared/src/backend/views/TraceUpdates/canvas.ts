@@ -34,7 +34,7 @@ export function draw(nodeToData: Map<NativeType, Data>): void {
     initialize();
   }
 
-  const canvasFlow: HTMLCanvasElement = ((canvas: any): HTMLCanvasElement);
+  const canvasFlow: HTMLCanvasElement = ((canvas as any): HTMLCanvasElement);
   canvasFlow.width = window.screen.availWidth;
   canvasFlow.height = window.screen.availHeight;
 

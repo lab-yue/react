@@ -29,14 +29,14 @@ if (__DEV__) {
 let getInspectorDataForViewTag;
 
 if (__DEV__) {
-  const traverseOwnerTreeUp = function(hierarchy, instance: any) {
+  const traverseOwnerTreeUp = function(hierarchy, instance as any) {
     if (instance) {
       hierarchy.unshift(instance);
       traverseOwnerTreeUp(hierarchy, instance._debugOwner);
     }
   };
 
-  const getOwnerHierarchy = function(instance: any) {
+  const getOwnerHierarchy = function(instance as any) {
     const hierarchy = [];
     traverseOwnerTreeUp(hierarchy, instance);
     return hierarchy;

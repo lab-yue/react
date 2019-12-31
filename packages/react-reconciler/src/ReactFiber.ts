@@ -368,7 +368,7 @@ function shouldConstruct(Component: Function) {
   return !!(prototype && prototype.isReactComponent);
 }
 
-export function isSimpleFunctionComponent(type: any) {
+export function isSimpleFunctionComponent(type as any) {
   return (
     typeof type === 'function' &&
     !shouldConstruct(type) &&

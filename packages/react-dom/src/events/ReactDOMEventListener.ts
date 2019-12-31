@@ -155,7 +155,7 @@ function handleTopLevel(bookKeeping: BookKeepingInstance) {
   do {
     if (!ancestor) {
       const ancestors = bookKeeping.ancestors;
-      ((ancestors: any): Array<Fiber | null>).push(ancestor);
+      ((ancestors as any): Array<Fiber | null>).push(ancestor);
       break;
     }
     const root = findRootContainerNode(ancestor);
@@ -172,8 +172,8 @@ function handleTopLevel(bookKeeping: BookKeepingInstance) {
   for (let i = 0; i < bookKeeping.ancestors.length; i++) {
     targetInst = bookKeeping.ancestors[i];
     const eventTarget = getEventTarget(bookKeeping.nativeEvent);
-    const topLevelType = ((bookKeeping.topLevelType: any): DOMTopLevelEventType);
-    const nativeEvent = ((bookKeeping.nativeEvent: any): AnyNativeEvent);
+    const topLevelType = ((bookKeeping.topLevelType as any): DOMTopLevelEventType);
+    const nativeEvent = ((bookKeeping.nativeEvent as any): AnyNativeEvent);
     let eventSystemFlags = bookKeeping.eventSystemFlags;
 
     // If this is the first ancestor, we mark it on the system flags
@@ -241,7 +241,7 @@ export function addResponderEventSystemEvent(
   // Check if interactive and wrap in discreteUpdates
   const listener = dispatchEvent.bind(
     null,
-    ((topLevelType: any): DOMTopLevelEventType),
+    ((topLevelType as any): DOMTopLevelEventType),
     eventFlags,
   );
   if (passiveBrowserEventsSupported) {
@@ -413,7 +413,7 @@ export function dispatchEvent(
     if (eventSystemFlags & RESPONDER_EVENT_SYSTEM) {
       // React Flare event system
       DEPRECATED_dispatchEventForResponderEventSystem(
-        (topLevelType: any),
+        (topLevelType as any),
         null,
         nativeEvent,
         getEventTarget(nativeEvent),
@@ -491,7 +491,7 @@ export function attemptToDispatchEvent(
     if (eventSystemFlags & RESPONDER_EVENT_SYSTEM) {
       // React Flare event system
       DEPRECATED_dispatchEventForResponderEventSystem(
-        (topLevelType: any),
+        (topLevelType as any),
         targetInst,
         nativeEvent,
         nativeEventTarget,

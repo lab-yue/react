@@ -36,13 +36,13 @@ export function getValueForProperty(
   if (__DEV__) {
     if (propertyInfo.mustUseProperty) {
       const {propertyName} = propertyInfo;
-      return (node: any)[propertyName];
+      return (node as any)[propertyName];
     } else {
       if (!disableJavaScriptURLs && propertyInfo.sanitizeURL) {
         // If we haven't fully disabled javascript: URLs, and if
         // the hydration is successful of a javascript: URL, we
         // still want to warn on the client.
-        sanitizeURL('' + (expected: any));
+        sanitizeURL('' + (expected as any));
       }
 
       const attributeName = propertyInfo.attributeName;
@@ -58,7 +58,7 @@ export function getValueForProperty(
           if (shouldRemoveAttribute(name, expected, propertyInfo, false)) {
             return value;
           }
-          if (value === '' + (expected: any)) {
+          if (value === '' + (expected as any)) {
             return expected;
           }
           return value;
@@ -83,7 +83,7 @@ export function getValueForProperty(
 
       if (shouldRemoveAttribute(name, expected, propertyInfo, false)) {
         return stringValue === null ? expected : stringValue;
-      } else if (stringValue === '' + (expected: any)) {
+      } else if (stringValue === '' + (expected as any)) {
         return expected;
       } else {
         return stringValue;
@@ -110,7 +110,7 @@ export function getValueForAttribute(
       return expected === undefined ? undefined : null;
     }
     const value = node.getAttribute(name);
-    if (value === '' + (expected: any)) {
+    if (value === '' + (expected as any)) {
       return expected;
     }
     return value;
@@ -154,11 +154,11 @@ export function setValueForProperty(
     const {propertyName} = propertyInfo;
     if (value === null) {
       const {type} = propertyInfo;
-      (node: any)[propertyName] = type === BOOLEAN ? false : '';
+      (node as any)[propertyName] = type === BOOLEAN ? false : '';
     } else {
       // Contrary to `setAttribute`, object properties are properly
       // `toString`ed by IE8/9.
-      (node: any)[propertyName] = value;
+      (node as any)[propertyName] = value;
     }
     return;
   }

@@ -127,12 +127,12 @@ type Action =
 export type DispatcherContext = (action: Action) => void;
 
 const TreeStateContext = createContext<StateContext>(
-  ((null: any): StateContext),
+  ((null as any): StateContext),
 );
 TreeStateContext.displayName = 'TreeStateContext';
 
 const TreeDispatcherContext = createContext<DispatcherContext>(
-  ((null: any): DispatcherContext),
+  ((null as any): DispatcherContext),
 );
 TreeDispatcherContext.displayName = 'TreeDispatcherContext';
 
@@ -177,7 +177,7 @@ function reduceTreeState(store: Store, state: State, action: Action): State {
         ) {
           selectedElementID = ((removedIDs.get(
             selectedElementID,
-          ): any): number);
+          ) as any): number);
         }
         if (selectedElementID === 0) {
           // The whole root was removed.
@@ -187,7 +187,7 @@ function reduceTreeState(store: Store, state: State, action: Action): State {
       case 'SELECT_CHILD_ELEMENT_IN_TREE':
         if (selectedElementIndex !== null) {
           const selectedElement = store.getElementAtIndex(
-            ((selectedElementIndex: any): number),
+            ((selectedElementIndex as any): number),
           );
           if (
             selectedElement !== null &&
@@ -229,7 +229,7 @@ function reduceTreeState(store: Store, state: State, action: Action): State {
       case 'SELECT_PARENT_ELEMENT_IN_TREE':
         if (selectedElementIndex !== null) {
           const selectedElement = store.getElementAtIndex(
-            ((selectedElementIndex: any): number),
+            ((selectedElementIndex as any): number),
           );
           if (selectedElement !== null && selectedElement.parentID !== null) {
             const parentIndex = store.getIndexOfElementID(
@@ -260,7 +260,7 @@ function reduceTreeState(store: Store, state: State, action: Action): State {
       selectedElementID = null;
     } else {
       selectedElementID = store.getElementIDAtIndex(
-        ((selectedElementIndex: any): number),
+        ((selectedElementIndex as any): number),
       );
     }
   }
@@ -308,8 +308,8 @@ function reduceSearchState(store: Store, state: State, action: Action): State {
         if (numPrevSearchResults > 0) {
           didRequestSearch = true;
           searchIndex =
-            ((searchIndex: any): number) > 0
-              ? ((searchIndex: any): number) - 1
+            ((searchIndex as any): number) > 0
+              ? ((searchIndex as any): number) - 1
               : numPrevSearchResults - 1;
         }
         break;
@@ -331,14 +331,14 @@ function reduceSearchState(store: Store, state: State, action: Action): State {
               // If the results are now empty, also deselect things.
               if (searchResults.length === 0) {
                 searchIndex = null;
-              } else if (((searchIndex: any): number) >= searchResults.length) {
+              } else if (((searchIndex as any): number) >= searchResults.length) {
                 searchIndex = searchResults.length - 1;
               }
             }
           });
 
           addedElementIDs.forEach(id => {
-            const element = ((store.getElementByID(id): any): Element);
+            const element = ((store.getElementByID(id) as any): Element);
 
             // It's possible that multiple tree operations will fire before this action has run.
             // So it's important to check for elements that may have been added and then removed.
@@ -350,14 +350,14 @@ function reduceSearchState(store: Store, state: State, action: Action): State {
               if (displayName !== null && regExp.test(displayName)) {
                 const newElementIndex = ((store.getIndexOfElementID(
                   id,
-                ): any): number);
+                ) as any): number);
 
                 let foundMatch = false;
                 for (let index = 0; index < searchResults.length; index++) {
                   const resultID = searchResults[index];
                   if (
                     newElementIndex <
-                    ((store.getIndexOfElementID(resultID): any): number)
+                    ((store.getIndexOfElementID(resultID) as any): number)
                   ) {
                     foundMatch = true;
                     searchResults = searchResults
@@ -400,7 +400,7 @@ function reduceSearchState(store: Store, state: State, action: Action): State {
               }
             } else {
               searchIndex = Math.min(
-                ((prevSearchIndex: any): number),
+                ((prevSearchIndex as any): number),
                 searchResults.length - 1,
               );
             }
@@ -426,9 +426,9 @@ function reduceSearchState(store: Store, state: State, action: Action): State {
     }
   }
   if (didRequestSearch && searchIndex !== null) {
-    selectedElementID = ((searchResults[searchIndex]: any): number);
+    selectedElementID = ((searchResults[searchIndex] as any): number);
     selectedElementIndex = store.getIndexOfElementID(
-      ((selectedElementID: any): number),
+      ((selectedElementID as any): number),
     );
   }
 
@@ -794,7 +794,7 @@ function recursivelySearchTree(
 ): void {
   const {children, displayName, hocDisplayNames} = ((store.getElementByID(
     elementID,
-  ): any): Element);
+  ) as any): Element);
 
   if (displayName != null && regExp.test(displayName) === true) {
     searchResults.push(elementID);

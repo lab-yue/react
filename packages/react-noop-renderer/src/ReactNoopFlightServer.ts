@@ -26,7 +26,7 @@ const ReactNoopFlightServer = ReactFlightServer({
   },
   beginWriting(destination: Destination): void {},
   writeChunk(destination: Destination, buffer: Uint8Array): void {
-    destination.push(Buffer.from((buffer: any)).toString('utf8'));
+    destination.push(Buffer.from((buffer as any)).toString('utf8'));
   },
   completeWriting(destination: Destination): void {},
   close(destination: Destination): void {},

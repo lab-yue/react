@@ -146,7 +146,7 @@ export function isValidContainer(node: unknown): boolean {
       node.nodeType === DOCUMENT_NODE ||
       node.nodeType === DOCUMENT_FRAGMENT_NODE ||
       (node.nodeType === COMMENT_NODE &&
-        (node: any).nodeValue === ' react-mount-point-unstable '))
+        (node as any).nodeValue === ' react-mount-point-unstable '))
   );
 }
 

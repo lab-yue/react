@@ -21,7 +21,7 @@ type Props = {|
 |};
 
 export default function HocBadges({element}: Props) {
-  const {hocDisplayNames, type} = ((element: any): Element);
+  const {hocDisplayNames, type} = ((element as any): Element);
 
   let typeBadge = null;
   if (type === ElementTypeMemo) {

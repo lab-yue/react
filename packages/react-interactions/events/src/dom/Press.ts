@@ -92,7 +92,7 @@ function createGestureState(e: any, type: PressEventType): PressEvent {
 
 function isValidKey(e): boolean {
   const {key, target} = e;
-  const {tagName, isContentEditable} = (target: any);
+  const {tagName, isContentEditable} = (target as any);
   return (
     (key === 'Enter' || key === ' ' || key === 'Spacebar') &&
     (tagName !== 'INPUT' &&
@@ -101,7 +101,7 @@ function isValidKey(e): boolean {
   );
 }
 
-function handlePreventDefault(preventDefault: ?boolean, e: any): void {
+function handlePreventDefault(preventDefault: ?boolean, e as any): void {
   const key = e.key;
   if (
     preventDefault !== false &&

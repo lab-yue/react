@@ -11,19 +11,19 @@ const tabIndexDesc = Object.getOwnPropertyDescriptor(
   HTMLElement.prototype,
   'tabIndex',
 );
-const tabIndexSetter = (tabIndexDesc: any).set;
+const tabIndexSetter = (tabIndexDesc as any).set;
 
 export default function setElementCanTab(
   elem: HTMLElement,
   canTab: boolean,
 ): void {
-  let tabIndexState = (elem: any)._tabIndexState;
+  let tabIndexState = (elem as any)._tabIndexState;
   if (!tabIndexState) {
     tabIndexState = {
       value: elem.tabIndex,
       canTab,
     };
-    (elem: any)._tabIndexState = tabIndexState;
+    (elem as any)._tabIndexState = tabIndexState;
     if (!canTab) {
       elem.tabIndex = -1;
     }

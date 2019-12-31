@@ -164,7 +164,7 @@ class Bridge<
 
     this._wallUnlisten =
       wall.listen((message: Message) => {
-        (this: any).emit(message.event, message.payload);
+        (this as any).emit(message.event, message.payload);
       }) || null;
   }
 

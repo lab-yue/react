@@ -360,7 +360,7 @@ export function setSignature(
 
 // This is lazily called during first render for a type.
 // It captures Hook list at that time so inline requires don't break comparisons.
-export function collectCustomHooksForSignature(type: any) {
+export function collectCustomHooksForSignature(type as any) {
   if (__DEV__) {
     const signature = allSignaturesByType.get(type);
     if (signature !== undefined) {
@@ -383,7 +383,7 @@ export function getFamilyByID(id: string): Family | void {
   }
 }
 
-export function getFamilyByType(type: any): Family | void {
+export function getFamilyByType(type as any): Family | void {
   if (__DEV__) {
     return allFamiliesByType.get(type);
   } else {
@@ -421,7 +421,7 @@ export function findAffectedHostInstances(
   }
 }
 
-export function injectIntoGlobalHook(globalObject: any): void {
+export function injectIntoGlobalHook(globalObject as any): void {
   if (__DEV__) {
     // For React Native, the global hook will be set up by require('react-devtools-core').
     // That code will run before us. So we need to monkeypatch functions on existing hook.
@@ -464,7 +464,7 @@ export function injectIntoGlobalHook(globalObject: any): void {
         typeof injected.setRefreshHandler === 'function'
       ) {
         // This version supports React Refresh.
-        helpersByRendererID.set(id, ((injected: any): RendererHelpers));
+        helpersByRendererID.set(id, ((injected as any): RendererHelpers));
       }
       return id;
     };
@@ -478,7 +478,7 @@ export function injectIntoGlobalHook(globalObject: any): void {
         typeof injected.setRefreshHandler === 'function'
       ) {
         // This version supports React Refresh.
-        helpersByRendererID.set(id, ((injected: any): RendererHelpers));
+        helpersByRendererID.set(id, ((injected as any): RendererHelpers));
       }
     });
 
@@ -633,7 +633,7 @@ export function createSignatureFunctionForTransform() {
   }
 }
 
-export function isLikelyComponentType(type: any): boolean {
+export function isLikelyComponentType(type as any): boolean {
   if (__DEV__) {
     switch (typeof type) {
       case 'function': {

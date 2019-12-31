@@ -27,7 +27,7 @@ export function getChartData({
   rootID: number,
 |}): ChartData {
   if (cachedChartData.has(rootID)) {
-    return ((cachedChartData.get(rootID): any): ChartData);
+    return ((cachedChartData.get(rootID) as any): ChartData);
   }
 
   const dataForRoot = profilerStore.getDataForRoot(rootID);

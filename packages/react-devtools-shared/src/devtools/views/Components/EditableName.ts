@@ -11,7 +11,7 @@ import React, {useCallback, useState} from 'react';
 import AutoSizeInput from './NativeStyleEditor/AutoSizeInput';
 import styles from './EditableName.css';
 
-type OverrideNameFn = (path: Array<string | number>, value: any) => void;
+type OverrideNameFn = (path: Array<string | number>, value as any) => void;
 
 type EditableNameProps = {|
   autoFocus?: boolean,

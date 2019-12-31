@@ -54,10 +54,10 @@ function Interactions({height, width}: {|height: number, width: number|}) {
   const {profilerStore} = useContext(StoreContext);
   const {profilingCache} = profilerStore;
 
-  const dataForRoot = profilerStore.getDataForRoot(((rootID: any): number));
+  const dataForRoot = profilerStore.getDataForRoot(((rootID as any): number));
 
   const chartData = profilingCache.getInteractionsChartData({
-    rootID: ((rootID: any): number),
+    rootID: ((rootID as any): number),
   });
 
   const {interactions} = chartData;
@@ -90,13 +90,13 @@ function Interactions({height, width}: {|height: number, width: number|}) {
   const itemData = useMemo<ItemData>(
     () => {
       const interactionCommitSize = parseInt(
-        getComputedStyle((document.body: any)).getPropertyValue(
+        getComputedStyle((document.body as any)).getPropertyValue(
           '--interaction-commit-size',
         ),
         10,
       );
       const interactionLabelWidth = parseInt(
-        getComputedStyle((document.body: any)).getPropertyValue(
+        getComputedStyle((document.body as any)).getPropertyValue(
           '--interaction-label-width',
         ),
         10,

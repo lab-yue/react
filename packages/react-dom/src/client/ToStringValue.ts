@@ -21,7 +21,7 @@ export opaque type ToStringValue =
 // around this limitation, we use an opaque type that can only be obtained by
 // passing the value through getToStringValue first.
 export function toString(value: ToStringValue): string {
-  return '' + (value: any);
+  return '' + (value as any);
 }
 
 export function getToStringValue(value: unknown): ToStringValue {

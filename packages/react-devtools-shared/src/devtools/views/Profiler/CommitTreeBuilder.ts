@@ -51,7 +51,7 @@ export function getCommitTree({
     rootToCommitTreeMap.set(rootID, []);
   }
 
-  const commitTrees = ((rootToCommitTreeMap.get(rootID): any): Array<
+  const commitTrees = ((rootToCommitTreeMap.get(rootID) as any): Array<
     CommitTree,
   >);
 
@@ -134,7 +134,7 @@ function recursivelyInitializeTree(
       parentID,
       treeBaseDuration: ((dataForRoot.initialTreeBaseDurations.get(
         id,
-      ): any): number),
+      ) as any): number),
       type: node.type,
     });
 
@@ -156,13 +156,13 @@ function updateTree(
     const clonedNode = ((Object.assign(
       {},
       nodes.get(id),
-    ): any): CommitTreeNode);
+    ) as any): CommitTreeNode);
     nodes.set(id, clonedNode);
     return clonedNode;
   };
 
   let i = 2;
-  let id: number = ((null: any): number);
+  let id: number = ((null as any): number);
 
   // Reassemble the string table.
   const stringTable = [
@@ -173,7 +173,7 @@ function updateTree(
   while (i < stringTableEnd) {
     const nextLength = operations[i++];
     const nextString = utfDecodeString(
-      (operations.slice(i, i + nextLength): any),
+      (operations.slice(i, i + nextLength) as any),
     );
     stringTable.push(nextString);
     i += nextLength;
@@ -184,8 +184,8 @@ function updateTree(
 
     switch (operation) {
       case TREE_OPERATION_ADD:
-        id = ((operations[i + 1]: any): number);
-        const type = ((operations[i + 2]: any): ElementType);
+        id = ((operations[i + 1] as any): number);
+        const type = ((operations[i + 2] as any): ElementType);
 
         i += 3;
 
@@ -217,7 +217,7 @@ function updateTree(
 
           nodes.set(id, node);
         } else {
-          const parentID = ((operations[i]: any): number);
+          const parentID = ((operations[i] as any): number);
           i++;
 
           i++; // ownerID
@@ -255,11 +255,11 @@ function updateTree(
 
         break;
       case TREE_OPERATION_REMOVE: {
-        const removeLength = ((operations[i + 1]: any): number);
+        const removeLength = ((operations[i + 1] as any): number);
         i += 2;
 
         for (let removeIndex = 0; removeIndex < removeLength; removeIndex++) {
-          id = ((operations[i]: any): number);
+          id = ((operations[i] as any): number);
           i++;
 
           if (!nodes.has(id)) {
@@ -292,12 +292,12 @@ function updateTree(
         break;
       }
       case TREE_OPERATION_REORDER_CHILDREN: {
-        id = ((operations[i + 1]: any): number);
-        const numChildren = ((operations[i + 2]: any): number);
+        id = ((operations[i + 1] as any): number);
+        const numChildren = ((operations[i + 2] as any): number);
         const children = ((operations.slice(
           i + 3,
           i + 3 + numChildren,
-        ): any): Array<number>);
+        ) as any): Array<number>);
 
         i = i + 3 + numChildren;
 

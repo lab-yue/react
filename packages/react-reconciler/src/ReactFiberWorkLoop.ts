@@ -696,7 +696,7 @@ function performConcurrentWorkOnRoot(root, didTimeout) {
       executionContext = prevExecutionContext;
       popDispatcher(prevDispatcher);
       if (enableSchedulerTracing) {
-        popInteractions(((prevInteractions: any): Set<Interaction>));
+        popInteractions(((prevInteractions as any): Set<Interaction>));
       }
 
       if (workInProgressRootExitStatus === RootFatalErrored) {
@@ -717,7 +717,7 @@ function performConcurrentWorkOnRoot(root, didTimeout) {
         stopFinishedWorkLoopTimer();
 
         const finishedWork: Fiber = ((root.finishedWork =
-          root.current.alternate): any);
+          root.current.alternate) as any);
         root.finishedExpirationTime = expirationTime;
         finishConcurrentRender(
           root,
@@ -1024,7 +1024,7 @@ function performSyncWorkOnRoot(root) {
     executionContext = prevExecutionContext;
     popDispatcher(prevDispatcher);
     if (enableSchedulerTracing) {
-      popInteractions(((prevInteractions: any): Set<Interaction>));
+      popInteractions(((prevInteractions as any): Set<Interaction>));
     }
 
     if (workInProgressRootExitStatus === RootFatalErrored) {
@@ -1047,7 +1047,7 @@ function performSyncWorkOnRoot(root) {
       // We now have a consistent tree. Because this is a sync render, we
       // will commit it even if something suspended.
       stopFinishedWorkLoopTimer();
-      root.finishedWork = (root.current.alternate: any);
+      root.finishedWork = (root.current.alternate as any);
       root.finishedExpirationTime = expirationTime;
       finishSyncRender(root, workInProgressRootExitStatus, expirationTime);
     }
@@ -1915,7 +1915,7 @@ function commitRootImpl(root, renderPriorityLevel) {
     requestPaint();
 
     if (enableSchedulerTracing) {
-      popInteractions(((prevInteractions: any): Set<Interaction>));
+      popInteractions(((prevInteractions as any): Set<Interaction>));
     }
     executionContext = prevExecutionContext;
   } else {
@@ -2222,7 +2222,7 @@ function flushPassiveEffectsImpl() {
   }
 
   if (enableSchedulerTracing) {
-    popInteractions(((prevInteractions: any): Set<Interaction>));
+    popInteractions(((prevInteractions as any): Set<Interaction>));
     finishPendingInteractions(root, expirationTime);
   }
 
@@ -2483,11 +2483,11 @@ function computeMsUntilSuspenseLoadingDelay(
   committedExpirationTime: ExpirationTime,
   suspenseConfig: SuspenseConfig,
 ) {
-  const busyMinDurationMs = (suspenseConfig.busyMinDurationMs: any) | 0;
+  const busyMinDurationMs = (suspenseConfig.busyMinDurationMs as any) | 0;
   if (busyMinDurationMs <= 0) {
     return 0;
   }
-  const busyDelayMs = (suspenseConfig.busyDelayMs: any) | 0;
+  const busyDelayMs = (suspenseConfig.busyDelayMs as any) | 0;
 
   // Compute the time until this render pass would expire.
   const currentTimeMs: number = now();

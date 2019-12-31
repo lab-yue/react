@@ -80,13 +80,13 @@ env.beforeEach(() => {
     },
   });
 
-  const agent = new Agent(((bridge: any): BackendBridge));
+  const agent = new Agent(((bridge as any): BackendBridge));
 
   const hook = global.__REACT_DEVTOOLS_GLOBAL_HOOK__;
 
   initBackend(hook, agent, global);
 
-  const store = new Store(((bridge: any): FrontendBridge));
+  const store = new Store(((bridge as any): FrontendBridge));
 
   global.agent = agent;
   global.bridge = bridge;

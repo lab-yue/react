@@ -60,7 +60,7 @@ export function createMarkupForProperty(name: string, value: unknown): string {
       return attributeName + '=""';
     } else {
       if (propertyInfo.sanitizeURL) {
-        value = '' + (value: any);
+        value = '' + (value as any);
         sanitizeURL(value);
       }
       return attributeName + '=' + quoteAttributeValueForBrowser(value);

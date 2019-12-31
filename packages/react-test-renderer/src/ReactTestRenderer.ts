@@ -263,10 +263,10 @@ function getChildren(parent: Fiber) {
       if (node.return === startingNode) {
         break outer;
       }
-      node = (node.return: any);
+      node = (node.return as any);
     }
-    (node.sibling: any).return = node.return;
-    node = (node.sibling: any);
+    (node.sibling as any).return = node.return;
+    node = (node.sibling as any);
   }
   return children;
 }
@@ -341,7 +341,7 @@ class ReactTestInstance {
     );
   }
 
-  findByType(type: any): ReactTestInstance {
+  findByType(type as any): ReactTestInstance {
     return expectOne(
       this.findAllByType(type, {deep: false}),
       `with node type: "${type.displayName || type.name}"`,
@@ -581,7 +581,7 @@ function wrapFiber(fiber: Fiber): ReactTestInstance {
 injectIntoDevTools({
   findFiberByHostInstance: (() => {
     throw new Error('TestRenderer does not support findFiberByHostInstance()');
-  }: any),
+  } as any),
   bundleType: __DEV__ ? 1 : 0,
   version: ReactVersion,
   rendererPackageName: 'react-test-renderer',

@@ -45,7 +45,7 @@ export function mountSafeCallback_NOT_REALLY_SAFE(
   };
 }
 
-export function throwOnStylesProp(component: any, props: any) {
+export function throwOnStylesProp(component: any, props as any) {
   if (props.styles !== undefined) {
     const owner = component._owner || null;
     const name = component.constructor.displayName;
@@ -65,7 +65,7 @@ export function throwOnStylesProp(component: any, props: any) {
   }
 }
 
-export function warnForStyleProps(props: any, validAttributes: any) {
+export function warnForStyleProps(props: any, validAttributes as any) {
   if (__DEV__) {
     for (const key in validAttributes.style) {
       if (!(validAttributes[key] || props[key] === undefined)) {

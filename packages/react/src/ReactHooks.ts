@@ -52,8 +52,8 @@ export function useContext<T>(
     }
 
     // TODO: add a more generic warning for invalid values.
-    if ((Context: any)._context !== undefined) {
-      const realContext = (Context: any)._context;
+    if ((Context as any)._context !== undefined) {
+      const realContext = (Context as any)._context;
       // Don't deduplicate because this legitimately causes bugs
       // and nobody should be using this in existing code.
       if (realContext.Consumer === Context) {
@@ -132,7 +132,7 @@ export function useImperativeHandle<T>(
   return dispatcher.useImperativeHandle(ref, create, inputs);
 }
 
-export function useDebugValue(value: any, formatterFn: ?(value: any) => any) {
+export function useDebugValue(value: any, formatterFn: ?(value as any) => any) {
   if (__DEV__) {
     const dispatcher = resolveDispatcher();
     return dispatcher.useDebugValue(value, formatterFn);

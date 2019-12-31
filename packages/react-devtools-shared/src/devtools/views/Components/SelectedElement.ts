@@ -111,7 +111,7 @@ export default function SelectedElement(_: Props) {
       if (viewElementSourceFunction != null && inspectedElement !== null) {
         viewElementSourceFunction(
           inspectedElement.id,
-          ((inspectedElement: any): InspectedElement),
+          ((inspectedElement as any): InspectedElement),
         );
       }
     },
@@ -330,19 +330,19 @@ function InspectedElementView({
   let overrideStateFn = null;
   let overrideSuspenseFn = null;
   if (type === ElementTypeClass) {
-    overrideContextFn = (path: Array<string | number>, value: any) => {
+    overrideContextFn = (path: Array<string | number>, value as any) => {
       const rendererID = store.getRendererIDForElement(id);
       if (rendererID !== null) {
         bridge.send('overrideContext', {id, path, rendererID, value});
       }
     };
-    overridePropsFn = (path: Array<string | number>, value: any) => {
+    overridePropsFn = (path: Array<string | number>, value as any) => {
       const rendererID = store.getRendererIDForElement(id);
       if (rendererID !== null) {
         bridge.send('overrideProps', {id, path, rendererID, value});
       }
     };
-    overrideStateFn = (path: Array<string | number>, value: any) => {
+    overrideStateFn = (path: Array<string | number>, value as any) => {
       const rendererID = store.getRendererIDForElement(id);
       if (rendererID !== null) {
         bridge.send('overrideState', {id, path, rendererID, value});
@@ -354,7 +354,7 @@ function InspectedElementView({
       type === ElementTypeForwardRef) &&
     canEditFunctionProps
   ) {
-    overridePropsFn = (path: Array<string | number>, value: any) => {
+    overridePropsFn = (path: Array<string | number>, value as any) => {
       const rendererID = store.getRendererIDForElement(id);
       if (rendererID !== null) {
         bridge.send('overrideProps', {id, path, rendererID, value});

@@ -32,7 +32,7 @@ function getWrappedName(
 ): string {
   const functionName = innerType.displayName || innerType.name || '';
   return (
-    (outerType: any).displayName ||
+    (outerType as any).displayName ||
     (functionName !== '' ? `${wrapperName}(${functionName})` : wrapperName)
   );
 }
@@ -43,7 +43,7 @@ function getComponentName(type: unknown): string | null {
     return null;
   }
   if (__DEV__) {
-    if (typeof (type: any).tag === 'number') {
+    if (typeof (type as any).tag === 'number') {
       console.error(
         'Received an unexpected object in getComponentName(). ' +
           'This is likely a bug in React. Please file an issue.',
@@ -83,7 +83,7 @@ function getComponentName(type: unknown): string | null {
       case REACT_CHUNK_TYPE:
         return getComponentName(type.render);
       case REACT_LAZY_TYPE: {
-        const thenable: LazyComponent<mixed> = (type: any);
+        const thenable: LazyComponent<mixed> = (type as any);
         const resolvedThenable = refineResolvedLazyComponent(thenable);
         if (resolvedThenable) {
           return getComponentName(resolvedThenable);

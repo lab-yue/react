@@ -61,7 +61,7 @@ const setInnerHTML = createMicrosoftUnsafeLocalFunction(function(
       return;
     }
   }
-  node.innerHTML = (html: any);
+  node.innerHTML = (html as any);
 });
 
 export default setInnerHTML;

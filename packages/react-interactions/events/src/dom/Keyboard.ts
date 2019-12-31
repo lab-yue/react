@@ -135,7 +135,7 @@ function createKeyboardEvent(
   context: ReactDOMResponderContext,
   type: KeyboardEventType,
 ): KeyboardEvent {
-  const nativeEvent = (event: any).nativeEvent;
+  const nativeEvent = (event as any).nativeEvent;
   const {altKey, ctrlKey, metaKey, shiftKey} = nativeEvent;
   let keyboardEvent = {
     altKey,
@@ -204,7 +204,7 @@ const keyboardResponderImpl = {
       if (onKeyDown != null) {
         dispatchKeyboardEvent(
           event,
-          ((onKeyDown: any): (e: KeyboardEvent) => void),
+          ((onKeyDown as any): (e: KeyboardEvent) => void),
           context,
           'keyboard:keydown',
         );
@@ -220,7 +220,7 @@ const keyboardResponderImpl = {
       if (onKeyUp != null) {
         dispatchKeyboardEvent(
           event,
-          ((onKeyUp: any): (e: KeyboardEvent) => void),
+          ((onKeyUp as any): (e: KeyboardEvent) => void),
           context,
           'keyboard:keyup',
         );

@@ -39,7 +39,7 @@ type TextAreaWithWrapperState = HTMLTextAreaElement & {
  */
 
 export function getHostProps(element: Element, props: Object) {
-  const node = ((element: any): TextAreaWithWrapperState);
+  const node = ((element as any): TextAreaWithWrapperState);
   invariant(
     props.dangerouslySetInnerHTML == null,
     '`dangerouslySetInnerHTML` does not make sense on <textarea>.',
@@ -62,7 +62,7 @@ export function getHostProps(element: Element, props: Object) {
 }
 
 export function initWrapperState(element: Element, props: Object) {
-  const node = ((element: any): TextAreaWithWrapperState);
+  const node = ((element as any): TextAreaWithWrapperState);
   if (__DEV__) {
     ReactControlledValuePropTypes.checkPropTypes('textarea', props);
     if (
@@ -123,7 +123,7 @@ export function initWrapperState(element: Element, props: Object) {
 }
 
 export function updateWrapper(element: Element, props: Object) {
-  const node = ((element: any): TextAreaWithWrapperState);
+  const node = ((element as any): TextAreaWithWrapperState);
   const value = getToStringValue(props.value);
   const defaultValue = getToStringValue(props.defaultValue);
   if (value != null) {
@@ -144,7 +144,7 @@ export function updateWrapper(element: Element, props: Object) {
 }
 
 export function postMountWrapper(element: Element, props: Object) {
-  const node = ((element: any): TextAreaWithWrapperState);
+  const node = ((element as any): TextAreaWithWrapperState);
   // This is in postMount because we need access to the DOM node, which is not
   // available until after the component has mounted.
   const textContent = node.textContent;

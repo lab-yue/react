@@ -118,7 +118,7 @@ export function useIsOverflowing(
         return () => {};
       }
 
-      const container = ((containerRef.current: any): HTMLDivElement);
+      const container = ((containerRef.current as any): HTMLDivElement);
 
       const handleResize = throttle(
         () => setIsOverflowing(container.clientWidth <= totalChildWidth),
@@ -156,7 +156,7 @@ export function useLocalStorage<T>(
         console.log(error);
       }
       if (typeof initialValue === 'function') {
-        return ((initialValue: any): () => T)();
+        return ((initialValue as any): () => T)();
       } else {
         return initialValue;
       }
@@ -170,7 +170,7 @@ export function useLocalStorage<T>(
     value => {
       try {
         const valueToStore =
-          value instanceof Function ? (value: any)(storedValue) : value;
+          value instanceof Function ? (value as any)(storedValue) : value;
         setStoredValue(valueToStore);
         localStorageSetItem(key, JSON.stringify(valueToStore));
       } catch (error) {
@@ -214,13 +214,13 @@ export function useModalDismissSignal(
         return () => {};
       }
 
-      const handleDocumentKeyDown = ({key}: any) => {
+      const handleDocumentKeyDown = ({key} as any) => {
         if (key === 'Escape') {
           dismissCallback();
         }
       };
 
-      const handleDocumentClick = (event: any) => {
+      const handleDocumentClick = (event as any) => {
         // $FlowFixMe
         if (
           modalRef.current !== null &&

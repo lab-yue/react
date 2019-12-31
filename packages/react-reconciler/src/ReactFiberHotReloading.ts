@@ -68,7 +68,7 @@ export let setRefreshHandler = (handler: RefreshHandler | null): void => {
   }
 };
 
-export function resolveFunctionForHotReloading(type: any): any {
+export function resolveFunctionForHotReloading(type as any): any {
   if (__DEV__) {
     if (resolveFamily === null) {
       // Hot reloading is disabled.
@@ -85,12 +85,12 @@ export function resolveFunctionForHotReloading(type: any): any {
   }
 }
 
-export function resolveClassForHotReloading(type: any): any {
+export function resolveClassForHotReloading(type as any): any {
   // No implementation differences.
   return resolveFunctionForHotReloading(type);
 }
 
-export function resolveForwardRefForHotReloading(type: any): any {
+export function resolveForwardRefForHotReloading(type as any): any {
   if (__DEV__) {
     if (resolveFamily === null) {
       // Hot reloading is disabled.
@@ -114,7 +114,7 @@ export function resolveForwardRefForHotReloading(type: any): any {
             render: currentRender,
           };
           if (type.displayName !== undefined) {
-            (syntheticType: any).displayName = type.displayName;
+            (syntheticType as any).displayName = type.displayName;
           }
           return syntheticType;
         }

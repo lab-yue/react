@@ -32,8 +32,8 @@ export default function SidebarSelectedFiberInfo(_: Props) {
   const {profilingCache} = profilerStore;
 
   const commitIndices = profilingCache.getFiberCommits({
-    fiberID: ((selectedFiberID: any): number),
-    rootID: ((rootID: any): number),
+    fiberID: ((selectedFiberID as any): number),
+    rootID: ((rootID as any): number),
   });
 
   const listItems = [];
@@ -42,7 +42,7 @@ export default function SidebarSelectedFiberInfo(_: Props) {
     const commitIndex = commitIndices[i];
 
     const {duration, timestamp} = profilerStore.getCommitData(
-      ((rootID: any): number),
+      ((rootID as any): number),
       commitIndex,
     );
 
@@ -76,10 +76,10 @@ export default function SidebarSelectedFiberInfo(_: Props) {
       </div>
       <div className={styles.Content}>
         <WhatChanged
-          commitIndex={((selectedCommitIndex: any): number)}
-          fiberID={((selectedFiberID: any): number)}
+          commitIndex={((selectedCommitIndex as any): number)}
+          fiberID={((selectedFiberID as any): number)}
           profilerStore={profilerStore}
-          rootID={((rootID: any): number)}
+          rootID={((rootID as any): number)}
         />
         {listItems.length > 0 && (
           <Fragment>
@@ -116,7 +116,7 @@ function WhatChanged({
   }
 
   const {changeDescriptions} = profilerStore.getCommitData(
-    ((rootID: any): number),
+    ((rootID as any): number),
     commitIndex,
   );
   if (changeDescriptions === null) {

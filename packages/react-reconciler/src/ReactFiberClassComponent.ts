@@ -91,7 +91,7 @@ if (__DEV__) {
     if (callback === null || typeof callback === 'function') {
       return;
     }
-    const key = `${callerName}_${(callback: any)}`;
+    const key = `${callerName}_${(callback as any)}`;
     if (!didWarnOnInvalidCallback.has(key)) {
       didWarnOnInvalidCallback.add(key);
       console.error(
@@ -142,7 +142,7 @@ if (__DEV__) {
 export function applyDerivedStateFromProps(
   workInProgress: Fiber,
   ctor: any,
-  getDerivedStateFromProps: (props: any, state: any) => any,
+  getDerivedStateFromProps: (props: any, state as any) => any,
   nextProps: any,
 ) {
   const prevState = workInProgress.memoizedState;
@@ -173,7 +173,7 @@ export function applyDerivedStateFromProps(
   // base state.
   if (workInProgress.expirationTime === NoWork) {
     // Queue is always non-null for classes
-    const updateQueue: UpdateQueue<any> = (workInProgress.updateQueue: any);
+    const updateQueue: UpdateQueue<any> = (workInProgress.updateQueue as any);
     updateQueue.baseState = memoizedState;
   }
 }
@@ -292,7 +292,7 @@ function checkShouldComponentUpdate(
   return true;
 }
 
-function checkClassInstance(workInProgress: Fiber, ctor: any, newProps: any) {
+function checkClassInstance(workInProgress: Fiber, ctor: any, newProps as any) {
   const instance = workInProgress.stateNode;
   if (__DEV__) {
     const name = getComponentName(ctor) || 'Component';
@@ -512,7 +512,7 @@ function checkClassInstance(workInProgress: Fiber, ctor: any, newProps: any) {
   }
 }
 
-function adoptClassInstance(workInProgress: Fiber, instance: any): void {
+function adoptClassInstance(workInProgress: Fiber, instance as any): void {
   instance.updater = classComponentUpdater;
   workInProgress.stateNode = instance;
   // The instance needs access to the fiber so that it can schedule updates
@@ -576,7 +576,7 @@ function constructClassInstance(
   }
 
   if (typeof contextType === 'object' && contextType !== null) {
-    context = readContext((contextType: any));
+    context = readContext((contextType as any));
   } else if (!disableLegacyContext) {
     unmaskedContext = getUnmaskedContext(workInProgress, ctor, true);
     const contextTypes = ctor.contextTypes;

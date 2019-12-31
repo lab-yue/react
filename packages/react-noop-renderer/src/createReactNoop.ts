@@ -103,7 +103,7 @@ function createReactNoop(reconciler: Function, useMutation: boolean) {
     parentInstance: Instance,
     child: Instance | TextInstance,
   ): void {
-    if (typeof (parentInstance: any).rootID === 'string') {
+    if (typeof (parentInstance as any).rootID === 'string') {
       // Some calls to this aren't typesafe.
       // This helps surface mistakes in tests.
       throw new Error('appendChild() first argument is not an instance.');
@@ -147,7 +147,7 @@ function createReactNoop(reconciler: Function, useMutation: boolean) {
     child: Instance | TextInstance,
     beforeChild: Instance | TextInstance,
   ) {
-    if (typeof (parentInstance: any).rootID === 'string') {
+    if (typeof (parentInstance as any).rootID === 'string') {
       // Some calls to this aren't typesafe.
       // This helps surface mistakes in tests.
       throw new Error('insertBefore() first argument is not an instance.');
@@ -184,7 +184,7 @@ function createReactNoop(reconciler: Function, useMutation: boolean) {
     parentInstance: Instance,
     child: Instance | TextInstance,
   ): void {
-    if (typeof (parentInstance: any).rootID === 'string') {
+    if (typeof (parentInstance as any).rootID === 'string') {
       // Some calls to this aren't typesafe.
       // This helps surface mistakes in tests.
       throw new Error('removeChild() first argument is not an instance.');
@@ -207,7 +207,7 @@ function createReactNoop(reconciler: Function, useMutation: boolean) {
       type: type,
       children: keepChildren ? instance.children : [],
       text: shouldSetTextContent(type, newProps)
-        ? computeText((newProps.children: any) + '', instance.context)
+        ? computeText((newProps.children as any) + '', instance.context)
         : null,
       prop: newProps.prop,
       hidden: newProps.hidden === true,
@@ -276,7 +276,7 @@ function createReactNoop(reconciler: Function, useMutation: boolean) {
         type: type,
         children: [],
         text: shouldSetTextContent(type, props)
-          ? computeText((props.children: any) + '', hostContext)
+          ? computeText((props.children as any) + '', hostContext)
           : null,
         prop: props.prop,
         hidden: props.hidden === true,
@@ -463,7 +463,7 @@ function createReactNoop(reconciler: Function, useMutation: boolean) {
           instance.hidden = newProps.hidden === true;
           if (shouldSetTextContent(type, newProps)) {
             instance.text = computeText(
-              (newProps.children: any) + '',
+              (newProps.children as any) + '',
               instance.context,
             );
           }
@@ -808,9 +808,9 @@ function createReactNoop(reconciler: Function, useMutation: boolean) {
     }
     if (Array.isArray(child.children)) {
       // This is an instance.
-      const instance: Instance = (child: any);
+      const instance: Instance = (child as any);
       const children = childToJSX(instance.children, instance.text);
-      const props = ({prop: instance.prop}: any);
+      const props = ({prop: instance.prop} as any);
       if (instance.hidden) {
         props.hidden = true;
       }
@@ -828,7 +828,7 @@ function createReactNoop(reconciler: Function, useMutation: boolean) {
       };
     }
     // This is a text instance
-    const textInstance: TextInstance = (child: any);
+    const textInstance: TextInstance = (child as any);
     if (textInstance.hidden) {
       return '';
     }
@@ -1028,7 +1028,7 @@ function createReactNoop(reconciler: Function, useMutation: boolean) {
         return null;
       }
       // Unsound duck typing.
-      const component = (componentOrElement: any);
+      const component = (componentOrElement as any);
       if (typeof component.id === 'number') {
         return component;
       }

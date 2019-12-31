@@ -46,8 +46,8 @@ export function createContext<T>(
     // supports within in a single renderer. Such as parallel server rendering.
     _threadCount: 0,
     // These are circular
-    Provider: (null: any),
-    Consumer: (null: any),
+    Provider: (null as any),
+    Consumer: (null as any),
   };
 
   context.Provider = {

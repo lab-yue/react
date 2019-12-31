@@ -13,7 +13,7 @@ import ButtonIcon from '../ButtonIcon';
 import styles from './EditableValue.css';
 import {useEditableValue} from '../hooks';
 
-type OverrideValueFn = (path: Array<string | number>, value: any) => void;
+type OverrideValueFn = (path: Array<string | number>, value as any) => void;
 
 type EditableValueProps = {|
   className?: string,

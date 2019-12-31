@@ -56,7 +56,7 @@ function isControlled(props) {
  */
 
 export function getHostProps(element: Element, props: Object) {
-  const node = ((element: any): InputWithWrapperState);
+  const node = ((element as any): InputWithWrapperState);
   const checked = props.checked;
 
   const hostProps = Object.assign({}, props, {
@@ -109,7 +109,7 @@ export function initWrapperState(element: Element, props: Object) {
     }
   }
 
-  const node = ((element: any): InputWithWrapperState);
+  const node = ((element as any): InputWithWrapperState);
   const defaultValue = props.defaultValue == null ? '' : props.defaultValue;
 
   node._wrapperState = {
@@ -123,7 +123,7 @@ export function initWrapperState(element: Element, props: Object) {
 }
 
 export function updateChecked(element: Element, props: Object) {
-  const node = ((element: any): InputWithWrapperState);
+  const node = ((element as any): InputWithWrapperState);
   const checked = props.checked;
   if (checked != null) {
     setValueForProperty(node, 'checked', checked, false);
@@ -131,7 +131,7 @@ export function updateChecked(element: Element, props: Object) {
 }
 
 export function updateWrapper(element: Element, props: Object) {
-  const node = ((element: any): InputWithWrapperState);
+  const node = ((element as any): InputWithWrapperState);
   if (__DEV__) {
     const controlled = isControlled(props);
 
@@ -176,7 +176,7 @@ export function updateWrapper(element: Element, props: Object) {
         (value === 0 && node.value === '') ||
         // We explicitly want to coerce to number here if possible.
         // eslint-disable-next-line
-        node.value != (value: any)
+        node.value != (value as any)
       ) {
         node.value = toString(value);
       }
@@ -233,7 +233,7 @@ export function postMountWrapper(
   props: Object,
   isHydrating: boolean,
 ) {
-  const node = ((element: any): InputWithWrapperState);
+  const node = ((element as any): InputWithWrapperState);
 
   // Do not assign value if it is already set. This prevents user text input
   // from being lost during SSR hydration.
@@ -341,7 +341,7 @@ export function postMountWrapper(
 }
 
 export function restoreControlledState(element: Element, props: Object) {
-  const node = ((element: any): InputWithWrapperState);
+  const node = ((element as any): InputWithWrapperState);
   updateWrapper(node, props);
   updateNamedCousins(node, props);
 }
@@ -352,7 +352,7 @@ function updateNamedCousins(rootNode, props) {
     let queryRoot: Element = rootNode;
 
     while (queryRoot.parentNode) {
-      queryRoot = ((queryRoot.parentNode: any): Element);
+      queryRoot = ((queryRoot.parentNode as any): Element);
     }
 
     // If `rootNode.form` was non-null, then we could try `form.elements`,
@@ -367,7 +367,7 @@ function updateNamedCousins(rootNode, props) {
     );
 
     for (let i = 0; i < group.length; i++) {
-      const otherNode = ((group[i]: any): HTMLInputElement);
+      const otherNode = ((group[i] as any): HTMLInputElement);
       if (otherNode === rootNode || otherNode.form !== rootNode.form) {
         continue;
       }

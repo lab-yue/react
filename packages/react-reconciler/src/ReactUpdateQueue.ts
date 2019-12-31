@@ -170,8 +170,8 @@ export function cloneUpdateQueue<State>(
   workInProgress: Fiber,
 ): void {
   // Clone the update queue from current. Unless it's already a clone.
-  const queue: UpdateQueue<State> = (workInProgress.updateQueue: any);
-  const currentQueue: UpdateQueue<State> = (current.updateQueue: any);
+  const queue: UpdateQueue<State> = (workInProgress.updateQueue as any);
+  const currentQueue: UpdateQueue<State> = (current.updateQueue as any);
   if (queue === currentQueue) {
     const clone: UpdateQueue<State> = {
       baseState: currentQueue.baseState,
@@ -195,7 +195,7 @@ export function createUpdate(
     payload: null,
     callback: null,
 
-    next: (null: any),
+    next: (null as any),
   };
   update.next = update;
   if (__DEV__) {
@@ -249,7 +249,7 @@ export function enqueueCapturedUpdate<State>(
   }
 
   // Captured updates go only on the work-in-progress queue.
-  const queue: UpdateQueue<State> = (workInProgress.updateQueue: any);
+  const queue: UpdateQueue<State> = (workInProgress.updateQueue as any);
   // Append the update to the end of the list.
   const last = queue.baseQueue;
   if (last === null) {
@@ -341,7 +341,7 @@ export function processUpdateQueue<State>(
   renderExpirationTime: ExpirationTime,
 ): void {
   // This is always non-null on a ClassComponent or HostRoot
-  const queue: UpdateQueue<State> = (workInProgress.updateQueue: any);
+  const queue: UpdateQueue<State> = (workInProgress.updateQueue as any);
 
   hasForceUpdate = false;
 
@@ -405,7 +405,7 @@ export function processUpdateQueue<State>(
             payload: update.payload,
             callback: update.callback,
 
-            next: (null: any),
+            next: (null as any),
           };
           if (newBaseQueueLast === null) {
             newBaseQueueFirst = newBaseQueueLast = clone;
@@ -429,7 +429,7 @@ export function processUpdateQueue<State>(
               payload: update.payload,
               callback: update.callback,
 
-              next: (null: any),
+              next: (null as any),
             };
             newBaseQueueLast = newBaseQueueLast.next = clone;
           }
@@ -485,10 +485,10 @@ export function processUpdateQueue<State>(
     if (newBaseQueueLast === null) {
       newBaseState = newState;
     } else {
-      newBaseQueueLast.next = (newBaseQueueFirst: any);
+      newBaseQueueLast.next = (newBaseQueueFirst as any);
     }
 
-    queue.baseState = ((newBaseState: any): State);
+    queue.baseState = ((newBaseState as any): State);
     queue.baseQueue = newBaseQueueLast;
 
     // Set the remaining expiration time to be whatever is remaining in the queue.

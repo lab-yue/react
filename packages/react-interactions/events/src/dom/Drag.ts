@@ -94,7 +94,7 @@ function dispatchDragEvent(
   eventPriority: EventPriority,
   eventData?: EventData,
 ): void {
-  const target = ((state.dragTarget: any): Element | Document);
+  const target = ((state.dragTarget as any): Element | Document);
   const syntheticEvent = createDragEvent(context, name, target, eventData);
   context.dispatchEvent(syntheticEvent, listener, eventPriority);
 }
@@ -127,10 +127,10 @@ const dragResponderImpl = {
         if (!state.isDragging) {
           const obj =
             type === 'touchstart'
-              ? (nativeEvent: any).changedTouches[0]
+              ? (nativeEvent as any).changedTouches[0]
               : nativeEvent;
-          const x = (state.startX = (obj: any).screenX);
-          const y = (state.startY = (obj: any).screenY);
+          const x = (state.startX = (obj as any).screenX);
+          const y = (state.startY = (obj as any).screenY);
           state.x = x;
           state.y = y;
           state.dragTarget = target;
@@ -170,10 +170,10 @@ const dragResponderImpl = {
         if (state.isPointerDown) {
           const obj =
             type === 'touchmove'
-              ? (nativeEvent: any).changedTouches[0]
+              ? (nativeEvent as any).changedTouches[0]
               : nativeEvent;
-          const x = (obj: any).screenX;
-          const y = (obj: any).screenY;
+          const x = (obj as any).screenX;
+          const y = (obj as any).screenY;
           state.x = x;
           state.y = y;
           if (x === state.startX && y === state.startY) {
@@ -201,7 +201,7 @@ const dragResponderImpl = {
                 eventData,
               );
             }
-            (nativeEvent: any).preventDefault();
+            (nativeEvent as any).preventDefault();
           }
         }
         break;

@@ -35,7 +35,7 @@ installHook(window);
 
 export type StatusListener = (message: string) => void;
 
-let node: HTMLElement = ((null: any): HTMLElement);
+let node: HTMLElement = ((null as any): HTMLElement);
 let nodeWaitingToConnectHTML: string = '';
 let projectRoots: Array<string> = [];
 let statusListener: StatusListener = (message: string) => {};
@@ -95,10 +95,10 @@ function reload() {
     root = createRoot(node);
     root.render(
       createElement(DevTools, {
-        bridge: ((bridge: any): FrontendBridge),
+        bridge: ((bridge as any): FrontendBridge),
         canViewElementSourceFunction,
         showTabBar: true,
-        store: ((store: any): Store),
+        store: ((store as any): Store),
         warnIfLegacyBackendDetected: true,
         viewElementSourceFunction,
       }),
@@ -211,7 +211,7 @@ function initialize(socket: WebSocket) {
       }
     },
   });
-  ((bridge: any): FrontendBridge).addListener('shutdown', () => {
+  ((bridge as any): FrontendBridge).addListener('shutdown', () => {
     socket.close();
   });
 

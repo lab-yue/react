@@ -448,7 +448,7 @@ function updateMemoComponent(
       );
     }
   }
-  let currentChild = ((current.child: any): Fiber); // This is always exactly one child
+  let currentChild = ((current.child as any): Fiber); // This is always exactly one child
   if (updateExpirationTime < renderExpirationTime) {
     // This will be the props with resolved defaultProps,
     // unlike current.memoizedProps which will be the unresolved ones.
@@ -500,7 +500,7 @@ function updateSimpleMemoComponent(
         // Inner props for memo are validated later.
         outerMemoType = refineResolvedLazyComponent(outerMemoType);
       }
-      const outerPropTypes = outerMemoType && (outerMemoType: any).propTypes;
+      const outerPropTypes = outerMemoType && (outerMemoType as any).propTypes;
       if (outerPropTypes) {
         checkPropTypes(
           outerPropTypes,
@@ -1482,7 +1482,7 @@ function mountIndeterminateComponent(
   }
 }
 
-function validateFunctionComponentInDev(workInProgress: Fiber, Component: any) {
+function validateFunctionComponentInDev(workInProgress: Fiber, Component as any) {
   if (__DEV__) {
     if (Component) {
       if (Component.childContextTypes) {
@@ -1711,8 +1711,8 @@ function updateSuspenseComponent(
         const progressedState: SuspenseState = workInProgress.memoizedState;
         const progressedPrimaryChild: Fiber | null =
           progressedState !== null
-            ? (workInProgress.child: any).child
-            : (workInProgress.child: any);
+            ? (workInProgress.child as any).child
+            : (workInProgress.child as any);
         primaryChildFragment.child = progressedPrimaryChild;
         let progressedChild = progressedPrimaryChild;
         while (progressedChild !== null) {
@@ -1847,8 +1847,8 @@ function updateSuspenseComponent(
       }
       // The current tree already timed out. That means each child set is
       // wrapped in a fragment fiber.
-      const currentPrimaryChildFragment: Fiber = (current.child: any);
-      const currentFallbackChildFragment: Fiber = (currentPrimaryChildFragment.sibling: any);
+      const currentPrimaryChildFragment: Fiber = (current.child as any);
+      const currentFallbackChildFragment: Fiber = (currentPrimaryChildFragment.sibling as any);
       if (nextDidTimeout) {
         // Still timed out. Reuse the current primary children by cloning
         // its fragment. We're going to skip over these entirely.
@@ -1866,8 +1866,8 @@ function updateSuspenseComponent(
           const progressedState: SuspenseState = workInProgress.memoizedState;
           const progressedPrimaryChild: Fiber | null =
             progressedState !== null
-              ? (workInProgress.child: any).child
-              : (workInProgress.child: any);
+              ? (workInProgress.child as any).child
+              : (workInProgress.child as any);
           if (progressedPrimaryChild !== currentPrimaryChildFragment.child) {
             primaryChildFragment.child = progressedPrimaryChild;
             let progressedChild = progressedPrimaryChild;
@@ -1961,8 +1961,8 @@ function updateSuspenseComponent(
           const progressedState: SuspenseState = workInProgress.memoizedState;
           const progressedPrimaryChild: Fiber | null =
             progressedState !== null
-              ? (workInProgress.child: any).child
-              : (workInProgress.child: any);
+              ? (workInProgress.child as any).child
+              : (workInProgress.child as any);
           primaryChildFragment.child = progressedPrimaryChild;
           let progressedChild = progressedPrimaryChild;
           while (progressedChild !== null) {
@@ -2695,7 +2695,7 @@ function updateContextConsumer(
   // a property called "_context", which also gives us the ability to check
   // in DEV mode if this property exists or not and warn if it does not.
   if (__DEV__) {
-    if ((context: any)._context === undefined) {
+    if ((context as any)._context === undefined) {
       // This may be because it's a Context (rather than a Consumer).
       // Or it may be because it's older React where they're the same thing.
       // We only want to warn if we're sure it's a new React.
@@ -2709,7 +2709,7 @@ function updateContextConsumer(
         }
       }
     } else {
-      context = (context: any)._context;
+      context = (context as any)._context;
     }
   }
   const newProps = workInProgress.pendingProps;
@@ -2994,7 +2994,7 @@ function beginWork(
             // whether to retry the primary children, or to skip over it and
             // go straight to the fallback. Check the priority of the primary
             // child fragment.
-            const primaryChildFragment: Fiber = (workInProgress.child: any);
+            const primaryChildFragment: Fiber = (workInProgress.child as any);
             const primaryChildExpirationTime =
               primaryChildFragment.childExpirationTime;
             if (

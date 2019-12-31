@@ -92,7 +92,7 @@ export function isFiberMounted(fiber: Fiber): boolean {
 
 export function isMounted(component: React$Component<any, any>): boolean {
   if (__DEV__) {
-    const owner = (ReactCurrentOwner.current: any);
+    const owner = (ReactCurrentOwner.current as any);
     if (owner !== null && owner.tag === ClassComponent) {
       const ownerFiber: Fiber = owner;
       const instance = ownerFiber.stateNode;

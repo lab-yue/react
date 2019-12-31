@@ -139,7 +139,7 @@ export function createFiberRoot(
   hydrate: boolean,
   hydrationCallbacks: null | SuspenseHydrationCallbacks,
 ): FiberRoot {
-  const root: FiberRoot = (new FiberRootNode(containerInfo, tag, hydrate): any);
+  const root: FiberRoot = (new FiberRootNode(containerInfo, tag, hydrate) as any);
   if (enableSuspenseCallback) {
     root.hydrationCallbacks = hydrationCallbacks;
   }

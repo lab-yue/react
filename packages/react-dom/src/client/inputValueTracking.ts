@@ -48,7 +48,7 @@ function getValueFromNode(node: HTMLInputElement): string {
   return value;
 }
 
-function trackValueOnNode(node: any): ?ValueTracker {
+function trackValueOnNode(node as any): ?ValueTracker {
   const valueField = isCheckable(node) ? 'checked' : 'value';
   const descriptor = Object.getOwnPropertyDescriptor(
     node.constructor.prototype,

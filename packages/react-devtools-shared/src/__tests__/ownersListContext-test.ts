@@ -78,8 +78,8 @@ describe('OwnersListContext', () => {
 
     expect(store).toMatchSnapshot('mount');
 
-    const parent = ((store.getElementAtIndex(1): any): Element);
-    const firstChild = ((store.getElementAtIndex(2): any): Element);
+    const parent = ((store.getElementAtIndex(1) as any): Element);
+    const firstChild = ((store.getElementAtIndex(2) as any): Element);
 
     let didFinish = false;
 
@@ -139,7 +139,7 @@ describe('OwnersListContext', () => {
 
     expect(store).toMatchSnapshot('mount');
 
-    const firstChild = ((store.getElementAtIndex(1): any): Element);
+    const firstChild = ((store.getElementAtIndex(1) as any): Element);
 
     let didFinish = false;
 
@@ -179,7 +179,7 @@ describe('OwnersListContext', () => {
 
     expect(store).toMatchSnapshot('mount');
 
-    const grandparent = ((store.getElementAtIndex(0): any): Element);
+    const grandparent = ((store.getElementAtIndex(0) as any): Element);
 
     let didFinish = false;
 

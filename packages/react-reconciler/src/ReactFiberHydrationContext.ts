@@ -260,7 +260,7 @@ function tryToClaimNextHydratableInstance(fiber: Fiber): void {
   let nextInstance = nextHydratableInstance;
   if (!nextInstance) {
     // Nothing to hydrate. Make it an insertion.
-    insertNonHydratedInstance((hydrationParentFiber: any), fiber);
+    insertNonHydratedInstance((hydrationParentFiber as any), fiber);
     isHydrating = false;
     hydrationParentFiber = fiber;
     return;
@@ -273,7 +273,7 @@ function tryToClaimNextHydratableInstance(fiber: Fiber): void {
     nextInstance = getNextHydratableSibling(firstAttemptedInstance);
     if (!nextInstance || !tryHydrate(fiber, nextInstance)) {
       // Nothing to hydrate. Make it an insertion.
-      insertNonHydratedInstance((hydrationParentFiber: any), fiber);
+      insertNonHydratedInstance((hydrationParentFiber as any), fiber);
       isHydrating = false;
       hydrationParentFiber = fiber;
       return;
@@ -283,12 +283,12 @@ function tryToClaimNextHydratableInstance(fiber: Fiber): void {
     // we'll have to schedule a deletion. To do that, this node needs a dummy
     // fiber associated with it.
     deleteHydratableInstance(
-      (hydrationParentFiber: any),
+      (hydrationParentFiber as any),
       firstAttemptedInstance,
     );
   }
   hydrationParentFiber = fiber;
-  nextHydratableInstance = getFirstHydratableChild((nextInstance: any));
+  nextHydratableInstance = getFirstHydratableChild((nextInstance as any));
 }
 
 function prepareToHydrateHostInstance(
@@ -314,7 +314,7 @@ function prepareToHydrateHostInstance(
     fiber,
   );
   // TODO: Type this specific to this type of component.
-  fiber.updateQueue = (updatePayload: any);
+  fiber.updateQueue = (updatePayload as any);
   // If the update payload indicates that there is a change or if there
   // is a new ref we mark this as an update.
   if (updatePayload !== null) {

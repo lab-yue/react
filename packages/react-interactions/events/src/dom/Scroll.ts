@@ -93,7 +93,7 @@ function createScrollEvent(
   let screenY = null;
 
   if (event) {
-    const nativeEvent = (event.nativeEvent: any);
+    const nativeEvent = (event.nativeEvent as any);
     ({clientX, clientY, pageX, pageY, screenX, screenY} = nativeEvent);
   }
 
@@ -122,7 +122,7 @@ function dispatchEvent(
   name: ScrollEventType,
   eventPriority: EventPriority,
 ): void {
-  const target = ((state.scrollTarget: any): Element | Document);
+  const target = ((state.scrollTarget as any): Element | Document);
   const pointerType = state.pointerType;
   const direction = state.direction;
   const syntheticEvent = createScrollEvent(
@@ -175,14 +175,14 @@ const scrollResponderImpl = {
 
         // Check if target is the document
         if (target.nodeType === 9) {
-          const bodyNode = ((target: any): Document).body;
+          const bodyNode = ((target as any): Document).body;
           if (bodyNode !== null) {
             scrollLeft = bodyNode.offsetLeft;
             scrollTop = bodyNode.offsetTop;
           }
         } else {
-          scrollLeft = ((target: any): Element).scrollLeft;
-          scrollTop = ((target: any): Element).scrollTop;
+          scrollLeft = ((target as any): Element).scrollLeft;
+          scrollTop = ((target as any): Element).scrollTop;
         }
 
         if (prevScrollTarget !== null) {
@@ -202,7 +202,7 @@ const scrollResponderImpl = {
         } else {
           state.direction = '';
         }
-        state.scrollTarget = ((target: any): Element | Document);
+        state.scrollTarget = ((target as any): Element | Document);
         state.scrollLeft = scrollLeft;
         state.scrollTop = scrollTop;
 

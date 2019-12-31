@@ -17,7 +17,7 @@ type Context = {
   setIsModalShowing: (value: boolean) => void,
 };
 
-const SettingsModalContext = createContext<Context>(((null: any): Context));
+const SettingsModalContext = createContext<Context>(((null as any): Context));
 SettingsModalContext.displayName = 'SettingsModalContext';
 
 function SettingsModalContextController({children}: {|children: React$Node|}) {

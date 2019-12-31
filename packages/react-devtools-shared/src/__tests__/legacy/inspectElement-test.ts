@@ -45,7 +45,7 @@ describe('InspectedElementContext', () => {
     path?: Array<string | number>,
   ): Promise<Object> {
     return new Promise((resolve, reject) => {
-      const rendererID = ((store.getRendererIDForElement(id): any): number);
+      const rendererID = ((store.getRendererIDForElement(id) as any): number);
 
       const onInspectedElement = (payload: InspectedElementPayload) => {
         bridge.removeListener('inspectedElement', onInspectedElement);
@@ -91,7 +91,7 @@ describe('InspectedElementContext', () => {
       ReactDOM.render(<Example a={1} b="abc" />, document.createElement('div')),
     );
 
-    const id = ((store.getElementIDAtIndex(0): any): number);
+    const id = ((store.getElementIDAtIndex(0) as any): number);
     const inspectedElement = await read(id);
 
     expect(inspectedElement).toMatchSnapshot('1: Initial inspection');
@@ -121,7 +121,7 @@ describe('InspectedElementContext', () => {
       ),
     );
 
-    const id = ((store.getElementIDAtIndex(0): any): number);
+    const id = ((store.getElementIDAtIndex(0) as any): number);
     const inspectedElement = await read(id);
 
     expect(inspectedElement).toMatchSnapshot('1: Initial inspection');
@@ -195,7 +195,7 @@ describe('InspectedElementContext', () => {
       ),
     );
 
-    const id = ((store.getElementIDAtIndex(0): any): number);
+    const id = ((store.getElementIDAtIndex(0) as any): number);
     const inspectedElement = await read(id);
 
     expect(inspectedElement).toMatchSnapshot('1: Initial inspection');
@@ -327,7 +327,7 @@ describe('InspectedElementContext', () => {
     const descriptor = ((Object.getOwnPropertyDescriptor(
       CustomData.prototype,
       'number',
-    ): any): PropertyDescriptor<number>);
+    ) as any): PropertyDescriptor<number>);
     descriptor.enumerable = true;
     Object.defineProperty(CustomData.prototype, 'number', descriptor);
 
@@ -340,7 +340,7 @@ describe('InspectedElementContext', () => {
       ),
     );
 
-    const id = ((store.getElementIDAtIndex(0): any): number);
+    const id = ((store.getElementIDAtIndex(0) as any): number);
     const inspectedElement = await read(id);
 
     expect(inspectedElement).toMatchSnapshot('1: Initial inspection');
@@ -372,7 +372,7 @@ describe('InspectedElementContext', () => {
       ),
     );
 
-    const id = ((store.getElementIDAtIndex(0): any): number);
+    const id = ((store.getElementIDAtIndex(0) as any): number);
 
     let inspectedElement = await read(id);
     expect(inspectedElement).toMatchSnapshot('1: Initially inspect element');
@@ -423,8 +423,8 @@ describe('InspectedElementContext', () => {
       ),
     );
 
-    const id = ((store.getElementIDAtIndex(0): any): number);
-    const rendererID = ((store.getRendererIDForElement(id): any): number);
+    const id = ((store.getElementIDAtIndex(0) as any): number);
+    const rendererID = ((store.getRendererIDForElement(id) as any): number);
 
     const logSpy = jest.fn();
     spyOn(console, 'log').and.callFake(logSpy);
@@ -476,8 +476,8 @@ describe('InspectedElementContext', () => {
       ),
     );
 
-    const id = ((store.getElementIDAtIndex(0): any): number);
-    const rendererID = ((store.getRendererIDForElement(id): any): number);
+    const id = ((store.getElementIDAtIndex(0) as any): number);
+    const rendererID = ((store.getRendererIDForElement(id) as any): number);
 
     // Should copy the whole value (not just the hydrated parts)
     bridge.send('copyElementPath', {

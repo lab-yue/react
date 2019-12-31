@@ -166,12 +166,12 @@ function createPressEvent(
   let nativeEvent;
 
   if (event) {
-    nativeEvent = (event.nativeEvent: any);
+    nativeEvent = (event.nativeEvent as any);
     ({altKey, ctrlKey, metaKey, shiftKey} = nativeEvent);
     // Only check for one property, checking for all of them is costly. We can assume
     // if clientX exists, so do the rest.
     let eventObject;
-    eventObject = (touchEvent: any) || (nativeEvent: any);
+    eventObject = (touchEvent as any) || (nativeEvent as any);
     if (eventObject) {
       ({clientX, clientY, pageX, pageY, screenX, screenY} = eventObject);
     }
@@ -223,7 +223,7 @@ function dispatchEvent(
   name: PressEventType,
   eventPriority: EventPriority,
 ): void {
-  const target = ((state.pressTarget: any): Element | Document);
+  const target = ((state.pressTarget as any): Element | Document);
   const pointerType = state.pointerType;
   const defaultPrevented =
     (event != null && event.nativeEvent.defaultPrevented === true) ||
@@ -451,7 +451,7 @@ function updateIsPressWithinResponderRegion(
   if (state.responderRegionOnDeactivation == null) {
     state.responderRegionOnDeactivation = calculateResponderRegion(
       context,
-      ((state.pressTarget: any): Element),
+      ((state.pressTarget as any): Element),
       props,
     );
   }
@@ -471,7 +471,7 @@ function updateIsPressWithinResponderRegion(
       bottom = Math.max(bottom, responderRegionOnDeactivation.bottom);
     }
   }
-  const {clientX: x, clientY: y} = (nativeEventOrTouchEvent: any);
+  const {clientX: x, clientY: y} = (nativeEventOrTouchEvent as any);
 
   state.isPressWithinResponderRegion =
     left != null &&
@@ -617,7 +617,7 @@ const pressResponderImpl = {
           if (!targetIsDocument(pressTarget)) {
             state.responderRegionOnActivation = calculateResponderRegion(
               context,
-              ((pressTarget: any): Element),
+              ((pressTarget as any): Element),
               props,
             );
           }

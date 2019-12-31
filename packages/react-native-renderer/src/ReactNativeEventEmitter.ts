@@ -29,7 +29,7 @@ export {getListener, registrationNameModules as registrationNames};
  */
 
 // Shared default empty native event - conserve memory.
-const EMPTY_NATIVE_EVENT = (({}: any): AnyNativeEvent);
+const EMPTY_NATIVE_EVENT = (({} as any): AnyNativeEvent);
 
 /**
  * Selects a subsequence of `Touch`es, without destroying `touches`.

@@ -27,7 +27,7 @@ export type Props = {|
   currentTab: any,
   disabled?: boolean,
   id: string,
-  selectTab: (tabID: any) => void,
+  selectTab: (tabID as any) => void,
   tabs: Array<TabInfo>,
   type: 'navigation' | 'profiler' | 'settings',
 |};

@@ -59,7 +59,7 @@ export default function FocusContain({
       const lastNode = event.target;
       if (lastNode) {
         requestAnimationFrame(() => {
-          (lastNode: any).focus();
+          (lastNode as any).focus();
         });
       }
     },

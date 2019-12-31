@@ -78,7 +78,7 @@ declare module 'react-test-renderer/shallow' {
     getMountedInstance(): ReactTestInstance;
     getRenderOutput<E: React$Element<any>>(): E;
     getRenderOutput(): React$Element<any>;
-    render(element: React$Element<any>, context?: any): void;
+    render(element: React$Element<any>, context? as any): void;
     unmount(): void;
   }
 }

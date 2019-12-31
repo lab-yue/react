@@ -21,7 +21,7 @@ export function localStorageRemoveItem(key: string): void {
   } catch (error) {}
 }
 
-export function localStorageSetItem(key: string, value: any): void {
+export function localStorageSetItem(key: string, value as any): void {
   try {
     return localStorage.setItem(key, value);
   } catch (error) {}
@@ -41,7 +41,7 @@ export function sessionStorageRemoveItem(key: string): void {
   } catch (error) {}
 }
 
-export function sessionStorageSetItem(key: string, value: any): void {
+export function sessionStorageSetItem(key: string, value as any): void {
   try {
     return sessionStorage.setItem(key, value);
   } catch (error) {}

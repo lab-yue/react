@@ -164,7 +164,7 @@ function createPointerEventGestureState(
   event: ReactDOMResponderEvent,
 ): TapGestureState {
   const timeStamp = context.getTimeStamp();
-  const nativeEvent = (event.nativeEvent: any);
+  const nativeEvent = (event.nativeEvent as any);
   const {
     altKey,
     ctrlKey,
@@ -217,7 +217,7 @@ function createFallbackGestureState(
   event: ReactDOMResponderEvent,
 ): TapGestureState {
   const timeStamp = context.getTimeStamp();
-  const nativeEvent = (event.nativeEvent: any);
+  const nativeEvent = (event.nativeEvent as any);
   const eType = event.type;
   const {altKey, ctrlKey, metaKey, shiftKey} = nativeEvent;
   const isCancelType = eType === 'dragstart' || eType === 'touchcancel';

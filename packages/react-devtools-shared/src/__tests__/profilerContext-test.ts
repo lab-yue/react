@@ -62,7 +62,7 @@ describe('ProfilerContext', () => {
     children = null,
     defaultSelectedElementID = null,
     defaultSelectedElementIndex = null,
-  }: any) => (
+  } as any) => (
     <BridgeContext.Provider value={bridge}>
       <StoreContext.Provider value={store}>
         <TreeContextController
@@ -77,7 +77,7 @@ describe('ProfilerContext', () => {
   it('updates updates profiling support based on the attached roots', async done => {
     const Component = () => null;
 
-    let context: Context = ((null: any): Context);
+    let context: Context = ((null as any): Context);
 
     function ContextReader() {
       context = React.useContext(ProfilerContext);
@@ -116,7 +116,7 @@ describe('ProfilerContext', () => {
       ReactDOM.render(<Example />, document.createElement('div')),
     );
 
-    let context: Context = ((null: any): Context);
+    let context: Context = ((null as any): Context);
 
     function ContextReader() {
       context = React.useContext(ProfilerContext);
@@ -164,7 +164,7 @@ describe('ProfilerContext', () => {
     await utils.actAsync(() => ReactDOM.render(<Parent />, containerTwo));
     await utils.actAsync(() => store.profilerStore.stopProfiling());
 
-    let context: Context = ((null: any): Context);
+    let context: Context = ((null as any): Context);
     function ContextReader() {
       context = React.useContext(ProfilerContext);
       return null;
@@ -183,7 +183,7 @@ describe('ProfilerContext', () => {
 
     expect(context).not.toBeNull();
     expect(context.rootID).toBe(
-      store.getRootIDForElement(((store.getElementIDAtIndex(3): any): number)),
+      store.getRootIDForElement(((store.getElementIDAtIndex(3) as any): number)),
     );
 
     done();
@@ -204,7 +204,7 @@ describe('ProfilerContext', () => {
     await utils.actAsync(() => ReactDOM.render(<Parent />, containerOne));
     await utils.actAsync(() => store.profilerStore.stopProfiling());
 
-    let context: Context = ((null: any): Context);
+    let context: Context = ((null as any): Context);
     function ContextReader() {
       context = React.useContext(ProfilerContext);
       return null;
@@ -224,7 +224,7 @@ describe('ProfilerContext', () => {
     // Verify the default profiling root is the first one.
     expect(context).not.toBeNull();
     expect(context.rootID).toBe(
-      store.getRootIDForElement(((store.getElementIDAtIndex(0): any): number)),
+      store.getRootIDForElement(((store.getElementIDAtIndex(0) as any): number)),
     );
 
     done();
@@ -246,8 +246,8 @@ describe('ProfilerContext', () => {
     await utils.actAsync(() => ReactDOM.render(<Parent />, containerB));
     await utils.actAsync(() => store.profilerStore.stopProfiling());
 
-    let context: Context = ((null: any): Context);
-    let dispatch: DispatcherContext = ((null: any): DispatcherContext);
+    let context: Context = ((null as any): Context);
+    let dispatch: DispatcherContext = ((null as any): DispatcherContext);
     let selectedElementID = null;
     function ContextReader() {
       context = React.useContext(ProfilerContext);
@@ -256,7 +256,7 @@ describe('ProfilerContext', () => {
       return null;
     }
 
-    const id = ((store.getElementIDAtIndex(3): any): number);
+    const id = ((store.getElementIDAtIndex(3) as any): number);
 
     // Select an element within the second root.
     await utils.actAsync(() =>
@@ -275,7 +275,7 @@ describe('ProfilerContext', () => {
     await utils.actAsync(() => ReactDOM.render(<Parent />, containerB));
     await utils.actAsync(() => store.profilerStore.stopProfiling());
 
-    const otherID = ((store.getElementIDAtIndex(0): any): number);
+    const otherID = ((store.getElementIDAtIndex(0) as any): number);
 
     // Change the selected element within a the Components tab.
     utils.act(() => dispatch({type: 'SELECT_ELEMENT_AT_INDEX', payload: 0}));
@@ -301,8 +301,8 @@ describe('ProfilerContext', () => {
     );
     expect(store).toMatchSnapshot('mounted');
 
-    const parentID = ((store.getElementIDAtIndex(1): any): number);
-    const childID = ((store.getElementIDAtIndex(2): any): number);
+    const parentID = ((store.getElementIDAtIndex(1) as any): number);
+    const childID = ((store.getElementIDAtIndex(2) as any): number);
 
     // Profile and record updates.
     await utils.actAsync(() => store.profilerStore.startProfiling());
@@ -316,7 +316,7 @@ describe('ProfilerContext', () => {
 
     expect(store).toMatchSnapshot('updated');
 
-    let context: Context = ((null: any): Context);
+    let context: Context = ((null as any): Context);
     let selectedElementID = null;
     function ContextReader() {
       context = React.useContext(ProfilerContext);

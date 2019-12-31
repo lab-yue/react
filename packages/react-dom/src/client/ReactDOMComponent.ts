@@ -163,7 +163,7 @@ if (__DEV__) {
 
   normalizeMarkupForTextOrAttribute = function(markup: unknown): string {
     const markupString =
-      typeof markup === 'string' ? markup : '' + (markup: any);
+      typeof markup === 'string' ? markup : '' + (markup as any);
     return markupString
       .replace(NORMALIZE_NEWLINES_REGEX, '\n')
       .replace(NORMALIZE_NULL_AND_REPLACEMENT_REGEX, '');
@@ -257,7 +257,7 @@ if (__DEV__) {
       parent.namespaceURI === HTML_NAMESPACE
         ? parent.ownerDocument.createElement(parent.tagName)
         : parent.ownerDocument.createElementNS(
-            (parent.namespaceURI: any),
+            (parent.namespaceURI as any),
             parent.tagName,
           );
     testElement.innerHTML = html;
@@ -282,7 +282,7 @@ function getOwnerDocumentFromRootContainer(
   rootContainerElement: Element | Document,
 ): Document {
   return rootContainerElement.nodeType === DOCUMENT_NODE
-    ? (rootContainerElement: any)
+    ? (rootContainerElement as any)
     : rootContainerElement.ownerDocument;
 }
 
@@ -437,7 +437,7 @@ export function createElement(
       }
       div.innerHTML = '<script><' + '/script>'; // eslint-disable-line
       // This is guaranteed to yield a script element.
-      const firstChild = ((div.firstChild: any): HTMLScriptElement);
+      const firstChild = ((div.firstChild as any): HTMLScriptElement);
       domElement = div.removeChild(firstChild);
     } else if (typeof props.is === 'string') {
       // $FlowIssue `createElement` should be updated for Web Components
@@ -456,7 +456,7 @@ export function createElement(
       // See https://github.com/facebook/react/issues/13222
       // and https://github.com/facebook/react/issues/14239
       if (type === 'select') {
-        const node = ((domElement: any): HTMLSelectElement);
+        const node = ((domElement as any): HTMLSelectElement);
         if (props.multiple) {
           node.multiple = true;
         } else if (props.size) {
@@ -515,7 +515,7 @@ export function setInitialProperties(
     if (
       isCustomComponentTag &&
       !didWarnShadyDOM &&
-      (domElement: any).shadyRoot
+      (domElement as any).shadyRoot
     ) {
       console.error(
         '%s is using shady DOM. Using shady DOM with React can ' +
@@ -609,13 +609,13 @@ export function setInitialProperties(
     case 'input':
       // TODO: Make sure we check if this is still unmounted or do any clean
       // up necessary since we never stop tracking anymore.
-      track((domElement: any));
+      track((domElement as any));
       ReactDOMInputPostMountWrapper(domElement, rawProps, false);
       break;
     case 'textarea':
       // TODO: Make sure we check if this is still unmounted or do any clean
       // up necessary since we never stop tracking anymore.
-      track((domElement: any));
+      track((domElement as any));
       ReactDOMTextareaPostMountWrapper(domElement, rawProps);
       break;
     case 'option':
@@ -627,7 +627,7 @@ export function setInitialProperties(
     default:
       if (typeof props.onClick === 'function') {
         // TODO: This cast may not be sound for SVG, MathML or custom elements.
-        trapClickOnNonInteractiveElement(((domElement: any): HTMLElement));
+        trapClickOnNonInteractiveElement(((domElement as any): HTMLElement));
       }
       break;
   }
@@ -678,7 +678,7 @@ export function diffProperties(
         typeof nextProps.onClick === 'function'
       ) {
         // TODO: This cast may not be sound for SVG, MathML or custom elements.
-        trapClickOnNonInteractiveElement(((domElement: any): HTMLElement));
+        trapClickOnNonInteractiveElement(((domElement as any): HTMLElement));
       }
       break;
   }
@@ -915,7 +915,7 @@ export function diffHydratedProperties(
     if (
       isCustomComponentTag &&
       !didWarnShadyDOM &&
-      (domElement: any).shadyRoot
+      (domElement as any).shadyRoot
     ) {
       console.error(
         '%s is using shady DOM. Using shady DOM with React can ' +
@@ -1161,13 +1161,13 @@ export function diffHydratedProperties(
     case 'input':
       // TODO: Make sure we check if this is still unmounted or do any clean
       // up necessary since we never stop tracking anymore.
-      track((domElement: any));
+      track((domElement as any));
       ReactDOMInputPostMountWrapper(domElement, rawProps, true);
       break;
     case 'textarea':
       // TODO: Make sure we check if this is still unmounted or do any clean
       // up necessary since we never stop tracking anymore.
-      track((domElement: any));
+      track((domElement as any));
       ReactDOMTextareaPostMountWrapper(domElement, rawProps);
       break;
     case 'select':
@@ -1181,7 +1181,7 @@ export function diffHydratedProperties(
     default:
       if (typeof rawProps.onClick === 'function') {
         // TODO: This cast may not be sound for SVG, MathML or custom elements.
-        trapClickOnNonInteractiveElement(((domElement: any): HTMLElement));
+        trapClickOnNonInteractiveElement(((domElement as any): HTMLElement));
       }
       break;
   }

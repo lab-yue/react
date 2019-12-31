@@ -17,7 +17,7 @@ import {getChildHostContext, getRootHostContext} from './ReactFiberHostConfig';
 import {createCursor, push, pop} from './ReactFiberStack';
 
 declare class NoContextT {}
-const NO_CONTEXT: NoContextT = ({}: any);
+const NO_CONTEXT: NoContextT = ({} as any);
 
 let contextStackCursor: StackCursor<HostContext | NoContextT> = createCursor(
   NO_CONTEXT,
@@ -35,7 +35,7 @@ function requiredContext<Value>(c: Value | NoContextT): Value {
     'Expected host context to exist. This error is likely caused by a bug ' +
       'in React. Please file an issue.',
   );
-  return (c: any);
+  return (c as any);
 }
 
 function getRootHostContainer(): Container {

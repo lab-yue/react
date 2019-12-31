@@ -155,8 +155,8 @@ function processTopEventTypesByPriority(
   // if we only use three arrays to process all the categories of
   // instead of tuples.
   for (let i = 0; i < eventTypes.length; i += 2) {
-    const topEvent = ((eventTypes[i]: any): DOMTopLevelEventType);
-    const event = ((eventTypes[i + 1]: any): string);
+    const topEvent = ((eventTypes[i] as any): DOMTopLevelEventType);
+    const event = ((eventTypes[i + 1] as any): string);
     const capitalizedEvent = event[0].toUpperCase() + event.slice(1);
     const onEvent = 'on' + capitalizedEvent;
 

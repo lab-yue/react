@@ -28,14 +28,14 @@ type Props = {|
   style: Style,
 |};
 
-type ChangeAttributeFn = (oldName: string, newName: string, value: any) => void;
-type ChangeValueFn = (name: string, value: any) => void;
+type ChangeAttributeFn = (oldName: string, newName: string, value as any) => void;
+type ChangeValueFn = (name: string, value as any) => void;
 
 export default function StyleEditor({id, style}: Props) {
   const bridge = useContext(BridgeContext);
   const store = useContext(StoreContext);
 
-  const changeAttribute = (oldName: string, newName: string, value: any) => {
+  const changeAttribute = (oldName: string, newName: string, value as any) => {
     const rendererID = store.getRendererIDForElement(id);
     if (rendererID !== null) {
       bridge.send('NativeStyleEditor_renameAttribute', {
@@ -48,7 +48,7 @@ export default function StyleEditor({id, style}: Props) {
     }
   };
 
-  const changeValue = (name: string, value: any) => {
+  const changeValue = (name: string, value as any) => {
     const rendererID = store.getRendererIDForElement(id);
     if (rendererID !== null) {
       bridge.send('NativeStyleEditor_setValue', {
@@ -116,7 +116,7 @@ function NewRow({changeAttribute, changeValue, validAttributes}: NewRowProps) {
     newAttributeRef.current = newAttribute;
   };
 
-  const changeValueWrapper = (attribute: string, value: any) => {
+  const changeValueWrapper = (attribute: string, value as any) => {
     // Blur events should reset/cancel if there's no value or no attribute
     if (newAttributeRef.current !== '') {
       if (value !== '') {
@@ -246,7 +246,7 @@ function Row({
 
 type FieldProps = {|
   className: string,
-  onChange: (value: any) => void,
+  onChange: (value as any) => void,
   onReset: () => void,
   onSubmit: () => void,
   placeholder?: string,

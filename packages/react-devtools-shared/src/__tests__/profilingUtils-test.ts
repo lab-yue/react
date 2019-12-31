@@ -20,7 +20,7 @@ describe('profiling utils', () => {
         ({
           version: 0,
           dataForRoots: [],
-        }: any),
+        } as any),
       ),
     ).toThrow('Unsupported profiler export version "0"');
   });

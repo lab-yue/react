@@ -22,6 +22,6 @@ export default function CircularReferences() {
   return <ChildComponent arrayOne={arrayOne} objectOne={objectOne} />;
 }
 
-function ChildComponent(props: any) {
+function ChildComponent(props as any) {
   return null;
 }

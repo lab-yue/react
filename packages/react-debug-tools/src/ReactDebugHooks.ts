@@ -56,7 +56,7 @@ function getPrimitiveStackCache(): Map<string, Array<any>> {
     let readHookLog;
     try {
       // Use all hooks here to add them to the hook log.
-      Dispatcher.useContext(({_currentValue: null}: any));
+      Dispatcher.useContext(({_currentValue: null} as any));
       Dispatcher.useState(null);
       Dispatcher.useReducer((s, a) => s, null);
       Dispatcher.useRef(null);
@@ -132,7 +132,7 @@ function useReducer<S, I, A>(
   if (hook !== null) {
     state = hook.memoizedState;
   } else {
-    state = init !== undefined ? init(initialArg) : ((initialArg: any): S);
+    state = init !== undefined ? init(initialArg) : ((initialArg as any): S);
   }
   hookLog.push({
     primitive: 'Reducer',
@@ -194,7 +194,7 @@ function useImperativeHandle<T>(
   });
 }
 
-function useDebugValue(value: any, formatterFn: ?(value: any) => any) {
+function useDebugValue(value: any, formatterFn: ?(value as any) => any) {
   hookLog.push({
     primitive: 'DebugValue',
     stackError: new Error(),

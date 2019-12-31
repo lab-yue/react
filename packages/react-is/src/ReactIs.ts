@@ -26,7 +26,7 @@ import {
 } from 'shared/ReactSymbols';
 import isValidElementType from 'shared/isValidElementType';
 
-export function typeOf(object: any) {
+export function typeOf(object as any) {
   if (typeof object === 'object' && object !== null) {
     const $$typeof = object.$$typeof;
     switch ($$typeof) {
@@ -83,7 +83,7 @@ export {isValidElementType};
 let hasWarnedAboutDeprecatedIsAsyncMode = false;
 
 // AsyncMode should be deprecated
-export function isAsyncMode(object: any) {
+export function isAsyncMode(object as any) {
   if (__DEV__) {
     if (!hasWarnedAboutDeprecatedIsAsyncMode) {
       hasWarnedAboutDeprecatedIsAsyncMode = true;
@@ -97,43 +97,43 @@ export function isAsyncMode(object: any) {
   }
   return isConcurrentMode(object) || typeOf(object) === REACT_ASYNC_MODE_TYPE;
 }
-export function isConcurrentMode(object: any) {
+export function isConcurrentMode(object as any) {
   return typeOf(object) === REACT_CONCURRENT_MODE_TYPE;
 }
-export function isContextConsumer(object: any) {
+export function isContextConsumer(object as any) {
   return typeOf(object) === REACT_CONTEXT_TYPE;
 }
-export function isContextProvider(object: any) {
+export function isContextProvider(object as any) {
   return typeOf(object) === REACT_PROVIDER_TYPE;
 }
-export function isElement(object: any) {
+export function isElement(object as any) {
   return (
     typeof object === 'object' &&
     object !== null &&
     object.$$typeof === REACT_ELEMENT_TYPE
   );
 }
-export function isForwardRef(object: any) {
+export function isForwardRef(object as any) {
   return typeOf(object) === REACT_FORWARD_REF_TYPE;
 }
-export function isFragment(object: any) {
+export function isFragment(object as any) {
   return typeOf(object) === REACT_FRAGMENT_TYPE;
 }
-export function isLazy(object: any) {
+export function isLazy(object as any) {
   return typeOf(object) === REACT_LAZY_TYPE;
 }
-export function isMemo(object: any) {
+export function isMemo(object as any) {
   return typeOf(object) === REACT_MEMO_TYPE;
 }
-export function isPortal(object: any) {
+export function isPortal(object as any) {
   return typeOf(object) === REACT_PORTAL_TYPE;
 }
-export function isProfiler(object: any) {
+export function isProfiler(object as any) {
   return typeOf(object) === REACT_PROFILER_TYPE;
 }
-export function isStrictMode(object: any) {
+export function isStrictMode(object as any) {
   return typeOf(object) === REACT_STRICT_MODE_TYPE;
 }
-export function isSuspense(object: any) {
+export function isSuspense(object as any) {
   return typeOf(object) === REACT_SUSPENSE_TYPE;
 }

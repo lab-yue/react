@@ -36,7 +36,7 @@ export function createRequest(
 }
 
 function performWork(request: OpaqueRequest): void {
-  let element = (request.children: any);
+  let element = (request.children as any);
   request.children = null;
   if (element && element.$$typeof !== REACT_ELEMENT_TYPE) {
     return;

@@ -153,7 +153,7 @@ function HookView({canEditHooks, hook, id, inspectPath, path}: HookViewProps) {
 
   // Format data for display to mimic the props/state/context for now.
   if (type === 'string') {
-    displayValue = `"${((value: any): string)}"`;
+    displayValue = `"${((value as any): string)}"`;
   } else if (type === 'boolean') {
     displayValue = value ? 'true' : 'false';
   } else if (type === 'number') {

@@ -157,7 +157,7 @@ export function getRootHostContext(
     case DOCUMENT_NODE:
     case DOCUMENT_FRAGMENT_NODE: {
       type = nodeType === DOCUMENT_NODE ? '#document' : '#fragment';
-      let root = (rootContainerInstance: any).documentElement;
+      let root = (rootContainerInstance as any).documentElement;
       namespace = root ? root.namespaceURI : getChildNamespace(null, '');
       break;
     }
@@ -186,7 +186,7 @@ export function getChildHostContext(
   rootContainerInstance: Container,
 ): HostContext {
   if (__DEV__) {
-    const parentHostContextDev = ((parentHostContext: any): HostContextDev);
+    const parentHostContextDev = ((parentHostContext as any): HostContextDev);
     const namespace = getChildNamespace(parentHostContextDev.namespace, type);
     const ancestorInfo = updatedAncestorInfo(
       parentHostContextDev.ancestorInfo,
@@ -194,7 +194,7 @@ export function getChildHostContext(
     );
     return {namespace, ancestorInfo};
   }
-  const parentNamespace = ((parentHostContext: any): HostContextProd);
+  const parentNamespace = ((parentHostContext as any): HostContextProd);
   return getChildNamespace(parentNamespace, type);
 }
 
@@ -213,7 +213,7 @@ export function resetAfterCommit(containerInfo: Container): void {
   ReactBrowserEventEmitterSetEnabled(eventsEnabled);
   eventsEnabled = null;
   if (enableDeprecatedFlareAPI) {
-    const activeElementDetached = (selectionInformation: any)
+    const activeElementDetached = (selectionInformation as any)
       .activeElementDetached;
     if (activeElementDetached !== null) {
       dispatchDetachedBlur(activeElementDetached);
@@ -232,7 +232,7 @@ export function createInstance(
   let parentNamespace: string;
   if (__DEV__) {
     // TODO: take namespace into account when validating.
-    const hostContextDev = ((hostContext: any): HostContextDev);
+    const hostContextDev = ((hostContext as any): HostContextDev);
     validateDOMNesting(type, null, hostContextDev.ancestorInfo);
     if (
       typeof props.children === 'string' ||
@@ -247,7 +247,7 @@ export function createInstance(
     }
     parentNamespace = hostContextDev.namespace;
   } else {
-    parentNamespace = ((hostContext: any): HostContextProd);
+    parentNamespace = ((hostContext as any): HostContextProd);
   }
   const domElement: Instance = createElement(
     type,
@@ -287,7 +287,7 @@ export function prepareUpdate(
   hostContext: HostContext,
 ): null | Array<mixed> {
   if (__DEV__) {
-    const hostContextDev = ((hostContext: any): HostContextDev);
+    const hostContextDev = ((hostContext as any): HostContextDev);
     if (
       typeof newProps.children !== typeof oldProps.children &&
       (typeof newProps.children === 'string' ||
@@ -334,7 +334,7 @@ export function createTextInstance(
   internalInstanceHandle: Object,
 ): TextInstance {
   if (__DEV__) {
-    const hostContextDev = ((hostContext: any): HostContextDev);
+    const hostContextDev = ((hostContext as any): HostContextDev);
     validateDOMNesting(null, text, hostContextDev.ancestorInfo);
   }
   const textNode: TextInstance = createTextNode(text, rootContainerInstance);
@@ -348,9 +348,9 @@ export const warnsIfNotActing = true;
 // if a component just imports ReactDOM (e.g. for findDOMNode).
 // Some environments might not have setTimeout or clearTimeout.
 export const scheduleTimeout =
-  typeof setTimeout === 'function' ? setTimeout : (undefined: any);
+  typeof setTimeout === 'function' ? setTimeout : (undefined as any);
 export const cancelTimeout =
-  typeof clearTimeout === 'function' ? clearTimeout : (undefined: any);
+  typeof clearTimeout === 'function' ? clearTimeout : (undefined as any);
 export const noTimeout = -1;
 
 // -------------------
@@ -372,7 +372,7 @@ export function commitMount(
   // there are also other cases when this might happen (such as patching
   // up text content during hydration mismatch). So we'll check this again.
   if (shouldAutoFocusHostComponent(type, newProps)) {
-    ((domElement: any):
+    ((domElement as any):
       | HTMLButtonElement
       | HTMLInputElement
       | HTMLSelectElement
@@ -420,7 +420,7 @@ export function appendChildToContainer(
 ): void {
   let parentNode;
   if (container.nodeType === COMMENT_NODE) {
-    parentNode = (container.parentNode: any);
+    parentNode = (container.parentNode as any);
     parentNode.insertBefore(child, container);
   } else {
     parentNode = container;
@@ -440,7 +440,7 @@ export function appendChildToContainer(
     parentNode.onclick === null
   ) {
     // TODO: This cast may not be sound for SVG, MathML or custom elements.
-    trapClickOnNonInteractiveElement(((parentNode: any): HTMLElement));
+    trapClickOnNonInteractiveElement(((parentNode as any): HTMLElement));
   }
 }
 
@@ -458,7 +458,7 @@ export function insertInContainerBefore(
   beforeChild: Instance | TextInstance | SuspenseInstance,
 ): void {
   if (container.nodeType === COMMENT_NODE) {
-    (container.parentNode: any).insertBefore(child, beforeChild);
+    (container.parentNode as any).insertBefore(child, beforeChild);
   } else {
     container.insertBefore(child, beforeChild);
   }
@@ -466,7 +466,7 @@ export function insertInContainerBefore(
 
 function dispatchBeforeDetachedBlur(target: HTMLElement): void {
   const targetInstance = getClosestInstanceFromNode(target);
-  ((selectionInformation: any): SelectionInformation).activeElementDetached = target;
+  ((selectionInformation as any): SelectionInformation).activeElementDetached = target;
 
   DEPRECATED_dispatchEventForResponderEventSystem(
     'beforeblur',
@@ -474,7 +474,7 @@ function dispatchBeforeDetachedBlur(target: HTMLElement): void {
     ({
       target,
       timeStamp: Date.now(),
-    }: any),
+    } as any),
     target,
     RESPONDER_EVENT_SYSTEM | IS_PASSIVE,
   );
@@ -488,7 +488,7 @@ function dispatchDetachedBlur(target: HTMLElement): void {
       isTargetAttached: false,
       target,
       timeStamp: Date.now(),
-    }: any),
+    } as any),
     target,
     RESPONDER_EVENT_SYSTEM | IS_PASSIVE,
   );
@@ -506,7 +506,7 @@ export function beforeRemoveInstance(
     selectionInformation &&
     instance === selectionInformation.focusedElem
   ) {
-    dispatchBeforeDetachedBlur(((instance: any): HTMLElement));
+    dispatchBeforeDetachedBlur(((instance as any): HTMLElement));
   }
 }
 
@@ -522,7 +522,7 @@ export function removeChildFromContainer(
   child: Instance | TextInstance | SuspenseInstance,
 ): void {
   if (container.nodeType === COMMENT_NODE) {
-    (container.parentNode: any).removeChild(child);
+    (container.parentNode as any).removeChild(child);
   } else {
     container.removeChild(child);
   }
@@ -541,7 +541,7 @@ export function clearSuspenseBoundary(
     let nextNode = node.nextSibling;
     parentInstance.removeChild(node);
     if (nextNode && nextNode.nodeType === COMMENT_NODE) {
-      let data = ((nextNode: any).data: string);
+      let data = ((nextNode as any).data: string);
       if (data === SUSPENSE_END_DATA) {
         if (depth === 0) {
           parentInstance.removeChild(nextNode);
@@ -571,9 +571,9 @@ export function clearSuspenseBoundaryFromContainer(
   suspenseInstance: SuspenseInstance,
 ): void {
   if (container.nodeType === COMMENT_NODE) {
-    clearSuspenseBoundary((container.parentNode: any), suspenseInstance);
+    clearSuspenseBoundary((container.parentNode as any), suspenseInstance);
   } else if (container.nodeType === ELEMENT_NODE) {
-    clearSuspenseBoundary((container: any), suspenseInstance);
+    clearSuspenseBoundary((container as any), suspenseInstance);
   } else {
     // Document nodes should never contain suspense boundaries.
   }
@@ -584,7 +584,7 @@ export function clearSuspenseBoundaryFromContainer(
 export function hideInstance(instance: Instance): void {
   // TODO: Does this work for all element types? What about MathML? Should we
   // pass host context to this method?
-  instance = ((instance: any): HTMLElement);
+  instance = ((instance as any): HTMLElement);
   const style = instance.style;
   if (typeof style.setProperty === 'function') {
     style.setProperty('display', 'none', 'important');
@@ -598,7 +598,7 @@ export function hideTextInstance(textInstance: TextInstance): void {
 }
 
 export function unhideInstance(instance: Instance, props: Props): void {
-  instance = ((instance: any): HTMLElement);
+  instance = ((instance as any): HTMLElement);
   const styleProp = props[STYLE];
   const display =
     styleProp !== undefined &&
@@ -634,7 +634,7 @@ export function canHydrateInstance(
     return null;
   }
   // This has now been refined to an element node.
-  return ((instance: any): Instance);
+  return ((instance as any): Instance);
 }
 
 export function canHydrateTextInstance(
@@ -646,7 +646,7 @@ export function canHydrateTextInstance(
     return null;
   }
   // This has now been refined to a text node.
-  return ((instance: any): TextInstance);
+  return ((instance as any): TextInstance);
 }
 
 export function canHydrateSuspenseInstance(
@@ -657,7 +657,7 @@ export function canHydrateSuspenseInstance(
     return null;
   }
   // This has now been refined to a suspense node.
-  return ((instance: any): SuspenseInstance);
+  return ((instance as any): SuspenseInstance);
 }
 
 export function isSuspenseInstancePending(instance: SuspenseInstance) {
@@ -684,7 +684,7 @@ function getNextHydratable(node) {
     }
     if (enableSuspenseServerRenderer) {
       if (nodeType === COMMENT_NODE) {
-        const nodeData = (node: any).data;
+        const nodeData = (node as any).data;
         if (
           nodeData === SUSPENSE_START_DATA ||
           nodeData === SUSPENSE_FALLBACK_START_DATA ||
@@ -695,7 +695,7 @@ function getNextHydratable(node) {
       }
     }
   }
-  return (node: any);
+  return (node as any);
 }
 
 export function getNextHydratableSibling(
@@ -724,10 +724,10 @@ export function hydrateInstance(
   updateFiberProps(instance, props);
   let parentNamespace: string;
   if (__DEV__) {
-    const hostContextDev = ((hostContext: any): HostContextDev);
+    const hostContextDev = ((hostContext as any): HostContextDev);
     parentNamespace = hostContextDev.namespace;
   } else {
-    parentNamespace = ((hostContext: any): HostContextProd);
+    parentNamespace = ((hostContext as any): HostContextProd);
   }
   return diffHydratedProperties(
     instance,
@@ -764,10 +764,10 @@ export function getNextHydratableInstanceAfterSuspenseInstance(
   let depth = 0;
   while (node) {
     if (node.nodeType === COMMENT_NODE) {
-      let data = ((node: any).data: string);
+      let data = ((node as any).data: string);
       if (data === SUSPENSE_END_DATA) {
         if (depth === 0) {
-          return getNextHydratableSibling((node: any));
+          return getNextHydratableSibling((node as any));
         } else {
           depth--;
         }
@@ -798,14 +798,14 @@ export function getParentSuspenseInstance(
   let depth = 0;
   while (node) {
     if (node.nodeType === COMMENT_NODE) {
-      let data = ((node: any).data: string);
+      let data = ((node as any).data: string);
       if (
         data === SUSPENSE_START_DATA ||
         data === SUSPENSE_FALLBACK_START_DATA ||
         data === SUSPENSE_PENDING_START_DATA
       ) {
         if (depth === 0) {
-          return ((node: any): SuspenseInstance);
+          return ((node as any): SuspenseInstance);
         } else {
           depth--;
         }
@@ -858,11 +858,11 @@ export function didNotHydrateContainerInstance(
 ) {
   if (__DEV__) {
     if (instance.nodeType === ELEMENT_NODE) {
-      warnForDeletedHydratableElement(parentContainer, (instance: any));
+      warnForDeletedHydratableElement(parentContainer, (instance as any));
     } else if (instance.nodeType === COMMENT_NODE) {
       // TODO: warnForDeletedHydratableSuspenseBoundary
     } else {
-      warnForDeletedHydratableText(parentContainer, (instance: any));
+      warnForDeletedHydratableText(parentContainer, (instance as any));
     }
   }
 }
@@ -875,11 +875,11 @@ export function didNotHydrateInstance(
 ) {
   if (__DEV__ && parentProps[SUPPRESS_HYDRATION_WARNING] !== true) {
     if (instance.nodeType === ELEMENT_NODE) {
-      warnForDeletedHydratableElement(parentInstance, (instance: any));
+      warnForDeletedHydratableElement(parentInstance, (instance as any));
     } else if (instance.nodeType === COMMENT_NODE) {
       // TODO: warnForDeletedHydratableSuspenseBoundary
     } else {
-      warnForDeletedHydratableText(parentInstance, (instance: any));
+      warnForDeletedHydratableText(parentInstance, (instance as any));
     }
   }
 }
@@ -953,7 +953,7 @@ export function DEPRECATED_mountResponderInstance(
 ): ReactDOMEventResponderInstance {
   // Listen to events
   const doc = instance.ownerDocument;
-  const {targetEventTypes} = ((responder: any): ReactDOMEventResponder);
+  const {targetEventTypes} = ((responder as any): ReactDOMEventResponder);
   if (targetEventTypes !== null) {
     listenToEventResponderEventTypes(targetEventTypes, doc);
   }
@@ -985,7 +985,7 @@ export function getFundamentalComponentInstance(
     return instance;
   }
   // Because of the flag above, this gets around the Flow error;
-  return (null: any);
+  return (null as any);
 }
 
 export function mountFundamentalComponent(

@@ -29,7 +29,7 @@ export default function SnapshotSelector(_: Props) {
   } = useContext(ProfilerContext);
 
   const {profilerStore} = useContext(StoreContext);
-  const {commitData} = profilerStore.getDataForRoot(((rootID: any): number));
+  const {commitData} = profilerStore.getDataForRoot(((rootID as any): number));
 
   const commitDurations: Array<number> = [];
   const commitTimes: Array<number> = [];
@@ -96,7 +96,7 @@ export default function SnapshotSelector(_: Props) {
   const viewNextCommit = useCallback(
     () => {
       const nextCommitIndex = Math.min(
-        ((selectedFilteredCommitIndex: any): number) + 1,
+        ((selectedFilteredCommitIndex as any): number) + 1,
         filteredCommitIndices.length - 1,
       );
       selectCommitIndex(filteredCommitIndices[nextCommitIndex]);
@@ -106,7 +106,7 @@ export default function SnapshotSelector(_: Props) {
   const viewPrevCommit = useCallback(
     () => {
       const nextCommitIndex = Math.max(
-        ((selectedFilteredCommitIndex: any): number) - 1,
+        ((selectedFilteredCommitIndex as any): number) - 1,
         0,
       );
       selectCommitIndex(filteredCommitIndices[nextCommitIndex]);

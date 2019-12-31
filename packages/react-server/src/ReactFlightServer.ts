@@ -201,7 +201,7 @@ function resolveModelToJSON(
     value !== null &&
     value.$$typeof === REACT_ELEMENT_TYPE
   ) {
-    let element: React$Element<any> = (value: any);
+    let element: React$Element<any> = (value as any);
     try {
       value = attemptResolveModelComponent(element);
     } catch (x) {
@@ -239,7 +239,7 @@ function emitErrorChunk(
       message = '' + error.message;
       stack = '' + error.stack;
     } else {
-      message = 'Error: ' + (error: any);
+      message = 'Error: ' + (error as any);
     }
   } catch (x) {
     message = 'An error occurred but serializing the error message failed.';
@@ -259,7 +259,7 @@ function retrySegment(request: OpaqueRequest, segment: Segment): void {
     ) {
       // If this is a nested model, there's no need to create another chunk,
       // we can reuse the existing one and try again.
-      let element: React$Element<any> = (value: any);
+      let element: React$Element<any> = (value as any);
       segment.model = element;
       value = attemptResolveModelComponent(element);
     }

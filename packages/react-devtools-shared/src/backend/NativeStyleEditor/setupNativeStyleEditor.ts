@@ -14,7 +14,7 @@ import {BackendBridge} from 'react-devtools-shared/src/bridge';
 import {RendererID} from '../types';
 import {StyleAndLayout} from './types';
 
-export type ResolveNativeStyle = (stylesheetID: any) => ?Object;
+export type ResolveNativeStyle = (stylesheetID as any) => ?Object;
 
 export default function setupNativeStyleEditor(
   bridge: BackendBridge,

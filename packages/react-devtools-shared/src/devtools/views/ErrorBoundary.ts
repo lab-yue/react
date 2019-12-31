@@ -29,7 +29,7 @@ export default class ErrorBoundary extends Component<Props, State> {
     hasError: false,
   };
 
-  componentDidCatch(error: any, {componentStack}: any) {
+  componentDidCatch(error: any, {componentStack} as any) {
     const errorMessage =
       typeof error === 'object' && error.hasOwnProperty('message')
         ? error.message

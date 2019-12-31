@@ -28,7 +28,7 @@ function isFiberSuspenseAndTimedOut(fiber: Fiber): boolean {
 }
 
 function getSuspenseFallbackChild(fiber: Fiber): Fiber | null {
-  return ((((fiber.child: any): Fiber).sibling: any): Fiber).child;
+  return ((((fiber.child as any): Fiber).sibling as any): Fiber).child;
 }
 
 const emptyObject = {};
@@ -156,7 +156,7 @@ export function createScopeMethods(
 ): ReactScopeMethods {
   return {
     getChildren(): null | Array<ReactScopeMethods> {
-      const currentFiber = ((instance.fiber: any): Fiber);
+      const currentFiber = ((instance.fiber as any): Fiber);
       const child = currentFiber.child;
       const childrenScopes = [];
       if (child !== null) {
@@ -165,7 +165,7 @@ export function createScopeMethods(
       return childrenScopes.length === 0 ? null : childrenScopes;
     },
     getChildrenFromRoot(): null | Array<ReactScopeMethods> {
-      const currentFiber = ((instance.fiber: any): Fiber);
+      const currentFiber = ((instance.fiber as any): Fiber);
       let node = currentFiber;
       while (node !== null) {
         const parent = node.return;
@@ -182,7 +182,7 @@ export function createScopeMethods(
       return childrenScopes.length === 0 ? null : childrenScopes;
     },
     getParent(): null | ReactScopeMethods {
-      let node = ((instance.fiber: any): Fiber).return;
+      let node = ((instance.fiber as any): Fiber).return;
       while (node !== null) {
         if (node.tag === ScopeComponent && node.type === scope) {
           return node.stateNode.methods;
@@ -192,13 +192,13 @@ export function createScopeMethods(
       return null;
     },
     getProps(): Object {
-      const currentFiber = ((instance.fiber: any): Fiber);
+      const currentFiber = ((instance.fiber as any): Fiber);
       return currentFiber.memoizedProps;
     },
     queryAllNodes(
       fn: (type: string | Object, props: Object, instance: Object) => boolean,
     ): null | Array<Object> {
-      const currentFiber = ((instance.fiber: any): Fiber);
+      const currentFiber = ((instance.fiber as any): Fiber);
       const child = currentFiber.child;
       const scopedNodes = [];
       if (child !== null) {
@@ -209,7 +209,7 @@ export function createScopeMethods(
     queryFirstNode(
       fn: (type: string | Object, props: Object, instance: Object) => boolean,
     ): null | Object {
-      const currentFiber = ((instance.fiber: any): Fiber);
+      const currentFiber = ((instance.fiber as any): Fiber);
       const child = currentFiber.child;
       if (child !== null) {
         return collectFirstScopedNodeFromChildren(child, fn);

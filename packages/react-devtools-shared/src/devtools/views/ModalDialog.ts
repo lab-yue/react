@@ -47,7 +47,7 @@ type ModalDialogContextType = {|
 |};
 
 const ModalDialogContext = createContext<ModalDialogContextType>(
-  ((null: any): ModalDialogContextType),
+  ((null as any): ModalDialogContextType),
 );
 ModalDialogContext.displayName = 'ModalDialogContext';
 
@@ -129,7 +129,7 @@ function ModalDialogImpl(_: {||}) {
 
   // Clicks on the dialog should not bubble.
   // This way we can dismiss by listening to clicks on the background.
-  const handleDialogClick = (event: any) => {
+  const handleDialogClick = (event as any) => {
     event.stopPropagation();
 
     // It is important that we don't also prevent default,

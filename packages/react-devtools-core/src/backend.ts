@@ -173,7 +173,7 @@ export function connectToDevTools(options: ?ConnectOptions) {
       setupNativeStyleEditor(
         bridge,
         agent,
-        ((resolveRNStyle || hook.resolveRNStyle: any): ResolveNativeStyle),
+        ((resolveRNStyle || hook.resolveRNStyle as any): ResolveNativeStyle),
         nativeStyleEditorValidAttributes ||
           hook.nativeStyleEditorValidAttributes ||
           null,
@@ -264,7 +264,7 @@ export function connectToDevTools(options: ?ConnectOptions) {
       }
     } catch (e) {
       console.error(
-        '[React DevTools] Failed to parse JSON: ' + (event.data: any),
+        '[React DevTools] Failed to parse JSON: ' + (event.data as any),
       );
       return;
     }

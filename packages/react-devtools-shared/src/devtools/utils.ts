@@ -70,7 +70,7 @@ export function printStore(store: Store, includeWeight: boolean = false) {
   let rootWeight = 0;
 
   store.roots.forEach(rootID => {
-    const {weight} = ((store.getElementByID(rootID): any): Element);
+    const {weight} = ((store.getElementByID(rootID) as any): Element);
 
     snapshotLines.push('[root]' + (includeWeight ? ` (${weight})` : ''));
 
@@ -106,7 +106,7 @@ export function printStore(store: Store, includeWeight: boolean = false) {
 // We use JSON.parse to parse string values
 // e.g. 'foo' is not valid JSON but it is a valid string
 // so this method replaces e.g. 'foo' with "foo"
-export function sanitizeForParse(value: any) {
+export function sanitizeForParse(value as any) {
   if (typeof value === 'string') {
     if (
       value.length >= 2 &&
@@ -119,7 +119,7 @@ export function sanitizeForParse(value: any) {
   return value;
 }
 
-export function smartParse(value: any) {
+export function smartParse(value as any) {
   switch (value) {
     case 'Infinity':
       return Infinity;
@@ -132,7 +132,7 @@ export function smartParse(value: any) {
   }
 }
 
-export function smartStringify(value: any) {
+export function smartStringify(value as any) {
   if (typeof value === 'number') {
     if (Number.isNaN(value)) {
       return 'NaN';

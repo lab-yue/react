@@ -37,7 +37,7 @@ type AttributeType =
   | true
   | $ReadOnly<{|
       diff?: <T>(arg1: T, arg2: T) => boolean,
-      process?: (arg1: any) => any,
+      process?: (arg1 as any) => any,
     |}>;
 
 export type AttributeConfiguration<
@@ -141,7 +141,7 @@ export type ReactNativeType = {
   findHostInstance_DEPRECATED(
     componentOrHandle: any,
   ): ?ElementRef<HostComponent<mixed>>,
-  findNodeHandle(componentOrHandle: any): ?number,
+  findNodeHandle(componentOrHandle as any): ?number,
   dispatchCommand(handle: any, command: string, args: Array<any>): void,
   render(
     element: React$Element<any>,
@@ -157,8 +157,8 @@ export type ReactNativeType = {
 
 export type ReactFabricType = {
   NativeComponent: typeof ReactNativeComponent,
-  findHostInstance_DEPRECATED(componentOrHandle: any): ?HostComponent<mixed>,
-  findNodeHandle(componentOrHandle: any): ?number,
+  findHostInstance_DEPRECATED(componentOrHandle as any): ?HostComponent<mixed>,
+  findNodeHandle(componentOrHandle as any): ?number,
   dispatchCommand(handle: any, command: string, args: Array<any>): void,
   render(
     element: React$Element<any>,

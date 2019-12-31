@@ -39,7 +39,7 @@ export type Data = {|
 
 const nodeToData: Map<NativeType, Data> = new Map();
 
-let agent: Agent = ((null: any): Agent);
+let agent: Agent = ((null as any): Agent);
 let drawAnimationFrameID: AnimationFrameID | null = null;
 let isEnabled: boolean = false;
 let redrawTimeoutID: TimeoutID | null = null;

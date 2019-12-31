@@ -17,7 +17,7 @@ import {isEnabled} from '../events/ReactBrowserEventEmitter';
 import {getClosestInstanceFromNode} from './ReactDOMComponentTree';
 
 Object.assign(
-  (ReactDOM.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED: any),
+  (ReactDOM.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED as any),
   {
     // These are real internal dependencies that are trickier to remove:
     ReactBrowserEventEmitter: {

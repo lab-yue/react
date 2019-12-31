@@ -123,7 +123,7 @@ const beginFiberMark = (
   phase: MeasurementPhase | null,
 ): boolean => {
   const componentName = getComponentName(fiber.type) || 'Unknown';
-  const debugID = ((fiber._debugID: any): number);
+  const debugID = ((fiber._debugID as any): number);
   const isMounted = fiber.alternate !== null;
   const label = getFiberLabel(componentName, isMounted, phase);
 
@@ -142,7 +142,7 @@ const beginFiberMark = (
 
 const clearFiberMark = (fiber: Fiber, phase: MeasurementPhase | null) => {
   const componentName = getComponentName(fiber.type) || 'Unknown';
-  const debugID = ((fiber._debugID: any): number);
+  const debugID = ((fiber._debugID as any): number);
   const isMounted = fiber.alternate !== null;
   const label = getFiberLabel(componentName, isMounted, phase);
   const markName = getFiberMarkName(label, debugID);
@@ -155,7 +155,7 @@ const endFiberMark = (
   warning: string | null,
 ) => {
   const componentName = getComponentName(fiber.type) || 'Unknown';
-  const debugID = ((fiber._debugID: any): number);
+  const debugID = ((fiber._debugID as any): number);
   const isMounted = fiber.alternate !== null;
   const label = getFiberLabel(componentName, isMounted, phase);
   const markName = getFiberMarkName(label, debugID);
