@@ -12,7 +12,7 @@ type ValueTracker = {
   setValue(value: string): void,
   stopTracking(): void,
 };
-type WrapperState = {_valueTracker?: ?ValueTracker};
+type WrapperState = {_valueTracker?: ValueTracker};
 type ElementWithValueTracker = HTMLInputElement & WrapperState;
 
 function isCheckable(elem: HTMLInputElement) {
@@ -30,7 +30,7 @@ function getTracker(node: ElementWithValueTracker) {
 }
 
 function detachTracker(node: ElementWithValueTracker) {
-  node._valueTracker = null;
+  delete node._valueTracker;
 }
 
 function getValueFromNode(node: HTMLInputElement): string {
@@ -48,7 +48,7 @@ function getValueFromNode(node: HTMLInputElement): string {
   return value;
 }
 
-function trackValueOnNode(node as any): ?ValueTracker {
+function trackValueOnNode(node: any): ValueTracker | undefined {
   const valueField = isCheckable(node) ? 'checked' : 'value';
   const descriptor = Object.getOwnPropertyDescriptor(
     node.constructor.prototype,
