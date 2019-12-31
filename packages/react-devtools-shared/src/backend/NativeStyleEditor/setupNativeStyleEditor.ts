@@ -169,7 +169,7 @@ function measureStyle(
   });
 }
 
-function shallowClone(object: Object): Object {
+function shallowClone(object: object): object {
   const cloned = {};
   for (let n in object) {
     cloned[n] = object[n];

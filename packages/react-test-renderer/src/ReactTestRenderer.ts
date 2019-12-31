@@ -307,7 +307,7 @@ class ReactTestInstance {
     return this._fiber.type;
   }
 
-  get props(): Object {
+  get props(): object {
     return this._currentFiber().memoizedProps;
   }
 
@@ -348,7 +348,7 @@ class ReactTestInstance {
     );
   }
 
-  findByProps(props: Object): ReactTestInstance {
+  findByProps(props: object): ReactTestInstance {
     return expectOne(
       this.findAllByProps(props, {deep: false}),
       `with props: ${JSON.stringify(props)}`,
@@ -370,7 +370,7 @@ class ReactTestInstance {
   }
 
   findAllByProps(
-    props: Object,
+    props: object,
     options: ?FindOptions = null,
   ): Array<ReactTestInstance> {
     return findAll(
@@ -422,7 +422,7 @@ function expectOne(
   throw new Error(prefix + message);
 }
 
-function propsMatch(props: Object, filter: Object): boolean {
+function propsMatch(props: object, filter: object): boolean {
   for (const key in filter) {
     if (props[key] !== filter[key]) {
       return false;
@@ -552,7 +552,7 @@ const ReactTestRendererFiber = {
             return wrapFiber(root.current);
           }
         },
-      }: Object),
+      }: object),
     );
 
     return entry;

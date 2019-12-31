@@ -43,28 +43,28 @@ import {
 import {unsafeCastDOMTopLevelTypeToString} from 'legacy-events/TopLevelEventTypes';
 import {HostRoot, SuspenseComponent} from 'shared/ReactWorkTags';
 
-let attemptSynchronousHydration: (fiber: Object) => void;
+let attemptSynchronousHydration: (fiber: object) => void;
 
-export function setAttemptSynchronousHydration(fn: (fiber: Object) => void) {
+export function setAttemptSynchronousHydration(fn: (fiber: object) => void) {
   attemptSynchronousHydration = fn;
 }
 
-let attemptUserBlockingHydration: (fiber: Object) => void;
+let attemptUserBlockingHydration: (fiber: object) => void;
 
-export function setAttemptUserBlockingHydration(fn: (fiber: Object) => void) {
+export function setAttemptUserBlockingHydration(fn: (fiber: object) => void) {
   attemptUserBlockingHydration = fn;
 }
 
-let attemptContinuousHydration: (fiber: Object) => void;
+let attemptContinuousHydration: (fiber: object) => void;
 
-export function setAttemptContinuousHydration(fn: (fiber: Object) => void) {
+export function setAttemptContinuousHydration(fn: (fiber: object) => void) {
   attemptContinuousHydration = fn;
 }
 
-let attemptHydrationAtCurrentPriority: (fiber: Object) => void;
+let attemptHydrationAtCurrentPriority: (fiber: object) => void;
 
 export function setAttemptHydrationAtCurrentPriority(
-  fn: (fiber: Object) => void,
+  fn: (fiber: object) => void,
 ) {
   attemptHydrationAtCurrentPriority = fn;
 }

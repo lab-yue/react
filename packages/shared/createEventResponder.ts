@@ -12,7 +12,7 @@ import {hasBadMapPolyfill} from './hasBadMapPolyfill';
 
 export default function createEventResponder<E, C>(
   displayName: string,
-  responderConfig: Object,
+  responderConfig: object,
 ): ReactEventResponder<E, C> {
   const {
     getInitialState,

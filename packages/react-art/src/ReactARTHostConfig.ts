@@ -429,9 +429,9 @@ export function unhideTextInstance(textInstance, text): void {
 export function DEPRECATED_mountResponderInstance(
   responder: ReactEventResponder<any, any>,
   responderInstance: ReactEventResponderInstance<any, any>,
-  props: Object,
-  state: Object,
-  instance: Object,
+  props: object,
+  state: object,
+  instance: object,
 ) {
   throw new Error('Not yet implemented.');
 }

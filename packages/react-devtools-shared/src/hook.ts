@@ -309,7 +309,7 @@ export function installHook(target as any): DevToolsHook | null {
       get() {
         return hook;
       },
-    }: Object),
+    }: object),
   );
 
   return hook;

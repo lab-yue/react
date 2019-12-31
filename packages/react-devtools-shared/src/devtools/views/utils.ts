@@ -92,7 +92,7 @@ export function createRegExp(string: string): RegExp {
   );
 }
 
-export function getMetaValueLabel(data: Object): string | null {
+export function getMetaValueLabel(data: object): string | null {
   if (data.hasOwnProperty(meta.preview_long)) {
     return data[meta.preview_long];
   } else {
@@ -100,7 +100,7 @@ export function getMetaValueLabel(data: Object): string | null {
   }
 }
 
-function sanitize(data: Object): void {
+function sanitize(data: object): void {
   for (const key in data) {
     const value = data[key];
 
@@ -116,7 +116,7 @@ function sanitize(data: Object): void {
   }
 }
 
-export function serializeDataForCopy(props: Object): string {
+export function serializeDataForCopy(props: object): string {
   const cloned = Object.assign({}, props);
 
   sanitize(cloned);

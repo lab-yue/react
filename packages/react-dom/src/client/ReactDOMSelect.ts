@@ -133,13 +133,13 @@ function updateOptions(
  * selected.
  */
 
-export function getHostProps(element: Element, props: Object) {
+export function getHostProps(element: Element, props: object) {
   return Object.assign({}, props, {
     value: undefined,
   });
 }
 
-export function initWrapperState(element: Element, props: Object) {
+export function initWrapperState(element: Element, props: object) {
   const node = ((element as any): SelectWithWrapperState);
   if (__DEV__) {
     checkSelectPropTypes(props);
@@ -167,7 +167,7 @@ export function initWrapperState(element: Element, props: Object) {
   }
 }
 
-export function postMountWrapper(element: Element, props: Object) {
+export function postMountWrapper(element: Element, props: object) {
   const node = ((element as any): SelectWithWrapperState);
   node.multiple = !!props.multiple;
   const value = props.value;
@@ -178,7 +178,7 @@ export function postMountWrapper(element: Element, props: Object) {
   }
 }
 
-export function postUpdateWrapper(element: Element, props: Object) {
+export function postUpdateWrapper(element: Element, props: object) {
   const node = ((element as any): SelectWithWrapperState);
   const wasMultiple = node._wrapperState.wasMultiple;
   node._wrapperState.wasMultiple = !!props.multiple;
@@ -197,7 +197,7 @@ export function postUpdateWrapper(element: Element, props: Object) {
   }
 }
 
-export function restoreControlledState(element: Element, props: Object) {
+export function restoreControlledState(element: Element, props: object) {
   const node = ((element as any): SelectWithWrapperState);
   const value = props.value;
 

@@ -31,8 +31,8 @@ const isArray = Array.isArray;
 
 export function createResponderInstance(
   responder: ReactEventResponder<any, any>,
-  responderProps: Object,
-  responderState: Object,
+  responderProps: object,
+  responderState: object,
   fiber: Fiber,
 ): ReactEventResponderInstance<any, any> {
   return {
@@ -46,7 +46,7 @@ export function createResponderInstance(
 
 function mountEventResponder(
   responder: ReactEventResponder<any, any>,
-  responderProps: Object,
+  responderProps: object,
   fiber: Fiber,
   respondersMap: Map<
     ReactEventResponder<any, any>,
@@ -113,7 +113,7 @@ function updateEventListener(
     'An invalid value was used as an event listener. Expect one or many event ' +
       'listeners created via React.unstable_useResponder().',
   );
-  const listenerProps = ((props as any): Object);
+  const listenerProps = ((props as any): object);
   if (visistedResponders.has(responder)) {
     // show warning
     if (__DEV__) {
@@ -205,7 +205,7 @@ export function updateDeprecatedEventListeners(
 
 export function createDeprecatedResponderListener(
   responder: ReactEventResponder<any, any>,
-  props: Object,
+  props: object,
 ): ReactEventResponderListener<any, any> {
   const eventResponderListener = {
     responder,

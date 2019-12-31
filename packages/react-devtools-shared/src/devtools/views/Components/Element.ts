@@ -23,7 +23,7 @@ import styles from './Element.css';
 type Props = {
   data: ItemData,
   index: number,
-  style: Object,
+  style: object,
 };
 
 export default function ElementView({data, index, style}: Props) {

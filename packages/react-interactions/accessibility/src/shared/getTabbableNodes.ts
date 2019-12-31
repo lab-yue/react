@@ -10,7 +10,7 @@
 import {ReactScopeMethods} from 'shared/ReactTypes';
 
 export default function getTabbableNodes(
-  scopeQuery: (type: string | Object, props: Object) => boolean,
+  scopeQuery: (type: string | Object, props: object) => boolean,
   scope: ReactScopeMethods,
 ): [
   null | Array<HTMLElement>,

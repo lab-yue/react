@@ -38,7 +38,7 @@ function flattenChildren(children) {
  * Implements an <option> host component that warns when `selected` is set.
  */
 
-export function validateProps(element: Element, props: Object) {
+export function validateProps(element: Element, props: object) {
   if (__DEV__) {
     // This mirrors the codepath above, but runs for hydration too.
     // Warn about invalid children here so that client and hydration are consistent.
@@ -75,14 +75,14 @@ export function validateProps(element: Element, props: Object) {
   }
 }
 
-export function postMountWrapper(element: Element, props: Object) {
+export function postMountWrapper(element: Element, props: object) {
   // value="" should make a value attribute (#6219)
   if (props.value != null) {
     element.setAttribute('value', toString(getToStringValue(props.value)));
   }
 }
 
-export function getHostProps(element: Element, props: Object) {
+export function getHostProps(element: Element, props: object) {
   const hostProps = {children: undefined, ...props};
   const content = flattenChildren(props.children);
 

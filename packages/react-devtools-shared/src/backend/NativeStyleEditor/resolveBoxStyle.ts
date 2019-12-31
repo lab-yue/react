@@ -19,7 +19,7 @@ import {BoxStyle} from './types';
  */
 export default function resolveBoxStyle(
   prefix: string,
-  style: Object,
+  style: object,
 ): BoxStyle | null {
   let hasParts = false;
   const result = {

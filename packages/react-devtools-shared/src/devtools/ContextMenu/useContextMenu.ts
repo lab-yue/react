@@ -17,7 +17,7 @@ export default function useContextMenu({
   id,
   ref,
 }: {|
-  data: Object,
+  data: object,
   id: string,
   ref: ElementRef<HTMLElement>,
 |}) {

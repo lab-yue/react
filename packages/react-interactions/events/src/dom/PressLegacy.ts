@@ -332,7 +332,7 @@ function dispatchCancel(
   removeRootEventTypes(context, state);
 }
 
-function isValidKeyboardEvent(nativeEvent: Object): boolean {
+function isValidKeyboardEvent(nativeEvent: object): boolean {
   const {key, target} = nativeEvent;
   const {tagName, isContentEditable} = target;
   // Accessibility for keyboards. Space and Enter only.

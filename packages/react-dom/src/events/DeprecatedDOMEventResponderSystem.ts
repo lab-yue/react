@@ -187,7 +187,7 @@ const eventResponderContext: ReactDOMResponderContext = {
     }
   },
   getActiveDocument,
-  objectAssign: Object.assign,
+  objectAssign: object.assign,
   getTimeStamp(): number {
     validateResponderContext();
     return currentTimeStamp;
@@ -437,8 +437,8 @@ function traverseAndHandleEventResponderInstances(
 export function mountEventResponder(
   responder: ReactDOMEventResponder,
   responderInstance: ReactDOMEventResponderInstance,
-  props: Object,
-  state: Object,
+  props: object,
+  state: object,
 ) {
   const onMount = responder.onMount;
   if (onMount !== null) {

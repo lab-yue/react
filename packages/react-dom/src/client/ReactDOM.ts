@@ -126,7 +126,7 @@ function createPortal(
   return createPortalImpl(children, container, null, key);
 }
 
-const ReactDOM: Object = {
+const ReactDOM: object = {
   createPortal,
 
   // Legacy

@@ -18,7 +18,7 @@ import {ItemData} from './Interactions';
 type Props = {
   data: ItemData,
   index: number,
-  style: Object,
+  style: object,
 };
 
 function InteractionListItem({data: itemData, index, style}: Props) {

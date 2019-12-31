@@ -68,7 +68,7 @@ const LEVEL_THRESHOLD = 2;
 function createDehydrated(
   type: string,
   inspectable: boolean,
-  data: Object,
+  data: object,
   cleaned: Array<Array<string | number>>,
   path: Array<string | number>,
 ): Dehydrated {
@@ -117,7 +117,7 @@ function createDehydrated(
  * and cleaned = [["some", "attr"], ["other"]]
  */
 export function dehydrate(
-  data: Object,
+  data: object,
   cleaned: Array<Array<string | number>>,
   unserializable: Array<Array<string | number>>,
   path: Array<string | number>,
@@ -316,7 +316,7 @@ export function dehydrate(
 }
 
 export function fillInPath(
-  object: Object,
+  object: object,
   data: DehydratedData,
   path: Array<string | number>,
   value: any,
@@ -356,7 +356,7 @@ export function hydrate(
   object: any,
   cleaned: Array<Array<string | number>>,
   unserializable: Array<Array<string | number>>,
-): Object {
+): object {
   cleaned.forEach((path: Array<string | number>) => {
     const length = path.length;
     const last = path[length - 1];
@@ -409,7 +409,7 @@ export function hydrate(
   return object;
 }
 
-function upgradeUnserializable(destination: Object, source: Object) {
+function upgradeUnserializable(destination: object, source: object) {
   Object.defineProperties(destination, {
     [meta.inspected]: {
       configurable: true,

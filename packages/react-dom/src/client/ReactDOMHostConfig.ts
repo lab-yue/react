@@ -227,7 +227,7 @@ export function createInstance(
   props: Props,
   rootContainerInstance: Container,
   hostContext: HostContext,
-  internalInstanceHandle: Object,
+  internalInstanceHandle: object,
 ): Instance {
   let parentNamespace: string;
   if (__DEV__) {
@@ -331,7 +331,7 @@ export function createTextInstance(
   text: string,
   rootContainerInstance: Container,
   hostContext: HostContext,
-  internalInstanceHandle: Object,
+  internalInstanceHandle: object,
 ): TextInstance {
   if (__DEV__) {
     const hostContextDev = ((hostContext as any): HostContextDev);
@@ -363,7 +363,7 @@ export function commitMount(
   domElement: Instance,
   type: string,
   newProps: Props,
-  internalInstanceHandle: Object,
+  internalInstanceHandle: object,
 ): void {
   // Despite the naming that might imply otherwise, this method only
   // fires if there is an `Update` effect scheduled during mounting.
@@ -386,7 +386,7 @@ export function commitUpdate(
   type: string,
   oldProps: Props,
   newProps: Props,
-  internalInstanceHandle: Object,
+  internalInstanceHandle: object,
 ): void {
   // Update the props handle so that we know which props are the ones with
   // with current event handlers.
@@ -716,7 +716,7 @@ export function hydrateInstance(
   props: Props,
   rootContainerInstance: Container,
   hostContext: HostContext,
-  internalInstanceHandle: Object,
+  internalInstanceHandle: object,
 ): null | Array<mixed> {
   precacheFiberNode(internalInstanceHandle, instance);
   // TODO: Possibly defer this until the commit phase where all the events
@@ -741,7 +741,7 @@ export function hydrateInstance(
 export function hydrateTextInstance(
   textInstance: TextInstance,
   text: string,
-  internalInstanceHandle: Object,
+  internalInstanceHandle: object,
 ): boolean {
   precacheFiberNode(internalInstanceHandle, textInstance);
   return diffHydratedText(textInstance, text);
@@ -749,7 +749,7 @@ export function hydrateTextInstance(
 
 export function hydrateSuspenseInstance(
   suspenseInstance: SuspenseInstance,
-  internalInstanceHandle: Object,
+  internalInstanceHandle: object,
 ) {
   precacheFiberNode(internalInstanceHandle, suspenseInstance);
 }
@@ -947,8 +947,8 @@ export function didNotFindHydratableSuspenseInstance(
 export function DEPRECATED_mountResponderInstance(
   responder: ReactDOMEventResponder,
   responderInstance: ReactDOMEventResponderInstance,
-  responderProps: Object,
-  responderState: Object,
+  responderProps: object,
+  responderState: object,
   instance: Instance,
 ): ReactDOMEventResponderInstance {
   // Listen to events

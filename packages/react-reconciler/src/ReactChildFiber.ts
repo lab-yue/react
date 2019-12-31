@@ -208,7 +208,7 @@ function coerceRef(
   return mixedRef;
 }
 
-function throwOnInvalidObjectType(returnFiber: Fiber, newChild: Object) {
+function throwOnInvalidObjectType(returnFiber: Fiber, newChild: object) {
   if (returnFiber.type !== 'textarea') {
     let addendum = '';
     if (__DEV__) {

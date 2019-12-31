@@ -17,7 +17,7 @@ import {DevToolsHook, ReactRenderer, RendererInterface} from './types';
 export function initBackend(
   hook: DevToolsHook,
   agent: Agent,
-  global: Object,
+  global: object,
 ): () => void {
   const subs = [
     hook.sub(

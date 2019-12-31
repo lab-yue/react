@@ -145,8 +145,8 @@ type FrontendEvents = {|
 |};
 
 class Bridge<
-  OutgoingEvents: Object,
-  IncomingEvents: Object,
+  OutgoingEvents: object,
+  IncomingEvents: object,
 > extends EventEmitter<{|
   ...IncomingEvents,
   ...OutgoingEvents,

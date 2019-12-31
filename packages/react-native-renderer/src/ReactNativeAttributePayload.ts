@@ -47,7 +47,7 @@ function defaultDiffer(prevProp: unknown, nextProp: unknown): boolean {
 }
 
 function restoreDeletedValuesInNestedArray(
-  updatePayload: Object,
+  updatePayload: object,
   node: NestedNode,
   validAttributes: AttributeConfiguration<>,
 ) {
@@ -266,8 +266,8 @@ function clearNestedProperty(
  */
 function diffProperties(
   updatePayload: null | Object,
-  prevProps: Object,
-  nextProps: Object,
+  prevProps: object,
+  nextProps: object,
   validAttributes: AttributeConfiguration<>,
 ): null | Object {
   let attributeConfig;
@@ -438,7 +438,7 @@ function diffProperties(
  */
 function addProperties(
   updatePayload: null | Object,
-  props: Object,
+  props: object,
   validAttributes: AttributeConfiguration<>,
 ): null | Object {
   // TODO: Fast path
@@ -451,7 +451,7 @@ function addProperties(
  */
 function clearProperties(
   updatePayload: null | Object,
-  prevProps: Object,
+  prevProps: object,
   validAttributes: AttributeConfiguration<>,
 ): null | Object {
   // TODO: Fast path
@@ -459,7 +459,7 @@ function clearProperties(
 }
 
 export function create(
-  props: Object,
+  props: object,
   validAttributes: AttributeConfiguration<>,
 ): null | Object {
   return addProperties(
@@ -470,8 +470,8 @@ export function create(
 }
 
 export function diff(
-  prevProps: Object,
-  nextProps: Object,
+  prevProps: object,
+  nextProps: object,
   validAttributes: AttributeConfiguration<>,
 ): null | Object {
   return diffProperties(

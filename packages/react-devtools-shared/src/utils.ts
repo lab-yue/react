@@ -274,7 +274,7 @@ export function separateDisplayNameAndHOCs(
 
 // Pulled from react-compat
 // https://github.com/developit/preact-compat/blob/7c5de00e7c85e2ffd011bf3af02899b63f699d3a/src/index.js#L349
-export function shallowDiffers(prev: Object, next: Object): boolean {
+export function shallowDiffers(prev: object, next: object): boolean {
   for (let attribute in prev) {
     if (!(attribute in next)) {
       return true;
@@ -288,8 +288,8 @@ export function shallowDiffers(prev: Object, next: Object): boolean {
   return false;
 }
 
-export function getInObject(object: Object, path: Array<string | number>): any {
-  return path.reduce((reduced: Object, attr as any): any => {
+export function getInObject(object: object, path: Array<string | number>): any {
+  return path.reduce((reduced: object, attr as any): any => {
     if (reduced) {
       if (hasOwnProperty.call(reduced, attr)) {
         return reduced[attr];
@@ -310,7 +310,7 @@ export function getInObject(object: Object, path: Array<string | number>): any {
 }
 
 export function setInObject(
-  object: Object,
+  object: object,
   path: Array<string | number>,
   value: any,
 ) {
@@ -350,7 +350,7 @@ export type DataType =
 /**
  * Get a enhanced/artificial type string based on the object instance
  */
-export function getDataType(data: Object): DataType {
+export function getDataType(data: object): DataType {
   if (data === null) {
     return 'null';
   } else if (data === undefined) {

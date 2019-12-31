@@ -32,14 +32,14 @@ type FocusTableProps = {|
   ) => void,
   wrapX?: boolean,
   wrapY?: boolean,
-  tabScopeQuery?: (type: string | Object, props: Object) => boolean,
+  tabScopeQuery?: (type: string | Object, props: object) => boolean,
   allowModifiers?: boolean,
 |};
 
 const {useRef} = React;
 
 function focusScope(
-  scopeQuery: (type: string | Object, props: Object) => boolean,
+  scopeQuery: (type: string | Object, props: object) => boolean,
   cell: ReactScopeMethods,
   event?: KeyboardEvent,
 ): void {
@@ -54,7 +54,7 @@ function focusScope(
 
 // This takes into account colSpan
 function focusCellByColumnIndex(
-  scopeQuery: (type: string | Object, props: Object) => boolean,
+  scopeQuery: (type: string | Object, props: object) => boolean,
   row: ReactScopeMethods,
   columnIndex: number,
   event?: KeyboardEvent,
@@ -143,7 +143,7 @@ function triggerNavigateOut(
   event.continuePropagation();
 }
 
-function getTableProps(currentCell: ReactScopeMethods): Object {
+function getTableProps(currentCell: ReactScopeMethods): object {
   const row = currentCell.getParent();
   if (row !== null && row.getProps().type === 'row') {
     const table = row.getParent();
@@ -162,7 +162,7 @@ function hasModifierKey(event: KeyboardEvent): boolean {
 }
 
 export function createFocusTable(
-  scopeQuery: (type: string | Object, props: Object) => boolean,
+  scopeQuery: (type: string | Object, props: object) => boolean,
 ): [
   (FocusTableProps) => React.Node,
   (FocusRowProps) => React.Node,

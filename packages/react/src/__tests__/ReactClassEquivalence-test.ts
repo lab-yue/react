@@ -36,7 +36,7 @@ function runJest(testFile) {
   }
   const result = spawnSync('yarn' + extension, [command, testFile], {
     cwd,
-    env: Object.assign({}, process.env, {
+    env: object.assign({}, process.env, {
       REACT_CLASS_EQUIVALENCE_TEST: 'true',
     }),
   });

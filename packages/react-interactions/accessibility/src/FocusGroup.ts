@@ -23,14 +23,14 @@ type FocusGroupProps = {|
   children: React.Node,
   portrait: boolean,
   wrap?: boolean,
-  tabScopeQuery?: (type: string | Object, props: Object) => boolean,
+  tabScopeQuery?: (type: string | Object, props: object) => boolean,
   allowModifiers?: boolean,
 |};
 
 const {useRef} = React;
 
 function focusGroupItem(
-  scopeQuery: (type: string | Object, props: Object) => boolean,
+  scopeQuery: (type: string | Object, props: object) => boolean,
   cell: ReactScopeMethods,
   event: KeyboardEvent,
 ): void {
@@ -76,7 +76,7 @@ function getNextGroupItem(
   return null;
 }
 
-function getGroupProps(currentCell: ReactScopeMethods): Object {
+function getGroupProps(currentCell: ReactScopeMethods): object {
   const group = currentCell.getParent();
   if (group !== null) {
     const groupProps = group.getProps();
@@ -95,7 +95,7 @@ function hasModifierKey(event: KeyboardEvent): boolean {
 }
 
 export function createFocusGroup(
-  scopeQuery: (type: string | Object, props: Object) => boolean,
+  scopeQuery: (type: string | Object, props: object) => boolean,
 ): [(FocusGroupProps) => React.Node, (FocusItemProps) => React.Node] {
   const TableScope = React.unstable_createScope();
 

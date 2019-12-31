@@ -19,7 +19,7 @@ import {ItemData} from './CommitRanked';
 type Props = {
   data: ItemData,
   index: number,
-  style: Object,
+  style: object,
 };
 
 function CommitRankedListItem({data, index, style}: Props) {

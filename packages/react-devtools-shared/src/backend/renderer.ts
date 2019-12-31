@@ -440,7 +440,7 @@ export function attach(
   hook: DevToolsHook,
   rendererID: number,
   renderer: ReactRenderer,
-  global: Object,
+  global: object,
 ): RendererInterface {
   const {
     getDisplayNameForFiber,
@@ -1014,7 +1014,7 @@ export function attach(
     pendingOperations.push(op);
   }
 
-  function flushPendingEvents(root: Object): void {
+  function flushPendingEvents(root: object): void {
     if (
       pendingOperations.length === 0 &&
       pendingRealUnmountedIDs.length === 0 &&
@@ -2391,7 +2391,7 @@ export function attach(
 
   let mostRecentlyInspectedElement: InspectedElement | null = null;
   let hasElementUpdatedSinceLastInspected: boolean = false;
-  let currentlyInspectedPaths: Object = {};
+  let currentlyInspectedPaths: object = {};
 
   function isMostRecentlyInspectedElementCurrent(id: number): boolean {
     return (

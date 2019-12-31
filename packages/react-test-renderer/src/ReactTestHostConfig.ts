@@ -24,10 +24,10 @@ export type Container = {|
 |};
 export type Instance = {|
   type: string,
-  props: Object,
+  props: object,
   isHidden: boolean,
   children: Array<Instance | TextInstance>,
-  internalInstanceHandle: Object,
+  internalInstanceHandle: object,
   rootContainerInstance: Container,
   tag: 'INSTANCE',
 |};
@@ -143,8 +143,8 @@ export function createInstance(
   type: string,
   props: Props,
   rootContainerInstance: Container,
-  hostContext: Object,
-  internalInstanceHandle: Object,
+  hostContext: object,
+  internalInstanceHandle: object,
 ): Instance {
   let propsToUse = props;
   if (enableDeprecatedFlareAPI) {
@@ -183,7 +183,7 @@ export function finalizeInitialChildren(
   type: string,
   props: Props,
   rootContainerInstance: Container,
-  hostContext: Object,
+  hostContext: object,
 ): boolean {
   return false;
 }
@@ -194,7 +194,7 @@ export function prepareUpdate(
   oldProps: Props,
   newProps: Props,
   rootContainerInstance: Container,
-  hostContext: Object,
+  hostContext: object,
 ): null | {} {
   return UPDATE_SIGNAL;
 }
@@ -210,8 +210,8 @@ export function shouldDeprioritizeSubtree(type: string, props: Props): boolean {
 export function createTextInstance(
   text: string,
   rootContainerInstance: Container,
-  hostContext: Object,
-  internalInstanceHandle: Object,
+  hostContext: object,
+  internalInstanceHandle: object,
 ): TextInstance {
   if (__DEV__) {
     if (enableDeprecatedFlareAPI) {
@@ -250,7 +250,7 @@ export function commitUpdate(
   type: string,
   oldProps: Props,
   newProps: Props,
-  internalInstanceHandle: Object,
+  internalInstanceHandle: object,
 ): void {
   instance.type = type;
   instance.props = newProps;
@@ -260,7 +260,7 @@ export function commitMount(
   instance: Instance,
   type: string,
   newProps: Props,
-  internalInstanceHandle: Object,
+  internalInstanceHandle: object,
 ): void {
   // noop
 }
@@ -303,8 +303,8 @@ export function unhideTextInstance(
 export function DEPRECATED_mountResponderInstance(
   responder: ReactEventResponder<any, any>,
   responderInstance: ReactEventResponderInstance<any, any>,
-  props: Object,
-  state: Object,
+  props: object,
+  state: object,
   instance: Instance,
 ) {
   // noop
@@ -362,7 +362,7 @@ export function unmountFundamentalComponent(
   }
 }
 
-export function getInstanceFromNode(mockNode: Object) {
+export function getInstanceFromNode(mockNode: object) {
   const instance = nodeToInstanceMap.get(mockNode);
   if (instance !== undefined) {
     return instance.internalInstanceHandle;

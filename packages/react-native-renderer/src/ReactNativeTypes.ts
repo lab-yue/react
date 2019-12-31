@@ -93,7 +93,7 @@ class ReactNativeComponent<Props> extends React.Component<Props> {
     onSuccess: MeasureLayoutOnSuccessCallback,
     onFail?: () => void,
   ): void {}
-  setNativeProps(nativeProps: Object): void {}
+  setNativeProps(nativeProps: object): void {}
 }
 
 // This type is only used for FlowTests. It shouldn't be imported directly
@@ -115,7 +115,7 @@ export type NativeMethods = {
     onSuccess: MeasureLayoutOnSuccessCallback,
     onFail?: () => void,
   ): void,
-  setNativeProps(nativeProps: Object): void,
+  setNativeProps(nativeProps: object): void,
 };
 
 export type NativeMethodsMixinType = NativeMethods;
@@ -170,12 +170,12 @@ export type ReactFabricType = {
 };
 
 export type ReactNativeEventTarget = {
-  node: Object,
+  node: object,
   canonical: {
     _nativeTag: number,
     viewConfig: ReactNativeBaseComponentViewConfig<>,
-    currentProps: Object,
-    _internalInstanceHandle: Object,
+    currentProps: object,
+    _internalInstanceHandle: object,
   },
 };
 

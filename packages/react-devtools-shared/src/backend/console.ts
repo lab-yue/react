@@ -25,7 +25,7 @@ const injectedRenderers: Map<
   |},
 > = new Map();
 
-let targetConsole: Object = console;
+let targetConsole: object = console;
 let targetConsoleMethods = {};
 for (let method in console) {
   targetConsoleMethods[method] = console[method];
@@ -35,7 +35,7 @@ let unpatchFn: null | (() => void) = null;
 
 // Enables e.g. Jest tests to inject a mock console object.
 export function dangerous_setTargetConsoleForTesting(
-  targetConsoleForTesting: Object,
+  targetConsoleForTesting: object,
 ): void {
   targetConsole = targetConsoleForTesting;
 

@@ -18,7 +18,7 @@ import {ReactNodeList} from 'shared/ReactTypes';
 
 import {DidCapture} from 'shared/ReactSideEffectTags';
 
-declare var __REACT_DEVTOOLS_GLOBAL_HOOK__: Object | void;
+declare var __REACT_DEVTOOLS_GLOBAL_HOOK__: object | void;
 
 let onScheduleFiberRoot = null;
 let onCommitFiberRoot = null;
@@ -28,7 +28,7 @@ let hasLoggedError = false;
 export const isDevToolsPresent =
   typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ !== 'undefined';
 
-export function injectInternals(internals: Object): boolean {
+export function injectInternals(internals: object): boolean {
   if (typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ === 'undefined') {
     // No DevTools
     return false;

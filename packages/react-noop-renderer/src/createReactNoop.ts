@@ -198,7 +198,7 @@ function createReactNoop(reconciler: Function, useMutation: boolean) {
     type: string,
     oldProps: Props,
     newProps: Props,
-    internalInstanceHandle: Object,
+    internalInstanceHandle: object,
     keepChildren: boolean,
     recyclableInstance: null | Instance,
   ): Instance {
@@ -338,8 +338,8 @@ function createReactNoop(reconciler: Function, useMutation: boolean) {
     createTextInstance(
       text: string,
       rootContainerInstance: Container,
-      hostContext: Object,
-      internalInstanceHandle: Object,
+      hostContext: object,
+      internalInstanceHandle: object,
     ): TextInstance {
       if (hostContext === UPPERCASE_CONTEXT) {
         text = text.toUpperCase();
@@ -450,7 +450,7 @@ function createReactNoop(reconciler: Function, useMutation: boolean) {
 
         commitUpdate(
           instance: Instance,
-          updatePayload: Object,
+          updatePayload: object,
           type: string,
           oldProps: Props,
           newProps: Props,
@@ -545,7 +545,7 @@ function createReactNoop(reconciler: Function, useMutation: boolean) {
           instance: Instance,
           type: string,
           props: Props,
-          internalInstanceHandle: Object,
+          internalInstanceHandle: object,
         ): Instance {
           const clone = cloneInstance(
             instance,
@@ -564,7 +564,7 @@ function createReactNoop(reconciler: Function, useMutation: boolean) {
         cloneHiddenTextInstance(
           instance: TextInstance,
           text: string,
-          internalInstanceHandle: Object,
+          internalInstanceHandle: object,
         ): TextInstance {
           const clone = {
             text: instance.text,

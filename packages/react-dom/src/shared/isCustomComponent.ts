@@ -7,7 +7,7 @@
  *
  */
 
-function isCustomComponent(tagName: string, props: Object) {
+function isCustomComponent(tagName: string, props: object) {
   if (tagName.indexOf('-') === -1) {
     return typeof props.is === 'string';
   }

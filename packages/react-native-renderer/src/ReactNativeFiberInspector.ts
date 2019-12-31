@@ -89,7 +89,7 @@ if (__DEV__) {
     }));
   };
 
-  getInspectorDataForViewTag = function(viewTag: number): Object {
+  getInspectorDataForViewTag = function(viewTag: number): object {
     const closestInstance = getClosestInstanceFromNode(viewTag);
 
     // Handle case where user clicks outside of ReactNative

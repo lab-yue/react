@@ -28,7 +28,7 @@ describe('InspectedElementContext', () => {
 
   function dehydrateHelper(
     dehydratedData: DehydratedData | null,
-  ): Object | null {
+  ): object | null {
     if (dehydratedData !== null) {
       return hydrate(
         dehydratedData.data,

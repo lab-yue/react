@@ -231,7 +231,7 @@ export default function(
      * next render, they will remain active (see [Direct
      * Manipulation](docs/direct-manipulation.html)).
      */
-    setNativeProps(nativeProps: Object): void {
+    setNativeProps(nativeProps: object): void {
       // Class components don't have viewConfig -> validateAttributes.
       // Nor does it make sense to set native props on a non-native component.
       // Instead, find the nearest host component and set props on it.

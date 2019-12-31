@@ -19,7 +19,7 @@ import {ItemData} from './CommitFlamegraph';
 type Props = {
   data: ItemData,
   index: number,
-  style: Object,
+  style: object,
 };
 
 function CommitFlamegraphListItem({data, index, style}: Props) {

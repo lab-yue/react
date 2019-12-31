@@ -35,7 +35,7 @@ const emptyObject = {};
 
 function collectScopedNodes(
   node: Fiber,
-  fn: (type: string | Object, props: Object, instance: Object) => boolean,
+  fn: (type: string | Object, props: object, instance: object) => boolean,
   scopedNodes: Array<any>,
 ): void {
   if (enableScopeAPI) {
@@ -62,7 +62,7 @@ function collectScopedNodes(
 
 function collectFirstScopedNode(
   node: Fiber,
-  fn: (type: string | Object, props: Object, instance: Object) => boolean,
+  fn: (type: string | Object, props: object, instance: object) => boolean,
 ): null | Object {
   if (enableScopeAPI) {
     if (node.tag === HostComponent) {
@@ -86,7 +86,7 @@ function collectFirstScopedNode(
 
 function collectScopedNodesFromChildren(
   startingChild: Fiber,
-  fn: (type: string | Object, props: Object, instance: Object) => boolean,
+  fn: (type: string | Object, props: object, instance: object) => boolean,
   scopedNodes: Array<any>,
 ): void {
   let child = startingChild;
@@ -98,8 +98,8 @@ function collectScopedNodesFromChildren(
 
 function collectFirstScopedNodeFromChildren(
   startingChild: Fiber,
-  fn: (type: string | Object, props: Object, instance: Object) => boolean,
-): Object | null {
+  fn: (type: string | Object, props: object, instance: object) => boolean,
+): object | null {
   let child = startingChild;
   while (child !== null) {
     const scopedNode = collectFirstScopedNode(child, fn);
@@ -191,12 +191,12 @@ export function createScopeMethods(
       }
       return null;
     },
-    getProps(): Object {
+    getProps(): object {
       const currentFiber = ((instance.fiber as any): Fiber);
       return currentFiber.memoizedProps;
     },
     queryAllNodes(
-      fn: (type: string | Object, props: Object, instance: Object) => boolean,
+      fn: (type: string | Object, props: object, instance: object) => boolean,
     ): null | Array<Object> {
       const currentFiber = ((instance.fiber as any): Fiber);
       const child = currentFiber.child;
@@ -207,7 +207,7 @@ export function createScopeMethods(
       return scopedNodes.length === 0 ? null : scopedNodes;
     },
     queryFirstNode(
-      fn: (type: string | Object, props: Object, instance: Object) => boolean,
+      fn: (type: string | Object, props: object, instance: object) => boolean,
     ): null | Object {
       const currentFiber = ((instance.fiber as any): Fiber);
       const child = currentFiber.child;
@@ -216,7 +216,7 @@ export function createScopeMethods(
       }
       return null;
     },
-    containsNode(node: Object): boolean {
+    containsNode(node: object): boolean {
       let fiber = getInstanceFromNode(node);
       while (fiber !== null) {
         if (

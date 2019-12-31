@@ -9,7 +9,7 @@
 
 import {InternalInstance} from './renderer';
 
-export function decorate(object: Object, attr: string, fn: Function): Function {
+export function decorate(object: object, attr: string, fn: Function): Function {
   const old = object[attr];
   object[attr] = function(instance: InternalInstance) {
     return fn.call(this, old, arguments);
@@ -18,9 +18,9 @@ export function decorate(object: Object, attr: string, fn: Function): Function {
 }
 
 export function decorateMany(
-  source: Object,
+  source: object,
   fns: {[attr: string]: Function},
-): Object {
+): object {
   const olds = {};
   for (const name in fns) {
     olds[name] = decorate(source, name, fns[name]);
@@ -28,7 +28,7 @@ export function decorateMany(
   return olds;
 }
 
-export function restoreMany(source: Object, olds: Object): void {
+export function restoreMany(source: object, olds: object): void {
   for (let name in olds) {
     source[name] = olds[name];
   }

@@ -38,7 +38,7 @@ type TextAreaWithWrapperState = HTMLTextAreaElement & {
  * `defaultValue` if specified, or the children content (deprecated).
  */
 
-export function getHostProps(element: Element, props: Object) {
+export function getHostProps(element: Element, props: object) {
   const node = ((element as any): TextAreaWithWrapperState);
   invariant(
     props.dangerouslySetInnerHTML == null,
@@ -61,7 +61,7 @@ export function getHostProps(element: Element, props: Object) {
   return hostProps;
 }
 
-export function initWrapperState(element: Element, props: Object) {
+export function initWrapperState(element: Element, props: object) {
   const node = ((element as any): TextAreaWithWrapperState);
   if (__DEV__) {
     ReactControlledValuePropTypes.checkPropTypes('textarea', props);
@@ -122,7 +122,7 @@ export function initWrapperState(element: Element, props: Object) {
   };
 }
 
-export function updateWrapper(element: Element, props: Object) {
+export function updateWrapper(element: Element, props: object) {
   const node = ((element as any): TextAreaWithWrapperState);
   const value = getToStringValue(props.value);
   const defaultValue = getToStringValue(props.defaultValue);
@@ -143,7 +143,7 @@ export function updateWrapper(element: Element, props: Object) {
   }
 }
 
-export function postMountWrapper(element: Element, props: Object) {
+export function postMountWrapper(element: Element, props: object) {
   const node = ((element as any): TextAreaWithWrapperState);
   // This is in postMount because we need access to the DOM node, which is not
   // available until after the component has mounted.
@@ -160,7 +160,7 @@ export function postMountWrapper(element: Element, props: Object) {
   }
 }
 
-export function restoreControlledState(element: Element, props: Object) {
+export function restoreControlledState(element: Element, props: object) {
   // DOM component is still mounted; update
   updateWrapper(element, props);
 }

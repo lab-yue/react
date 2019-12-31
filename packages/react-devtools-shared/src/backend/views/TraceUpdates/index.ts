@@ -130,7 +130,7 @@ function prepareToDraw(): void {
   redrawTimeoutID = setTimeout(prepareToDraw, earliestExpiration - now);
 }
 
-function measureNode(node: Object): Rect | null {
+function measureNode(node: object): Rect | null {
   if (!node || typeof node.getBoundingClientRect !== 'function') {
     return null;
   }

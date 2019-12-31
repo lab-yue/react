@@ -15,9 +15,9 @@ import {
 
 export function createFundamentalStateInstance<C, H>(
   currentFiber: Fiber,
-  props: Object,
+  props: object,
   impl: ReactFundamentalImpl<C, H>,
-  state: Object,
+  state: object,
 ): ReactFundamentalComponentInstance<C, H> {
   return {
     currentFiber,

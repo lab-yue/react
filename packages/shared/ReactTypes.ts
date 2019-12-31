@@ -62,8 +62,8 @@ export type ReactContext<T> = {
   _threadCount: number,
 
   // DEV only
-  _currentRenderer?: Object | null,
-  _currentRenderer2?: Object | null,
+  _currentRenderer?: object | null,
+  _currentRenderer2?: object | null,
 };
 
 export type ReactPortal = {
@@ -80,15 +80,15 @@ export type RefObject = {|
 |};
 
 export type ReactEventResponderInstance<E, C> = {|
-  fiber: Object,
-  props: Object,
+  fiber: object,
+  props: object,
   responder: ReactEventResponder<E, C>,
   rootEventTypes: null | Set<string>,
-  state: Object,
+  state: object,
 |};
 
 export type ReactEventResponderListener<E, C> = {|
-  props: Object,
+  props: object,
   responder: ReactEventResponder<E, C>,
 |};
 
@@ -97,15 +97,15 @@ export type ReactEventResponder<E, C> = {
   displayName: string,
   targetEventTypes: null | Array<string>,
   targetPortalPropagation: boolean,
-  getInitialState: null | ((props: Object) => Object),
+  getInitialState: null | ((props: object) => Object),
   onEvent:
     | null
-    | ((event: E, context: C, props: Object, state: Object) => void),
+    | ((event: E, context: C, props: object, state: object) => void),
   onRootEvent:
     | null
-    | ((event: E, context: C, props: Object, state: Object) => void),
-  onMount: null | ((context: C, props: Object, state: Object) => void),
-  onUnmount: null | ((context: C, props: Object, state: Object) => void),
+    | ((event: E, context: C, props: object, state: object) => void),
+  onMount: null | ((context: C, props: object, state: object) => void),
+  onUnmount: null | ((context: C, props: object, state: object) => void),
 };
 
 export type EventPriority = 0 | 1 | 2;
@@ -118,40 +118,40 @@ export type ReactFundamentalComponentInstance<C, H> = {|
   currentFiber: unknown,
   instance: unknown,
   prevProps: null | Object,
-  props: Object,
+  props: object,
   impl: ReactFundamentalImpl<C, H>,
-  state: Object,
+  state: object,
 |};
 
 export type ReactFundamentalImpl<C, H> = {
   displayName: string,
   reconcileChildren: boolean,
-  getInitialState?: (props: Object) => Object,
-  getInstance: (context: C, props: Object, state: Object) => H,
-  getServerSideString?: (context: C, props: Object) => string,
-  getServerSideStringClose?: (context: C, props: Object) => string,
-  onMount: (context: C, instance: unknown, props: Object, state: Object) => void,
+  getInitialState?: (props: object) => Object,
+  getInstance: (context: C, props: object, state: object) => H,
+  getServerSideString?: (context: C, props: object) => string,
+  getServerSideStringClose?: (context: C, props: object) => string,
+  onMount: (context: C, instance: unknown, props: object, state: object) => void,
   shouldUpdate?: (
     context: C,
     prevProps: null | Object,
-    nextProps: Object,
-    state: Object,
+    nextProps: object,
+    state: object,
   ) => boolean,
   onUpdate?: (
     context: C,
     instance: unknown,
     prevProps: null | Object,
-    nextProps: Object,
-    state: Object,
+    nextProps: object,
+    state: object,
   ) => void,
   onUnmount?: (
     context: C,
     instance: unknown,
-    props: Object,
-    state: Object,
+    props: object,
+    state: object,
   ) => void,
-  onHydrate?: (context: C, props: Object, state: Object) => boolean,
-  onFocus?: (context: C, props: Object, state: Object) => boolean,
+  onHydrate?: (context: C, props: object, state: object) => boolean,
+  onFocus?: (context: C, props: object, state: object) => boolean,
 };
 
 export type ReactFundamentalComponent<C, H> = {|
@@ -167,17 +167,17 @@ export type ReactScopeMethods = {|
   getChildren(): null | Array<ReactScopeMethods>,
   getChildrenFromRoot(): null | Array<ReactScopeMethods>,
   getParent(): null | ReactScopeMethods,
-  getProps(): Object,
+  getProps(): object,
   queryAllNodes(
-    (type: string | Object, props: Object, instance: Object) => boolean,
+    (type: string | Object, props: object, instance: object) => boolean,
   ): null | Array<Object>,
   queryFirstNode(
-    (type: string | Object, props: Object, instance: Object) => boolean,
+    (type: string | Object, props: object, instance: object) => boolean,
   ): null | Object,
   containsNode(Object): boolean,
 |};
 
 export type ReactScopeInstance = {|
-  fiber: Object,
+  fiber: object,
   methods: null | ReactScopeMethods,
 |};

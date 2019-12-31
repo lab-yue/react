@@ -7,7 +7,7 @@
  *
  */
 
-const tabbableScopeQuery = (type: string, props: Object): boolean => {
+const tabbableScopeQuery = (type: string, props: object): boolean => {
   if (props.tabIndex === -1 || props.disabled) {
     return false;
   }

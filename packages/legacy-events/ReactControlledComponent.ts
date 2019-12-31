@@ -42,7 +42,7 @@ function restoreStateOfTarget(target) {
 }
 
 export function setRestoreImplementation(
-  impl: (domElement: Element, tag: string, props: Object) => void,
+  impl: (domElement: Element, tag: string, props: object) => void,
 ): void {
   restoreImpl = impl;
 }

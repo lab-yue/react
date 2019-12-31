@@ -34,10 +34,10 @@ const ReactNoopFlightServer = ReactFlightServer({
   convertStringToBuffer(content: string): Uint8Array {
     return Buffer.from(content, 'utf8');
   },
-  formatChunkAsString(type: string, props: Object): string {
+  formatChunkAsString(type: string, props: object): string {
     return JSON.stringify({type, props});
   },
-  formatChunk(type: string, props: Object): Uint8Array {
+  formatChunk(type: string, props: object): Uint8Array {
     return Buffer.from(JSON.stringify({type, props}), 'utf8');
   },
   renderHostChildrenToString(children: React$Element<any>): string {

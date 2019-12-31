@@ -39,13 +39,13 @@ let didPerformWorkStackCursor: StackCursor<boolean> = createCursor(false);
 // Keep track of the previous context object that was on the stack.
 // We use this to get access to the parent context after we have already
 // pushed the next context provider, and now need to merge their contexts.
-let previousContext: Object = emptyContextObject;
+let previousContext: object = emptyContextObject;
 
 function getUnmaskedContext(
   workInProgress: Fiber,
   Component: Function,
   didPushOwnContextIfProvider: boolean,
-): Object {
+): object {
   if (disableLegacyContext) {
     return emptyContextObject;
   } else {
@@ -62,8 +62,8 @@ function getUnmaskedContext(
 
 function cacheContext(
   workInProgress: Fiber,
-  unmaskedContext: Object,
-  maskedContext: Object,
+  unmaskedContext: object,
+  maskedContext: object,
 ): void {
   if (disableLegacyContext) {
     return;
@@ -76,8 +76,8 @@ function cacheContext(
 
 function getMaskedContext(
   workInProgress: Fiber,
-  unmaskedContext: Object,
-): Object {
+  unmaskedContext: object,
+): object {
   if (disableLegacyContext) {
     return emptyContextObject;
   } else {
@@ -161,7 +161,7 @@ function popTopLevelContextObject(fiber: Fiber): void {
 
 function pushTopLevelContextObject(
   fiber: Fiber,
-  context: Object,
+  context: object,
   didChange: boolean,
 ): void {
   if (disableLegacyContext) {
@@ -181,8 +181,8 @@ function pushTopLevelContextObject(
 function processChildContext(
   fiber: Fiber,
   type: any,
-  parentContext: Object,
-): Object {
+  parentContext: object,
+): object {
   if (disableLegacyContext) {
     return parentContext;
   } else {
@@ -313,7 +313,7 @@ function invalidateContextProvider(
   }
 }
 
-function findCurrentUnmaskedContext(fiber: Fiber): Object {
+function findCurrentUnmaskedContext(fiber: Fiber): object {
   if (disableLegacyContext) {
     return emptyContextObject;
   } else {

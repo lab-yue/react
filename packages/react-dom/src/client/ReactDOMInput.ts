@@ -55,7 +55,7 @@ function isControlled(props) {
  * See http://www.w3.org/TR/2012/WD-html5-20121025/the-input-element.html
  */
 
-export function getHostProps(element: Element, props: Object) {
+export function getHostProps(element: Element, props: object) {
   const node = ((element as any): InputWithWrapperState);
   const checked = props.checked;
 
@@ -69,7 +69,7 @@ export function getHostProps(element: Element, props: Object) {
   return hostProps;
 }
 
-export function initWrapperState(element: Element, props: Object) {
+export function initWrapperState(element: Element, props: object) {
   if (__DEV__) {
     ReactControlledValuePropTypes.checkPropTypes('input', props);
 
@@ -122,7 +122,7 @@ export function initWrapperState(element: Element, props: Object) {
   };
 }
 
-export function updateChecked(element: Element, props: Object) {
+export function updateChecked(element: Element, props: object) {
   const node = ((element as any): InputWithWrapperState);
   const checked = props.checked;
   if (checked != null) {
@@ -130,7 +130,7 @@ export function updateChecked(element: Element, props: Object) {
   }
 }
 
-export function updateWrapper(element: Element, props: Object) {
+export function updateWrapper(element: Element, props: object) {
   const node = ((element as any): InputWithWrapperState);
   if (__DEV__) {
     const controlled = isControlled(props);
@@ -230,7 +230,7 @@ export function updateWrapper(element: Element, props: Object) {
 
 export function postMountWrapper(
   element: Element,
-  props: Object,
+  props: object,
   isHydrating: boolean,
 ) {
   const node = ((element as any): InputWithWrapperState);
@@ -340,7 +340,7 @@ export function postMountWrapper(
   }
 }
 
-export function restoreControlledState(element: Element, props: Object) {
+export function restoreControlledState(element: Element, props: object) {
   const node = ((element as any): InputWithWrapperState);
   updateWrapper(node, props);
   updateNamedCousins(node, props);

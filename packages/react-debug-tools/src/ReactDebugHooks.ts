@@ -224,7 +224,7 @@ function useMemo<T>(
 
 function useResponder(
   responder: ReactEventResponder<any, any>,
-  listenerProps: Object,
+  listenerProps: object,
 ): ReactEventResponderListener<any, any> {
   // Don't put the actual event responder object in, just its displayName
   const value = {

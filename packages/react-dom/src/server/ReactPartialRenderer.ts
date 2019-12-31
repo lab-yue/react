@@ -354,7 +354,7 @@ const RESERVED_PROPS = {
 function createOpenTagMarkup(
   tagVerbatim: string,
   tagLowercase: string,
-  props: Object,
+  props: object,
   namespace: string,
   makeStaticMarkup: boolean,
   isRootElement: boolean,
@@ -414,11 +414,11 @@ function validateRenderResult(child, type) {
 
 function resolve(
   child: unknown,
-  context: Object,
+  context: object,
   threadID: ThreadID,
 ): {|
   child: unknown,
-  context: Object,
+  context: object,
 |} {
   while (React.isValidElement(child)) {
     // Safe because we just checked it's an element.
@@ -699,7 +699,7 @@ type Frame = {
   children: FlatReactChildren,
   fallbackFrame?: Frame,
   childIndex: number,
-  context: Object,
+  context: object,
   footer: string,
 };
 
@@ -937,7 +937,7 @@ class ReactDOMServerRenderer {
 
   render(
     child: ReactNode | null,
-    context: Object,
+    context: object,
     parentNamespace: string,
   ): string {
     if (typeof child === 'string' || typeof child === 'number') {
@@ -1335,7 +1335,7 @@ class ReactDOMServerRenderer {
 
   renderDOM(
     element: ReactElement,
-    context: Object,
+    context: object,
     parentNamespace: string,
   ): string {
     const tag = element.type.toLowerCase();

@@ -90,13 +90,13 @@ class ReactFabricHostComponent {
   _nativeTag: number;
   viewConfig: ReactNativeBaseComponentViewConfig<>;
   currentProps: Props;
-  _internalInstanceHandle: Object;
+  _internalInstanceHandle: object;
 
   constructor(
     tag: number,
     viewConfig: ReactNativeBaseComponentViewConfig<>,
     props: Props,
-    internalInstanceHandle: Object,
+    internalInstanceHandle: object,
   ) {
     this._nativeTag = tag;
     this.viewConfig = viewConfig;
@@ -152,7 +152,7 @@ class ReactFabricHostComponent {
     );
   }
 
-  setNativeProps(nativeProps: Object) {
+  setNativeProps(nativeProps: object) {
     if (__DEV__) {
       console.error(
         'Warning: setNativeProps is not currently supported in Fabric',
@@ -181,7 +181,7 @@ export function createInstance(
   props: Props,
   rootContainerInstance: Container,
   hostContext: HostContext,
-  internalInstanceHandle: Object,
+  internalInstanceHandle: object,
 ): Instance {
   const tag = nextReactTag;
   nextReactTag += 2;
@@ -223,7 +223,7 @@ export function createTextInstance(
   text: string,
   rootContainerInstance: Container,
   hostContext: HostContext,
-  internalInstanceHandle: Object,
+  internalInstanceHandle: object,
 ): TextInstance {
   invariant(
     hostContext.isInAParentText,
@@ -347,7 +347,7 @@ export function cloneInstance(
   type: string,
   oldProps: Props,
   newProps: Props,
-  internalInstanceHandle: Object,
+  internalInstanceHandle: object,
   keepChildren: boolean,
   recyclableInstance: null | Instance,
 ): Instance {
@@ -376,7 +376,7 @@ export function cloneHiddenInstance(
   instance: Instance,
   type: string,
   props: Props,
-  internalInstanceHandle: Object,
+  internalInstanceHandle: object,
 ): Instance {
   const viewConfig = instance.canonical.viewConfig;
   const node = instance.node;
@@ -393,7 +393,7 @@ export function cloneHiddenInstance(
 export function cloneHiddenTextInstance(
   instance: Instance,
   text: string,
-  internalInstanceHandle: Object,
+  internalInstanceHandle: object,
 ): TextInstance {
   throw new Error('Not yet implemented.');
 }
@@ -424,8 +424,8 @@ export function replaceContainerChildren(
 export function DEPRECATED_mountResponderInstance(
   responder: any,
   responderInstance: any,
-  props: Object,
-  state: Object,
+  props: object,
+  state: object,
   instance: Instance,
 ) {
   throw new Error('Not yet implemented.');

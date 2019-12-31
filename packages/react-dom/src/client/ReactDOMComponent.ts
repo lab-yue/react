@@ -305,7 +305,7 @@ function setInitialDOMProperties(
   tag: string,
   domElement: Element,
   rootContainerElement: Element | Document,
-  nextProps: Object,
+  nextProps: object,
   isCustomComponentTag: boolean,
 ): void {
   for (const propKey in nextProps) {
@@ -389,7 +389,7 @@ function updateDOMProperties(
 
 export function createElement(
   type: string,
-  props: Object,
+  props: object,
   rootContainerElement: Element | Document,
   parentNamespace: string,
 ): Element {
@@ -506,7 +506,7 @@ export function createTextNode(
 export function setInitialProperties(
   domElement: Element,
   tag: string,
-  rawProps: Object,
+  rawProps: object,
   rootContainerElement: Element | Document,
 ): void {
   const isCustomComponentTag = isCustomComponent(tag, rawProps);
@@ -527,7 +527,7 @@ export function setInitialProperties(
   }
 
   // TODO: Make sure that we check isMounted before firing any of these events.
-  let props: Object;
+  let props: object;
   switch (tag) {
     case 'iframe':
     case 'object':
@@ -637,8 +637,8 @@ export function setInitialProperties(
 export function diffProperties(
   domElement: Element,
   tag: string,
-  lastRawProps: Object,
-  nextRawProps: Object,
+  lastRawProps: object,
+  nextRawProps: object,
   rootContainerElement: Element | Document,
 ): null | Array<mixed> {
   if (__DEV__) {
@@ -647,8 +647,8 @@ export function diffProperties(
 
   let updatePayload: null | Array<any> = null;
 
-  let lastProps: Object;
-  let nextProps: Object;
+  let lastProps: object;
+  let nextProps: object;
   switch (tag) {
     case 'input':
       lastProps = ReactDOMInputGetHostProps(domElement, lastRawProps);
@@ -843,8 +843,8 @@ export function updateProperties(
   domElement: Element,
   updatePayload: Array<any>,
   tag: string,
-  lastRawProps: Object,
-  nextRawProps: Object,
+  lastRawProps: object,
+  nextRawProps: object,
 ): void {
   // Update checked *before* name.
   // In the middle of an update, it is possible to have multiple checked.
@@ -901,7 +901,7 @@ function getPossibleStandardName(propName: string): string | null {
 export function diffHydratedProperties(
   domElement: Element,
   tag: string,
-  rawProps: Object,
+  rawProps: object,
   parentNamespace: string,
   rootContainerElement: Element | Document,
 ): null | Array<mixed> {
@@ -1237,7 +1237,7 @@ export function warnForDeletedHydratableText(
 export function warnForInsertedHydratedElement(
   parentNode: Element | Document,
   tag: string,
-  props: Object,
+  props: object,
 ) {
   if (__DEV__) {
     if (didWarnInvalidHydration) {
@@ -1279,7 +1279,7 @@ export function warnForInsertedHydratedText(
 export function restoreControlledState(
   domElement: Element,
   tag: string,
-  props: Object,
+  props: object,
 ): void {
   switch (tag) {
     case 'input':

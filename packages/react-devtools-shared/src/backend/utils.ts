@@ -13,7 +13,7 @@ import {dehydrate} from '../hydration';
 import {DehydratedData} from 'react-devtools-shared/src/devtools/views/Components/types';
 
 export function cleanForBridge(
-  data: Object | null,
+  data: object | null,
   isPathWhitelisted: (path: Array<string | number>) => boolean,
   path?: Array<string | number> = [],
 ): DehydratedData | null {
@@ -56,11 +56,11 @@ export function copyToClipboard(value as any): void {
 }
 
 export function copyWithSet(
-  obj: Object | Array<any>,
+  obj: object | Array<any>,
   path: Array<string | number>,
   value: any,
   index: number = 0,
-): Object | Array<any> {
+): object | Array<any> {
   if (index >= path.length) {
     return value;
   }

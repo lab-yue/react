@@ -45,14 +45,14 @@ interface Jest {
   autoMockOn(): void
   clearAllTimers(): void
   dontMock(moduleName: string): void
-  genMockFromModule(moduleObj: Object): Object
+  genMockFromModule(moduleObj: object): object
   genMockFunction(): MockFunction
   genMockFn(): MockFunction
   mock(moduleName: string): void
   runAllTicks(): void
   runAllTimers(): void
   runOnlyPendingTimers(): void
-  setMock(moduleName: string, moduleExports: Object): void
+  setMock(moduleName: string, moduleExports: object): void
 }
 
 interface MockFunction {

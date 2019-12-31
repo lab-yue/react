@@ -41,7 +41,7 @@ type Hook = {
   next: Hook | null,
 };
 
-let currentlyRenderingComponent: Object | null = null;
+let currentlyRenderingComponent: object | null = null;
 let firstWorkInProgressHook: Hook | null = null;
 let workInProgressHook: Hook | null = null;
 // Whether the work-in-progress hook is a re-rendered hook
@@ -59,7 +59,7 @@ let isInHookUserCodeInDev = false;
 // In DEV, this is the name of the currently executing primitive hook
 let currentHookNameInDev: ?string;
 
-function resolveCurrentlyRenderingComponent(): Object {
+function resolveCurrentlyRenderingComponent(): object {
   invariant(
     currentlyRenderingComponent !== null,
     'Invalid hook call. Hooks can only be called inside of the body of a function component. This could happen for' +
@@ -158,7 +158,7 @@ function createWorkInProgressHook(): Hook {
   return workInProgressHook;
 }
 
-export function prepareToUseHooks(componentIdentity: Object): void {
+export function prepareToUseHooks(componentIdentity: object): void {
   currentlyRenderingComponent = componentIdentity;
   if (__DEV__) {
     isInHookUserCodeInDev = false;
@@ -403,7 +403,7 @@ export function useLayoutEffect(
 }
 
 function dispatchAction<A>(
-  componentIdentity: Object,
+  componentIdentity: object,
   queue: UpdateQueue<A>,
   action: A,
 ) {

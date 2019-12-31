@@ -57,7 +57,7 @@ export type ReactRenderer = {
 
   // 16.9+
   overrideHookState?: ?(
-    fiber: Object,
+    fiber: object,
     id: number,
     path: Array<string | number>,
     value: any,
@@ -65,14 +65,14 @@ export type ReactRenderer = {
 
   // 16.7+
   overrideProps?: ?(
-    fiber: Object,
+    fiber: object,
     path: Array<string | number>,
     value: any,
   ) => void,
 
   // 16.9+
-  scheduleUpdate?: ?(fiber: Object) => void,
-  setSuspenseHandler?: ?(shouldSuspend: (fiber: Object) => boolean) => void,
+  scheduleUpdate?: ?(fiber: object) => void,
+  setSuspenseHandler?: ?(shouldSuspend: (fiber: object) => boolean) => void,
 
   // Only injected by React v16.8+ in order to support hooks inspection.
   currentDispatcherRef?: {|current: null | Dispatcher|},
@@ -170,10 +170,10 @@ export type InspectedElement = {|
   hasLegacyContext: boolean,
 
   // Inspectable properties.
-  context: Object | null,
-  hooks: Object | null,
-  props: Object | null,
-  state: Object | null,
+  context: object | null,
+  hooks: object | null,
+  props: object | null,
+  state: object | null,
 
   // List of owners
   owners: Array<Owner> | null,
@@ -219,8 +219,8 @@ export type InspectedElementPayload =
   | InspectElementNotFound;
 
 export type InstanceAndStyle = {|
-  instance: Object | null,
-  style: Object | null,
+  instance: object | null,
+  style: object | null,
 |};
 
 export type RendererInterface = {
@@ -234,8 +234,8 @@ export type RendererInterface = {
   getProfilingData(): ProfilingDataBackend,
   getOwnersList: (id: number) => Array<Owner> | null,
   getPathForElement: (id: number) => Array<PathFrame> | null,
-  handleCommitFiberRoot: (fiber: Object, commitPriority?: number) => void,
-  handleCommitFiberUnmount: (fiber: Object) => void,
+  handleCommitFiberRoot: (fiber: object, commitPriority?: number) => void,
+  handleCommitFiberUnmount: (fiber: object) => void,
   inspectElement: (
     id: number,
     path?: Array<string | number>,
@@ -290,10 +290,10 @@ export type DevToolsHook = {
 
   // React uses these methods.
   checkDCE: (fn: Function) => void,
-  onCommitFiberUnmount: (rendererID: RendererID, fiber: Object) => void,
+  onCommitFiberUnmount: (rendererID: RendererID, fiber: object) => void,
   onCommitFiberRoot: (
     rendererID: RendererID,
-    fiber: Object,
+    fiber: object,
     // Added in v16.9 to support Profiler priority labels
     commitPriority?: number,
     // Added in v16.9 to support Fast Refresh

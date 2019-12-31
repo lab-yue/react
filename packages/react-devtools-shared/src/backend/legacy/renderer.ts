@@ -86,7 +86,7 @@ function getElementType(internalInstance: InternalInstance): ElementType {
   return ElementTypeOtherOrUnknown;
 }
 
-function getChildren(internalInstance: Object): Array<any> {
+function getChildren(internalInstance: object): Array<any> {
   let children = [];
 
   // If the parent is a native node without rendered children, but with
@@ -122,7 +122,7 @@ export function attach(
   hook: DevToolsHook,
   rendererID: number,
   renderer: LegacyRenderer,
-  global: Object,
+  global: object,
 ): RendererInterface {
   const idToInternalInstanceMap: Map<number, InternalInstance> = new Map();
   const internalInstanceToIDMap: WeakMap<
@@ -567,7 +567,7 @@ export function attach(
   }
 
   let currentlyInspectedElementID: number | null = null;
-  let currentlyInspectedPaths: Object = {};
+  let currentlyInspectedPaths: object = {};
 
   // Track the intersection of currently inspected paths,
   // so that we can send their data along if the element is re-rendered.
@@ -896,7 +896,7 @@ export function attach(
     }
   }
 
-  function setIn(obj: Object, path: Array<string | number>, value as any) {
+  function setIn(obj: object, path: Array<string | number>, value as any) {
     const last = path.pop();
     const parent = path.reduce(
       // $FlowFixMe

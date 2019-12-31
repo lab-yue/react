@@ -144,7 +144,7 @@ export function reportGlobalError(
 }
 
 function definePendingProperty(
-  object: Object,
+  object: object,
   key: string,
   chunk: Chunk,
 ): void {
@@ -163,7 +163,7 @@ function definePendingProperty(
 
 function parseFromJSON(
   response: OpaqueResponse,
-  targetObj: Object,
+  targetObj: object,
   key: string,
   value: JSONValue,
 ): any {

@@ -20,7 +20,7 @@ import {
 type FocusContainProps = {|
   children: React.Node,
   disabled?: boolean,
-  scopeQuery: (type: string | Object, props: Object) => boolean,
+  scopeQuery: (type: string | Object, props: object) => boolean,
 |};
 
 const {useLayoutEffect, useRef} = React;

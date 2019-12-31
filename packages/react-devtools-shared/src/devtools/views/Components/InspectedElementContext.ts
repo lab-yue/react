@@ -353,7 +353,7 @@ function InspectedElementContextController({children}: Props) {
 function hydrateHelper(
   dehydratedData: DehydratedData | null,
   path?: Array<string | number>,
-): Object | null {
+): object | null {
   if (dehydratedData !== null) {
     let {cleaned, data, unserializable} = dehydratedData;
 

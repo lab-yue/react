@@ -114,7 +114,7 @@ const translateToKey = {
   '224': 'Meta',
 };
 
-function getEventKey(nativeEvent: Object): string {
+function getEventKey(nativeEvent: object): string {
   const nativeKey = nativeEvent.key;
   if (nativeKey) {
     // Normalize inconsistent values reported by browsers due to

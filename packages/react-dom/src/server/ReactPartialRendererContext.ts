@@ -71,7 +71,7 @@ export function validateContextBounds(
 
 export function processContext(
   type: Function,
-  context: Object,
+  context: object,
   threadID: ThreadID,
   isClass: boolean,
 ) {

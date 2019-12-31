@@ -52,8 +52,8 @@ type BaseFiberRootProperties = {|
   // it's superseded by a new one.
   timeoutHandle: TimeoutHandle | NoTimeout,
   // Top context object, used by renderSubtreeIntoContainer
-  context: Object | null,
-  pendingContext: Object | null,
+  context: object | null,
+  pendingContext: object | null,
   // Determines if we should attempt to hydrate on the initial mount
   +hydrate: boolean,
   // Node returned by Scheduler.scheduleCallback

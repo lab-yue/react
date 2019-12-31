@@ -75,10 +75,10 @@ export type InspectedElement = {|
   hasLegacyContext: boolean,
 
   // Inspectable properties.
-  context: Object | null,
-  hooks: Object | null,
-  props: Object | null,
-  state: Object | null,
+  context: object | null,
+  hooks: object | null,
+  props: object | null,
+  state: object | null,
 
   // List of owners
   owners: Array<Owner> | null,

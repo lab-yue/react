@@ -92,7 +92,7 @@ export function createInstance(
   props: Props,
   rootContainerInstance: Container,
   hostContext: HostContext,
-  internalInstanceHandle: Object,
+  internalInstanceHandle: object,
 ): Instance {
   const tag = allocateTag();
   const viewConfig = getViewConfigForType(type);
@@ -128,7 +128,7 @@ export function createTextInstance(
   text: string,
   rootContainerInstance: Container,
   hostContext: HostContext,
-  internalInstanceHandle: Object,
+  internalInstanceHandle: object,
 ): TextInstance {
   invariant(
     hostContext.isInAParentText,
@@ -315,18 +315,18 @@ export function commitMount(
   instance: Instance,
   type: string,
   newProps: Props,
-  internalInstanceHandle: Object,
+  internalInstanceHandle: object,
 ): void {
   // Noop
 }
 
 export function commitUpdate(
   instance: Instance,
-  updatePayloadTODO: Object,
+  updatePayloadTODO: object,
   type: string,
   oldProps: Props,
   newProps: Props,
-  internalInstanceHandle: Object,
+  internalInstanceHandle: object,
 ): void {
   const viewConfig = instance.viewConfig;
 
@@ -480,8 +480,8 @@ export function unhideTextInstance(
 export function DEPRECATED_mountResponderInstance(
   responder: any,
   responderInstance: any,
-  props: Object,
-  state: Object,
+  props: object,
+  state: object,
   instance: Instance,
 ) {
   throw new Error('Not yet implemented.');

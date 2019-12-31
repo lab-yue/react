@@ -209,7 +209,7 @@ export function connectToDevTools(options: ?ConnectOptions) {
               lazyResolveRNStyle = value;
               initAfterTick();
             },
-          }: Object),
+          }: object),
         );
       }
       if (!hook.hasOwnProperty('nativeStyleEditorValidAttributes')) {
@@ -225,7 +225,7 @@ export function connectToDevTools(options: ?ConnectOptions) {
               lazyNativeStyleEditorValidAttributes = value;
               initAfterTick();
             },
-          }: Object),
+          }: object),
         );
       }
     }

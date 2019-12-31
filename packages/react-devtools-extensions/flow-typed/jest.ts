@@ -716,7 +716,7 @@ interface JestExpectType {
   /**
    * Use .toMatchObject to check that a javascript object matches a subset of the properties of an object.
    */
-  toMatchObject(object: Object | Array<Object>): void;
+  toMatchObject(object: object | Array<Object>): void;
   /**
    * Use .toStrictEqual to check that a javascript object matches a subset of the properties of an object.
    */
@@ -830,7 +830,7 @@ type JestObjectType = {
   mock(
     moduleName: string,
     moduleFactory?: any,
-    options?: Object
+    options?: object
   ): JestObjectType,
   /**
    * Returns the actual module instead of a mock, bypassing all checks on
@@ -914,7 +914,7 @@ type JestObjectType = {
    * object[methodName].
    */
   spyOn(
-    object: Object,
+    object: object,
     methodName: string,
     accessType?: 'get' | 'set'
   ): JestMockFn<any, any>,
@@ -1151,7 +1151,7 @@ declare var expect: {
   any(value: unknown): JestAsymmetricEqualityType,
   anything(): any,
   arrayContaining(value: Array<mixed>): Array<mixed>,
-  objectContaining(value: Object): Object,
+  objectContaining(value: object): object,
   /** Matches any received string that contains the exact expected string. */
   stringContaining(value: string): string,
   stringMatching(value: string | RegExp): string,
@@ -1165,7 +1165,7 @@ declare var expect: {
 
 // TODO handle return type
 // http://jasmine.github.io/2.4/introduction.html#section-Spies
-declare function spyOn(value: unknown, method: string): Object;
+declare function spyOn(value: unknown, method: string): object;
 
 /** Holds all functions related to manipulating test runner */
 declare var jest: JestObjectType;
@@ -1185,6 +1185,6 @@ declare var jasmine: {
     baseName: string,
     methodNames: Array<string>
   ): {[methodName: string]: JestSpyType},
-  objectContaining(value: Object): Object,
+  objectContaining(value: object): object,
   stringMatching(value: string): string,
 };

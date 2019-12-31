@@ -19,7 +19,7 @@ type Props = {|
   onClick: (event: SyntheticMouseEvent<*>) => mixed,
   onDoubleClick?: (event: SyntheticMouseEvent<*>) => mixed,
   placeLabelAboveNode?: boolean,
-  textStyle?: Object,
+  textStyle?: object,
   width: number,
   x: number,
   y: number,

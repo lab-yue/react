@@ -9,7 +9,7 @@
 
 import {createContext} from 'react';
 
-export type ShowFn = ({|data: Object, pageX: number, pageY: number|}) => void;
+export type ShowFn = ({|data: object, pageX: number, pageY: number|}) => void;
 export type HideFn = () => void;
 
 const idToShowFnMap = new Map<string, ShowFn>();
@@ -29,7 +29,7 @@ function showMenu({
   pageX,
   pageY,
 }: {|
-  data: Object,
+  data: object,
   id: string,
   pageX: number,
   pageY: number,

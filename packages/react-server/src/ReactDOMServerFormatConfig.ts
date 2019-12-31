@@ -11,7 +11,7 @@ import {convertStringToBuffer} from 'react-server/src/ReactServerHostConfig';
 
 import ReactDOMServer from 'react-dom/server';
 
-export function formatChunkAsString(type: string, props: Object): string {
+export function formatChunkAsString(type: string, props: object): string {
   let str = '<' + type + '>';
   if (typeof props.children === 'string') {
     str += props.children;
@@ -20,7 +20,7 @@ export function formatChunkAsString(type: string, props: Object): string {
   return str;
 }
 
-export function formatChunk(type: string, props: Object): Uint8Array {
+export function formatChunk(type: string, props: object): Uint8Array {
   return convertStringToBuffer(formatChunkAsString(type, props));
 }
 

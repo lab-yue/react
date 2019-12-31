@@ -116,7 +116,7 @@ if (__DEV__) {
 
 function getContextForSubtree(
   parentComponent: ?React$Component<any, any>,
-): Object {
+): object {
   if (!parentComponent) {
     return emptyContextObject;
   }
@@ -134,7 +134,7 @@ function getContextForSubtree(
   return parentContext;
 }
 
-function findHostInstance(component: Object): PublicInstance | null {
+function findHostInstance(component: object): PublicInstance | null {
   const fiber = getInstance(component);
   if (fiber === undefined) {
     if (typeof component.render === 'function') {
@@ -155,7 +155,7 @@ function findHostInstance(component: Object): PublicInstance | null {
 }
 
 function findHostInstanceWithWarning(
-  component: Object,
+  component: object,
   methodName: string,
 ): PublicInstance | null {
   if (__DEV__) {
@@ -433,7 +433,7 @@ let setSuspenseHandler = null;
 
 if (__DEV__) {
   const copyWithSetImpl = (
-    obj: Object | Array<any>,
+    obj: object | Array<any>,
     path: Array<string | number>,
     idx: number,
     value: any,
@@ -449,10 +449,10 @@ if (__DEV__) {
   };
 
   const copyWithSet = (
-    obj: Object | Array<any>,
+    obj: object | Array<any>,
     path: Array<string | number>,
     value: any,
-  ): Object | Array<any> => {
+  ): object | Array<any> => {
     return copyWithSetImpl(obj, path, 0, value);
   };
 

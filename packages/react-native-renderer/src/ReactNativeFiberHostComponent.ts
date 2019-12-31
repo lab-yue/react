@@ -100,7 +100,7 @@ class ReactNativeFiberHostComponent {
     );
   }
 
-  setNativeProps(nativeProps: Object) {
+  setNativeProps(nativeProps: object) {
     if (__DEV__) {
       warnForStyleProps(nativeProps, this.viewConfig.validAttributes);
     }

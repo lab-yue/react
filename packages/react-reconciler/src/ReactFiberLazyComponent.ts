@@ -11,7 +11,7 @@ import {LazyComponent} from 'shared/ReactLazyComponent';
 
 import {Resolved, initializeLazyComponentType} from 'shared/ReactLazyComponent';
 
-export function resolveDefaultProps(Component: any, baseProps: Object): Object {
+export function resolveDefaultProps(Component: any, baseProps: object): object {
   if (Component && Component.defaultProps) {
     // Resolve default props. Taken from ReactElement
     const props = Object.assign({}, baseProps);

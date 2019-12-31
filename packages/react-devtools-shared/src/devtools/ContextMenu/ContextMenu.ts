@@ -52,7 +52,7 @@ const HIDDEN_STATE = {
 };
 
 type Props = {|
-  children: (data: Object) => React$Node,
+  children: (data: object) => React$Node,
   id: string,
 |};
 

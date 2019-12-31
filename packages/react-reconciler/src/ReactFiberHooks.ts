@@ -93,7 +93,7 @@ export type Dispatcher = {
   useDebugValue<T>(value: T, formatterFn: ?(value: T) => mixed): void,
   useResponder<E, C>(
     responder: ReactEventResponder<E, C>,
-    props: Object,
+    props: object,
   ): ReactEventResponderListener<E, C>,
   useDeferredValue<T>(value: T, config: TimeoutConfig | void | null): T,
   useTransition(

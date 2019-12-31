@@ -22,7 +22,7 @@ import {InspectPath} from './SelectedElement';
 type OverrideValueFn = (path: Array<string | number>, value as any) => void;
 
 type Props = {|
-  data: Object | null,
+  data: object | null,
   inspectPath?: InspectPath,
   label: string,
   overrideValueFn?: ?OverrideValueFn,
@@ -51,7 +51,7 @@ export default function InspectedElementTree({
   const isEmpty = entries === null || entries.length === 0;
 
   const handleCopy = useCallback(
-    () => copy(serializeDataForCopy(((data as any): Object))),
+    () => copy(serializeDataForCopy(((data as any): object))),
     [data],
   );
 
