@@ -595,7 +595,7 @@ You can turn on the 'throwIfNamespace' flag to bypass this warning.`,
   }
 }
 
-module.exports = function(babel) {
+export default function(babel) {
   const {types: t} = babel;
 
   const createIdentifierParser = id => () => {

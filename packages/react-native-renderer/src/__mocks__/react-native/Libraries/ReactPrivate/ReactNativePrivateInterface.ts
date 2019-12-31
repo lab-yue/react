@@ -7,7 +7,7 @@
  * strict-local
  */
 
-module.exports = {
+export default {
   get BatchedBridge() {
     return require('./BatchedBridge.js');
   },

@@ -9,4 +9,4 @@
 
 'use strict';
 
-module.exports = require('./src/dom/PressLegacy');
+export default require('./src/dom/PressLegacy');

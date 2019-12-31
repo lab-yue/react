@@ -23,4 +23,4 @@ const ReactFlightServer = require('./src/ReactFlightServer');
 
 // TODO: decide on the top-level export form.
 // This is hacky but makes it work with both Rollup and Jest.
-module.exports = ReactFlightServer.default || ReactFlightServer;
+export default ReactFlightServer.default || ReactFlightServer;

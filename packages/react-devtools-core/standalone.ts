@@ -1,1 +1,1 @@
-module.exports = require('./dist/standalone');
+export default require('./dist/standalone');

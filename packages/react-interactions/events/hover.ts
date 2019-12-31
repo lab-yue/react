@@ -9,4 +9,4 @@
 
 'use strict';
 
-module.exports = require('./src/dom/Hover');
+export default require('./src/dom/Hover');

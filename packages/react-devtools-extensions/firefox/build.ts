@@ -34,4 +34,4 @@ const main = async () => {
 
 main();
 
-module.exports = {main};
+export default {main};

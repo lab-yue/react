@@ -50,4 +50,4 @@ var Circle = createReactClass({
   },
 });
 
-module.exports = Circle;
+export default Circle;

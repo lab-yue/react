@@ -9,4 +9,4 @@
 
 'use strict';
 
-module.exports = require('./src/dom/Input');
+export default require('./src/dom/Input');

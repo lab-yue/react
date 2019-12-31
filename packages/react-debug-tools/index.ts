@@ -10,4 +10,4 @@
 const ReactDebugTools = require('./src/ReactDebugTools');
 
 // This is hacky but makes it work with both Rollup and Jest.
-module.exports = ReactDebugTools.default || ReactDebugTools;
+export default ReactDebugTools.default || ReactDebugTools;

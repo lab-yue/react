@@ -11,4 +11,4 @@ const BatchedBridge = {
   registerCallableModule: jest.fn(),
 };
 
-module.exports = BatchedBridge;
+export default BatchedBridge;

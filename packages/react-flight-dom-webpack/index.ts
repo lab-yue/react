@@ -13,4 +13,4 @@ const ReactFlightDOMClient = require('./src/ReactFlightDOMClient');
 
 // TODO: decide on the top-level export form.
 // This is hacky but makes it work with both Rollup and Jest
-module.exports = ReactFlightDOMClient.default || ReactFlightDOMClient;
+export default ReactFlightDOMClient.default || ReactFlightDOMClient;

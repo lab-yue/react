@@ -9,4 +9,4 @@
 
 'use strict';
 
-module.exports = require('./src/dom/Focus');
+export default require('./src/dom/Focus');

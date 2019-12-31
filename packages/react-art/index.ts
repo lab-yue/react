@@ -11,4 +11,4 @@
 
 const ReactART = require('./src/ReactART');
 
-module.exports = ReactART;
+export default ReactART;

@@ -9,4 +9,4 @@
 
 'use strict';
 
-module.exports = require('./src/TabbableScopeQuery');
+export default require('./src/TabbableScopeQuery');

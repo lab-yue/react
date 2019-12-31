@@ -9,4 +9,4 @@
 
 'use strict';
 
-module.exports = require('./src/FocusContain');
+export default require('./src/FocusContain');

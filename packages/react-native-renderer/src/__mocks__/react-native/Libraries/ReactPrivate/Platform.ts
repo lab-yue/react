@@ -6,6 +6,6 @@
  */
 'use strict';
 
-module.exports = {
+export default {
   OS: 'ios',
 };

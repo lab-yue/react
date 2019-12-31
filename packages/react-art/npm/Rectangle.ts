@@ -135,4 +135,4 @@ var Rectangle = createReactClass({
   },
 });
 
-module.exports = Rectangle;
+export default Rectangle;

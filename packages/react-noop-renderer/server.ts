@@ -13,4 +13,4 @@ const ReactNoopServer = require('./src/ReactNoopServer');
 
 // TODO: decide on the top-level export form.
 // This is hacky but makes it work with both Rollup and Jest.
-module.exports = ReactNoopServer.default || ReactNoopServer;
+export default ReactNoopServer.default || ReactNoopServer;

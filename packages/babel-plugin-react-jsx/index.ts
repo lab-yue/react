@@ -1,3 +1,3 @@
 'use strict';
 
-module.exports = require('./src/TransformJSXToReactBabelPlugin');
+export default require('./src/TransformJSXToReactBabelPlugin');

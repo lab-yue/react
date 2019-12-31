@@ -185,4 +185,4 @@ var Wedge = createReactClass({
   },
 });
 
-module.exports = Wedge;
+export default Wedge;

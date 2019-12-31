@@ -95,4 +95,4 @@ if (TARGET === 'local') {
   };
 }
 
-module.exports = config;
+export default config;

@@ -9,4 +9,4 @@
 
 'use strict';
 
-module.exports = require('./src/FocusTable');
+export default require('./src/FocusTable');

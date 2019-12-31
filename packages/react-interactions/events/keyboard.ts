@@ -9,4 +9,4 @@
 
 'use strict';
 
-module.exports = require('./src/dom/Keyboard');
+export default require('./src/dom/Keyboard');

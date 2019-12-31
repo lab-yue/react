@@ -11,4 +11,4 @@
 
 const Wedge = require('./npm/Wedge');
 
-module.exports = Wedge;
+export default Wedge;

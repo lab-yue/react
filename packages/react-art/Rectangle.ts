@@ -11,4 +11,4 @@
 
 const Rectangle = require('./npm/Rectangle');
 
-module.exports = Rectangle;
+export default Rectangle;

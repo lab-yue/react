@@ -9,4 +9,4 @@
 
 'use strict';
 
-module.exports = require('./src/unstable-native-dependencies/ReactDOMUnstableNativeDependencies');
+export default require('./src/unstable-native-dependencies/ReactDOMUnstableNativeDependencies');

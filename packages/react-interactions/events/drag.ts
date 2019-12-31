@@ -9,4 +9,4 @@
 
 'use strict';
 
-module.exports = require('./src/dom/Drag');
+export default require('./src/dom/Drag');

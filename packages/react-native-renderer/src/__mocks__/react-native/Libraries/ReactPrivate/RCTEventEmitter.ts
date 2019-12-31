@@ -11,4 +11,4 @@ const RCTEventEmitter = {
   register: jest.fn(),
 };
 
-module.exports = RCTEventEmitter;
+export default RCTEventEmitter;

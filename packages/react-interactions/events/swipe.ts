@@ -9,4 +9,4 @@
 
 'use strict';
 
-module.exports = require('./src/dom/Swipe');
+export default require('./src/dom/Swipe');

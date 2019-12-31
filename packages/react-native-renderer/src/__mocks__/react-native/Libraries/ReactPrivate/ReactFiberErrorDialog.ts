@@ -7,6 +7,6 @@
  * strict
  */
 
-module.exports = {
+export default {
   showErrorDialog: jest.fn(),
 };

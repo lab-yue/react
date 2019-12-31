@@ -28,7 +28,7 @@ function getVersionString() {
   return `${packageVersion}-${commit}`;
 }
 
-module.exports = {
+export default {
   GITHUB_URL,
   getGitCommit,
   getVersionString,

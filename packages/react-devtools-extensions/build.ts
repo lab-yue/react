@@ -117,4 +117,4 @@ const main = async buildId => {
   return null;
 };
 
-module.exports = main;
+export default main;

@@ -193,4 +193,4 @@ const RCTUIManager = {
   __takeSnapshot: jest.fn(),
 };
 
-module.exports = RCTUIManager;
+export default RCTUIManager;

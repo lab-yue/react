@@ -11,4 +11,4 @@ const ReactFB = require('./src/ReactFB');
 
 // TODO: decide on the top-level export form.
 // This is hacky but makes it work with both Rollup and Jest.
-module.exports = ReactFB.default || ReactFB;
+export default ReactFB.default || ReactFB;

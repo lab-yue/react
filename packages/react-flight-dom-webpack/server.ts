@@ -9,4 +9,4 @@
 
 'use strict';
 
-module.exports = require('./server.node');
+export default require('./server.node');

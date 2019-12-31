@@ -55,4 +55,4 @@ const main = async buildId => {
   console.log(`Deployed to https://${alias}.now.sh`);
 };
 
-module.exports = main;
+export default main;

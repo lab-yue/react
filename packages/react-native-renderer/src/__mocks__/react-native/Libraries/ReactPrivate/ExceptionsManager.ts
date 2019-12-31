@@ -7,6 +7,6 @@
 
 'use strict';
 
-module.exports = {
+export default {
   handleException: jest.fn(),
 };

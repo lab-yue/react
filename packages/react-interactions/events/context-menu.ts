@@ -9,4 +9,4 @@
 
 'use strict';
 
-module.exports = require('./src/dom/ContextMenu');
+export default require('./src/dom/ContextMenu');

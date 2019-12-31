@@ -11,4 +11,4 @@
 
 const Circle = require('./npm/Circle');
 
-module.exports = Circle;
+export default Circle;

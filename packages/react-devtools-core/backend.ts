@@ -1,1 +1,1 @@
-module.exports = require('./dist/backend');
+export default require('./dist/backend');

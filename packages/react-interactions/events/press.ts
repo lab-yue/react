@@ -9,4 +9,4 @@
 
 'use strict';
 
-module.exports = require('./src/dom/Press');
+export default require('./src/dom/Press');

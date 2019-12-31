@@ -11,7 +11,7 @@
 
 const stream = require('stream');
 
-module.exports = function(initModules) {
+export default function(initModules) {
   let ReactDOM;
   let ReactDOMServer;
   let ReactTestUtils;

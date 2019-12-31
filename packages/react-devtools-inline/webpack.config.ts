@@ -15,7 +15,7 @@ const __DEV__ = true; // NODE_ENV === 'development';
 
 const DEVTOOLS_VERSION = getVersionString();
 
-module.exports = {
+export default {
   mode: __DEV__ ? 'development' : 'production',
   devtool: false,
   entry: {

@@ -7,4 +7,4 @@
 
 'use strict';
 
-module.exports = require('./src/index');
+export default require('./src/index');

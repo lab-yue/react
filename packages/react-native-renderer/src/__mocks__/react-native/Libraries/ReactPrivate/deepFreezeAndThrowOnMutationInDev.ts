@@ -11,4 +11,4 @@
 
 const deepFreezeAndThrowOnMutationInDev = function() {};
 
-module.exports = deepFreezeAndThrowOnMutationInDev;
+export default deepFreezeAndThrowOnMutationInDev;
