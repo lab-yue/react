@@ -5,7 +5,7 @@
  * The hook will look for the presence of a global __REACT_DEVTOOLS_ATTACH__ and attach an injected renderer early.
  * The normal case (not a reload-and-profile) will not make use of this entry point though.
  *
- * @flow
+ *
  */
 
 import {attach} from 'react-devtools-shared/src/backend/renderer';

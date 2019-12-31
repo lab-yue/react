@@ -5,7 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  *
  * @format
- * @flow
+ *
  */
 
 import React, {type ElementRef, type AbstractComponent} from 'react';

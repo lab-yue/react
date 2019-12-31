@@ -5,7 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  *
  * Flow type for SyntheticEvent class that includes private properties
- * @flow
+ *
  */
 
 import type {Fiber} from 'react-reconciler/src/ReactFiber';

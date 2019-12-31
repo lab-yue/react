@@ -5,7 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  *
  * @format
- * @flow strict-local
+ * strict-local
  */
 
 /* eslint-disable react-internal/invariant-args */

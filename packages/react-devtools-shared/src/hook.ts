@@ -4,7 +4,7 @@
  * we are evaling this function by inserting a script tag.
  * That's why we have to inline the whole event emitter implementation here.
  *
- * @flow
+ *
  */
 
 import {
