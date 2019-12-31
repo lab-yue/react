@@ -24,7 +24,7 @@ export function toString(value: ToStringValue): string {
   return '' + (value: any);
 }
 
-export function getToStringValue(value: mixed): ToStringValue {
+export function getToStringValue(value: unknown): ToStringValue {
   switch (typeof value) {
     case 'boolean':
     case 'number':

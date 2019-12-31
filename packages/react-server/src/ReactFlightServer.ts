@@ -227,7 +227,7 @@ function resolveModelToJSON(
 function emitErrorChunk(
   request: OpaqueRequest,
   id: number,
-  error: mixed,
+  error: unknown,
 ): void {
   // TODO: We should not leak error messages to the client in prod.
   // Give this an error code instead and log on the server.

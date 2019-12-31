@@ -139,7 +139,7 @@ export function createLegacyRoot(
   return new ReactDOMBlockingRoot(container, LegacyRoot, options);
 }
 
-export function isValidContainer(node: mixed): boolean {
+export function isValidContainer(node: unknown): boolean {
   return !!(
     node &&
     (node.nodeType === ELEMENT_NODE ||
@@ -151,7 +151,7 @@ export function isValidContainer(node: mixed): boolean {
 }
 
 export function warnOnInvalidCallback(
-  callback: mixed,
+  callback: unknown,
   callerName: string,
 ): void {
   if (__DEV__) {

@@ -53,7 +53,7 @@ let didWarnAboutGenerators;
 let didWarnAboutStringRefs;
 let ownerHasKeyUseWarning;
 let ownerHasFunctionTypeWarning;
-let warnForMissingKey = (child: mixed) => {};
+let warnForMissingKey = (child: unknown) => {};
 
 if (__DEV__) {
   didWarnAboutMaps = false;
@@ -68,7 +68,7 @@ if (__DEV__) {
   ownerHasKeyUseWarning = {};
   ownerHasFunctionTypeWarning = {};
 
-  warnForMissingKey = (child: mixed) => {
+  warnForMissingKey = (child: unknown) => {
     if (child === null || typeof child !== 'object') {
       return;
     }
@@ -317,7 +317,7 @@ function ChildReconciler(shouldTrackSideEffects) {
 
   function useFiber(
     fiber: Fiber,
-    pendingProps: mixed,
+    pendingProps: unknown,
     expirationTime: ExpirationTime,
   ): Fiber {
     // We currently set sibling to null and index to 0 here because it is easy
@@ -725,7 +725,7 @@ function ChildReconciler(shouldTrackSideEffects) {
    * Warns if there is a duplicate or missing key
    */
   function warnOnInvalidKey(
-    child: mixed,
+    child: unknown,
     knownKeys: Set<string> | null,
   ): Set<string> | null {
     if (__DEV__) {

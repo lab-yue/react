@@ -30,9 +30,9 @@ import type {PropertyInfo} from '../shared/DOMProperty';
 export function getValueForProperty(
   node: Element,
   name: string,
-  expected: mixed,
+  expected: unknown,
   propertyInfo: PropertyInfo,
-): mixed {
+): unknown {
   if (__DEV__) {
     if (propertyInfo.mustUseProperty) {
       const {propertyName} = propertyInfo;
@@ -100,8 +100,8 @@ export function getValueForProperty(
 export function getValueForAttribute(
   node: Element,
   name: string,
-  expected: mixed,
-): mixed {
+  expected: unknown,
+): unknown {
   if (__DEV__) {
     if (!isAttributeNameSafe(name)) {
       return;
@@ -127,7 +127,7 @@ export function getValueForAttribute(
 export function setValueForProperty(
   node: Element,
   name: string,
-  value: mixed,
+  value: unknown,
   isCustomComponentTag: boolean,
 ) {
   const propertyInfo = getPropertyInfo(name);

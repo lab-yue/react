@@ -35,7 +35,7 @@ type Container = {
 type Props = {
   prop: any,
   hidden: boolean,
-  children?: mixed,
+  children?: unknown,
   bottom?: null | number,
   left?: null | number,
   right?: null | number,

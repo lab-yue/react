@@ -20,11 +20,11 @@ import React, {createContext} from 'react';
 //    and it will be fully reset between profiling sessions.
 
 export type Thenable<T> = {
-  then(resolve: (T) => mixed, reject: (mixed) => mixed): mixed,
+  then(resolve: (T) => mixed, reject: (mixed) => mixed): unknown,
 };
 
 type Suspender = {
-  then(resolve: () => mixed, reject: () => mixed): mixed,
+  then(resolve: () => mixed, reject: () => mixed): unknown,
 };
 
 type PendingResult = {|
@@ -39,7 +39,7 @@ type ResolvedResult<Value> = {|
 
 type RejectedResult = {|
   status: 2,
-  value: mixed,
+  value: unknown,
 |};
 
 type Result<Value> = PendingResult | ResolvedResult<Value> | RejectedResult;

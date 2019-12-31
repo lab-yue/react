@@ -100,16 +100,16 @@ type JestAsymmetricEqualityType = {
   /**
    * A custom Jasmine equality tester
    */
-  asymmetricMatch(value: mixed): boolean,
+  asymmetricMatch(value: unknown): boolean,
 };
 
 type JestCallsType = {
-  allArgs(): mixed,
-  all(): mixed,
+  allArgs(): unknown,
+  all(): unknown,
   any(): boolean,
   count(): number,
-  first(): mixed,
-  mostRecent(): mixed,
+  first(): unknown,
+  mostRecent(): unknown,
   reset(): void,
 };
 
@@ -1148,7 +1148,7 @@ declare var expect: {
   addSnapshotSerializer(pluginModule: JestPrettyFormatPlugin): void,
   assertions(expectedAssertions: number): void,
   hasAssertions(): void,
-  any(value: mixed): JestAsymmetricEqualityType,
+  any(value: unknown): JestAsymmetricEqualityType,
   anything(): any,
   arrayContaining(value: Array<mixed>): Array<mixed>,
   objectContaining(value: Object): Object,
@@ -1165,7 +1165,7 @@ declare var expect: {
 
 // TODO handle return type
 // http://jasmine.github.io/2.4/introduction.html#section-Spies
-declare function spyOn(value: mixed, method: string): Object;
+declare function spyOn(value: unknown, method: string): Object;
 
 /** Holds all functions related to manipulating test runner */
 declare var jest: JestObjectType;
@@ -1176,7 +1176,7 @@ declare var jest: JestObjectType;
  */
 declare var jasmine: {
   DEFAULT_TIMEOUT_INTERVAL: number,
-  any(value: mixed): JestAsymmetricEqualityType,
+  any(value: unknown): JestAsymmetricEqualityType,
   anything(): any,
   arrayContaining(value: Array<mixed>): Array<mixed>,
   clock(): JestClockType,

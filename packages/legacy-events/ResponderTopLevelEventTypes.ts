@@ -14,15 +14,15 @@ export const TOP_TOUCH_CANCEL = 'topTouchCancel';
 export const TOP_SCROLL = 'topScroll';
 export const TOP_SELECTION_CHANGE = 'topSelectionChange';
 
-export function isStartish(topLevelType: mixed): boolean {
+export function isStartish(topLevelType: unknown): boolean {
   return topLevelType === TOP_TOUCH_START;
 }
 
-export function isMoveish(topLevelType: mixed): boolean {
+export function isMoveish(topLevelType: unknown): boolean {
   return topLevelType === TOP_TOUCH_MOVE;
 }
 
-export function isEndish(topLevelType: mixed): boolean {
+export function isEndish(topLevelType: unknown): boolean {
   return topLevelType === TOP_TOUCH_END || topLevelType === TOP_TOUCH_CANCEL;
 }
 

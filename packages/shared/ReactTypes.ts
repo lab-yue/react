@@ -115,8 +115,8 @@ export const UserBlockingEvent: EventPriority = 1;
 export const ContinuousEvent: EventPriority = 2;
 
 export type ReactFundamentalComponentInstance<C, H> = {|
-  currentFiber: mixed,
-  instance: mixed,
+  currentFiber: unknown,
+  instance: unknown,
   prevProps: null | Object,
   props: Object,
   impl: ReactFundamentalImpl<C, H>,
@@ -130,7 +130,7 @@ export type ReactFundamentalImpl<C, H> = {
   getInstance: (context: C, props: Object, state: Object) => H,
   getServerSideString?: (context: C, props: Object) => string,
   getServerSideStringClose?: (context: C, props: Object) => string,
-  onMount: (context: C, instance: mixed, props: Object, state: Object) => void,
+  onMount: (context: C, instance: unknown, props: Object, state: Object) => void,
   shouldUpdate?: (
     context: C,
     prevProps: null | Object,
@@ -139,14 +139,14 @@ export type ReactFundamentalImpl<C, H> = {
   ) => boolean,
   onUpdate?: (
     context: C,
-    instance: mixed,
+    instance: unknown,
     prevProps: null | Object,
     nextProps: Object,
     state: Object,
   ) => void,
   onUnmount?: (
     context: C,
-    instance: mixed,
+    instance: unknown,
     props: Object,
     state: Object,
   ) => void,

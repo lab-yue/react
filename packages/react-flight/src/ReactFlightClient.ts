@@ -33,7 +33,7 @@ type PendingChunk = {|
 |};
 type ResolvedChunk = {|
   status: 1,
-  value: mixed,
+  value: unknown,
   resolve: null,
 |};
 type ErroredChunk = {|
@@ -108,7 +108,7 @@ function triggerErrorOnChunk(chunk: Chunk, error: Error): void {
   resolve();
 }
 
-function createResolvedChunk(value: mixed): ResolvedChunk {
+function createResolvedChunk(value: unknown): ResolvedChunk {
   return {
     status: RESOLVED,
     value: value,
@@ -116,7 +116,7 @@ function createResolvedChunk(value: mixed): ResolvedChunk {
   };
 }
 
-function resolveChunk(chunk: Chunk, value: mixed): void {
+function resolveChunk(chunk: Chunk, value: unknown): void {
   if (chunk.status !== PENDING) {
     // We already resolved. We didn't expect to see this.
     return;

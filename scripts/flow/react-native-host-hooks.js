@@ -36,7 +36,7 @@ declare module 'react-native/Libraries/ReactPrivate/ReactNativePrivateInterface'
   declare export function deepFreezeAndThrowOnMutationInDev<T>(obj: T): T;
   declare export function flattenStyle(style: any): any;
   declare export var RCTEventEmitter: {
-    register: (eventEmitter: mixed) => void,
+    register: (eventEmitter: unknown) => void,
   };
   declare export var TextInputState: {
     blurTextInput: (object: any) => void,
@@ -70,10 +70,10 @@ declare module 'react-native/Libraries/ReactPrivate/ReactNativePrivateInterface'
       addAtIndices: Array<number>,
       removeAtIndices: Array<number>,
     ) => void,
-    measure: (hostComponent: mixed, callback: Function) => void,
+    measure: (hostComponent: unknown, callback: Function) => void,
     measureInWindow: (nativeTag: ?number, callback: Function) => void,
     measureLayout: (
-      nativeTag: mixed,
+      nativeTag: unknown,
       nativeNode: number,
       onFail: Function,
       onSuccess: Function,

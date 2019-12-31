@@ -20,15 +20,15 @@ export const TOP_MOUSE_DOWN = 'mousedown';
 export const TOP_MOUSE_MOVE = 'mousemove';
 export const TOP_MOUSE_UP = 'mouseup';
 
-export function isStartish(topLevelType: mixed): boolean {
+export function isStartish(topLevelType: unknown): boolean {
   return topLevelType === TOP_TOUCH_START || topLevelType === TOP_MOUSE_DOWN;
 }
 
-export function isMoveish(topLevelType: mixed): boolean {
+export function isMoveish(topLevelType: unknown): boolean {
   return topLevelType === TOP_TOUCH_MOVE || topLevelType === TOP_MOUSE_MOVE;
 }
 
-export function isEndish(topLevelType: mixed): boolean {
+export function isEndish(topLevelType: unknown): boolean {
   return (
     topLevelType === TOP_TOUCH_END ||
     topLevelType === TOP_TOUCH_CANCEL ||

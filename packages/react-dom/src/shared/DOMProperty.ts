@@ -112,7 +112,7 @@ export function shouldIgnoreAttribute(
 
 export function shouldRemoveAttributeWithWarning(
   name: string,
-  value: mixed,
+  value: unknown,
   propertyInfo: PropertyInfo | null,
   isCustomComponentTag: boolean,
 ): boolean {
@@ -142,7 +142,7 @@ export function shouldRemoveAttributeWithWarning(
 
 export function shouldRemoveAttribute(
   name: string,
-  value: mixed,
+  value: unknown,
   propertyInfo: PropertyInfo | null,
   isCustomComponentTag: boolean,
 ): boolean {

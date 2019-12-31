@@ -87,7 +87,7 @@ import {validateProperties as validateUnknownProperties} from '../shared/ReactDO
 // Based on reading the React.Children implementation. TODO: type this somewhere?
 type ReactNode = string | number | ReactElement;
 type FlatReactChildren = Array<null | ReactNode>;
-type toArrayType = (children: mixed) => FlatReactChildren;
+type toArrayType = (children: unknown) => FlatReactChildren;
 const toArray = ((React.Children.toArray: any): toArrayType);
 
 // This is only used in DEV.
@@ -298,7 +298,7 @@ function getNonChildrenInnerMarkup(props) {
   return null;
 }
 
-function flattenTopLevelChildren(children: mixed): FlatReactChildren {
+function flattenTopLevelChildren(children: unknown): FlatReactChildren {
   if (!React.isValidElement(children)) {
     return toArray(children);
   }
@@ -314,7 +314,7 @@ function flattenTopLevelChildren(children: mixed): FlatReactChildren {
   return [fragmentChildElement];
 }
 
-function flattenOptionChildren(children: mixed): ?string {
+function flattenOptionChildren(children: unknown): ?string {
   if (children === undefined || children === null) {
     return children;
   }
@@ -413,11 +413,11 @@ function validateRenderResult(child, type) {
 }
 
 function resolve(
-  child: mixed,
+  child: unknown,
   context: Object,
   threadID: ThreadID,
 ): {|
-  child: mixed,
+  child: unknown,
   context: Object,
 |} {
   while (React.isValidElement(child)) {
@@ -694,7 +694,7 @@ function resolve(
 }
 
 type Frame = {
-  type: mixed,
+  type: unknown,
   domNamespace: string,
   children: FlatReactChildren,
   fallbackFrame?: Frame,
@@ -722,7 +722,7 @@ class ReactDOMServerRenderer {
   contextValueStack: Array<any>;
   contextProviderStack: ?Array<ReactProvider<any>>; // DEV-only
 
-  constructor(children: mixed, makeStaticMarkup: boolean) {
+  constructor(children: unknown, makeStaticMarkup: boolean) {
     const flatChildren = flattenTopLevelChildren(children);
 
     const topFrame: Frame = {

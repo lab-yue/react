@@ -26,7 +26,7 @@ describe('ReactCompositeComponent', () => {
    * when any key has values which are not strictly equal between the arguments.
    * Returns true when the values of all keys are strictly equal.
    */
-  function shallowEqual(objA: mixed, objB: mixed): boolean {
+  function shallowEqual(objA: unknown, objB: unknown): boolean {
     if (Object.is(objA, objB)) {
       return true;
     }

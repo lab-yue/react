@@ -25,7 +25,7 @@ import {
   REACT_CHUNK_TYPE,
 } from 'shared/ReactSymbols';
 
-export default function isValidElementType(type: mixed) {
+export default function isValidElementType(type: unknown) {
   return (
     typeof type === 'string' ||
     typeof type === 'function' ||

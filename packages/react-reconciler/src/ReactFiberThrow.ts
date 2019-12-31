@@ -179,7 +179,7 @@ function throwException(
   root: FiberRoot,
   returnFiber: Fiber,
   sourceFiber: Fiber,
-  value: mixed,
+  value: unknown,
   renderExpirationTime: ExpirationTime,
 ) {
   // The source fiber did not complete.

@@ -161,7 +161,7 @@ if (__DEV__) {
   const NORMALIZE_NEWLINES_REGEX = /\r\n?/g;
   const NORMALIZE_NULL_AND_REPLACEMENT_REGEX = /\u0000|\uFFFD/g;
 
-  normalizeMarkupForTextOrAttribute = function(markup: mixed): string {
+  normalizeMarkupForTextOrAttribute = function(markup: unknown): string {
     const markupString =
       typeof markup === 'string' ? markup : '' + (markup: any);
     return markupString
@@ -191,8 +191,8 @@ if (__DEV__) {
 
   warnForPropDifference = function(
     propName: string,
-    serverValue: mixed,
-    clientValue: mixed,
+    serverValue: unknown,
+    clientValue: unknown,
   ) {
     if (didWarnInvalidHydration) {
       return;

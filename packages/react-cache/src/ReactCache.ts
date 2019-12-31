@@ -12,11 +12,11 @@ import React from 'react';
 import {createLRU} from './LRU';
 
 type Thenable<T> = {
-  then(resolve: (T) => mixed, reject: (mixed) => mixed): mixed,
+  then(resolve: (T) => mixed, reject: (mixed) => mixed): unknown,
 };
 
 type Suspender = {
-  then(resolve: () => mixed, reject: () => mixed): mixed,
+  then(resolve: () => mixed, reject: () => mixed): unknown,
 };
 
 type PendingResult = {|
@@ -31,7 +31,7 @@ type ResolvedResult<V> = {|
 
 type RejectedResult = {|
   status: 2,
-  value: mixed,
+  value: unknown,
 |};
 
 type Result<V> = PendingResult | ResolvedResult<V> | RejectedResult;

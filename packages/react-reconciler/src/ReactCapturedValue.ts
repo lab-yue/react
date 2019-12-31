@@ -20,7 +20,7 @@ export type CapturedValue<T> = {
 export type CapturedError = {
   componentName: ?string,
   componentStack: string,
-  error: mixed,
+  error: unknown,
   errorBoundary: ?Object,
   errorBoundaryFound: boolean,
   errorBoundaryName: string | null,

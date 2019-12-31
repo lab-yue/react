@@ -69,7 +69,7 @@ export const requestPaint =
   Scheduler_requestPaint !== undefined ? Scheduler_requestPaint : () => {};
 
 let syncQueue: Array<SchedulerCallback> | null = null;
-let immediateQueueCallbackNode: mixed | null = null;
+let immediateQueueCallbackNode: unknown | null = null;
 let isFlushingSyncQueue: boolean = false;
 let initialTimeMs: number = Scheduler_now();
 
@@ -152,7 +152,7 @@ export function scheduleSyncCallback(callback: SchedulerCallback) {
   return fakeCallbackNode;
 }
 
-export function cancelCallback(callbackNode: mixed) {
+export function cancelCallback(callbackNode: unknown) {
   if (callbackNode !== fakeCallbackNode) {
     Scheduler_cancelCallback(callbackNode);
   }

@@ -240,7 +240,7 @@ function updateHookTypesDev() {
   }
 }
 
-function checkDepsAreArrayDev(deps: mixed) {
+function checkDepsAreArrayDev(deps: unknown) {
   if (__DEV__) {
     if (deps !== undefined && deps !== null && !Array.isArray(deps)) {
       // Verify deps, but only on mount to avoid extra checks.

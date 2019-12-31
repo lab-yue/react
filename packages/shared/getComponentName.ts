@@ -26,7 +26,7 @@ import {
 import {refineResolvedLazyComponent} from 'shared/ReactLazyComponent';
 
 function getWrappedName(
-  outerType: mixed,
+  outerType: unknown,
   innerType: any,
   wrapperName: string,
 ): string {
@@ -37,7 +37,7 @@ function getWrappedName(
   );
 }
 
-function getComponentName(type: mixed): string | null {
+function getComponentName(type: unknown): string | null {
   if (type == null) {
     // Host root, text node or just invalid type.
     return null;

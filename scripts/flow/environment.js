@@ -33,7 +33,7 @@ declare module 'ReactFeatureFlags' {
 // ReactFiberErrorDialog www fork
 declare module 'ReactFiberErrorDialog' {
   declare module.exports: {
-    showErrorDialog: (error: mixed) => boolean,
+    showErrorDialog: (error: unknown) => boolean,
   };
 }
 

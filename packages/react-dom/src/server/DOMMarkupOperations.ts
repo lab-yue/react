@@ -45,7 +45,7 @@ export function createMarkupForRoot(): string {
  * @param {*} value
  * @return {?string} Markup string, or null if the property was invalid.
  */
-export function createMarkupForProperty(name: string, value: mixed): string {
+export function createMarkupForProperty(name: string, value: unknown): string {
   const propertyInfo = getPropertyInfo(name);
   if (name !== 'style' && shouldIgnoreAttribute(name, propertyInfo, false)) {
     return '';
@@ -80,7 +80,7 @@ export function createMarkupForProperty(name: string, value: mixed): string {
  */
 export function createMarkupForCustomAttribute(
   name: string,
-  value: mixed,
+  value: unknown,
 ): string {
   if (!isAttributeNameSafe(name) || value == null) {
     return '';

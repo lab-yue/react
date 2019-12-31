@@ -2355,7 +2355,7 @@ function validateTailOptions(
   }
 }
 
-function validateSuspenseListNestedChild(childSlot: mixed, index: number) {
+function validateSuspenseListNestedChild(childSlot: unknown, index: number) {
   if (__DEV__) {
     let isArray = Array.isArray(childSlot);
     let isIterable = !isArray && typeof getIteratorFn(childSlot) === 'function';
@@ -2378,7 +2378,7 @@ function validateSuspenseListNestedChild(childSlot: mixed, index: number) {
 }
 
 function validateSuspenseListChildren(
-  children: mixed,
+  children: unknown,
   revealOrder: SuspenseListRevealOrder,
 ) {
   if (__DEV__) {

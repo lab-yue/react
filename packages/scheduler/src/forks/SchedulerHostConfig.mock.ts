@@ -191,7 +191,7 @@ export function unstable_flushAll(): void {
   }
 }
 
-export function unstable_yieldValue(value: mixed): void {
+export function unstable_yieldValue(value: unknown): void {
   if (yieldedValues === null) {
     yieldedValues = [value];
   } else {

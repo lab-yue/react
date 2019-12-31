@@ -87,7 +87,7 @@ if (__DEV__) {
 
   const didWarnOnInvalidCallback = new Set();
 
-  warnOnInvalidCallback = function(callback: mixed, callerName: string) {
+  warnOnInvalidCallback = function(callback: unknown, callerName: string) {
     if (callback === null || typeof callback === 'function') {
       return;
     }

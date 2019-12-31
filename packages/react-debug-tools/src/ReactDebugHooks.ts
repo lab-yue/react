@@ -35,7 +35,7 @@ type CurrentDispatcherRef = typeof ReactSharedInternals.ReactCurrentDispatcher;
 type HookLogEntry = {
   primitive: string,
   stackError: Error,
-  value: mixed,
+  value: unknown,
 };
 
 let hookLog: Array<HookLogEntry> = [];
@@ -283,7 +283,7 @@ export type HooksNode = {
   id: number | null,
   isStateEditable: boolean,
   name: string,
-  value: mixed,
+  value: unknown,
   subHooks: Array<HooksNode>,
 };
 export type HooksTree = Array<HooksNode>;

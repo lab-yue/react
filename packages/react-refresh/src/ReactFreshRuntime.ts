@@ -448,7 +448,7 @@ export function injectIntoGlobalHook(globalObject: any): void {
         onCommitFiberRoot(
           id: number,
           root: FiberRoot,
-          maybePriorityLevel: mixed,
+          maybePriorityLevel: unknown,
           didError: boolean,
         ) {},
         onCommitFiberUnmount() {},
@@ -488,7 +488,7 @@ export function injectIntoGlobalHook(globalObject: any): void {
     hook.onScheduleFiberRoot = function(
       id: number,
       root: FiberRoot,
-      children: mixed,
+      children: unknown,
     ) {
       if (!isPerformingRefresh) {
         // If it was intentionally scheduled, don't attempt to restore.
@@ -503,7 +503,7 @@ export function injectIntoGlobalHook(globalObject: any): void {
     hook.onCommitFiberRoot = function(
       id: number,
       root: FiberRoot,
-      maybePriorityLevel: mixed,
+      maybePriorityLevel: unknown,
       didError: boolean,
     ) {
       const helpers = helpersByRendererID.get(id);

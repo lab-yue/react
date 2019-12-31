@@ -61,10 +61,10 @@ import {retryIfBlockedOn} from '../events/ReactDOMEventReplaying';
 export type Type = string;
 export type Props = {
   autoFocus?: boolean,
-  children?: mixed,
+  children?: unknown,
   hidden?: boolean,
   suppressHydrationWarning?: boolean,
-  dangerouslySetInnerHTML?: mixed,
+  dangerouslySetInnerHTML?: unknown,
   style?: {
     display?: string,
   },
@@ -94,7 +94,7 @@ export type HydratableInstance = Instance | TextInstance | SuspenseInstance;
 export type PublicInstance = Element | Text;
 type HostContextDev = {
   namespace: string,
-  ancestorInfo: mixed,
+  ancestorInfo: unknown,
 };
 type HostContextProd = string;
 export type HostContext = HostContextDev | HostContextProd;
@@ -106,7 +106,7 @@ export type NoTimeout = -1;
 type SelectionInformation = {|
   activeElementDetached: null | HTMLElement,
   focusedElem: null | HTMLElement,
-  selectionRange: mixed,
+  selectionRange: unknown,
 |};
 
 import {

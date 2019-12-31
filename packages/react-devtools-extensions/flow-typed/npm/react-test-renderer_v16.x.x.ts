@@ -61,7 +61,7 @@ declare module 'react-test-renderer' {
   };
 
   declare type Thenable = {
-    then(resolve: () => mixed, reject?: () => mixed): mixed,
+    then(resolve: () => mixed, reject?: () => mixed): unknown,
   };
 
   declare function create(
