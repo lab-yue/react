@@ -93,7 +93,7 @@ if (__DEV__) {
   };
 }
 
-function getReactRootElementInContainer(container as any) {
+function getReactRootElementInContainer(container: any) {
   if (!container) {
     return null;
   }
@@ -164,20 +164,18 @@ function legacyCreateRootFromDOMContainer(
 }
 
 function legacyRenderSubtreeIntoContainer(
-  parentComponent: ?React$Component<any, any>,
+  parentComponent?: React$Component<any, any>,
   children: ReactNodeList,
   container: DOMContainer,
   forceHydrate: boolean,
-  callback: ?Function,
+  callback?: Function,
 ) {
   if (__DEV__) {
     topLevelUpdateWarnings(container);
     warnOnInvalidCallback(callback === undefined ? null : callback, 'render');
   }
 
-  // TODO: Without `any` type, Flow says "Property cannot be accessed on any
-  // member of intersection type." Whyyyyyy.
-  let root: RootType = (container._reactRootContainer as any);
+  let root = container._reactRootContainer;
   let fiberRoot;
   if (!root) {
     // Initial mount
@@ -213,7 +211,7 @@ function legacyRenderSubtreeIntoContainer(
 }
 
 export function findDOMNode(
-  componentOrElement: Element | ?React$Component<any, any>,
+  componentOrElement?: Element | React$Component<any, any>,
 ): null | Element | Text {
   if (__DEV__) {
     let owner = (ReactCurrentOwner.current as any);

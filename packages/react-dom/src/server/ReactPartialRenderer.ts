@@ -302,7 +302,7 @@ function flattenTopLevelChildren(children: unknown): FlatReactChildren {
   if (!React.isValidElement(children)) {
     return toArray(children);
   }
-  const element = ((children as any): ReactElement);
+  const element = children as ReactElement;
   if (element.type !== REACT_FRAGMENT_TYPE) {
     return [element];
   }
@@ -310,7 +310,7 @@ function flattenTopLevelChildren(children: unknown): FlatReactChildren {
   if (!React.isValidElement(fragmentChildren)) {
     return toArray(fragmentChildren);
   }
-  const fragmentChildElement = ((fragmentChildren as any): ReactElement);
+  const fragmentChildElement = fragmentChildren as ReactElement;
   return [fragmentChildElement];
 }
 
@@ -416,10 +416,10 @@ function resolve(
   child: unknown,
   context: object,
   threadID: ThreadID,
-): {|
+): {
   child: unknown,
   context: object,
-|} {
+} {
   while (React.isValidElement(child)) {
     // Safe because we just checked it's an element.
     let element: ReactElement = (child as any);
@@ -720,7 +720,7 @@ class ReactDOMServerRenderer {
   contextIndex: number;
   contextStack: Array<ReactContext<any>>;
   contextValueStack: Array<any>;
-  contextProviderStack: ?Array<ReactProvider<any>>; // DEV-only
+  contextProviderStack?: Array<ReactProvider<any>>; // DEV-only
 
   constructor(children: unknown, makeStaticMarkup: boolean) {
     const flatChildren = flattenTopLevelChildren(children);
@@ -981,7 +981,7 @@ class ReactDOMServerRenderer {
           domNamespace: parentNamespace,
           children: nextChildren,
           childIndex: 0,
-          context: context,
+          context,
           footer: '',
         };
         if (__DEV__) {

@@ -26,7 +26,10 @@ function containsNode(outerNode, innerNode) {
   } else if ('contains' in outerNode) {
     return outerNode.contains(innerNode);
   } else if (outerNode.compareDocumentPosition) {
-    return !!(outerNode.compareDocumentPosition(innerNode) & 16);
+    return !!(
+      outerNode.compareDocumentPosition(innerNode) &
+      Node.DOCUMENT_POSITION_FOLLOWING
+    );
   } else {
     return false;
   }

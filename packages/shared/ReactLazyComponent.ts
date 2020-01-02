@@ -8,19 +8,19 @@
  */
 
 export type Thenable<T, R> = {
-  then(resolve: (T) => mixed, reject: (mixed) => mixed): R,
+  then(resolve: (T: T) => unknown, reject: (T: unknown) => unknown): R,
 };
 
 export type LazyComponent<T> = {
   $$typeof: Symbol | number,
-  _ctor: () => Thenable<{default: T}, mixed>,
+  _ctor: () => Thenable<{default: T}, unknown>,
   _status: 0 | 1 | 2,
   _result: any,
 };
 
 type ResolvedLazyComponent<T> = {
   $$typeof: Symbol | number,
-  _ctor: () => Thenable<{default: T}, mixed>,
+  _ctor: () => Thenable<{default: T}, unknown>,
   _status: 1,
   _result: any,
 };
@@ -31,13 +31,13 @@ export const Resolved = 1;
 export const Rejected = 2;
 
 export function refineResolvedLazyComponent<T>(
-  lazyComponent: LazyComponent<T>,
+  lazyComponent: LazyComponent<T>
 ): ResolvedLazyComponent<T> | null {
   return lazyComponent._status === Resolved ? lazyComponent._result : null;
 }
 
 export function initializeLazyComponentType(
-  lazyComponent: LazyComponent<any>,
+  lazyComponent: LazyComponent<any>
 ): void {
   if (lazyComponent._status === Uninitialized) {
     lazyComponent._status = Pending;
@@ -54,7 +54,7 @@ export function initializeLazyComponentType(
                 'lazy: Expected the result of a dynamic import() call. ' +
                   'Instead received: %s\n\nYour code should look like: \n  ' +
                   "const MyComponent = lazy(() => import('./MyComponent'))",
-                moduleObject,
+                moduleObject
               );
             }
           }
@@ -67,7 +67,7 @@ export function initializeLazyComponentType(
           lazyComponent._status = Rejected;
           lazyComponent._result = error;
         }
-      },
+      }
     );
   }
 }

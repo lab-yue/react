@@ -210,7 +210,7 @@ const RootSuspendedWithDelay = 4;
 const RootCompleted = 5;
 
 export type Thenable = {
-  then(resolve: () => mixed, reject?: () => mixed): Thenable | void,
+  then(resolve: () => unknown, reject?: () => unknown): Thenable | void,
 
   // Special flag to opt out of tracing interactions across a Suspense boundary.
   __reactDoNotTraceInteractions?: boolean,

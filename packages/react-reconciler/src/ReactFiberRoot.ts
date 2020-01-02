@@ -29,7 +29,7 @@ import {initializeUpdateQueue} from './ReactUpdateQueue';
 
 export type PendingInteractionMap = Map<ExpirationTime, Set<Interaction>>;
 
-type BaseFiberRootProperties = {|
+type BaseFiberRootProperties = {
   // The type of root (legacy, batched, concurrent, etc.)
   tag: RootTag,
 
@@ -55,9 +55,9 @@ type BaseFiberRootProperties = {|
   context: object | null,
   pendingContext: object | null,
   // Determines if we should attempt to hydrate on the initial mount
-  +hydrate: boolean,
+  hydrate: boolean,
   // Node returned by Scheduler.scheduleCallback
-  callbackNode: *,
+  callbackNode: any,
   // Expiration of the callback associated with this root
   callbackExpirationTime: ExpirationTime,
   // Priority of the callback associated with this root
@@ -74,33 +74,31 @@ type BaseFiberRootProperties = {|
   // render again
   lastPingedTime: ExpirationTime,
   lastExpiredTime: ExpirationTime,
-|};
+};
 
 // The following attributes are only used by interaction tracing builds.
 // They enable interactions to be associated with their async work,
 // And expose interaction metadata to the React DevTools Profiler plugin.
 // Note that these attributes are only defined when the enableSchedulerTracing flag is enabled.
-type ProfilingOnlyFiberRootProperties = {|
+type ProfilingOnlyFiberRootProperties = {
   interactionThreadID: number,
   memoizedInteractions: Set<Interaction>,
   pendingInteractionMap: PendingInteractionMap,
-|};
+};
 
 // The follow fields are only used by enableSuspenseCallback for hydration.
-type SuspenseCallbackOnlyFiberRootProperties = {|
+type SuspenseCallbackOnlyFiberRootProperties = {
   hydrationCallbacks: null | SuspenseHydrationCallbacks,
-|};
+};
 
 // Exported FiberRoot type includes all properties,
 // To avoid requiring potentially error-prone :any casts throughout the project.
 // Profiling properties are only safe to access in profiling builds (when enableSchedulerTracing is true).
 // The types are defined separately within this file to ensure they stay in sync.
 // (We don't have to use an inline :any cast when enableSchedulerTracing is disabled.)
-export type FiberRoot = {
-  ...BaseFiberRootProperties,
-  ...ProfilingOnlyFiberRootProperties,
-  ...SuspenseCallbackOnlyFiberRootProperties,
-};
+export type FiberRoot = BaseFiberRootProperties &
+  ProfilingOnlyFiberRootProperties &
+  SuspenseCallbackOnlyFiberRootProperties;
 
 function FiberRootNode(containerInfo, tag, hydrate) {
   this.tag = tag;
@@ -137,9 +135,9 @@ export function createFiberRoot(
   containerInfo: any,
   tag: RootTag,
   hydrate: boolean,
-  hydrationCallbacks: null | SuspenseHydrationCallbacks,
+  hydrationCallbacks: null | SuspenseHydrationCallbacks
 ): FiberRoot {
-  const root: FiberRoot = (new FiberRootNode(containerInfo, tag, hydrate) as any);
+  const root: FiberRoot = new FiberRootNode(containerInfo, tag, hydrate);
   if (enableSuspenseCallback) {
     root.hydrationCallbacks = hydrationCallbacks;
   }
@@ -157,7 +155,7 @@ export function createFiberRoot(
 
 export function isRootSuspendedAtTime(
   root: FiberRoot,
-  expirationTime: ExpirationTime,
+  expirationTime: ExpirationTime
 ): boolean {
   const firstSuspendedTime = root.firstSuspendedTime;
   const lastSuspendedTime = root.lastSuspendedTime;
@@ -170,7 +168,7 @@ export function isRootSuspendedAtTime(
 
 export function markRootSuspendedAtTime(
   root: FiberRoot,
-  expirationTime: ExpirationTime,
+  expirationTime: ExpirationTime
 ): void {
   const firstSuspendedTime = root.firstSuspendedTime;
   const lastSuspendedTime = root.lastSuspendedTime;
@@ -192,7 +190,7 @@ export function markRootSuspendedAtTime(
 
 export function markRootUpdatedAtTime(
   root: FiberRoot,
-  expirationTime: ExpirationTime,
+  expirationTime: ExpirationTime
 ): void {
   // Update the range of pending times
   const firstPendingTime = root.firstPendingTime;
@@ -222,7 +220,7 @@ export function markRootUpdatedAtTime(
 export function markRootFinishedAtTime(
   root: FiberRoot,
   finishedExpirationTime: ExpirationTime,
-  remainingExpirationTime: ExpirationTime,
+  remainingExpirationTime: ExpirationTime
 ): void {
   // Update the range of pending times
   root.firstPendingTime = remainingExpirationTime;
@@ -252,8 +250,8 @@ export function markRootFinishedAtTime(
 
 export function markRootExpiredAtTime(
   root: FiberRoot,
-  expirationTime: ExpirationTime,
-): void {
+  expirationTime: ExpirationTime
+) {
   const lastExpiredTime = root.lastExpiredTime;
   if (lastExpiredTime === NoWork || lastExpiredTime > expirationTime) {
     root.lastExpiredTime = expirationTime;

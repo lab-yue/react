@@ -92,7 +92,7 @@ if (__DEV__) {
   ) {
     console.error(
       'React depends on Map and Set built-in types. Make sure that you load a ' +
-        'polyfill in older browsers. https://fb.me/react-polyfills',
+        'polyfill in older browsers. https://fb.me/react-polyfills'
     );
   }
 }
@@ -102,31 +102,33 @@ setBatchingImplementation(
   batchedUpdates,
   discreteUpdates,
   flushDiscreteUpdates,
-  batchedEventUpdates,
+  batchedEventUpdates
 );
 
 export type DOMContainer =
   | (Element & {
-      _reactRootContainer: ?RootType,
+      _reactRootContainer?: RootType,
     })
   | (Document & {
-      _reactRootContainer: ?RootType,
+      _reactRootContainer?: RootType,
     });
 
 function createPortal(
   children: ReactNodeList,
   container: DOMContainer,
-  key: ?string = null,
+  key?: string
 ) {
   invariant(
     isValidContainer(container),
-    'Target container is not a DOM element.',
+    'Target container is not a DOM element.'
   );
   // TODO: pass ReactDOM portal implementation as third argument
   return createPortalImpl(children, container, null, key);
 }
 
-const ReactDOM: object = {
+export type createPortalParameters = Parameters<typeof createPortal>;
+
+const ReactDOM = {
   createPortal,
 
   // Legacy
@@ -138,7 +140,7 @@ const ReactDOM: object = {
 
   // Temporary alias since we already shipped React 16 RC with it.
   // TODO: remove in React 17.
-  unstable_createPortal(...args) {
+  unstable_createPortal(...args: createPortalParameters) {
     if (__DEV__) {
       if (!didWarnAboutUnstableCreatePortal) {
         didWarnAboutUnstableCreatePortal = true;
@@ -146,7 +148,7 @@ const ReactDOM: object = {
           'The ReactDOM.unstable_createPortal() alias has been deprecated, ' +
             'and will be removed in React 17+. Update your code to use ' +
             'ReactDOM.createPortal() instead. It has the exact same API, ' +
-            'but without the "unstable_" prefix.',
+            'but without the "unstable_" prefix.'
         );
       }
     }
@@ -155,7 +157,7 @@ const ReactDOM: object = {
 
   unstable_batchedUpdates: batchedUpdates,
 
-  flushSync: flushSync,
+  flushSync,
 
   __SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED: {
     // Keep in sync with ReactDOMUnstableNativeDependencies.js
@@ -176,17 +178,27 @@ const ReactDOM: object = {
       IsThisRendererActing,
     ],
   },
-};
+}
+
+type ReactDOMWithConcurrentModeAPIs = {
+  createRoot: typeof createRoot,
+  createBlockingRoot: typeof createBlockingRoot,
+  unstable_discreteUpdates: typeof discreteUpdates,
+  unstable_flushDiscreteUpdates: typeof flushDiscreteUpdates,
+  unstable_flushControlled: typeof flushControlled,
+  unstable_scheduleHydration: (target?: Node) => void,
+} & (typeof ReactDOM);
+
 
 if (exposeConcurrentModeAPIs) {
-  ReactDOM.createRoot = createRoot;
-  ReactDOM.createBlockingRoot = createBlockingRoot;
+  (ReactDOM as ReactDOMWithConcurrentModeAPIs).createRoot = createRoot;
+  (ReactDOM as ReactDOMWithConcurrentModeAPIs).createBlockingRoot = createBlockingRoot;
 
-  ReactDOM.unstable_discreteUpdates = discreteUpdates;
-  ReactDOM.unstable_flushDiscreteUpdates = flushDiscreteUpdates;
-  ReactDOM.unstable_flushControlled = flushControlled;
+  (ReactDOM as ReactDOMWithConcurrentModeAPIs).unstable_discreteUpdates = discreteUpdates;
+  (ReactDOM as ReactDOMWithConcurrentModeAPIs).unstable_flushDiscreteUpdates = flushDiscreteUpdates;
+  (ReactDOM as ReactDOMWithConcurrentModeAPIs).unstable_flushControlled = flushControlled;
 
-  ReactDOM.unstable_scheduleHydration = target => {
+  (ReactDOM as ReactDOMWithConcurrentModeAPIs).unstable_scheduleHydration = target => {
     if (target) {
       queueExplicitHydrationTarget(target);
     }
@@ -220,7 +232,7 @@ if (__DEV__) {
               ? '\nYou might need to use a local HTTP server (instead of file://): ' +
                 'https://fb.me/react-devtools-faq'
               : ''),
-          'font-weight:bold',
+          'font-weight:bold'
         );
       }
     }

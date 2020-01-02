@@ -9,12 +9,12 @@
 
 import {enableSchedulerTracing} from 'shared/ReactFeatureFlags';
 
-export type Interaction = {|
+export type Interaction = {
   __count: number,
   id: number,
   name: string,
   timestamp: number,
-|};
+};
 
 export type Subscriber = {
   // A new interaction has been created via the trace() method.

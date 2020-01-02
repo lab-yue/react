@@ -84,18 +84,16 @@ import isEventSupported from './isEventSupported';
  *                   .
  *    React Core     .  General Purpose Event Plugin System
  */
-
+type ListenerMap = Map<DOMTopLevelEventType, null | ((a: any) => void)>;
+type ListenerElement = Document | Element | Node;
 const PossiblyWeakMap = typeof WeakMap === 'function' ? WeakMap : Map;
 const elementListenerMap:
-  | WeakMap
-  | Map<
-      Document | Element | Node,
-      Map<DOMTopLevelEventType | string, null | (any => void)>,
-    > = new PossiblyWeakMap();
+  | WeakMap<ListenerElement, ListenerMap>
+  | Map<ListenerElement, ListenerMap> = new PossiblyWeakMap();
 
 export function getListenerMapForElement(
-  element: Document | Element | Node,
-): Map<DOMTopLevelEventType | string, null | (any => void)> {
+  element: ListenerElement
+): ListenerMap {
   let listenerMap = elementListenerMap.get(element);
   if (listenerMap === undefined) {
     listenerMap = new Map();
@@ -125,66 +123,63 @@ export function getListenerMapForElement(
  * @param {string} registrationName Name of listener (e.g. `onClick`).
  * @param {object} mountAt Container where to mount the listener
  */
-export function listenTo(
-  registrationName: string,
-  mountAt: Document | Element | Node,
-): void {
-  const listeningSet = getListenerMapForElement(mountAt);
+export function listenTo(registrationName: string, mountAt: ListenerElement) {
+  const listenerMap = getListenerMapForElement(mountAt);
   const dependencies = registrationNameDependencies[registrationName];
 
   for (let i = 0; i < dependencies.length; i++) {
     const dependency = dependencies[i];
-    listenToTopLevel(dependency, mountAt, listeningSet);
+    listenToTopLevel(dependency, mountAt, listenerMap);
   }
 }
 
 export function listenToTopLevel(
   topLevelType: DOMTopLevelEventType,
-  mountAt: Document | Element | Node,
-  listenerMap: Map<DOMTopLevelEventType | string, null | (any => void)>,
-): void {
-  if (!listenerMap.has(topLevelType)) {
-    switch (topLevelType) {
-      case TOP_SCROLL:
-        trapCapturedEvent(TOP_SCROLL, mountAt);
-        break;
-      case TOP_FOCUS:
-      case TOP_BLUR:
-        trapCapturedEvent(TOP_FOCUS, mountAt);
-        trapCapturedEvent(TOP_BLUR, mountAt);
-        // We set the flag for a single dependency later in this function,
-        // but this ensures we mark both as attached rather than just one.
-        listenerMap.set(TOP_BLUR, null);
-        listenerMap.set(TOP_FOCUS, null);
-        break;
-      case TOP_CANCEL:
-      case TOP_CLOSE:
-        if (isEventSupported(getRawEventName(topLevelType))) {
-          trapCapturedEvent(topLevelType, mountAt);
-        }
-        break;
-      case TOP_INVALID:
-      case TOP_SUBMIT:
-      case TOP_RESET:
-        // We listen to them on the target DOM elements.
-        // Some of them bubble so we don't want them to fire twice.
-        break;
-      default:
-        // By default, listen on the top level to all non-media events.
-        // Media events don't bubble so adding the listener wouldn't do anything.
-        const isMediaEvent = mediaEventTypes.indexOf(topLevelType) !== -1;
-        if (!isMediaEvent) {
-          trapBubbledEvent(topLevelType, mountAt);
-        }
-        break;
-    }
-    listenerMap.set(topLevelType, null);
+  mountAt: ListenerElement,
+  listenerMap: ListenerMap
+) {
+  if (listenerMap.has(topLevelType)) return;
+
+  switch (topLevelType) {
+    case TOP_SCROLL:
+      trapCapturedEvent(TOP_SCROLL, mountAt);
+      break;
+    case TOP_FOCUS:
+    case TOP_BLUR:
+      trapCapturedEvent(TOP_FOCUS, mountAt);
+      trapCapturedEvent(TOP_BLUR, mountAt);
+      // We set the flag for a single dependency later in this function,
+      // but this ensures we mark both as attached rather than just one.
+      listenerMap.set(TOP_BLUR, null);
+      listenerMap.set(TOP_FOCUS, null);
+      break;
+    case TOP_CANCEL:
+    case TOP_CLOSE:
+      if (isEventSupported(getRawEventName(topLevelType))) {
+        trapCapturedEvent(topLevelType, mountAt);
+      }
+      break;
+    case TOP_INVALID:
+    case TOP_SUBMIT:
+    case TOP_RESET:
+      // We listen to them on the target DOM elements.
+      // Some of them bubble so we don't want them to fire twice.
+      break;
+    default:
+      // By default, listen on the top level to all non-media events.
+      // Media events don't bubble so adding the listener wouldn't do anything.
+      const isMediaEvent = mediaEventTypes.indexOf(topLevelType) !== -1;
+      if (!isMediaEvent) {
+        trapBubbledEvent(topLevelType, mountAt);
+      }
+      break;
   }
+  listenerMap.set(topLevelType, null);
 }
 
 export function isListeningToAllDependencies(
   registrationName: string,
-  mountAt: Document | Element,
+  mountAt: Document | Element
 ): boolean {
   const listenerMap = getListenerMapForElement(mountAt);
   const dependencies = registrationNameDependencies[registrationName];

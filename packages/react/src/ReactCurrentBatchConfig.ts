@@ -14,7 +14,7 @@ import {SuspenseConfig} from 'react-reconciler/src/ReactFiberSuspenseConfig';
  * should suspend for if it needs to.
  */
 const ReactCurrentBatchConfig = {
-  suspense: (null: null | SuspenseConfig),
+  suspense: null as null | SuspenseConfig,
 };
 
 export default ReactCurrentBatchConfig;

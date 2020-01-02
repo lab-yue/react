@@ -7,18 +7,18 @@
  *
  */
 
-import {Source, StringDecoder} from './ReactFlightClientHostConfig';
-
 import {
+  Source,
+  StringDecoder,
   supportsBinaryStreams,
   createStringDecoder,
   readPartialStringChunk,
   readFinalStringChunk,
-} from './ReactFlightClientHostConfig';
+} from './ReactFlightHostConfigBrowser';
 
-export type ReactModelRoot<T> = {|
+export type ReactModelRoot<T> = {
   model: T,
-|};
+};
 
 type JSONValue = number | null | boolean | string | {[key: string]: JSONValue};
 
@@ -26,21 +26,21 @@ const PENDING = 0;
 const RESOLVED = 1;
 const ERRORED = 2;
 
-type PendingChunk = {|
+type PendingChunk = {
   status: 0,
   value: Promise<void>,
   resolve: () => void,
-|};
-type ResolvedChunk = {|
+};
+type ResolvedChunk = {
   status: 1,
   value: unknown,
   resolve: null,
-|};
-type ErroredChunk = {|
+};
+type ErroredChunk = {
   status: 2,
   value: Error,
   resolve: null,
-|};
+};
 type Chunk = PendingChunk | ResolvedChunk | ErroredChunk;
 
 type OpaqueResponseWithoutDecoder = {
@@ -62,16 +62,16 @@ export function createResponse(source: Source): OpaqueResponse {
   let chunks: Map<number, Chunk> = new Map();
   chunks.set(0, rootChunk);
 
-  let response: OpaqueResponse = (({
+  let response = {
     source,
     partialRow: '',
     modelRoot,
     chunks: chunks,
-    fromJSON: function(key, value) {
+    fromJSON(key, value) {
       return parseFromJSON(response, this, key, value);
     },
-  }: OpaqueResponseWithoutDecoder) as any);
-  if (supportsBinaryStreams) {
+  } as OpaqueResponse;
+  if (supportsBinaryStreams)  {
     response.stringDecoder = createStringDecoder();
   }
   return response;
@@ -79,7 +79,7 @@ export function createResponse(source: Source): OpaqueResponse {
 
 function createPendingChunk(): PendingChunk {
   let resolve: () => void = (null as any);
-  let promise = new Promise(r => (resolve = r));
+  let promise = new Promise<any>(r => (resolve = r));
   return {
     status: PENDING,
     value: promise,

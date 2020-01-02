@@ -77,20 +77,20 @@ export type Dispatcher = {
   useRef<T>(initialValue: T): {current: T},
   useEffect(
     create: () => (() => void) | void,
-    deps: Array<mixed> | void | null,
+    deps: Array<unknown> | void | null,
   ): void,
   useLayoutEffect(
     create: () => (() => void) | void,
-    deps: Array<mixed> | void | null,
+    deps: Array<unknown> | void | null,
   ): void,
-  useCallback<T>(callback: T, deps: Array<mixed> | void | null): T,
-  useMemo<T>(nextCreate: () => T, deps: Array<mixed> | void | null): T,
+  useCallback<T>(callback: T, deps: Array<unknown> | void | null): T,
+  useMemo<T>(nextCreate: () => T, deps: Array<unknown> | void | null): T,
   useImperativeHandle<T>(
-    ref: {current: T | null} | ((inst: T | null) => mixed) | null | void,
+    ref: {current: T | null} | ((inst: T | null) => unknown) | null | void,
     create: () => T,
-    deps: Array<mixed> | void | null,
+    deps: Array<unknown> | void | null,
   ): void,
-  useDebugValue<T>(value: T, formatterFn: ?(value: T) => mixed): void,
+  useDebugValue<T>(value: T, formatterFn: ?(value: T) => unknown): void,
   useResponder<E, C>(
     responder: ReactEventResponder<E, C>,
     props: object,
@@ -114,7 +114,7 @@ type Update<S, A> = {
 
 type UpdateQueue<S, A> = {
   pending: Update<S, A> | null,
-  dispatch: (A => mixed) | null,
+  dispatch: (A => unknown) | null,
   lastRenderedReducer: ((S, A) => S) | null,
   lastRenderedState: S | null,
 };
@@ -153,7 +153,7 @@ type Effect = {
   tag: HookEffectTag,
   create: () => (() => void) | void,
   destroy: (() => void) | void,
-  deps: Array<mixed> | null,
+  deps: Array<unknown> | null,
   next: Effect,
 };
 
@@ -161,11 +161,11 @@ export type FunctionComponentUpdateQueue = {
   lastEffect: Effect | null,
 };
 
-export type TimeoutConfig = {|
+export type TimeoutConfig = {
   timeoutMs: number,
-|};
+};
 
-type BasicStateAction<S> = (S => S) | S;
+type BasicStateAction<S> = ((s:S) => S) | S;
 
 type Dispatch<A> = A => void;
 
@@ -173,7 +173,7 @@ type Dispatch<A> = A => void;
 let renderExpirationTime: ExpirationTime = NoWork;
 // The work-in-progress fiber. I've named it differently to distinguish it from
 // the work-in-progress hook.
-let currentlyRenderingFiber: Fiber = (null as any);
+let currentlyRenderingFiber: Fiber | null = null;
 
 // Hooks are stored as a linked list on the fiber's memoizedState field. The
 // current hook list is the list that belongs to the current fiber. The
@@ -207,7 +207,7 @@ let currentHookNameInDev: ?HookType = null;
 // In DEV, this list ensures that hooks are called in the same order between renders.
 // The list stores the order of hooks used during the initial render (mount).
 // Subsequent renders (updates) reference this list.
-let hookTypesDev: Array<HookType> | null = null;
+let hookTypesDev: HookType[] | null = null;
 let hookTypesUpdateIndexDev: number = -1;
 
 // In DEV, this tracks whether currently rendering component needs to ignore
@@ -217,8 +217,7 @@ let ignorePreviousDependencies: boolean = false;
 
 function mountHookTypesDev() {
   if (__DEV__) {
-    const hookName = ((currentHookNameInDev as any): HookType);
-
+    const hookName = currentHookNameInDev as HookType;
     if (hookTypesDev === null) {
       hookTypesDev = [hookName];
     } else {
@@ -229,7 +228,7 @@ function mountHookTypesDev() {
 
 function updateHookTypesDev() {
   if (__DEV__) {
-    const hookName = ((currentHookNameInDev as any): HookType);
+    const hookName = currentHookNameInDev as HookType;
 
     if (hookTypesDev !== null) {
       hookTypesUpdateIndexDev++;
@@ -266,10 +265,10 @@ function warnOnHookMismatchInDev(currentHookName: HookType) {
 
         const secondColumnStart = 30;
 
-        for (let i = 0; i <= ((hookTypesUpdateIndexDev as any): number); i++) {
+        for (let i = 0; i <= hookTypesUpdateIndexDev; i++) {
           const oldHookName = hookTypesDev[i];
           const newHookName =
-            i === ((hookTypesUpdateIndexDev as any): number)
+            i === hookTypesUpdateIndexDev
               ? currentHookName
               : oldHookName;
 
@@ -315,8 +314,8 @@ function throwInvalidHookError() {
 }
 
 function areHookInputsEqual(
-  nextDeps: Array<mixed>,
-  prevDeps: Array<mixed> | null,
+  nextDeps: Array<unknown>,
+  prevDeps: Array<unknown> | null,
 ) {
   if (__DEV__) {
     if (ignorePreviousDependencies) {
@@ -353,10 +352,9 @@ function areHookInputsEqual(
     }
   }
   for (let i = 0; i < prevDeps.length && i < nextDeps.length; i++) {
-    if (is(nextDeps[i], prevDeps[i])) {
-      continue;
+    if (!is(nextDeps[i], prevDeps[i])) {
+      return false;
     }
-    return false;
   }
   return true;
 }
@@ -470,7 +468,7 @@ export function renderWithHooks(
     currentHook !== null && currentHook.next !== null;
 
   renderExpirationTime = NoWork;
-  currentlyRenderingFiber = (null as any);
+  currentlyRenderingFiber = null;
 
   currentHook = null;
   workInProgressHook = null;
@@ -627,16 +625,16 @@ function basicStateReducer<S>(state: S, action: BasicStateAction<S>): S {
 }
 
 function mountReducer<S, I, A>(
-  reducer: (S, A) => S,
+  reducer: (S:S, A:A) => S,
   initialArg: I,
-  init?: I => S,
+  init?: (I:I) => S,
 ): [S, Dispatch<A>] {
   const hook = mountWorkInProgressHook();
-  let initialState;
+  let initialState : S;
   if (init !== undefined) {
     initialState = init(initialArg);
   } else {
-    initialState = ((initialArg as any): S);
+    initialState = (initialArg as any as S);
   }
   hook.memoizedState = hook.baseState = initialState;
   const queue = (hook.queue = {
@@ -654,9 +652,9 @@ function mountReducer<S, I, A>(
 }
 
 function updateReducer<S, I, A>(
-  reducer: (S, A) => S,
+  reducer: (S:S, A:A) => S,
   initialArg: I,
-  init?: I => S,
+  init?: (I:I) => S,
 ): [S, Dispatch<A>] {
   const hook = updateWorkInProgressHook();
   const queue = hook.queue;
@@ -854,7 +852,7 @@ function mountState<S>(
 function updateState<S>(
   initialState: (() => S) | S,
 ): [S, Dispatch<BasicStateAction<S>>] {
-  return updateReducer(basicStateReducer, (initialState as any));
+  return updateReducer(basicStateReducer, initialState);
 }
 
 function pushEffect(tag, create, destroy, deps) {
@@ -931,7 +929,7 @@ function updateEffectImpl(fiberEffectTag, hookEffectTag, create, deps): void {
 
 function mountEffect(
   create: () => (() => void) | void,
-  deps: Array<mixed> | void | null,
+  deps: Array<unknown> | void | null,
 ): void {
   if (__DEV__) {
     // $FlowExpectedError - jest isn't a global, and isn't recognized outside of tests
@@ -949,7 +947,7 @@ function mountEffect(
 
 function updateEffect(
   create: () => (() => void) | void,
-  deps: Array<mixed> | void | null,
+  deps: Array<unknown> | void | null,
 ): void {
   if (__DEV__) {
     // $FlowExpectedError - jest isn't a global, and isn't recognized outside of tests
@@ -967,7 +965,7 @@ function updateEffect(
 
 function mountLayoutEffect(
   create: () => (() => void) | void,
-  deps: Array<mixed> | void | null,
+  deps: Array<unknown> | void | null,
 ): void {
   return mountEffectImpl(
     UpdateEffect,
@@ -979,7 +977,7 @@ function mountLayoutEffect(
 
 function updateLayoutEffect(
   create: () => (() => void) | void,
-  deps: Array<mixed> | void | null,
+  deps: Array<unknown> | void | null,
 ): void {
   return updateEffectImpl(
     UpdateEffect,
@@ -991,7 +989,7 @@ function updateLayoutEffect(
 
 function imperativeHandleEffect<T>(
   create: () => T,
-  ref: {current: T | null} | ((inst: T | null) => mixed) | null | void,
+  ref: {current: T | null} | ((inst: T | null) => unknown) | null | void,
 ) {
   if (typeof ref === 'function') {
     const refCallback = ref;
@@ -1020,9 +1018,9 @@ function imperativeHandleEffect<T>(
 }
 
 function mountImperativeHandle<T>(
-  ref: {current: T | null} | ((inst: T | null) => mixed) | null | void,
+  ref: {current: T | null} | ((inst: T | null) => unknown) | null | void,
   create: () => T,
-  deps: Array<mixed> | void | null,
+  deps: Array<unknown> | void | null,
 ): void {
   if (__DEV__) {
     if (typeof create !== 'function') {
@@ -1047,9 +1045,9 @@ function mountImperativeHandle<T>(
 }
 
 function updateImperativeHandle<T>(
-  ref: {current: T | null} | ((inst: T | null) => mixed) | null | void,
+  ref: {current: T | null} | ((inst: T | null) => unknown) | null | void,
   create: () => T,
-  deps: Array<mixed> | void | null,
+  deps: Array<unknown> | void | null,
 ): void {
   if (__DEV__) {
     if (typeof create !== 'function') {
@@ -1073,7 +1071,7 @@ function updateImperativeHandle<T>(
   );
 }
 
-function mountDebugValue<T>(value: T, formatterFn: ?(value: T) => mixed): void {
+function mountDebugValue<T>(value: T, formatterFn: ?(value: T) => unknown): void {
   // This hook is normally a no-op.
   // The react-debug-hooks package injects its own implementation
   // so that e.g. DevTools can display custom hook values.
@@ -1081,20 +1079,20 @@ function mountDebugValue<T>(value: T, formatterFn: ?(value: T) => mixed): void {
 
 const updateDebugValue = mountDebugValue;
 
-function mountCallback<T>(callback: T, deps: Array<mixed> | void | null): T {
+function mountCallback<T>(callback: T, deps: Array<unknown> | void | null): T {
   const hook = mountWorkInProgressHook();
   const nextDeps = deps === undefined ? null : deps;
   hook.memoizedState = [callback, nextDeps];
   return callback;
 }
 
-function updateCallback<T>(callback: T, deps: Array<mixed> | void | null): T {
+function updateCallback<T>(callback: T, deps: Array<unknown> | void | null): T {
   const hook = updateWorkInProgressHook();
   const nextDeps = deps === undefined ? null : deps;
   const prevState = hook.memoizedState;
   if (prevState !== null) {
     if (nextDeps !== null) {
-      const prevDeps: Array<mixed> | null = prevState[1];
+      const prevDeps: Array<unknown> | null = prevState[1];
       if (areHookInputsEqual(nextDeps, prevDeps)) {
         return prevState[0];
       }
@@ -1106,7 +1104,7 @@ function updateCallback<T>(callback: T, deps: Array<mixed> | void | null): T {
 
 function mountMemo<T>(
   nextCreate: () => T,
-  deps: Array<mixed> | void | null,
+  deps: Array<unknown> | void | null,
 ): T {
   const hook = mountWorkInProgressHook();
   const nextDeps = deps === undefined ? null : deps;
@@ -1117,7 +1115,7 @@ function mountMemo<T>(
 
 function updateMemo<T>(
   nextCreate: () => T,
-  deps: Array<mixed> | void | null,
+  deps: Array<unknown> | void | null,
 ): T {
   const hook = updateWorkInProgressHook();
   const nextDeps = deps === undefined ? null : deps;
@@ -1125,7 +1123,7 @@ function updateMemo<T>(
   if (prevState !== null) {
     // Assume these are defined. If they're not, areHookInputsEqual will warn.
     if (nextDeps !== null) {
-      const prevDeps: Array<mixed> | null = prevState[1];
+      const prevDeps: Array<unknown> | null = prevState[1];
       if (areHookInputsEqual(nextDeps, prevDeps)) {
         return prevState[0];
       }
@@ -1446,7 +1444,7 @@ if (__DEV__) {
       return readContext(context, observedBits);
     },
 
-    useCallback<T>(callback: T, deps: Array<mixed> | void | null): T {
+    useCallback<T>(callback: T, deps: Array<unknown> | void | null): T {
       currentHookNameInDev = 'useCallback';
       mountHookTypesDev();
       checkDepsAreArrayDev(deps);
@@ -1462,7 +1460,7 @@ if (__DEV__) {
     },
     useEffect(
       create: () => (() => void) | void,
-      deps: Array<mixed> | void | null,
+      deps: Array<unknown> | void | null,
     ): void {
       currentHookNameInDev = 'useEffect';
       mountHookTypesDev();
@@ -1470,9 +1468,9 @@ if (__DEV__) {
       return mountEffect(create, deps);
     },
     useImperativeHandle<T>(
-      ref: {current: T | null} | ((inst: T | null) => mixed) | null | void,
+      ref: {current: T | null} | ((inst: T | null) => unknown) | null | void,
       create: () => T,
-      deps: Array<mixed> | void | null,
+      deps: Array<unknown> | void | null,
     ): void {
       currentHookNameInDev = 'useImperativeHandle';
       mountHookTypesDev();
@@ -1481,14 +1479,14 @@ if (__DEV__) {
     },
     useLayoutEffect(
       create: () => (() => void) | void,
-      deps: Array<mixed> | void | null,
+      deps: Array<unknown> | void | null,
     ): void {
       currentHookNameInDev = 'useLayoutEffect';
       mountHookTypesDev();
       checkDepsAreArrayDev(deps);
       return mountLayoutEffect(create, deps);
     },
-    useMemo<T>(create: () => T, deps: Array<mixed> | void | null): T {
+    useMemo<T>(create: () => T, deps: Array<unknown> | void | null): T {
       currentHookNameInDev = 'useMemo';
       mountHookTypesDev();
       checkDepsAreArrayDev(deps);
@@ -1533,7 +1531,7 @@ if (__DEV__) {
         ReactCurrentDispatcher.current = prevDispatcher;
       }
     },
-    useDebugValue<T>(value: T, formatterFn: ?(value: T) => mixed): void {
+    useDebugValue<T>(value: T, formatterFn: ?(value: T) => unknown): void {
       currentHookNameInDev = 'useDebugValue';
       mountHookTypesDev();
       return mountDebugValue(value, formatterFn);
@@ -1568,7 +1566,7 @@ if (__DEV__) {
       return readContext(context, observedBits);
     },
 
-    useCallback<T>(callback: T, deps: Array<mixed> | void | null): T {
+    useCallback<T>(callback: T, deps: Array<unknown> | void | null): T {
       currentHookNameInDev = 'useCallback';
       updateHookTypesDev();
       return mountCallback(callback, deps);
@@ -1583,16 +1581,16 @@ if (__DEV__) {
     },
     useEffect(
       create: () => (() => void) | void,
-      deps: Array<mixed> | void | null,
+      deps: Array<unknown> | void | null,
     ): void {
       currentHookNameInDev = 'useEffect';
       updateHookTypesDev();
       return mountEffect(create, deps);
     },
     useImperativeHandle<T>(
-      ref: {current: T | null} | ((inst: T | null) => mixed) | null | void,
+      ref: {current: T | null} | ((inst: T | null) => unknown) | null | void,
       create: () => T,
-      deps: Array<mixed> | void | null,
+      deps: Array<unknown> | void | null,
     ): void {
       currentHookNameInDev = 'useImperativeHandle';
       updateHookTypesDev();
@@ -1600,13 +1598,13 @@ if (__DEV__) {
     },
     useLayoutEffect(
       create: () => (() => void) | void,
-      deps: Array<mixed> | void | null,
+      deps: Array<unknown> | void | null,
     ): void {
       currentHookNameInDev = 'useLayoutEffect';
       updateHookTypesDev();
       return mountLayoutEffect(create, deps);
     },
-    useMemo<T>(create: () => T, deps: Array<mixed> | void | null): T {
+    useMemo<T>(create: () => T, deps: Array<unknown> | void | null): T {
       currentHookNameInDev = 'useMemo';
       updateHookTypesDev();
       const prevDispatcher = ReactCurrentDispatcher.current;
@@ -1650,7 +1648,7 @@ if (__DEV__) {
         ReactCurrentDispatcher.current = prevDispatcher;
       }
     },
-    useDebugValue<T>(value: T, formatterFn: ?(value: T) => mixed): void {
+    useDebugValue<T>(value: T, formatterFn: ?(value: T) => unknown): void {
       currentHookNameInDev = 'useDebugValue';
       updateHookTypesDev();
       return mountDebugValue(value, formatterFn);
@@ -1685,7 +1683,7 @@ if (__DEV__) {
       return readContext(context, observedBits);
     },
 
-    useCallback<T>(callback: T, deps: Array<mixed> | void | null): T {
+    useCallback<T>(callback: T, deps: Array<unknown> | void | null): T {
       currentHookNameInDev = 'useCallback';
       updateHookTypesDev();
       return updateCallback(callback, deps);
@@ -1700,16 +1698,16 @@ if (__DEV__) {
     },
     useEffect(
       create: () => (() => void) | void,
-      deps: Array<mixed> | void | null,
+      deps: Array<unknown> | void | null,
     ): void {
       currentHookNameInDev = 'useEffect';
       updateHookTypesDev();
       return updateEffect(create, deps);
     },
     useImperativeHandle<T>(
-      ref: {current: T | null} | ((inst: T | null) => mixed) | null | void,
+      ref: {current: T | null} | ((inst: T | null) => unknown) | null | void,
       create: () => T,
-      deps: Array<mixed> | void | null,
+      deps: Array<unknown> | void | null,
     ): void {
       currentHookNameInDev = 'useImperativeHandle';
       updateHookTypesDev();
@@ -1717,13 +1715,13 @@ if (__DEV__) {
     },
     useLayoutEffect(
       create: () => (() => void) | void,
-      deps: Array<mixed> | void | null,
+      deps: Array<unknown> | void | null,
     ): void {
       currentHookNameInDev = 'useLayoutEffect';
       updateHookTypesDev();
       return updateLayoutEffect(create, deps);
     },
-    useMemo<T>(create: () => T, deps: Array<mixed> | void | null): T {
+    useMemo<T>(create: () => T, deps: Array<unknown> | void | null): T {
       currentHookNameInDev = 'useMemo';
       updateHookTypesDev();
       const prevDispatcher = ReactCurrentDispatcher.current;
@@ -1767,7 +1765,7 @@ if (__DEV__) {
         ReactCurrentDispatcher.current = prevDispatcher;
       }
     },
-    useDebugValue<T>(value: T, formatterFn: ?(value: T) => mixed): void {
+    useDebugValue<T>(value: T, formatterFn: ?(value: T) => unknown): void {
       currentHookNameInDev = 'useDebugValue';
       updateHookTypesDev();
       return updateDebugValue(value, formatterFn);
@@ -1803,7 +1801,7 @@ if (__DEV__) {
       return readContext(context, observedBits);
     },
 
-    useCallback<T>(callback: T, deps: Array<mixed> | void | null): T {
+    useCallback<T>(callback: T, deps: Array<unknown> | void | null): T {
       currentHookNameInDev = 'useCallback';
       warnInvalidHookAccess();
       mountHookTypesDev();
@@ -1820,7 +1818,7 @@ if (__DEV__) {
     },
     useEffect(
       create: () => (() => void) | void,
-      deps: Array<mixed> | void | null,
+      deps: Array<unknown> | void | null,
     ): void {
       currentHookNameInDev = 'useEffect';
       warnInvalidHookAccess();
@@ -1828,9 +1826,9 @@ if (__DEV__) {
       return mountEffect(create, deps);
     },
     useImperativeHandle<T>(
-      ref: {current: T | null} | ((inst: T | null) => mixed) | null | void,
+      ref: {current: T | null} | ((inst: T | null) => unknown) | null | void,
       create: () => T,
-      deps: Array<mixed> | void | null,
+      deps: Array<unknown> | void | null,
     ): void {
       currentHookNameInDev = 'useImperativeHandle';
       warnInvalidHookAccess();
@@ -1839,14 +1837,14 @@ if (__DEV__) {
     },
     useLayoutEffect(
       create: () => (() => void) | void,
-      deps: Array<mixed> | void | null,
+      deps: Array<unknown> | void | null,
     ): void {
       currentHookNameInDev = 'useLayoutEffect';
       warnInvalidHookAccess();
       mountHookTypesDev();
       return mountLayoutEffect(create, deps);
     },
-    useMemo<T>(create: () => T, deps: Array<mixed> | void | null): T {
+    useMemo<T>(create: () => T, deps: Array<unknown> | void | null): T {
       currentHookNameInDev = 'useMemo';
       warnInvalidHookAccess();
       mountHookTypesDev();
@@ -1894,7 +1892,7 @@ if (__DEV__) {
         ReactCurrentDispatcher.current = prevDispatcher;
       }
     },
-    useDebugValue<T>(value: T, formatterFn: ?(value: T) => mixed): void {
+    useDebugValue<T>(value: T, formatterFn: ?(value: T) => unknown): void {
       currentHookNameInDev = 'useDebugValue';
       warnInvalidHookAccess();
       mountHookTypesDev();
@@ -1934,7 +1932,7 @@ if (__DEV__) {
       return readContext(context, observedBits);
     },
 
-    useCallback<T>(callback: T, deps: Array<mixed> | void | null): T {
+    useCallback<T>(callback: T, deps: Array<unknown> | void | null): T {
       currentHookNameInDev = 'useCallback';
       warnInvalidHookAccess();
       updateHookTypesDev();
@@ -1951,7 +1949,7 @@ if (__DEV__) {
     },
     useEffect(
       create: () => (() => void) | void,
-      deps: Array<mixed> | void | null,
+      deps: Array<unknown> | void | null,
     ): void {
       currentHookNameInDev = 'useEffect';
       warnInvalidHookAccess();
@@ -1959,9 +1957,9 @@ if (__DEV__) {
       return updateEffect(create, deps);
     },
     useImperativeHandle<T>(
-      ref: {current: T | null} | ((inst: T | null) => mixed) | null | void,
+      ref: {current: T | null} | ((inst: T | null) => unknown) | null | void,
       create: () => T,
-      deps: Array<mixed> | void | null,
+      deps: Array<unknown> | void | null,
     ): void {
       currentHookNameInDev = 'useImperativeHandle';
       warnInvalidHookAccess();
@@ -1970,14 +1968,14 @@ if (__DEV__) {
     },
     useLayoutEffect(
       create: () => (() => void) | void,
-      deps: Array<mixed> | void | null,
+      deps: Array<unknown> | void | null,
     ): void {
       currentHookNameInDev = 'useLayoutEffect';
       warnInvalidHookAccess();
       updateHookTypesDev();
       return updateLayoutEffect(create, deps);
     },
-    useMemo<T>(create: () => T, deps: Array<mixed> | void | null): T {
+    useMemo<T>(create: () => T, deps: Array<unknown> | void | null): T {
       currentHookNameInDev = 'useMemo';
       warnInvalidHookAccess();
       updateHookTypesDev();
@@ -2025,7 +2023,7 @@ if (__DEV__) {
         ReactCurrentDispatcher.current = prevDispatcher;
       }
     },
-    useDebugValue<T>(value: T, formatterFn: ?(value: T) => mixed): void {
+    useDebugValue<T>(value: T, formatterFn: ?(value: T) => unknown): void {
       currentHookNameInDev = 'useDebugValue';
       warnInvalidHookAccess();
       updateHookTypesDev();

@@ -118,13 +118,13 @@ export type Dependencies = {
   firstContext: ContextDependency<mixed> | null,
   responders: Map<
     ReactEventResponder<any, any>,
-    ReactEventResponderInstance<any, any>,
+    ReactEventResponderInstance<any, any>
   > | null,
 };
 
 // A Fiber is work on a Component that needs to be done or was done. There can
 // be more than one per component.
-export type Fiber = {|
+export type Fiber = {
   // These first fields are conceptually members of an Instance. This used to
   // be split into a separate type and intersected with the other Fiber fields,
   // but until Flow fixes its intersection bugs, we've merged them into a
@@ -250,7 +250,7 @@ export type Fiber = {|
 
   // Used to verify that the order of hooks does not change between renders.
   _debugHookTypes?: Array<HookType> | null,
-|};
+};
 
 let debugCounter = 1;
 
@@ -258,7 +258,7 @@ function FiberNode(
   tag: WorkTag,
   pendingProps: unknown,
   key: null | string,
-  mode: TypeOfMode,
+  mode: TypeOfMode
 ) {
   // Instance
   this.tag = tag;
@@ -332,6 +332,7 @@ function FiberNode(
   if (__DEV__) {
     this._debugSource = null;
     this._debugOwner = null;
+    1;
     this._debugNeedsRemount = false;
     this._debugHookTypes = null;
     if (!hasBadMapPolyfill && typeof Object.preventExtensions === 'function') {
@@ -357,7 +358,7 @@ const createFiber = function(
   tag: WorkTag,
   pendingProps: unknown,
   key: null | string,
-  mode: TypeOfMode,
+  mode: TypeOfMode
 ): Fiber {
   // $FlowFixMe: the shapes are exact here but Flow doesn't like constructors
   return new FiberNode(tag, pendingProps, key, mode);
@@ -368,7 +369,7 @@ function shouldConstruct(Component: Function) {
   return !!(prototype && prototype.isReactComponent);
 }
 
-export function isSimpleFunctionComponent(type as any) {
+export function isSimpleFunctionComponent(type: any) {
   return (
     typeof type === 'function' &&
     !shouldConstruct(type) &&
@@ -400,7 +401,7 @@ export function resolveLazyComponentTag(Component: Function): WorkTag {
 export function createWorkInProgress(
   current: Fiber,
   pendingProps: any,
-  expirationTime: ExpirationTime,
+  expirationTime: ExpirationTime
 ): Fiber {
   let workInProgress = current.alternate;
   if (workInProgress === null) {
@@ -413,7 +414,7 @@ export function createWorkInProgress(
       current.tag,
       pendingProps,
       current.key,
-      current.mode,
+      current.mode
     );
     workInProgress.elementType = current.elementType;
     workInProgress.type = current.type;
@@ -506,7 +507,7 @@ export function createWorkInProgress(
 // Used to reuse a Fiber for a second pass.
 export function resetWorkInProgress(
   workInProgress: Fiber,
-  renderExpirationTime: ExpirationTime,
+  renderExpirationTime: ExpirationTime
 ) {
   // This resets the Fiber to what createFiber or createWorkInProgress would
   // have set the values to before during the first pass. Ideally this wouldn't
@@ -603,7 +604,7 @@ export function createFiberFromTypeAndProps(
   pendingProps: any,
   owner: null | Fiber,
   mode: TypeOfMode,
-  expirationTime: ExpirationTime,
+  expirationTime: ExpirationTime
 ): Fiber {
   let fiber;
 
@@ -630,7 +631,7 @@ export function createFiberFromTypeAndProps(
           pendingProps.children,
           mode,
           expirationTime,
-          key,
+          key
         );
       case REACT_CONCURRENT_MODE_TYPE:
         fiberTag = Mode;
@@ -649,7 +650,7 @@ export function createFiberFromTypeAndProps(
           pendingProps,
           mode,
           expirationTime,
-          key,
+          key
         );
       default: {
         if (typeof type === 'object' && type !== null) {
@@ -684,7 +685,7 @@ export function createFiberFromTypeAndProps(
                   pendingProps,
                   mode,
                   expirationTime,
-                  key,
+                  key
                 );
               }
               break;
@@ -695,7 +696,7 @@ export function createFiberFromTypeAndProps(
                   pendingProps,
                   mode,
                   expirationTime,
-                  key,
+                  key
                 );
               }
           }
@@ -724,7 +725,7 @@ export function createFiberFromTypeAndProps(
             'components) or a class/function (for composite components) ' +
             'but got: %s.%s',
           type == null ? type : typeof type,
-          info,
+          info
         );
       }
     }
@@ -741,7 +742,7 @@ export function createFiberFromTypeAndProps(
 export function createFiberFromElement(
   element: ReactElement,
   mode: TypeOfMode,
-  expirationTime: ExpirationTime,
+  expirationTime: ExpirationTime
 ): Fiber {
   let owner = null;
   if (__DEV__) {
@@ -756,7 +757,7 @@ export function createFiberFromElement(
     pendingProps,
     owner,
     mode,
-    expirationTime,
+    expirationTime
   );
   if (__DEV__) {
     fiber._debugSource = element._source;
@@ -769,7 +770,7 @@ export function createFiberFromFragment(
   elements: ReactFragment,
   mode: TypeOfMode,
   expirationTime: ExpirationTime,
-  key: null | string,
+  key: null | string
 ): Fiber {
   const fiber = createFiber(Fragment, elements, key, mode);
   fiber.expirationTime = expirationTime;
@@ -781,7 +782,7 @@ export function createFiberFromFundamental(
   pendingProps: any,
   mode: TypeOfMode,
   expirationTime: ExpirationTime,
-  key: null | string,
+  key: null | string
 ): Fiber {
   const fiber = createFiber(FundamentalComponent, pendingProps, key, mode);
   fiber.elementType = fundamentalComponent;
@@ -795,7 +796,7 @@ function createFiberFromScope(
   pendingProps: any,
   mode: TypeOfMode,
   expirationTime: ExpirationTime,
-  key: null | string,
+  key: null | string
 ) {
   const fiber = createFiber(ScopeComponent, pendingProps, key, mode);
   fiber.type = scope;
@@ -808,7 +809,7 @@ function createFiberFromProfiler(
   pendingProps: any,
   mode: TypeOfMode,
   expirationTime: ExpirationTime,
-  key: null | string,
+  key: null | string
 ): Fiber {
   if (__DEV__) {
     if (
@@ -816,7 +817,7 @@ function createFiberFromProfiler(
       typeof pendingProps.onRender !== 'function'
     ) {
       console.error(
-        'Profiler must specify an "id" string and "onRender" function as props',
+        'Profiler must specify an "id" string and "onRender" function as props'
       );
     }
   }
@@ -834,7 +835,7 @@ export function createFiberFromSuspense(
   pendingProps: any,
   mode: TypeOfMode,
   expirationTime: ExpirationTime,
-  key: null | string,
+  key: null | string
 ) {
   const fiber = createFiber(SuspenseComponent, pendingProps, key, mode);
 
@@ -852,7 +853,7 @@ export function createFiberFromSuspenseList(
   pendingProps: any,
   mode: TypeOfMode,
   expirationTime: ExpirationTime,
-  key: null | string,
+  key: null | string
 ) {
   const fiber = createFiber(SuspenseListComponent, pendingProps, key, mode);
   if (__DEV__) {
@@ -869,7 +870,7 @@ export function createFiberFromSuspenseList(
 export function createFiberFromText(
   content: string,
   mode: TypeOfMode,
-  expirationTime: ExpirationTime,
+  expirationTime: ExpirationTime
 ): Fiber {
   const fiber = createFiber(HostText, content, null, mode);
   fiber.expirationTime = expirationTime;
@@ -885,7 +886,7 @@ export function createFiberFromHostInstanceForDeletion(): Fiber {
 }
 
 export function createFiberFromDehydratedFragment(
-  dehydratedNode: SuspenseInstance,
+  dehydratedNode: SuspenseInstance
 ): Fiber {
   const fiber = createFiber(DehydratedFragment, null, null, NoMode);
   fiber.stateNode = dehydratedNode;
@@ -895,7 +896,7 @@ export function createFiberFromDehydratedFragment(
 export function createFiberFromPortal(
   portal: ReactPortal,
   mode: TypeOfMode,
-  expirationTime: ExpirationTime,
+  expirationTime: ExpirationTime
 ): Fiber {
   const pendingProps = portal.children !== null ? portal.children : [];
   const fiber = createFiber(HostPortal, pendingProps, portal.key, mode);
@@ -911,7 +912,7 @@ export function createFiberFromPortal(
 // Used for stashing WIP properties to replay failed work in DEV.
 export function assignFiberPropertiesInDEV(
   target: Fiber | null,
-  source: Fiber,
+  source: Fiber
 ): Fiber {
   if (target === null) {
     // This Fiber's initial properties will always be overwritten.

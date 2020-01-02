@@ -12,6 +12,6 @@
  */
 
 const IsSomeRendererActing = {
-  current: (false: boolean),
+  current: false,
 };
 export default IsSomeRendererActing;

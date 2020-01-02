@@ -9,19 +9,13 @@
 
 import {enableTrustedTypesIntegration} from 'shared/ReactFeatureFlags';
 
-export opaque type ToStringValue =
-  | boolean
-  | number
-  | Object
-  | string
-  | null
-  | void;
+export type ToStringValue = boolean | number | object | string | null | void;
 
 // Flow does not allow string concatenation of most non-string types. To work
 // around this limitation, we use an opaque type that can only be obtained by
 // passing the value through getToStringValue first.
 export function toString(value: ToStringValue): string {
-  return '' + (value as any);
+  return '' + value;
 }
 
 export function getToStringValue(value: unknown): ToStringValue {
@@ -39,7 +33,7 @@ export function getToStringValue(value: unknown): ToStringValue {
 }
 
 /** Trusted value is a wrapper for "safe" values which can be assigned to DOM execution sinks. */
-export opaque type TrustedValue: {toString(): string, valueOf(): string} = {
+export type TrustedValue = {
   toString(): string,
   valueOf(): string,
 };
@@ -51,9 +45,13 @@ export opaque type TrustedValue: {toString(): string, valueOf(): string} = {
  *
  * If application uses Trusted Types we don't stringify trusted values, but preserve them as objects.
  */
-export let toStringOrTrustedType: any => string | TrustedValue = toString;
+
+ type toStringOrTrustedType = {
+   (value:any): string | TrustedValue
+ }
+export let toStringOrTrustedType: toStringOrTrustedType = toString;
 if (enableTrustedTypesIntegration && typeof trustedTypes !== 'undefined') {
-  toStringOrTrustedType = value => {
+  toStringOrTrustedType = (value: ToStringValue) => {
     if (
       typeof value === 'object' &&
       (trustedTypes.isHTML(value) ||
@@ -63,7 +61,7 @@ if (enableTrustedTypesIntegration && typeof trustedTypes !== 'undefined') {
         (trustedTypes.isURL && trustedTypes.isURL(value)))
     ) {
       // Pass Trusted Types through.
-      return value;
+      return (value as TrustedValue);
     }
     return toString(value);
   };

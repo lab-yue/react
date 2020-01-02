@@ -11,7 +11,7 @@ import {
   REACT_FORWARD_REF_TYPE,
 } from 'shared/ReactSymbols';
 
-opaque type Chunk<Props>: React$AbstractComponent<
+type Chunk<Props>: React$AbstractComponent<
   Props,
   null,
 > = React$AbstractComponent<Props, null>;

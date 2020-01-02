@@ -34,28 +34,28 @@ export type ReactDOMResponderEvent = {
 
 export type ReactDOMEventResponder = ReactEventResponder<
   ReactDOMResponderEvent,
-  ReactDOMResponderContext,
+  ReactDOMResponderContext
 >;
 
 export type ReactDOMEventResponderInstance = ReactEventResponderInstance<
   ReactDOMResponderEvent,
-  ReactDOMResponderContext,
+  ReactDOMResponderContext
 >;
 
 export type ReactDOMFundamentalComponentInstance = ReactFundamentalComponentInstance<
   any,
-  any,
+  any
 >;
 
 export type ReactDOMResponderContext = {
   dispatchEvent: (
     eventValue: any,
     listener: (any) => void,
-    eventPriority: EventPriority,
+    eventPriority: EventPriority
   ) => void,
   isTargetWithinNode: (
     childTarget: Element | Document,
-    parentTarget: Element | Document,
+    parentTarget: Element | Document
   ) => boolean,
   isTargetWithinResponder: (null | Element | Document) => boolean,
   isTargetWithinResponderScope: (null | Element | Document) => boolean,
@@ -66,10 +66,10 @@ export type ReactDOMResponderContext = {
   getTimeStamp: () => number,
   isTargetWithinHostComponent: (
     target: Element | Document,
-    elementType: string,
+    elementType: string
   ) => boolean,
   continuePropagation(): void,
   // Used for controller components
-  enqueueStateRestore(Element | Document): void,
+  enqueueStateRestore(element: Element | Document): void,
   getResponderNode(): Element | null,
 };

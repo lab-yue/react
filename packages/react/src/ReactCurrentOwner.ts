@@ -20,7 +20,7 @@ const ReactCurrentOwner = {
    * @internal
    * @type {ReactComponent}
    */
-  current: (null: null | Fiber),
+  current: null as  null | Fiber,
 };
 
 export default ReactCurrentOwner;

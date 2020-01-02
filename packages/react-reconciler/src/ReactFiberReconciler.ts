@@ -89,7 +89,7 @@ import {
 
 type OpaqueRoot = FiberRoot;
 
-// 0 is PROD, 1 is DEV.
+// 0 is PROD, 1 is DEV.ew
 // Might add PROFILE later.
 type BundleType = 0 | 1;
 

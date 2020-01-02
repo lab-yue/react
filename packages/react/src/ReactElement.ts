@@ -55,7 +55,7 @@ function defineKeyPropWarningGetter(props, displayName) {
             'in `undefined` being returned. If you need to access the same ' +
             'value within the child component, you should pass it as a different ' +
             'prop. (https://fb.me/react-special-props)',
-          displayName,
+          displayName
         );
       }
     }
@@ -77,7 +77,7 @@ function defineRefPropWarningGetter(props, displayName) {
             'in `undefined` being returned. If you need to access the same ' +
             'value within the child component, you should pass it as a different ' +
             'prop. (https://fb.me/react-special-props)',
-          displayName,
+          displayName
         );
       }
     }
@@ -225,7 +225,7 @@ export function jsx(type, config, maybeKey) {
     undefined,
     undefined,
     ReactCurrentOwner.current,
-    props,
+    props
   );
 }
 
@@ -302,7 +302,7 @@ export function jsxDEV(type, config, maybeKey, source, self) {
     self,
     source,
     ReactCurrentOwner.current,
-    props,
+    props
   );
 }
 
@@ -390,7 +390,7 @@ export function createElement(type, config, children) {
     self,
     source,
     ReactCurrentOwner.current,
-    props,
+    props
   );
 }
 
@@ -417,7 +417,7 @@ export function cloneAndReplaceKey(oldElement, newKey) {
     oldElement._self,
     oldElement._source,
     oldElement._owner,
-    oldElement.props,
+    oldElement.props
   );
 
   return newElement;
@@ -431,7 +431,7 @@ export function cloneElement(element, config, children) {
   invariant(
     !(element === null || element === undefined),
     'React.cloneElement(...): The argument must be a React element, but you passed %s.',
-    element,
+    element
   );
 
   let propName;

@@ -14,7 +14,7 @@ import getComponentName from 'shared/getComponentName';
 
 const ReactDebugCurrentFrame = {};
 
-let currentlyValidatingElement = (null: null | ReactElement);
+let currentlyValidatingElement = null as ( null | ReactElement);
 
 export function setCurrentlyValidatingElement(element: null | ReactElement) {
   if (__DEV__) {

@@ -16,7 +16,7 @@ import {
 
 import invariant from 'shared/invariant';
 
-type NamesToPlugins = {[key: PluginName]: PluginModule<AnyNativeEvent>};
+type NamesToPlugins = {[pluginName: string]: PluginModule<AnyNativeEvent>};
 type EventPluginOrder = null | Array<PluginName>;
 
 /**
@@ -160,7 +160,7 @@ function publishRegistrationName(
 /**
  * Ordered list of injected plugins.
  */
-export const plugins = [];
+export let plugins: PluginModule<AnyNativeEvent>[] = [];
 
 /**
  * Mapping from event name to dispatch config

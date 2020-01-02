@@ -153,7 +153,7 @@ if (__DEV__) {
   };
 }
 
-export function initializeUpdateQueue<State>(fiber: Fiber): void {
+export function initializeUpdateQueue<State>(fiber: Fiber) {
   const queue: UpdateQueue<State> = {
     baseState: fiber.memoizedState,
     baseQueue: null,

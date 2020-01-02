@@ -17,9 +17,9 @@
  * @param {?} [scope] Scope used as `this` in a callback.
  */
 function forEachAccumulated<T>(
-  arr: ?(Array<T> | T),
+  arr: (Array<T> | T) | null | undefined,
   cb: (elem: T) => void,
-  scope: ?any,
+  scope?: any
 ) {
   if (Array.isArray(arr)) {
     arr.forEach(cb, scope);
