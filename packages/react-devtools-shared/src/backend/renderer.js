@@ -950,7 +950,7 @@ export function attach(
         if (prevFiber === null) {
           return {
             context: null,
-            didHooksChange: false,
+            didHooksChange: null,
             isFirstMount: true,
             props: null,
             state: null,
@@ -1064,9 +1064,9 @@ export function attach(
     return null;
   }
 
-  function didHooksChange(prev: any, next: any): boolean {
+  function didHooksChange(prev: any, next: any): string | null {
     if (prev == null || next == null) {
-      return false;
+      return null;
     }
 
     // We can't report anything meaningful for hooks changes.
@@ -1078,7 +1078,13 @@ export function attach(
     ) {
       while (next !== null) {
         if (next.memoizedState !== prev.memoizedState) {
-          return true;
+          console.log({next: next.memoizedState});
+          console.log({prev: prev.memoizedState});
+          return `${JSON.stringify(
+            prev.memoizedState,
+            null,
+            4,
+          )}\n==>\n${JSON.stringify(next.memoizedState, null, 4)}`;
         } else {
           next = next.next;
           prev = prev.next;
@@ -1086,7 +1092,7 @@ export function attach(
       }
     }
 
-    return false;
+    return null;
   }
 
   function getChangedKeys(prev: any, next: any): null | Array<string> {

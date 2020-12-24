@@ -81,9 +81,10 @@ export default function WhatChanged({fiberID}: Props) {
   }
 
   if (changeDescription.didHooksChange) {
+    console.log({didHooksChange: changeDescription.didHooksChange});
     changes.push(
       <div key="hooks" className={styles.Item}>
-        • Hooks changed
+        • Hooks changed {changeDescription.didHooksChange}
       </div>,
     );
   }

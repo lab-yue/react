@@ -242,7 +242,7 @@ function updateTree(
           }
 
           const parentNode = getClonedNode(parentID);
-          parentNode.children = parentNode.children.concat(id);
+          parentNode.children = (parentNode.children || []).concat(id);
 
           const node: CommitTreeNode = {
             children: [],
