@@ -1,7 +1,7 @@
 {
   "name": "eslint-plugin-react-hooks-fix-via-todo-comment",
   "description": "ESLint rules for React Hooks",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "scripts": {
     "build": "esbuild src/index.js --platform=node --bundle --outdir=cjs --format=cjs"
   },

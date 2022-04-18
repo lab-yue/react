@@ -65,7 +65,7 @@ export default {
                 problem.node,
                 [
                   `\n${autoFixComment}`,
-                  `// eslint-disable-next-line react-hooks-fix-via-todo-comment/rules-of-hooks/exhaustive-deps\n`,
+                  `// eslint-disable-next-line react-hooks-fix-via-todo-comment/exhaustive-deps\n`,
                 ].join('\n'),
               );
           };
