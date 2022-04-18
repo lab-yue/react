@@ -12,10 +12,10 @@ import ExhaustiveDeps from './ExhaustiveDeps.js';
 
 export const configs = {
   recommended: {
-    plugins: ['react-hooks'],
+    plugins: ['react-hooks-fix-via-todo-comment'],
     rules: {
-      'react-hooks/rules-of-hooks': 'error',
-      'react-hooks/exhaustive-deps': 'warn',
+      'react-hooks-fix-via-todo-comment/rules-of-hooks': 'error',
+      'react-hooks-fix-via-todo-comment/exhaustive-deps': 'warn',
     },
   },
 };
