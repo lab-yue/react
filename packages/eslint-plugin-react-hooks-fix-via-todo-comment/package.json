@@ -1,13 +1,14 @@
 {
   "name": "eslint-plugin-react-hooks-fix-via-todo-comment",
   "description": "ESLint rules for React Hooks",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "scripts": {
     "build": "esbuild src/index.js --platform=node --bundle --outdir=cjs --format=cjs"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/lab-yue/eslint-plugin-react-hooks-fix-via-todo-comment.git"
+    "url": "https://github.com/lab-yue/react.git",
+    "directory": "packages/eslint-plugin-react-hooks-fix-via-todo-comment"
   },
   "main": "cjs/index.js",
   "files": [
@@ -23,7 +24,7 @@
   ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/lab-yue/eslint-plugin-react-hooks-fix-via-todo-comment/issues"
+    "url": "https://github.com/lab-yue/react/issues"
   },
   "engines": {
     "node": ">=10"
