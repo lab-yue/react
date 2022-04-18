@@ -7,8 +7,8 @@
 
 'use strict';
 
-import RulesOfHooks from './RulesOfHooks';
-import ExhaustiveDeps from './ExhaustiveDeps';
+import RulesOfHooks from './RulesOfHooks.js';
+import ExhaustiveDeps from './ExhaustiveDeps.js';
 
 export const configs = {
   recommended: {

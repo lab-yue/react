@@ -7,12 +7,14 @@
 
 'use strict';
 
-const ESLintTester = require('eslint').RuleTester;
-const ReactHooksESLintPlugin = require('eslint-plugin-react-hooks');
-const ReactHooksESLintRule = ReactHooksESLintPlugin.rules['rules-of-hooks'];
+import { RuleTester as ESLintTester } from 'eslint';
+import { describe } from 'vitest'
+import parser from 'babel-eslint'
+import { rules } from '../cjs';
+const ReactHooksESLintRule = rules['rules-of-hooks'];
 
 ESLintTester.setDefaultConfig({
-  parser: require.resolve('babel-eslint'),
+  parser,
   parserOptions: {
     ecmaVersion: 6,
     sourceType: 'module',

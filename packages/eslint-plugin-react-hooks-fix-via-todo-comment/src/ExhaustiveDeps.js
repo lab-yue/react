@@ -24,13 +24,13 @@ export default {
       {
         type: 'object',
         additionalProperties: false,
-        enableDangerousAutofixThisMayCauseInfiniteLoops: false,
+        autoFixComment: "// TODO: current unchecked, fix this later.",
         properties: {
           additionalHooks: {
             type: 'string',
           },
-          enableDangerousAutofixThisMayCauseInfiniteLoops: {
-            type: 'boolean',
+          autoFixComment: {
+            type: 'string',
           },
         },
       },
@@ -45,23 +45,30 @@ export default {
         ? new RegExp(context.options[0].additionalHooks)
         : undefined;
 
-    const enableDangerousAutofixThisMayCauseInfiniteLoops =
+    const autoFixComment =
       (context.options &&
         context.options[0] &&
-        context.options[0].enableDangerousAutofixThisMayCauseInfiniteLoops) ||
-      false;
+        context.options[0].autoFixComment) ||
+        "// TODO: currently unchecked, fix this later.";
 
     const options = {
       additionalHooks,
-      enableDangerousAutofixThisMayCauseInfiniteLoops,
+      autoFixComment,
     };
-
     function reportProblem(problem) {
-      if (enableDangerousAutofixThisMayCauseInfiniteLoops) {
+      if (autoFixComment) {
         // Used to enable legacy behavior. Dangerous.
         // Keep this as an option until major IDEs upgrade (including VSCode FB ESLint extension).
         if (Array.isArray(problem.suggest) && problem.suggest.length > 0) {
-          problem.fix = problem.suggest[0].fix;
+          problem.fix = (fixer) => {
+              return fixer.insertTextBefore(
+                problem.node,
+                [
+                  `\n${autoFixComment}`,
+                  `// eslint-disable-next-line react-hooks/exhaustive-deps\n`,
+                ].join('\n'),
+              );
+          };
         }
       }
       context.report(problem);
